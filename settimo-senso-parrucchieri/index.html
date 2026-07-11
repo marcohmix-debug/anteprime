@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settimo Senso Parrucchieri · Salone a Settimo Torinese</title>
+<meta name="description" content="Settimo Senso Parrucchieri a Settimo Torinese: taglio, colore, nanoplastia effetto liscio supremo, laminazione e hair gloss. Salone di Samuele Tirinato e Silvia Carlini in Piazza Vittorio Veneto. Prenota online.">
+<meta name="theme-color" content="#4b2a6e">
+<meta property="og:title" content="Settimo Senso Parrucchieri · Settimo Torinese">
+<meta property="og:description" content="Nanoplastia effetto liscio supremo, colore e cura del capello. Il tuo salone in Piazza Vittorio Veneto.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234b2a6e'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='54' fill='%23e8d9c5' text-anchor='middle' font-style='italic'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --viola:#4b2a6e;
+  --viola-scuro:#331b4d;
+  --viola-glow:#6d43a0;
+  --crema:#e8d9c5;
+  --crema-chiara:#f4ece1;
+  --panna:#faf6f0;
+  --inchiostro:#241a2e;
+  --grigio:#6f6577;
+  --linea:rgba(75,42,110,.14);
+  --ombra:0 24px 60px -28px rgba(51,27,77,.45);
+  --raggio:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',system-ui,sans-serif;
+  color:var(--inchiostro);
+  background:var(--panna);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.08;letter-spacing:.2px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+.eyebrow{
+  font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
+  font-weight:500;color:var(--viola-glow);margin-bottom:1rem;
+}
+section{padding:clamp(4.5rem,10vw,7.5rem) 0}
+
+/* ---------- NAV ---------- */
+header.nav{
+  position:fixed;inset:0 0 auto 0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem clamp(1rem,4vw,2.4rem);
+  transition:background .4s ease,box-shadow .4s ease,padding .4s ease;
+}
+header.nav.scrolled{
+  background:rgba(250,246,240,.86);
+  backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--linea);
+  padding-top:.7rem;padding-bottom:.7rem;
+}
+.brand{display:flex;align-items:center;gap:.7rem;font-family:'Cormorant Garamond',serif}
+.brand .mark{
+  width:42px;height:42px;border-radius:12px;flex:0 0 auto;
+  background:linear-gradient(150deg,var(--viola),var(--viola-scuro));
+  display:grid;place-items:center;color:var(--crema);
+  font-size:1.5rem;font-style:italic;box-shadow:var(--ombra);
+}
+.brand b{font-size:1.28rem;font-weight:600;letter-spacing:.3px;line-height:1}
+.brand span{display:block;font-family:'Jost';font-size:.6rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--grigio);margin-top:2px}
+nav ul{display:flex;gap:2rem;list-style:none;align-items:center}
+nav a{font-size:.82rem;letter-spacing:.06em;color:var(--inchiostro);position:relative;padding:.2rem 0}
+nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;
+  background:var(--viola);transition:width .35s ease}
+nav a:hover::after{width:100%}
+.nav-cta{
+  padding:.62rem 1.3rem;border-radius:100px;
+  background:var(--viola);color:var(--crema-chiara)!important;
+  font-family:'Jost';font-weight:500;letter-spacing:.04em;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 24px -10px var(--viola-glow)}
+.burger{display:none;background:none;border:0;cursor:pointer;width:30px;height:22px;position:relative}
+.burger span{position:absolute;left:0;height:2px;width:100%;background:var(--inchiostro);
+  border-radius:2px;transition:.35s}
+.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:10px}.burger span:nth-child(3){top:20px}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  padding-top:6rem;
+  background:
+    radial-gradient(120% 90% at 78% 18%,rgba(109,67,160,.30),transparent 55%),
+    radial-gradient(90% 80% at 12% 96%,rgba(232,217,197,.55),transparent 60%),
+    linear-gradient(160deg,#fbf8f3,#f2e9dd);
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center;width:100%}
+.hero-copy h1{font-size:clamp(3rem,8.5vw,6rem);letter-spacing:-.5px}
+.hero-copy h1 i{color:var(--viola);font-weight:500}
+.hero-copy .lead{
+  font-size:clamp(1.05rem,2.4vw,1.28rem);max-width:34ch;color:var(--grigio);
+  margin:1.6rem 0 2.3rem;font-weight:300;
+}
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--viola-glow);margin-bottom:1.6rem;font-weight:500}
+.hero-tag::before{content:"";width:34px;height:1px;background:var(--viola-glow)}
+.actions{display:flex;flex-wrap:wrap;gap:1rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.95rem 1.8rem;border-radius:100px;font-weight:500;letter-spacing:.03em;
+  font-size:.94rem;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease,background .3s ease;
+}
+.btn-primary{background:var(--viola);color:var(--crema-chiara);box-shadow:0 16px 34px -16px var(--viola-glow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px var(--viola-glow)}
+.btn-ghost{border:1.5px solid var(--viola);color:var(--viola)}
+.btn-ghost:hover{background:var(--viola);color:var(--crema-chiara);transform:translateY(-3px)}
+
+/* portrait / visual */
+.hero-visual{position:relative;justify-self:center;width:100%;max-width:420px}
+.portrait{
+  position:relative;aspect-ratio:4/5;border-radius:180px 180px 26px 26px;
+  background:linear-gradient(165deg,var(--viola-glow),var(--viola) 45%,var(--viola-scuro));
+  box-shadow:var(--ombra);overflow:hidden;
+}
+.portrait svg{position:absolute;inset:0;width:100%;height:100%}
+.portrait .grain{position:absolute;inset:0;opacity:.4;mix-blend-mode:soft-light;
+  background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.35),transparent 40%)}
+.badge-float{
+  position:absolute;background:var(--panna);border-radius:16px;padding:.85rem 1.1rem;
+  box-shadow:var(--ombra);display:flex;flex-direction:column;line-height:1.15;
+}
+.badge-float b{font-family:'Cormorant Garamond';font-size:1.6rem;color:var(--viola)}
+.badge-float small{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grigio)}
+.badge-1{bottom:1.4rem;left:-1.2rem;animation:float 6s ease-in-out infinite}
+.badge-2{top:1.8rem;right:-1rem;animation:float 6s ease-in-out infinite .8s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.scroll-hint{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);
+  font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--grigio);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-hint::after{content:"";width:1px;height:34px;background:linear-gradient(var(--viola-glow),transparent);
+  animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ---------- MARQUEE ---------- */
+.strip{background:var(--viola);color:var(--crema);padding:1.1rem 0;overflow:hidden;white-space:nowrap}
+.strip .track{display:inline-flex;gap:3rem;animation:scroll 26s linear infinite}
+.strip span{font-family:'Cormorant Garamond';font-style:italic;font-size:1.35rem;opacity:.9;display:inline-flex;gap:3rem;align-items:center}
+.strip span::after{content:"✦";font-style:normal;font-size:.7rem;opacity:.6}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- STORIA ---------- */
+.storia-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.storia h2{font-size:clamp(2.3rem,5.5vw,3.6rem);margin-bottom:1.4rem}
+.storia p{color:var(--grigio);margin-bottom:1.1rem;max-width:52ch}
+.storia .signature{font-family:'Cormorant Garamond';font-style:italic;font-size:1.5rem;color:var(--viola);margin-top:1.6rem}
+.storia .signature small{display:block;font-family:'Jost';font-style:normal;font-size:.7rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--grigio);margin-top:.3rem}
+.storia-visual{position:relative}
+.storia-frame{aspect-ratio:5/6;border-radius:26px;overflow:hidden;
+  background:linear-gradient(145deg,var(--crema),#d9c6ac);box-shadow:var(--ombra);position:relative}
+.storia-frame .glyph{position:absolute;inset:0;display:grid;place-items:center;
+  font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(6rem,20vw,11rem);
+  color:rgba(75,42,110,.16)}
+.storia-stats{display:flex;gap:2rem;margin-top:2rem}
+.storia-stats div b{font-family:'Cormorant Garamond';font-size:2.4rem;color:var(--viola);display:block;line-height:1}
+.storia-stats div small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grigio)}
+
+/* ---------- SERVIZI ---------- */
+.servizi{background:linear-gradient(180deg,var(--panna),#f5eee4)}
+.sec-head{max-width:640px;margin:0 auto clamp(2.5rem,5vw,3.5rem);text-align:center}
+.sec-head h2{font-size:clamp(2.4rem,6vw,3.8rem);margin-bottom:1rem}
+.sec-head p{color:var(--grigio)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.4rem}
+.card{
+  background:var(--panna);border:1px solid var(--linea);border-radius:var(--raggio);
+  padding:2.1rem 1.9rem;transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,border-color .4s;
+  position:relative;overflow:hidden;
+}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,var(--viola),var(--viola-glow));transform:scaleX(0);
+  transform-origin:left;transition:transform .45s ease}
+.card:hover{transform:translateY(-8px);box-shadow:var(--ombra);border-color:transparent}
+.card:hover::before{transform:scaleX(1)}
+.card.feature{background:linear-gradient(160deg,var(--viola),var(--viola-scuro));color:var(--crema-chiara);border-color:transparent}
+.card.feature .ic,.card.feature h3{color:var(--crema-chiara)}
+.card.feature p{color:rgba(244,236,225,.82)}
+.card.feature .tagpill{background:rgba(244,236,225,.16);color:var(--crema-chiara)}
+.ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:1.2rem;
+  background:linear-gradient(150deg,rgba(75,42,110,.12),rgba(109,67,160,.08));color:var(--viola);font-size:1.5rem}
+.card h3{font-size:1.55rem;margin-bottom:.5rem}
+.card p{color:var(--grigio);font-size:.94rem;font-weight:300}
+.tagpill{display:inline-block;margin-top:1rem;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(75,42,110,.09);color:var(--viola);padding:.35rem .8rem;border-radius:100px;font-weight:500}
+
+/* ---------- PERCHE ---------- */
+.perche-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.4rem}
+.motivo{display:flex;flex-direction:column;gap:.7rem}
+.motivo .num{font-family:'Cormorant Garamond';font-style:italic;font-size:2.6rem;color:var(--viola);line-height:1}
+.motivo h3{font-size:1.4rem}
+.motivo p{color:var(--grigio);font-size:.92rem;font-weight:300}
+.motivo{padding-top:1.4rem;border-top:1px solid var(--linea)}
+
+/* ---------- CONTATTI ---------- */
+.contatti{background:linear-gradient(160deg,var(--viola-scuro),var(--viola));color:var(--crema-chiara)}
+.contatti .eyebrow{color:var(--crema)}
+.contatti-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.contatti h2{font-size:clamp(2.4rem,6vw,3.8rem);margin-bottom:1.2rem;color:#fff}
+.contatti .intro{color:rgba(244,236,225,.8);max-width:42ch;margin-bottom:2rem;font-weight:300}
+.info-item{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 0;border-top:1px solid rgba(244,236,225,.18)}
+.info-item .ic2{width:44px;height:44px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;
+  background:rgba(244,236,225,.12);font-size:1.2rem}
+.info-item .lbl{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--crema);opacity:.75;margin-bottom:.2rem}
+.info-item a,.info-item p{color:#fff;font-size:1.02rem}
+.info-item a:hover{text-decoration:underline}
+.hours{display:grid;gap:.55rem;margin-top:.4rem}
+.hours .row{display:flex;justify-content:space-between;font-size:.92rem;color:rgba(244,236,225,.9);
+  padding-bottom:.55rem;border-bottom:1px dashed rgba(244,236,225,.16)}
+.hours .row.closed span:last-child{opacity:.55}
+.contact-card{background:rgba(250,246,240,.06);border:1px solid rgba(244,236,225,.16);
+  border-radius:var(--raggio);padding:clamp(1.6rem,4vw,2.4rem);backdrop-filter:blur(6px)}
+.contact-card .btn-primary{background:var(--crema);color:var(--viola-scuro);width:100%;justify-content:center;margin-top:1.6rem}
+.contact-card .btn-primary:hover{background:#fff}
+.mapbtn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;font-size:.85rem;color:var(--crema);
+  border-bottom:1px solid rgba(244,236,225,.3);padding-bottom:2px}
+.mapbtn:hover{color:#fff}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--inchiostro);color:rgba(244,236,225,.7);padding:3rem 0 2rem;text-align:center}
+footer .brand{justify-content:center;margin-bottom:1.2rem}
+footer .brand b{color:var(--crema-chiara)}
+.social{display:flex;gap:1rem;justify-content:center;margin:1.4rem 0}
+.social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid rgba(244,236,225,.25);color:var(--crema-chiara);transition:.3s}
+.social a:hover{background:var(--viola);border-color:var(--viola);transform:translateY(-3px)}
+.foot-meta{font-size:.78rem;line-height:1.9;opacity:.7}
+.foot-meta a:hover{color:var(--crema-chiara)}
+.foot-copy{margin-top:1.4rem;font-size:.72rem;opacity:.5}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:860px){
+  nav ul{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--panna);
+    flex-direction:column;justify-content:center;gap:2rem;padding:2rem;
+    transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.3,1);box-shadow:var(--ombra)}
+  nav ul.open{transform:none}
+  nav a{font-size:1.1rem}
+  .burger{display:block;z-index:60}
+  .burger.x span:nth-child(1){top:10px;transform:rotate(45deg)}
+  .burger.x span:nth-child(2){opacity:0}
+  .burger.x span:nth-child(3){top:10px;transform:rotate(-45deg)}
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-copy .lead{margin-inline:auto}
+  .hero-tag{margin-inline:auto}.actions{justify-content:center}
+  .hero-visual{max-width:340px;margin-top:1rem;order:-1}
+  .badge-1{left:0}.badge-2{right:0}
+  .storia-grid,.contatti-grid{grid-template-columns:1fr}
+  .storia-visual{max-width:420px;margin-inline:auto;order:-1}
+  .scroll-hint{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Settimo Senso Parrucchieri">
+    <span class="mark">S</span>
+    <span><b>Settimo Senso</b><span>Parrucchieri</span></span>
+  </a>
+  <nav>
+    <ul id="menu">
+      <li><a href="#storia">Salone</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#perche">Perché noi</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+      <li><a class="nav-cta" href="https://prenotado.it" target="_blank" rel="noopener">Prenota online</a></li>
+    </ul>
+  </nav>
+  <button class="burger" id="burger" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-tag reveal">Salone · Settimo Torinese</p>
+      <h1 class="reveal d1">Il tuo capello,<br><i>al settimo senso.</i></h1>
+      <p class="lead reveal d2">Taglio, colore e le tecniche più attuali — dalla nanoplastia effetto liscio supremo alla laminazione — in un salone dove ogni dettaglio parla di te.</p>
+      <div class="actions reveal d3">
+        <a class="btn btn-primary" href="https://prenotado.it" target="_blank" rel="noopener">Prenota online →</a>
+        <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <div class="portrait">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7a52ad"/><stop offset="1" stop-color="#3a2158"/>
+            </linearGradient>
+            <linearGradient id="knit" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#efe2ce"/><stop offset="1" stop-color="#d9c6ac"/>
+            </linearGradient>
+          </defs>
+          <!-- shoulders / turtleneck -->
+          <path d="M60 500 C70 400 120 360 200 360 C280 360 330 400 340 500 Z" fill="url(#knit)"/>
+          <rect x="165" y="330" width="70" height="60" rx="30" fill="#e6d3ba"/>
+          <ellipse cx="200" cy="352" rx="42" ry="22" fill="#d9c6ac"/>
+          <!-- neck -->
+          <rect x="178" y="300" width="44" height="60" rx="20" fill="#efdcc4"/>
+          <!-- face -->
+          <ellipse cx="200" cy="245" rx="72" ry="82" fill="#f2e0c9"/>
+          <!-- hair short crop with fringe -->
+          <path d="M128 250 C118 150 165 108 200 108 C238 108 285 150 272 252 C268 210 255 190 240 200 C246 168 226 150 200 150 C176 150 156 168 162 202 C146 190 132 212 128 250 Z" fill="url(#hair)"/>
+          <path d="M150 172 C165 150 235 150 250 172 C246 196 232 176 200 178 C170 178 156 196 150 172 Z" fill="#4b2a6e"/>
+          <!-- soft features -->
+          <circle cx="176" cy="240" r="4.5" fill="#5b4a63"/>
+          <circle cx="224" cy="240" r="4.5" fill="#5b4a63"/>
+          <path d="M188 278 Q200 288 212 278" stroke="#c99f7e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- raised arms hint -->
+          <path d="M60 500 C64 430 96 388 150 386 L150 500 Z" fill="#e4d1b7" opacity=".8"/>
+          <path d="M340 500 C336 430 304 388 250 386 L250 500 Z" fill="#e4d1b7" opacity=".8"/>
+        </svg>
+        <div class="grain"></div>
+      </div>
+      <div class="badge-float badge-1"><b>Nanoplastia</b><small>Liscio supremo</small></div>
+      <div class="badge-float badge-2"><b>Matrix</b><small>Rivenditore SoColor</small></div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scorri</div>
+</section>
+
+<!-- STRIP -->
+<div class="strip" aria-hidden="true">
+  <div class="track">
+    <span>Nanoplastia</span><span>Laminazione</span><span>Hair Gloss</span><span>Colore &amp; Giochi di colore</span><span>Taglio Donna &amp; Uomo</span><span>Trattamenti tecnici</span>
+    <span>Nanoplastia</span><span>Laminazione</span><span>Hair Gloss</span><span>Colore &amp; Giochi di colore</span><span>Taglio Donna &amp; Uomo</span><span>Trattamenti tecnici</span>
+  </div>
+</div>
+
+<!-- STORIA -->
+<section class="storia" id="storia">
+  <div class="wrap storia-grid">
+    <div class="storia-visual reveal">
+      <div class="storia-frame"><div class="glyph">S7</div></div>
+      <div class="storia-stats">
+        <div><b>2</b><small>Mani esperte</small></div>
+        <div><b>∞</b><small>Cura per te</small></div>
+      </div>
+    </div>
+    <div class="storia-copy">
+      <p class="eyebrow reveal">Il salone</p>
+      <h2 class="reveal d1">Un salone che ti riconosce.</h2>
+      <p class="reveal d1">Nel cuore di Piazza Vittorio Veneto, <strong>Settimo Senso</strong> è lo spazio in cui Samuele Tirinato e Silvia Carlini trasformano ogni appuntamento in un momento tutto tuo. Ascolto, tecnica e uno sguardo sempre aggiornato sulle tendenze.</p>
+      <p class="reveal d2">Dalla nanoplastia che regala un liscio setoso e luminoso, alla laminazione che esalta corpo e brillantezza, fino ai giochi di colore firmati Matrix SoColor: qui ogni testa è un progetto su misura, mai un servizio standard.</p>
+      <p class="signature reveal d3">Samuele &amp; Silvia
+        <small>Titolari · Settimo Senso Parrucchieri</small>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="servizi" id="servizi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">I nostri servizi</p>
+      <h2>Tecnica e stile, per ogni capello</h2>
+      <p>Servizi curati nel dettaglio, con prodotti professionali e le tecniche più richieste del momento.</p>
+    </div>
+    <div class="cards">
+      <article class="card feature reveal">
+        <div class="ic">✦</div>
+        <h3>Nanoplastia</h3>
+        <p>Il nostro fiore all'occhiello: effetto liscio supremo, estrema lucentezza e un capello disciplinato che dura nel tempo, senza rinunciare alla naturalezza.</p>
+        <span class="tagpill">Liscio supremo</span>
+      </article>
+      <article class="card reveal d1">
+        <div class="ic">✂</div>
+        <h3>Taglio &amp; Piega</h3>
+        <p>Tagli donna e uomo studiati sulla forma del viso e sullo stile di vita, con pieghe che valorizzano ogni lunghezza.</p>
+        <span class="tagpill">Donna &amp; Uomo</span>
+      </article>
+      <article class="card reveal d2">
+        <div class="ic">🎨</div>
+        <h3>Colore &amp; Giochi di colore</h3>
+        <p>Nuance su misura, schiariture e contrasti luminosi con la gamma professionale Matrix SoColor.</p>
+        <span class="tagpill">Matrix SoColor</span>
+      </article>
+      <article class="card reveal d1">
+        <div class="ic">✧</div>
+        <h3>Laminazione</h3>
+        <p>Un trattamento che avvolge il capello donandogli corpo, morbidezza e una brillantezza da riflettori.</p>
+        <span class="tagpill">Effetto specchio</span>
+      </article>
+      <article class="card reveal d2">
+        <div class="ic">💧</div>
+        <h3>Hair Gloss</h3>
+        <p>Il tocco finale che ravviva il colore e sigilla la luce, per capelli visibilmente più sani e vibranti.</p>
+        <span class="tagpill">Luce &amp; colore</span>
+      </article>
+      <article class="card reveal d3">
+        <div class="ic">🧪</div>
+        <h3>Trattamenti tecnici</h3>
+        <p>Ricostruzione e cura mirata per capelli stressati: diagnosi personalizzata e risultati che si vedono e si toccano.</p>
+        <span class="tagpill">Su misura</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PERCHE -->
+<section class="perche" id="perche">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Perché sceglierci</p>
+      <h2>Quattro buone ragioni</h2>
+    </div>
+    <div class="perche-grid">
+      <div class="motivo reveal">
+        <span class="num">01</span>
+        <h3>Tecniche d'avanguardia</h3>
+        <p>Nanoplastia, laminazione e trattamenti sempre aggiornati alle ultime tendenze del settore.</p>
+      </div>
+      <div class="motivo reveal d1">
+        <span class="num">02</span>
+        <h3>Prodotti professionali</h3>
+        <p>Rivenditori storici Matrix e SoColor: qualità certificata dalla diagnosi al risultato finale.</p>
+      </div>
+      <div class="motivo reveal d2">
+        <span class="num">03</span>
+        <h3>Consulenza dedicata</h3>
+        <p>Ti ascoltiamo davvero: ogni look nasce dal tuo viso, dal tuo capello e dal tuo stile.</p>
+      </div>
+      <div class="motivo reveal d3">
+        <span class="num">04</span>
+        <h3>Prenoti in un tap</h3>
+        <p>Appuntamento online quando vuoi, senza attese: comodo, veloce, sempre disponibile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div class="wrap contatti-grid">
+    <div class="reveal">
+      <p class="eyebrow">Vieni a trovarci</p>
+      <h2>Prenota il tuo momento</h2>
+      <p class="intro">Ti aspettiamo in Piazza Vittorio Veneto per prenderci cura di te. Chiama, scrivi o prenota online: come preferisci.</p>
+
+      <div class="info-item">
+        <div class="ic2">📍</div>
+        <div>
+          <div class="lbl">Dove siamo</div>
+          <p>Piazza Vittorio Veneto 20<br>10036 Settimo Torinese (TO)</p>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&query=Settimo+Senso+Parrucchieri+Piazza+Vittorio+Veneto+20+Settimo+Torinese" target="_blank" rel="noopener">Apri in Google Maps →</a>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="ic2">📞</div>
+        <div>
+          <div class="lbl">Telefono</div>
+          <a href="tel:+390113741593">011 3741593</a><br>
+          <a href="tel:+393474526446">347 452 6446</a>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="ic2">✦</div>
+        <div>
+          <div class="lbl">Seguici</div>
+          <a href="https://www.instagram.com/settimosensoparrucchieri/" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://www.facebook.com/100091387788656/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-card reveal d2">
+      <p class="lbl" style="color:var(--crema);opacity:.8;margin-bottom:.4rem">Orari di apertura</p>
+      <div class="hours">
+        <div class="row"><span>Martedì</span><span>9:00 – 18:30</span></div>
+        <div class="row"><span>Mercoledì</span><span>9:00 – 18:30</span></div>
+        <div class="row"><span>Giovedì</span><span>9:00 – 19:00</span></div>
+        <div class="row"><span>Venerdì</span><span>9:00 – 19:00</span></div>
+        <div class="row"><span>Sabato</span><span>8:30 – 17:00</span></div>
+        <div class="row closed"><span>Domenica &amp; Lunedì</span><span>Chiuso</span></div>
+      </div>
+      <a class="btn btn-primary" href="https://prenotado.it" target="_blank" rel="noopener">Prenota online su Prenotado</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark">S</span>
+      <span><b>Settimo Senso</b><span>Parrucchieri</span></span>
+    </a>
+    <div class="social">
+      <a href="https://www.instagram.com/settimosensoparrucchieri/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/100091387788656/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V9.5c0-.3.2-.5.5-.5Z"/></svg>
+      </a>
+    </div>
+    <div class="foot-meta">
+      Piazza Vittorio Veneto 20 · 10036 Settimo Torinese (TO)<br>
+      <a href="tel:+390113741593">011 3741593</a> · <a href="tel:+393474526446">347 452 6446</a><br>
+      Titolari: Samuele Tirinato &amp; Silvia Carlini — S.n.c.
+    </div>
+    <p class="foot-copy">© <span id="year"></span> Settimo Senso Parrucchieri · Tutti i diritti riservati</p>
+  </div>
+</footer>
+
+<script>
+// year
+document.getElementById('year').textContent=new Date().getFullYear();
+
+// nav scrolled state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
+
+// burger menu
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{
+  const open=menu.classList.toggle('open');
+  burger.classList.toggle('x',open);
+  burger.setAttribute('aria-expanded',open);
+});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  menu.classList.remove('open');burger.classList.remove('x');burger.setAttribute('aria-expanded',false);
+}));
+
+// reveal on scroll
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
