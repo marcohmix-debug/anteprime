@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divo & Diva | Parrucchiere e Barber Shop a Volpiano</title>
+    <meta name="description" content="Il primo salon unisex a Volpiano che unisce alta moda capillare e barberia classica. Tagli, colori e barba in Via San Giovanni 3.">
+    
+    <!-- Fonts: Space Grotesk (Titoli) + Manrope (Testo) - Moderni ma eleganti -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP + ScrollTrigger (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Configurazione Tailwind basata sui colori del Brand -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#17131a',     // Nero profondo del brand
+                            light: '#e8e6e0',    // Color argento/scrittura del brand
+                            accent: '#6ec6e8',   // Azzurro neon (Divino/Barber)
+                            warm:  '#c98a4b',    // Ambra caldo (Diva/Parrucchiere)
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Utilities */
+        body {
+            background-color: #17131a;
+            color: #e8e6e0;
+        }
+        
+        .text-shadow-glow {
+            text-shadow: 0 0 20px rgba(110, 198, 232, 0.3);
+        }
+
+        /* Nascondi scrollbar ma permetti scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Utility per l'effetto "Glass" inverso */
+        .glass-dark {
+            background: rgba(23, 19, 26, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(232, 230, 224, 0.05);
+        }
+
+        /* Animazione linea tratteggiata */
+        .dashed-line {
+            stroke-dasharray: 6 6;
+            animation: dash 30s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass-dark transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo (Testuale per leggibilità SEO, stile brand) -->
+            <a href="#" class="font-display font-bold text-xl md:text-2xl tracking-tight hover:opacity-80 transition-opacity">
+                Divo <span class="text-brand-accent">&</span> Diva
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#chi-siamo" class="hover:text-brand-accent transition-colors">Chi Siamo</a>
+                <a href="#servizi" class="hover:text-brand-warm transition-colors">Servizi</a>
+                <a href="#contatti" class="px-5 py-2 border border-brand-light/20 hover:border-brand-accent hover:text-brand-accent rounded-full transition-all duration-300">Prenota Ora</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="md:hidden text-brand-light focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8 text-2xl font-display">
+            <button id="close-menu" class="absolute top-6 right-6 text-brand-light/50 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="#chi-siamo" class="mobile-link hover:text-brand-accent">Chi Siamo</a>
+            <a href="#servizi" class="mobile-link hover:text-brand-warm">Servizi</a>
+            <a href="#contatti" class="mobile-link text-brand-light border-b border-brand-light/20 pb-1">Prenota Ora</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        
+        <!-- Background Elements (Abstract) -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/5 rounded-full blur-[128px]"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-warm/5 rounded-full blur-[128px]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <!-- Eyebrow -->
+            <span class="inline-block py-1 px-3 border border-brand-light/10 rounded-full text-xs font-mono tracking-widest mb-6 opacity-0 hero-anim text-brand-light/70">VOLPIANO • CENTRO</span>
+            
+            <!-- Headline -->
+            <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-6 mix-blend-screen">
+                <span class="block overflow-hidden"><span class="inline-block translate-y-full hero-text">Divo</span></span>
+                <span class="block text-brand-light/20 text-4xl md:text-6xl my-2 hero-anim">&</span>
+                <span class="block overflow-hidden"><span class="inline-block translate-y-full hero-text">Divina</span></span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="max-w-lg mx-auto text-brand-light/80 text-lg md:text-xl font-light leading-relaxed mb-10 opacity-0 hero-anim">
+                Dove l'arte del barber shop incontra la moda capillare. Un unico spazio per reinventare te stesso.
+            </p>
+
+            <!-- CTA -->
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center opacity-0 hero-anim">
+                <a href="#contatti" class="group relative px-8 py-4 bg-brand-light text-brand-dark font-bold rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95">
+                    <span class="relative z-10">Prenota con Fresha</span>
+                    <div class="absolute inset-0 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                </a>
+                <a href="#servizi" class="px-8 py-4 text-brand-light/60 hover:text-brand-light transition-colors font-medium">
+                    Scopri i servizi
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 hero-anim animate-bounce">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8e6e0" stroke-width="1" class="opacity-30"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </div>
+    </header>
+
+    <!-- CHI SIAMO / CONCEPT -->
+    <section id="chi-siamo" class="py-24 md:py-32 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Text -->
+                <div class="relative reveal-left">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                        Due anime, <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-warm">uno stesso standard.</span>
+                    </h2>
+                    <div class="space-y-6 text-lg text-brand-light/70 leading-relaxed font-light">
+                        <p>
+                            In <strong>Via San Giovanni 3</strong> abbiamo creato qualcosa di diverso a Volpiano. Non il classico salone, né il barbiere degli anni '90. 
+                        </p>
+                        <p>
+                            <span class="text-brand-accent font-medium">Divo</span> cura l'uomo con precisione chirurgica e rasature classiche.<br>
+                            <span class="text-brand-warm font-medium">Diva</span> trasforma il colore e la struttura per la donna moderna.
+                        </p>
+                        <p>
+                            Unici nel territorio per offrire, sotto lo stesso tetto, l'evoluzione del grooming maschile e dell'high fashion femminile.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Representation (Bento Grid Concept) -->
+                <div class="grid grid-cols-2 gap-4 reveal-right">
+                    <!-- Box 1: Barber -->
+                    <div class="aspect-[3/4] bg-brand-dark border border-white/5 relative group overflow-hidden rounded-2xl p-6 flex flex-col justify-end">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-brand-dark opacity-80"></div>
+                        <!-- Abstract Visual for Barber -->
+                        <svg class="absolute inset-0 w-full h-full text-brand-accent/20 stroke-current" viewBox="0 0 100 100">
+                             <path d="M30,30 Q50,80 70,30" fill="none" stroke-width="0.5" class="dashed-line"/>
+                        </svg>
+                        <div class="relative z-10">
+                            <span class="text-brand-accent text-xs font-mono tracking-widest mb-2 block">UNIVERSO UOMO</span>
+                            <h3 class="font-display text-2xl font-bold">Barber Shop</h3>
+                        </div>
+                    </div>
+
+                    <!-- Box 2: Hair -->
+                    <div class="aspect-[3/4] bg-brand-dark border border-white/5 relative group overflow-hidden rounded-2xl p-6 flex flex-col justify-end translate-y-8">
+                         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-brand-dark opacity-80"></div>
+                        <!-- Abstract Visual for Hair -->
+                        <svg class="absolute inset-0 w-full h-full text-brand-warm/20 stroke-current" viewBox="0 0 100 100">
+                             <circle cx="50" cy="50" r="30" fill="none" stroke-width="0.5"/>
+                        </svg>
+                        <div class="relative z-10">
+                            <span class="text-brand-warm text-xs font-mono tracking-widest mb-2 block">UNIVERSO DONNA</span>
+                            <h3 class="font-display text-2xl font-bold">Hair Styling</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIZI (Bento Grid Layout) -->
+    <section id="servizi" class="py-24 bg-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <h2 class="font-display text-4xl md:text-6xl font-bold max-w-md">Il nostro Menu</h2>
+                <p class="text-brand-light/60 mt-4 md:mt-0 max-w-sm">Prenota online in pochi click tramite Fresha. Zero attese, solo risultato.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
+                
+                <!-- Card 1: Donna (Large) -->
+                <div class="group relative bg-brand-dark p-8 rounded-3xl border border-white/5 hover:border-brand-warm/30 transition-all duration-500 col-span-1 md:col-span-2 row-span-2 flex flex-col justify-between overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-warm/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 group-hover:bg-brand-warm/20 transition-all duration-700"></div>
+                    
+                    <div class="relative z-10">
+                        <span class="inline-flex items-center gap-2 text-brand-warm font-mono text-sm mb-4">
+                            <span class="w-2 h-2 bg-brand-warm rounded-full animate-pulse"></span> DIVA COLLECTION
+                        </span>
+                        <h3 class="font-display text-3xl md:text-4xl font-bold mb-6 text-white">Parrucchiere Donna</h3>
+                    </div>
+
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                            <span class="text-brand-light/80">Taglio & Styling</span>
+                            <span class="text-brand-warm font-display font-bold">Da €45</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                            <span class="text-brand-light/80">Colore / Balayage</span>
+                            <span class="text-brand-warm font-display font-bold">Su preventivo</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                            <span class="text-brand-light/80">Trattamenti Capelli</span>
+                            <span class="text-brand-warm font-display font-bold">Da €30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Uomo (Standard) -->
+                <div class="group relative bg-brand-dark p-8 rounded-3xl border border-white/5 hover:border-brand-accent/30 transition-all duration-500">
+                     <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-brand-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-brand-accent font-mono text-sm mb-2 block">DIVO COLLECTION</span>
+                    <h3 class="font-display text-2xl font-bold mb-4">Barber Shop</h3>
+                    <p class="text-brand-light/60 text-sm mb-6">Precisione al rasoio e profumi maschili.</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-sm border-b border-white/10 pb-2">
+                            <span>Taglio Uomo</span>
+                            <span class="text-brand-accent font-bold">€25</span>
+                        </div>
+                        <div class="flex justify-between text-sm border-b border-white/10 pb-2">
+                            <span>Sistemazione Barba</span>
+                            <span class="text-brand-accent font-bold">€20</span>
+                        </div>
+                         <div class="flex justify-between text-sm border-b border-white/10 pb-2">
+                            <span>Affila Rasoio</span>
+                            <span class="text-brand-accent font-bold">Gratis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Ciglia (Standard) -->
+                 <div class="group relative bg-brand-dark p-8 rounded-3xl border border-white/5 hover:border-purple-400/30 transition-all duration-500">
+                     <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-purple-300 font-mono text-sm mb-2 block">LASH & BROW</span>
+                    <h3 class="font-display text-2xl font-bold mb-4">Extension Ciglia</h3>
+                    <p class="text-brand-light/60 text-sm">Lo sguardo che cambia il viso.</p>
+                     <div class="flex justify-between text-sm border-b border-white/10 pb-2 mt-4">
+                        <span>Sistema Istantaneo</span>
+                        <span class="text-purple-300 font-bold">€80</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATTI & MAPPA -->
+    <section id="contatti" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Info -->
+                <div>
+                    <h2 class="font-display text-5xl font-bold mb-8">Vienici a trovare</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-accent shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.8 11.4l2.2 2.2c.5 .5 .8 1.2.8 1.9v2.5c0 .7-.3 1.4-.8 1.9l-2 2c-.5 .5-1.2.8-1.9.8h-10.6c-.7 0-1.4-.3-1.9-.8l-2-2c-.5-.5-.8-1.2-.8-1.9v-2.5c0-.7.3-1.4.8-1.9l2.2-2.2"/><path d="M12 2v6"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Indirizzo</h4>
+                                <p class="text-brand-light/70 mb-2">Via San Giovanni 3, 10088 Volpiano (TO)</p>
+                                <a href="https://maps.google.com/?q=Via+San+Giovanni+3,+Volpiano" target="_blank" class="text-sm text-brand-accent underline decoration-brand-accent/30 underline-offset-4 hover:text-white transition-colors">Apri su Google Maps</a>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-warm shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Orari</h4>
+                                <ul class="text-brand-light/70 space-y-1 text-sm">
+                                    <li class="flex justify-between w-full md:w-auto" style="max-width: 200px;"><span>Mar - Ven:</span> <span>9:00 - 12:30 / 15:00 - 19:30</span></li>
+                                    <li class="flex justify-between w-full md:w-auto" style="max-width: 200px;"><span>Sabato:</span> <span>9:00 - 18:00</span></li>
+                                    <li class="text-brand-accent/70 italic">Lunedì e Domenica Chiusi</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                             <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-light shrink-0">
+                                <a href="tel:+393921375784" class="hover:text-brand-accent transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </a>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Contatti</h4>
+                                <p class="text-brand-light/70 mb-1">Chiama per info:</p>
+                                <a href="tel:+393921375784" class="text-xl font-display font-bold hover:text-brand-warm transition-colors">392 1375784</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="mt-10 flex gap-4">
+                        <a href="https://www.instagram.com/divo_diva_parrucchiere_unisex/" target="_blank" class="text-brand-light/50 hover:text-brand-accent transition-colors">
+                            <span class="sr-only">Instagram</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.facebook.com/Divobarbershop/" target="_blank" class="text-brand-light/50 hover:text-brand-warm transition-colors">
+                            <span class="sr-only">Facebook</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="h-full min-h-[400px] w-full rounded-3xl overflow-hidden border border-white/5 relative group">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.467886498038!2d7.7085!3d45.1855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47887c8d9e8b7a5b%3A0x123456789abcdef!2sVia%20San%20Giovanni%203%2C%2010088%20Volpiano%20TO!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: invert(90%) hue-rotate(180deg);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <!-- Overlay gradient for aesthetics -->
+                    <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-white/5 text-center md:text-left">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-light/40">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Divo & Diva Parrucchiere e Barber-Shop.</p>
+            <div class="flex gap-6">
+                <span>P.IVA [Inserire]</span>
+                <a href="#" class="hover:text-brand-light transition-colors">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- Mobile Menu Logic ---
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = ''; 
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // --- GSAP Animations ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Entrance
+        const tl = gsap.timeline();
+        
+        tl.to(".hero-text", {
+            y: 0,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: "power4.out"
+        })
+        .to(".hero-anim", {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out"
+        }, "-=0.5");
+
+        // Scroll Reveals
+        gsap.utils.toArray('section').forEach(section => {
+            const reveals = section.querySelectorAll('.reveal-left, .reveal-right');
+            
+            reveals.forEach(el => {
+                const isLeft = el.classList.contains('reveal-left');
+                
+                gsap.fromTo(el, 
+                    {
+                        opacity: 0,
+                        x: isLeft ? -50 : 50
+                    },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 80%", // Animation starts when top of section hits 80% of viewport height
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+        });
+
+        // Nav Background on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-brand-dark/90');
+                navbar.classList.remove('glass-dark');
+            } else {
+                navbar.classList.remove('bg-brand-dark/90');
+                navbar.classList.add('glass-dark');
+            }
+        });
+
+    </script>
+</body>
+</html>
