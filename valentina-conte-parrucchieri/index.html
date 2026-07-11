@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentina Conte Parrucchieri — Nanoplastia, liscio assoluto | Settimo Torinese</title>
+<meta name="description" content="Salone Valentina Conte a Settimo Torinese: nanoplastia, stiratura alla cheratina, laminazione, colore, tagli e pieghe. Specialista in trucco permanente labbra ed eyeliner (PMU). Prenota: 351 3792598.">
+<link rel="icon" href="logo.jpg" type="image/jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nero:#16161a;
+    --nero-2:#1c1c22;
+    --nero-3:#232329;
+    --linea:#2e2e36;
+    --champagne:#e8d5a3;
+    --champagne-scuro:#cbb27a;
+    --bianco:#ffffff;
+    --testo:#c9c9d1;
+    --testo-soft:#96969f;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Jost',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    background:var(--nero);
+    color:var(--testo);
+    font-weight:300;
+    line-height:1.7;
+    letter-spacing:.01em;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--champagne);color:var(--nero)}
+
+  /* ---------- Tipografia ---------- */
+  h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--bianco);line-height:1.15}
+  .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--champagne);
+    font-weight:500;
+    margin-bottom:1rem;
+  }
+  .eyebrow::before{
+    content:"";
+    display:inline-block;
+    width:2rem;height:1px;
+    background:var(--champagne);
+    vertical-align:middle;
+    margin-right:.75rem;
+    opacity:.7;
+  }
+  .titolo{font-size:clamp(1.9rem,6vw,2.9rem);margin-bottom:1.1rem}
+  .titolo em{font-style:italic;color:var(--champagne)}
+
+  /* ---------- Layout ---------- */
+  .wrap{width:min(100% - 2.5rem, 68rem);margin-inline:auto}
+  section{padding:4.5rem 0}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.8,.35,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}
+  .reveal.d2{transition-delay:.22s}
+  .reveal.d3{transition-delay:.34s}
+  .reveal.d4{transition-delay:.46s}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    background:rgba(22,22,26,.82);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .4s;
+  }
+  header.solid{border-bottom-color:var(--linea)}
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:4.2rem;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem;min-width:0}
+  .brand img,.brand svg{
+    width:2.5rem;height:2.5rem;border-radius:50%;
+    object-fit:cover;flex-shrink:0;
+    box-shadow:0 0 0 1px var(--linea);
+  }
+  .brand-name{
+    font-family:var(--serif);
+    color:var(--bianco);
+    font-size:1.05rem;letter-spacing:.06em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .nav-links{display:none;gap:2rem;list-style:none;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
+  .nav-links a{color:var(--testo);position:relative;padding:.3rem 0;transition:color .3s}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--champagne);transition:width .35s;
+  }
+  .nav-links a:hover{color:var(--bianco)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{
+    font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+    color:var(--nero);background:var(--champagne);
+    padding:.55rem 1.1rem;border-radius:2rem;
+    transition:background .3s,transform .3s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--bianco);transform:translateY(-1px)}
+  @media (min-width:820px){
+    .nav-links{display:flex}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;
+    padding:6.5rem 0 5rem;
+    background:
+      radial-gradient(60rem 40rem at 85% -10%, rgba(232,213,163,.07), transparent 60%),
+      linear-gradient(160deg, #1b1b21 0%, var(--nero) 55%);
+    overflow:hidden;
+  }
+  /* banda diagonale champagne, come nel logo */
+  .hero::before{
+    content:"";position:absolute;z-index:0;
+    width:180vmax;height:9rem;
+    top:12%;left:50%;
+    transform:translateX(-50%) rotate(-24deg);
+    background:linear-gradient(90deg,transparent 15%,rgba(232,213,163,.10) 40%,rgba(232,213,163,.16) 50%,rgba(232,213,163,.10) 60%,transparent 85%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";position:absolute;z-index:0;
+    width:180vmax;height:1px;
+    top:calc(12% + 10.5rem);left:50%;
+    transform:translateX(-50%) rotate(-24deg);
+    background:linear-gradient(90deg,transparent,rgba(232,213,163,.45),transparent);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero-logo{
+    width:5.2rem;height:5.2rem;border-radius:50%;
+    object-fit:cover;
+    margin-bottom:1.6rem;
+    box-shadow:0 0 0 1px rgba(232,213,163,.35), 0 18px 45px rgba(0,0,0,.55);
+    animation:rise 1s .1s cubic-bezier(.22,.8,.35,1) both;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem,10vw,4.8rem);
+    font-weight:500;
+    letter-spacing:.01em;
+    animation:rise 1s .28s cubic-bezier(.22,.8,.35,1) both;
+  }
+  .hero h1 .liscio{
+    display:block;
+    font-style:italic;
+    color:var(--champagne);
+  }
+  .hero-sub{
+    max-width:34rem;
+    margin:1.3rem 0 2.3rem;
+    font-size:1.02rem;
+    color:var(--testo);
+    animation:rise 1s .46s cubic-bezier(.22,.8,.35,1) both;
+  }
+  .hero-kicker{
+    font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--champagne);font-weight:500;
+    margin-bottom:1.2rem;
+    animation:rise 1s .2s cubic-bezier(.22,.8,.35,1) both;
+  }
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;animation:rise 1s .62s cubic-bezier(.22,.8,.35,1) both}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    padding:.95rem 1.7rem;border-radius:2.5rem;
+    font-size:.86rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+    transition:transform .3s,box-shadow .3s,background .3s,color .3s,border-color .3s;
+  }
+  .btn-oro{
+    background:linear-gradient(120deg,var(--champagne),#f2e4be 50%,var(--champagne-scuro));
+    color:var(--nero);
+    box-shadow:0 10px 30px rgba(232,213,163,.18);
+  }
+  .btn-oro:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(232,213,163,.28)}
+  .btn-ghost{
+    border:1px solid var(--linea);color:var(--bianco);
+  }
+  .btn-ghost:hover{border-color:var(--champagne);color:var(--champagne);transform:translateY(-2px)}
+  @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  .scroll-hint{
+    position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);
+    width:1px;height:3rem;overflow:hidden;z-index:1;
+  }
+  .scroll-hint::after{
+    content:"";position:absolute;left:0;top:-100%;width:1px;height:100%;
+    background:linear-gradient(to bottom,transparent,var(--champagne));
+    animation:drop 2.2s ease-in-out infinite;
+  }
+  @keyframes drop{0%{top:-100%}60%,100%{top:100%}}
+
+  /* ---------- Chi siamo ---------- */
+  .chi{border-top:1px solid var(--linea)}
+  .chi-grid{display:grid;gap:2.5rem}
+  .chi p+p{margin-top:1rem}
+  .chi strong{color:var(--bianco);font-weight:500}
+  .firma{
+    margin-top:1.8rem;
+    font-family:var(--serif);font-style:italic;
+    font-size:1.5rem;color:var(--champagne);
+  }
+  .chi-numeri{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--linea);
+    border:1px solid var(--linea);border-radius:.9rem;overflow:hidden;
+    align-self:start;
+  }
+  .num{
+    background:var(--nero-2);padding:1.4rem .8rem;text-align:center;
+  }
+  .num b{
+    display:block;font-family:var(--serif);font-weight:500;
+    font-size:1.9rem;color:var(--champagne);line-height:1.1;
+  }
+  .num span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--testo-soft)}
+  @media (min-width:820px){
+    .chi-grid{grid-template-columns:1.25fr .85fr;gap:4rem;align-items:center}
+  }
+
+  /* ---------- Servizi ---------- */
+  .servizi{
+    background:
+      linear-gradient(200deg,var(--nero-2),var(--nero) 70%);
+    border-top:1px solid var(--linea);
+  }
+  .servizi-intro{max-width:38rem;margin-bottom:2.6rem}
+  .gruppo-label{
+    display:flex;align-items:center;gap:1rem;
+    margin:2.6rem 0 1.2rem;
+    font-family:var(--serif);font-size:1.35rem;color:var(--bianco);
+  }
+  .gruppo-label::after{content:"";flex:1;height:1px;background:var(--linea)}
+  .gruppo-label small{
+    font-family:var(--sans);font-size:.7rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--testo-soft);
+  }
+  .cards{display:grid;gap:1rem}
+  .card{
+    position:relative;
+    background:var(--nero-2);
+    border:1px solid var(--linea);
+    border-radius:.9rem;
+    padding:1.6rem 1.4rem 1.5rem;
+    transition:transform .35s,border-color .35s,box-shadow .35s;
+    overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--champagne),transparent 70%);
+    opacity:0;transition:opacity .35s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:rgba(232,213,163,.4);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+  .card:hover::before{opacity:1}
+  .card .icona{
+    width:2.6rem;height:2.6rem;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(232,213,163,.35);border-radius:50%;
+    margin-bottom:1rem;color:var(--champagne);
+  }
+  .card .icona svg{width:1.2rem;height:1.2rem;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{font-size:1.3rem;margin-bottom:.5rem}
+  .card p{font-size:.93rem;color:var(--testo-soft)}
+  .card .tag{
+    position:absolute;top:1.15rem;right:1.15rem;
+    font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--champagne);border:1px solid rgba(232,213,163,.35);
+    padding:.22rem .6rem;border-radius:2rem;
+  }
+  @media (min-width:640px){.cards{grid-template-columns:1fr 1fr}}
+  @media (min-width:1000px){.cards.tre{grid-template-columns:repeat(3,1fr)}}
+
+  /* ---------- Perché sceglierci ---------- */
+  .perche{border-top:1px solid var(--linea)}
+  .motivi{display:grid;gap:2.2rem;counter-reset:motivo}
+  .motivo{position:relative;padding-left:3.6rem}
+  .motivo::before{
+    counter-increment:motivo;
+    content:"0" counter(motivo);
+    position:absolute;left:0;top:.1rem;
+    font-family:var(--serif);font-style:italic;
+    font-size:1.7rem;color:var(--champagne);
+    opacity:.9;
+  }
+  .motivo h3{font-size:1.25rem;margin-bottom:.4rem}
+  .motivo p{font-size:.95rem;color:var(--testo-soft)}
+  @media (min-width:820px){.motivi{grid-template-columns:1fr 1fr;gap:2.8rem 4rem}}
+
+  /* ---------- Contatti ---------- */
+  .contatti{
+    border-top:1px solid var(--linea);
+    background:
+      radial-gradient(45rem 30rem at 15% 110%, rgba(232,213,163,.06), transparent 60%),
+      var(--nero);
+  }
+  .contatti-grid{display:grid;gap:2.5rem}
+  .contatto-lista{display:grid;gap:1.1rem;margin-top:1.6rem}
+  .contatto{
+    display:flex;gap:1rem;align-items:flex-start;
+  }
+  .contatto .icona{
+    flex-shrink:0;
+    width:2.5rem;height:2.5rem;border-radius:50%;
+    border:1px solid rgba(232,213,163,.35);
+    display:flex;align-items:center;justify-content:center;color:var(--champagne);
+  }
+  .contatto .icona svg{width:1.1rem;height:1.1rem;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .contatto b{display:block;color:var(--bianco);font-weight:500;font-size:.95rem;letter-spacing:.04em}
+  .contatto a,.contatto span{font-size:.93rem;color:var(--testo-soft)}
+  .contatto a{border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+  .contatto a:hover{color:var(--champagne);border-bottom-color:var(--champagne)}
+  .box-prenota{
+    background:var(--nero-2);
+    border:1px solid var(--linea);
+    border-radius:1rem;
+    padding:2rem 1.6rem;
+    position:relative;overflow:hidden;
+    align-self:start;
+  }
+  .box-prenota::before{
+    content:"";position:absolute;top:-40%;right:-45%;
+    width:120%;height:70%;
+    transform:rotate(-24deg);
+    background:linear-gradient(90deg,transparent,rgba(232,213,163,.12),transparent);
+    pointer-events:none;
+  }
+  .box-prenota h3{font-size:1.6rem;margin-bottom:.6rem}
+  .box-prenota p{font-size:.93rem;color:var(--testo-soft);margin-bottom:1.5rem}
+  .box-prenota .btn{width:100%;justify-content:center}
+  .box-prenota .btn+.btn{margin-top:.7rem}
+  @media (min-width:820px){.contatti-grid{grid-template-columns:1.1fr .9fr;gap:4rem}}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--linea);
+    padding:2.2rem 0 2.6rem;
+    font-size:.8rem;color:var(--testo-soft);
+  }
+  .foot{display:flex;flex-direction:column;gap:1rem;align-items:flex-start}
+  .foot-social{display:flex;gap:1.2rem}
+  .foot-social a{color:var(--testo-soft);transition:color .3s}
+  .foot-social a:hover{color:var(--champagne)}
+  @media (min-width:820px){
+    .foot{flex-direction:row;justify-content:space-between;align-items:center}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Valentina Conte Parrucchieri — torna su">
+      <img src="logo.jpg" alt="Logo Valentina Conte: monogramma V e C" width="40" height="40">
+      <span class="brand-name">Valentina Conte</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#chi-siamo">Il salone</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#perche">Perch&eacute; noi</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+393513792598">351 3792598</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Presentazione">
+    <div class="wrap">
+      <img class="hero-logo" src="logo.jpg" alt="" width="84" height="84" aria-hidden="true">
+      <p class="hero-kicker">Parrucchieri &middot; Settimo Torinese</p>
+      <h1>Valentina Conte
+        <span class="liscio">liscio assoluto.</span>
+      </h1>
+      <p class="hero-sub">Nanoplastia, cheratina e laminazione per capelli lisci, luminosi e sani. E con il trucco permanente, la tua bellezza inizia ogni mattina un passo avanti.</p>
+      <div class="hero-cta">
+        <a class="btn btn-oro" href="tel:+393513792598">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Prenota ora
+        </a>
+        <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"></div>
+  </section>
+
+  <!-- CHI SIAMO -->
+  <section class="chi" id="chi-siamo">
+    <div class="wrap chi-grid">
+      <div>
+        <span class="eyebrow reveal">Il salone</span>
+        <h2 class="titolo reveal d1">Due anime, <em>un&rsquo;unica idea di bellezza</em></h2>
+        <div class="reveal d2">
+          <p>Nel cuore di Settimo Torinese, il salone di Valentina Conte &egrave; il punto di riferimento per chi sogna capelli <strong>lisci, disciplinati e pieni di luce</strong>. Qui i trattamenti liscianti non sono un servizio tra tanti: sono una specializzazione, studiata e perfezionata su ogni tipo di capello.</p>
+          <p>Accanto ai capelli c&rsquo;&egrave; la seconda anima del salone: il <strong>trucco permanente</strong>. Valentina &egrave; specialista PMU e firma labbra ed eyeliner che valorizzano il viso con naturalezza, giorno dopo giorno, senza bisogno di ritocchi allo specchio.</p>
+          <p>Un unico indirizzo, una sola mano esperta, per uscire dal salone sentendoti la versione pi&ugrave; curata di te.</p>
+        </div>
+        <p class="firma reveal d3">— Valentina</p>
+      </div>
+      <div class="chi-numeri reveal d2" role="list" aria-label="Il salone in numeri">
+        <div class="num" role="listitem"><b>2</b><span>Specializzazioni</span></div>
+        <div class="num" role="listitem"><b>7+</b><span>Servizi firmati</span></div>
+        <div class="num" role="listitem"><b>100%</b><span>Su misura</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section class="servizi" id="servizi">
+    <div class="wrap">
+      <div class="servizi-intro">
+        <span class="eyebrow reveal">Servizi</span>
+        <h2 class="titolo reveal d1">Dal liscio assoluto <em>al trucco che resta</em></h2>
+        <p class="reveal d2">Ogni trattamento parte da una consulenza: osserviamo il tuo capello, ascoltiamo cosa desideri e scegliamo insieme la strada giusta.</p>
+      </div>
+
+      <div class="gruppo-label reveal"><span>Capelli</span><small>Hair care</small></div>
+      <div class="cards tre">
+        <article class="card reveal">
+          <span class="tag">Signature</span>
+          <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20c4-6 5-12 5-16m5 16c3-5 4-10 4-14M9 4c2 1 6 1 9 0"/></svg></div>
+          <h3>Nanoplastia</h3>
+          <p>Il &laquo;liscio assoluto&raquo;: il trattamento lisciante di nuova generazione che ristruttura il capello in profondit&agrave; per un risultato naturale, morbido e duraturo.</p>
+        </article>
+        <article class="card reveal d1">
+          <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M8 5c0 5-1 10-3 14M16 5c0 5 1 10 3 14"/></svg></div>
+          <h3>Stiratura alla cheratina</h3>
+          <p>Liscio perfetto e capello nutrito: la cheratina elimina il crespo e semplifica la piega, anche nelle giornate pi&ugrave; umide.</p>
+        </article>
+        <article class="card reveal d2">
+          <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9L9.5 8z"/></svg></div>
+          <h3>Laminazione</h3>
+          <p>Un bagno di lucentezza: la laminazione sigilla la fibra e regala un effetto specchio immediato, per capelli che riflettono la luce.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16"/></svg></div>
+          <h3>Colore</h3>
+          <p>Toni studiati sul tuo incarnato e sulla tua personalit&agrave;, con prodotti che rispettano la salute del capello.</p>
+        </article>
+        <article class="card reveal d1">
+          <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.5 15.5M8.5 8.5L20 20"/></svg></div>
+          <h3>Tagli e pieghe</h3>
+          <p>Dal taglio che ti somiglia alla piega per le occasioni speciali: la cura di sempre, con lo sguardo al dettaglio.</p>
+        </article>
+      </div>
+
+      <div class="gruppo-label reveal"><span>Trucco permanente</span><small>PMU by @contevalentina.pmu</small></div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="tag">PMU</span>
+          <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15c3-3 6-4 9-4s6 1 9 4c-3 3-6 4-9 4s-6-1-9-4z"/><path d="M12 11c1.5 0 3 .8 3 2s-1.5 2-3 2-3-.8-3-2 1.5-2 3-2z"/></svg></div>
+          <h3>Labbra</h3>
+          <p>Contorno definito e colore che esalta il sorriso: un effetto naturale che dura nel tempo e ti fa svegliare gi&agrave; pronta.</p>
+        </article>
+        <article class="card reveal d1">
+          <span class="tag">PMU</span>
+          <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+          <h3>Eyeliner</h3>
+          <p>Uno sguardo intenso e sempre impeccabile, disegnato con precisione millimetrica sulla forma del tuo occhio.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHÉ SCEGLIERCI -->
+  <section class="perche" id="perche">
+    <div class="wrap">
+      <span class="eyebrow reveal">Perch&eacute; sceglierci</span>
+      <h2 class="titolo reveal d1">Quello che trovi <em>solo qui</em></h2>
+      <div class="motivi" style="margin-top:2.4rem">
+        <div class="motivo reveal">
+          <h3>Specialiste del liscio</h3>
+          <p>Nanoplastia, cheratina e laminazione non sono un extra: sono il cuore del salone. Sappiamo esattamente quale trattamento serve al tuo capello.</p>
+        </div>
+        <div class="motivo reveal d1">
+          <h3>Capelli e trucco permanente insieme</h3>
+          <p>Doppia competenza certificata: hair care e PMU nello stesso salone, con un unico sguardo d&rsquo;insieme sulla tua immagine.</p>
+        </div>
+        <div class="motivo reveal d2">
+          <h3>Consulenza sincera, risultati veri</h3>
+          <p>Ti proponiamo solo ci&ograve; che fa davvero bene al tuo capello e al tuo viso. Prima ti ascoltiamo, poi lavoriamo.</p>
+        </div>
+        <div class="motivo reveal d3">
+          <h3>Su appuntamento, tempo tutto per te</h3>
+          <p>Lavoriamo su prenotazione: niente attese, niente fretta. Il tuo appuntamento &egrave; uno spazio dedicato solo a te.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contatti" id="contatti">
+    <div class="wrap contatti-grid">
+      <div>
+        <span class="eyebrow reveal">Contatti</span>
+        <h2 class="titolo reveal d1">Ti aspettiamo <em>in salone</em></h2>
+        <div class="contatto-lista">
+          <div class="contatto reveal">
+            <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><b>Telefono</b><a href="tel:+393513792598">351 3792598</a></div>
+          </div>
+          <div class="contatto reveal d1">
+            <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><b>Indirizzo</b><a href="https://www.google.com/maps/search/?api=1&amp;query=Via+Teologo+Giuseppe+Antonino+2%2C+10036+Settimo+Torinese+TO" target="_blank" rel="noopener">Via Teologo Giuseppe Antonino 2,<br>10036 Settimo Torinese (TO)</a></div>
+          </div>
+          <div class="contatto reveal d2">
+            <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><b>Orari</b><span>Su appuntamento — chiamaci o scrivici su Instagram per prenotare</span></div>
+          </div>
+          <div class="contatto reveal d3">
+            <div class="icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></div>
+            <div><b>Instagram</b>
+              <a href="https://www.instagram.com/valentinaconteparrucchieri/" target="_blank" rel="noopener">@valentinaconteparrucchieri</a><br>
+              <a href="https://www.instagram.com/contevalentina.pmu/" target="_blank" rel="noopener">@contevalentina.pmu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-prenota reveal d2">
+        <h3>Pronta per il tuo <em style="color:var(--champagne)">liscio assoluto</em>?</h3>
+        <p>Chiamaci per una consulenza gratuita: valutiamo insieme il trattamento perfetto per il tuo capello, o il tuo primo appuntamento PMU.</p>
+        <a class="btn btn-oro" href="tel:+393513792598">Chiama il salone</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Teologo+Giuseppe+Antonino+2%2C+10036+Settimo+Torinese+TO" target="_blank" rel="noopener">Apri in Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <strong style="color:var(--bianco);font-weight:500">Valentina Conte Parrucchieri</strong><br>
+      Via Teologo Giuseppe Antonino 2, 10036 Settimo Torinese (TO) &middot; <a href="tel:+393513792598" style="color:inherit">351 3792598</a>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/valentinaconteparrucchieri/" target="_blank" rel="noopener">Instagram Salone</a>
+      <a href="https://www.instagram.com/contevalentina.pmu/" target="_blank" rel="noopener">Instagram PMU</a>
+    </div>
+    <div>&copy; <span id="anno"></span> Valentina Conte Parrucchieri</div>
+  </div>
+</footer>
+
+<script>
+  // Anno corrente nel footer
+  document.getElementById('anno').textContent = new Date().getFullYear();
+
+  // Header: bordo al primo scroll
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('solid', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Reveal allo scroll
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, {threshold: .12, rootMargin: '0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
