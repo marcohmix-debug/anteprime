@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoMaX Parrucchieri — Salone a Settimo Torinese, Via Torino 37</title>
+<meta name="description" content="MoMaX Parrucchieri: taglio, piega, colore e styling uomo/donna nel cuore di Settimo Torinese, in Via Torino 37. Chiama lo 011 8978134.">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#10182a;
+    --navy-2:#161f36;
+    --navy-3:#1c2742;
+    --white:#ffffff;
+    --ink:#eef1f7;
+    --muted:#9aa4bd;
+    --lime:#d4e021;
+    --lime-soft:rgba(212,224,33,.14);
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Manrope',system-ui,sans-serif;
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--navy);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--lime);color:var(--navy)}
+
+  /* ---------- utilities ---------- */
+  .wrap{width:min(1080px,92%);margin-inline:auto}
+  .dot{color:var(--lime)}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--lime);margin-bottom:1rem;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--lime);display:inline-block}
+  h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2rem,5.5vw,3rem);
+    line-height:1.15;
+    color:var(--white);
+    margin-bottom:1rem;
+  }
+  .lead{color:var(--muted);max-width:56ch}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    transition:background .35s,box-shadow .35s,padding .35s;
+    padding:.9rem 0;
+  }
+  header.scrolled{
+    background:rgba(16,24,42,.88);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 1px 0 rgba(255,255,255,.06);
+    padding:.55rem 0;
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{
+    display:flex;align-items:center;gap:.7rem;
+    text-decoration:none;color:var(--white);
+  }
+  .brand img{
+    width:38px;height:38px;border-radius:50%;object-fit:cover;
+    border:1px solid rgba(255,255,255,.18);
+  }
+  .brand-name{
+    font-family:var(--serif);font-size:1.25rem;font-weight:600;letter-spacing:.06em;
+  }
+  .nav-links{display:none;list-style:none;gap:1.9rem}
+  .nav-links a{
+    color:var(--muted);text-decoration:none;font-size:.83rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;
+    transition:color .25s;
+  }
+  .nav-links a:hover{color:var(--lime)}
+  .nav-cta{
+    display:inline-block;
+    background:var(--lime);color:var(--navy);
+    font-weight:700;font-size:.83rem;letter-spacing:.05em;
+    padding:.55rem 1.15rem;border-radius:999px;text-decoration:none;
+    transition:transform .25s,box-shadow .25s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,224,33,.35)}
+  @media (min-width:760px){
+    .nav-links{display:flex}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;
+    padding:7rem 0 4rem;
+    background:
+      radial-gradient(ellipse 80% 55% at 70% 12%,rgba(212,224,33,.07),transparent 60%),
+      radial-gradient(ellipse 70% 60% at 15% 90%,rgba(38,54,94,.55),transparent 65%),
+      var(--navy);
+    overflow:hidden;
+  }
+  .hero::after{ /* subtle grain lines */
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(115deg,transparent 0 120px,rgba(255,255,255,.014) 120px 121px);
+  }
+  .hero-inner{position:relative;z-index:1}
+  .hero .kicker{
+    font-size:.75rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:1.4rem;
+    opacity:0;animation:rise .9s .15s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  .hero h1{
+    font-family:var(--serif);font-weight:500;color:var(--white);
+    font-size:clamp(3rem,11vw,6.2rem);
+    line-height:1.02;letter-spacing:.02em;
+    opacity:0;animation:rise 1s .3s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  .hero h1 .dots{white-space:nowrap}
+  .hero h1 .dot{
+    display:inline-block;font-size:.45em;vertical-align:.55em;
+    animation:pulse 3.2s ease-in-out infinite;
+  }
+  .hero h1 .dot:last-child{animation-delay:1.6s}
+  .hero .sub{
+    font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,3.4vw,1.6rem);
+    color:var(--muted);max-width:34ch;margin-top:1.3rem;
+    opacity:0;animation:rise 1s .5s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  .hero .sub strong{color:var(--lime);font-style:normal;font-family:var(--sans);font-size:.72em;font-weight:700;letter-spacing:.1em}
+  .hero-actions{
+    display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.4rem;
+    opacity:0;animation:rise 1s .68s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    padding:.95rem 1.7rem;border-radius:999px;
+    font-weight:700;font-size:.95rem;text-decoration:none;
+    transition:transform .25s,box-shadow .25s,background .25s,color .25s;
+  }
+  .btn-lime{background:var(--lime);color:var(--navy)}
+  .btn-lime:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,224,33,.35)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.25);color:var(--white)}
+  .btn-ghost:hover{border-color:var(--lime);color:var(--lime);transform:translateY(-3px)}
+  .hero-meta{
+    margin-top:3rem;display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;
+    font-size:.85rem;color:var(--muted);
+    opacity:0;animation:rise 1s .85s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  .hero-meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{
+    position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);
+    width:1px;height:52px;background:linear-gradient(var(--lime),transparent);
+    animation:hint 2.2s ease-in-out infinite;z-index:1;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.75}}
+  @keyframes hint{0%,100%{opacity:.2}50%{opacity:1}}
+
+  /* ---------- sections ---------- */
+  section{padding:5.5rem 0}
+  @media (min-width:760px){section{padding:7.5rem 0}}
+
+  /* chi siamo */
+  .story{background:var(--navy-2)}
+  .story-grid{display:grid;gap:2.5rem}
+  @media (min-width:860px){.story-grid{grid-template-columns:1.1fr .9fr;align-items:center;gap:4rem}}
+  .story p{color:var(--muted);margin-bottom:1.1rem}
+  .story p strong{color:var(--ink)}
+  .quote-card{
+    position:relative;
+    background:linear-gradient(160deg,var(--navy-3),var(--navy-2));
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--radius);
+    padding:2.4rem 2rem;
+  }
+  .quote-card::before{
+    content:"“";
+    font-family:var(--serif);font-size:5rem;line-height:0;
+    color:var(--lime);position:absolute;top:2.4rem;left:1.6rem;opacity:.9;
+  }
+  .quote-card blockquote{
+    font-family:var(--serif);font-size:1.45rem;font-style:italic;line-height:1.45;
+    color:var(--white);padding-left:1.6rem;
+  }
+  .quote-card cite{
+    display:block;margin-top:1.2rem;padding-left:1.6rem;
+    font-style:normal;font-size:.8rem;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--lime);
+  }
+
+  /* servizi */
+  .services-grid{display:grid;gap:1.1rem;margin-top:2.6rem}
+  @media (min-width:640px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:1000px){.services-grid{grid-template-columns:repeat(4,1fr)}}
+  .card{
+    background:var(--navy-2);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:var(--radius);
+    padding:2rem 1.6rem;
+    transition:transform .3s,border-color .3s,background .3s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:rgba(212,224,33,.45);background:var(--navy-3)}
+  .card .icon{
+    width:52px;height:52px;border-radius:14px;
+    display:grid;place-items:center;
+    background:var(--lime-soft);color:var(--lime);
+    margin-bottom:1.2rem;
+  }
+  .card .icon svg{width:26px;height:26px}
+  .card h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:.5rem}
+  .card p{font-size:.92rem;color:var(--muted)}
+
+  /* perche */
+  .why{background:var(--navy-2)}
+  .why-grid{display:grid;gap:2.2rem;margin-top:2.8rem}
+  @media (min-width:760px){.why-grid{grid-template-columns:repeat(2,1fr);gap:2.8rem 3.5rem}}
+  .why-item{display:flex;gap:1.2rem;align-items:flex-start}
+  .why-num{
+    font-family:var(--serif);font-size:2.4rem;font-weight:500;line-height:1;
+    color:var(--lime);min-width:2.6rem;
+  }
+  .why-item h3{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:.35rem}
+  .why-item p{font-size:.92rem;color:var(--muted)}
+
+  /* contatti */
+  .contact-grid{display:grid;gap:1.1rem;margin-top:2.6rem}
+  @media (min-width:760px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
+  .contact-card{
+    background:var(--navy-2);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:var(--radius);
+    padding:1.8rem 1.5rem;
+    transition:transform .3s,border-color .3s;
+  }
+  .contact-card:hover{transform:translateY(-4px);border-color:rgba(212,224,33,.45)}
+  .contact-card .label{
+    font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--lime);margin-bottom:.7rem;
+  }
+  .contact-card a{color:var(--white);text-decoration:none;font-weight:600;font-size:1.05rem}
+  .contact-card a:hover{color:var(--lime)}
+  .contact-card p{color:var(--muted);font-size:.9rem;margin-top:.3rem}
+  .contact-card .big{font-family:var(--serif);font-size:1.5rem;font-weight:600}
+  .ig-line{display:inline-flex;align-items:center;gap:.5rem}
+  .ig-line svg{width:18px;height:18px;flex:none}
+  .cta-band{
+    margin-top:3.5rem;
+    background:linear-gradient(135deg,rgba(212,224,33,.16),rgba(212,224,33,.05));
+    border:1px solid rgba(212,224,33,.35);
+    border-radius:calc(var(--radius) + 6px);
+    padding:2.6rem 1.8rem;text-align:center;
+  }
+  .cta-band h3{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:500;color:var(--white);margin-bottom:.6rem}
+  .cta-band p{color:var(--muted);margin-bottom:1.6rem}
+
+  /* footer */
+  footer{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:2.4rem 0;text-align:center;
+  }
+  .foot-brand{
+    font-family:var(--serif);font-size:1.3rem;color:var(--white);letter-spacing:.06em;
+    display:inline-flex;align-items:center;gap:.55rem;margin-bottom:.6rem;
+  }
+  footer p{font-size:.82rem;color:var(--muted)}
+  footer a{color:var(--muted)}
+  footer a:hover{color:var(--lime)}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="MoMaX Parrucchieri — torna su">
+      <img src="logo.jpg" alt="Logo MoMaX Parrucchieri" width="38" height="38">
+      <span class="brand-name"><span class="dot">·</span> MoMaX <span class="dot">·</span></span>
+    </a>
+    <nav aria-label="Navigazione principale">
+      <ul class="nav-links">
+        <li><a href="#storia">Chi siamo</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="tel:0118978134">☎ Chiama ora</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" aria-label="Presentazione">
+    <div class="wrap hero-inner">
+      <p class="kicker">Salone uomo · donna — Settimo Torinese</p>
+      <h1><span class="dots"><span class="dot">·</span> MoMaX <span class="dot">·</span></span><br>Parrucchieri</h1>
+      <p class="sub">«La bellezza interiore è fondamentale per tutto il resto. <strong>CHIEDI A NOI.</strong>»</p>
+      <div class="hero-actions">
+        <a class="btn btn-lime" href="tel:0118978134">Prenota: 011 897 8134</a>
+        <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+      </div>
+      <div class="hero-meta">
+        <span><span class="dot">●</span> Via Torino 37, Settimo Torinese</span>
+        <span><span class="dot">●</span> Taglio · Piega · Colore · Styling</span>
+      </div>
+    </div>
+    <span class="scroll-hint" aria-hidden="true"></span>
+  </section>
+
+  <!-- CHI SIAMO -->
+  <section class="story" id="storia">
+    <div class="wrap story-grid">
+      <div class="reveal">
+        <p class="eyebrow">Chi siamo</p>
+        <h2>Il salone di via Torino, nel cuore di Settimo<span class="dot">.</span></h2>
+        <p>MoMaX è il salone di parrucchieri che trovi in <strong>via Torino 37</strong>, una delle vie più vive del commercio settimese. Un nome che si ricorda, due punti gialli che si riconoscono al volo — e dietro l'insegna, mani esperte che si prendono cura dei tuoi capelli, uomo o donna.</p>
+        <p>Siamo parte del tessuto dei negozi di vicinato di Settimo Torinese: chi entra da noi non è un numero, è un vicino di casa. Per questo il primo servizio che offriamo è <strong>l'ascolto</strong> — perché il taglio giusto parte sempre da chi sei, non solo da com'è la moda.</p>
+      </div>
+      <div class="quote-card reveal">
+        <blockquote>La bellezza interiore è fondamentale per tutto il resto. Chiedi a noi.</blockquote>
+        <cite>— La nostra filosofia</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Servizi</p>
+        <h2>Tutto per i tuoi capelli, uomo e donna<span class="dot">.</span></h2>
+        <p class="lead">Quattro specialità, un'unica attenzione: farti uscire dal salone con la sensazione di essere la versione migliore di te.</p>
+      </div>
+      <div class="services-grid">
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.6 15.4M14.5 9.5 20 20"/></svg>
+          </div>
+          <h3>Taglio</h3>
+          <p>Studiato sul tuo viso, sul tuo stile e sui tuoi tempi: dal classico curato al taglio di tendenza, per lui e per lei.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M8 5l1.5 3M16 5l-1.5 3"/><path d="M5 10h14l-1.5 10a2 2 0 0 1-2 1.7h-7a2 2 0 0 1-2-1.7Z"/></svg>
+          </div>
+          <h3>Piega</h3>
+          <p>Volume, movimento e tenuta che durano oltre la porta del salone. Perfetta per tutti i giorni o per la serata speciale.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a7 7 0 0 0 7-7c0-4-4-8.5-7-11-3 2.5-7 7-7 11a7 7 0 0 0 7 7Z"/><path d="M12 17a3 3 0 0 0 3-3"/></svg>
+          </div>
+          <h3>Colore</h3>
+          <p>Colorazioni piene, schiariture e riflessi calibrati sul tuo incarnato, con prodotti che rispettano il capello.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9Z"/></svg>
+          </div>
+          <h3>Styling</h3>
+          <p>Finish e acconciature per eventi, cerimonie o semplicemente per sentirti al meglio: l'ultimo tocco che fa la differenza.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE -->
+  <section class="why" id="perche">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Perché sceglierci</p>
+        <h2>Quattro buoni motivi<span class="dot">.</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <span class="why-num" aria-hidden="true">01</span>
+          <div>
+            <h3>Nel cuore di Settimo</h3>
+            <p>Siamo in via Torino, la via dello shopping settimese: facili da raggiungere a piedi, comodi da abbinare alle tue commissioni.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num" aria-hidden="true">02</span>
+          <div>
+            <h3>Uomo e donna, un solo salone</h3>
+            <p>Taglio, piega, colore e styling per tutta la famiglia: un unico indirizzo di fiducia, senza girare mezza città.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num" aria-hidden="true">03</span>
+          <div>
+            <h3>Ascolto prima delle forbici</h3>
+            <p>Ogni servizio parte da una consulenza vera: capiamo cosa desideri e cosa valorizza davvero il tuo viso e i tuoi capelli.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-num" aria-hidden="true">04</span>
+          <div>
+            <h3>Radicati nel vicinato</h3>
+            <p>Ci conosci dalle vetrine di Settimo e da Instagram: siamo un negozio di quartiere vero, dove tornare è un piacere.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Contatti</p>
+        <h2>Passa a trovarci o chiamaci<span class="dot">.</span></h2>
+        <p class="lead">Una telefonata basta per prenotare il tuo posto in poltrona.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <p class="label">Telefono</p>
+          <a class="big" href="tel:0118978134">011 897 8134</a>
+          <p>Chiamaci per un appuntamento o un consiglio.</p>
+        </div>
+        <div class="contact-card reveal">
+          <p class="label">Dove siamo</p>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=MoMaX+Parrucchieri+Via+Torino+37+Settimo+Torinese" target="_blank" rel="noopener">Via Torino 37<br>10036 Settimo Torinese (TO)</a>
+          <p>Apri in Google Maps →</p>
+        </div>
+        <div class="contact-card reveal">
+          <p class="label">Instagram</p>
+          <a class="ig-line" href="https://www.instagram.com/momax_parrucchieri/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor" stroke="none"/></svg>
+            @momax_parrucchieri
+          </a>
+          <p>Segui i nostri lavori e le novità del salone.</p>
+        </div>
+      </div>
+      <div class="cta-band reveal">
+        <h3>Pronto a prenderti cura di te?</h3>
+        <p>Il primo passo è il più semplice: alza il telefono.</p>
+        <a class="btn btn-lime" href="tel:0118978134">Chiama ora · 011 897 8134</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-brand"><span class="dot">·</span> MoMaX <span class="dot">·</span> Parrucchieri</p>
+    <p>Via Torino 37, 10036 Settimo Torinese (TO) · <a href="tel:0118978134">011 897 8134</a> · <a href="https://www.instagram.com/momax_parrucchieri/" target="_blank" rel="noopener">Instagram</a></p>
+    <p>© <span id="year">2026</span> MoMaX Parrucchieri — Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<script>
+  // anno corrente nel footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // header compatto allo scroll
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // reveal allo scroll con leggero stagger tra elementi vicini
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const siblings = [...el.parentElement.children].filter(c => c.classList.contains('reveal') && !c.classList.contains('in'));
+      el.style.transitionDelay = (siblings.indexOf(el) * 90) + 'ms';
+      el.classList.add('in');
+      io.unobserve(el);
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
