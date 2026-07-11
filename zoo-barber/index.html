@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoo Barber — Barber Shop a Settimo Torinese | Taglio, Barba, Styling</title>
+<meta name="description" content="Zoo Barber: il barber shop di Stefano e Cristian a Settimo Torinese. Taglio uomo, rasatura e cura barba, styling. Prenota al 351 8718246 anche su WhatsApp.">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nero:#000000;
+    --nero-2:#0d0d0d;
+    --nero-3:#161616;
+    --bianco:#ffffff;
+    --grigio:#a8a8a8;
+    --linea:rgba(255,255,255,.14);
+    --display:'Anton',sans-serif;
+    --testo:'Space Grotesk',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--nero);
+    color:var(--bianco);
+    font-family:var(--testo);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  section{padding:5.5rem 1.25rem;position:relative}
+  .wrap{max-width:1060px;margin:0 auto}
+
+  /* ---------- Titoli ---------- */
+  .kicker{
+    display:inline-block;
+    font-size:.78rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--grigio);
+    border:1px solid var(--linea);
+    padding:.35rem .9rem;
+    border-radius:999px;
+    margin-bottom:1.1rem;
+  }
+  h2{
+    font-family:var(--display);
+    font-size:clamp(2.1rem,7vw,3.4rem);
+    line-height:1.05;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    margin-bottom:1.2rem;
+  }
+  .lead{color:var(--grigio);max-width:34rem}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}
+  .reveal.d2{transition-delay:.2s}
+  .reveal.d3{transition-delay:.3s}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--linea);
+  }
+  .nav{
+    max-width:1060px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.7rem 1.25rem;
+  }
+  .brand{
+    display:flex;align-items:center;gap:.7rem;
+    text-decoration:none;
+  }
+  .brand img{width:42px;height:42px;border-radius:8px}
+  .brand span{
+    font-family:var(--display);
+    font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .menu{display:flex;gap:1.6rem;list-style:none}
+  .menu a{
+    text-decoration:none;font-size:.92rem;font-weight:500;
+    color:var(--grigio);
+    transition:color .25s;
+    position:relative;
+  }
+  .menu a::after{
+    content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;
+    background:var(--bianco);transition:width .25s;
+  }
+  .menu a:hover{color:var(--bianco)}
+  .menu a:hover::after{width:100%}
+  .burger{
+    display:none;background:none;border:1px solid var(--linea);
+    border-radius:8px;padding:.5rem .6rem;cursor:pointer;
+  }
+  .burger span{display:block;width:20px;height:2px;background:var(--bianco);margin:4px 0;transition:.3s}
+  @media (max-width:760px){
+    .burger{display:block}
+    .menu{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;
+      background:rgba(0,0,0,.96);
+      border-bottom:1px solid var(--linea);
+      max-height:0;overflow:hidden;transition:max-height .35s ease;
+    }
+    .menu.open{max-height:320px}
+    .menu li{border-top:1px solid var(--linea)}
+    .menu a{display:block;padding:1rem 1.5rem}
+    .menu a::after{display:none}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:6.5rem 1.25rem 4rem;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% -10%,rgba(255,255,255,.09),transparent 65%),
+      var(--nero);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(var(--linea) 1px,transparent 1px),
+      linear-gradient(90deg,var(--linea) 1px,transparent 1px);
+    background-size:72px 72px;
+    mask-image:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(0,0,0,.5),transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(0,0,0,.5),transparent 75%);
+  }
+  .hero>*{position:relative}
+  .hero-logo{
+    width:min(180px,44vw);
+    border-radius:20px;
+    margin-bottom:1.6rem;
+    box-shadow:0 0 0 1px var(--linea),0 24px 60px rgba(0,0,0,.7);
+    animation:pop .9s cubic-bezier(.2,.8,.25,1) both;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-size:clamp(3rem,13vw,6.5rem);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    animation:rise .8s .15s cubic-bezier(.2,.8,.25,1) both;
+  }
+  .hero .tag{
+    margin-top:1rem;
+    color:var(--grigio);
+    font-size:clamp(1rem,3.5vw,1.25rem);
+    max-width:30rem;
+    animation:rise .8s .3s cubic-bezier(.2,.8,.25,1) both;
+  }
+  .hero .cta-row{
+    display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;
+    margin-top:2.2rem;
+    animation:rise .8s .45s cubic-bezier(.2,.8,.25,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:var(--testo);font-weight:700;font-size:1rem;
+    text-decoration:none;
+    padding:.95rem 1.7rem;border-radius:999px;
+    transition:transform .2s,box-shadow .2s,background .2s,color .2s;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-pieno{
+    background:var(--bianco);color:var(--nero);
+  }
+  .btn-pieno:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,255,255,.22)}
+  .btn-vuoto{
+    border:1px solid rgba(255,255,255,.4);color:var(--bianco);
+  }
+  .btn-vuoto:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+
+  /* ---------- Marquee ---------- */
+  .marquee{
+    border-top:1px solid var(--linea);
+    border-bottom:1px solid var(--linea);
+    overflow:hidden;white-space:nowrap;
+    padding:1rem 0;
+    background:var(--nero-2);
+  }
+  .marquee-track{
+    display:inline-block;
+    animation:scorri 26s linear infinite;
+  }
+  .marquee span{
+    font-family:var(--display);
+    font-size:1.15rem;letter-spacing:.18em;text-transform:uppercase;
+    margin:0 1.4rem;color:var(--bianco);
+  }
+  .marquee span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--grigio)}
+  @keyframes scorri{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+  /* ---------- Chi siamo ---------- */
+  .chi{background:var(--nero)}
+  .chi-grid{display:grid;gap:2.5rem;align-items:center}
+  @media (min-width:820px){.chi-grid{grid-template-columns:1.1fr .9fr}}
+  .chi p{color:var(--grigio);margin-bottom:1rem}
+  .chi strong{color:var(--bianco)}
+  .chi-card{
+    background:var(--nero-2);
+    border:1px solid var(--linea);
+    border-radius:24px;
+    padding:2rem;
+    text-align:center;
+  }
+  .chi-card img{width:min(200px,55%);margin:0 auto 1.3rem;border-radius:16px}
+  .soci{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+  .socio{
+    border:1px solid var(--linea);border-radius:999px;
+    padding:.5rem 1.1rem;font-size:.9rem;color:var(--grigio);
+  }
+  .socio b{color:var(--bianco);font-weight:700}
+
+  /* ---------- Servizi ---------- */
+  .servizi{background:var(--nero-2)}
+  .cards{display:grid;gap:1.2rem;margin-top:2.5rem}
+  @media (min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{
+    background:var(--nero);
+    border:1px solid var(--linea);
+    border-radius:20px;
+    padding:2rem 1.6rem;
+    transition:transform .3s,border-color .3s,box-shadow .3s;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,.45);
+    box-shadow:0 18px 44px rgba(0,0,0,.6);
+  }
+  .card .icona{
+    width:56px;height:56px;border-radius:14px;
+    background:var(--bianco);color:var(--nero);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;margin-bottom:1.3rem;
+  }
+  .card h3{
+    font-family:var(--display);
+    font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase;
+    margin-bottom:.6rem;
+  }
+  .card p{color:var(--grigio);font-size:.95rem}
+
+  /* ---------- Perché ---------- */
+  .perche ol{list-style:none;counter-reset:n;margin-top:2.5rem;display:grid;gap:1rem}
+  @media (min-width:720px){.perche ol{grid-template-columns:1fr 1fr}}
+  .perche li{
+    counter-increment:n;
+    border:1px solid var(--linea);border-radius:20px;
+    padding:1.6rem 1.6rem 1.6rem 1.4rem;
+    display:flex;gap:1.1rem;align-items:flex-start;
+    background:var(--nero);
+    transition:border-color .3s,transform .3s;
+  }
+  .perche li:hover{border-color:rgba(255,255,255,.45);transform:translateY(-4px)}
+  .perche li::before{
+    content:"0" counter(n);
+    font-family:var(--display);
+    font-size:1.6rem;line-height:1;
+    color:transparent;-webkit-text-stroke:1px var(--bianco);
+    flex-shrink:0;margin-top:.15rem;
+  }
+  .perche h3{font-size:1.05rem;font-weight:700;margin-bottom:.35rem}
+  .perche p{color:var(--grigio);font-size:.93rem}
+
+  /* ---------- Contatti ---------- */
+  .contatti{background:var(--nero-2)}
+  .cont-grid{display:grid;gap:1.2rem;margin-top:2.5rem}
+  @media (min-width:820px){.cont-grid{grid-template-columns:1fr 1fr}}
+  .cont-box{
+    background:var(--nero);border:1px solid var(--linea);border-radius:20px;
+    padding:1.8rem 1.6rem;
+  }
+  .cont-box h3{
+    font-family:var(--display);font-size:1.2rem;text-transform:uppercase;
+    letter-spacing:.05em;margin-bottom:1rem;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  .cont-box a{transition:opacity .2s}
+  .cont-box a:hover{opacity:.7}
+  .riga{
+    display:flex;justify-content:space-between;gap:1rem;
+    padding:.55rem 0;border-bottom:1px dashed var(--linea);
+    font-size:.95rem;
+  }
+  .riga:last-child{border-bottom:none}
+  .riga span:first-child{color:var(--grigio)}
+  .riga .chiuso{color:var(--grigio);font-style:italic}
+  .cont-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.2rem}
+  .social-row{display:flex;gap:.7rem;margin-top:1.2rem}
+  .social-row a{
+    display:inline-flex;align-items:center;gap:.5rem;
+    border:1px solid var(--linea);border-radius:999px;
+    padding:.55rem 1.1rem;text-decoration:none;font-size:.9rem;font-weight:500;
+    transition:background .25s,color .25s,transform .2s;
+  }
+  .social-row a:hover{background:var(--bianco);color:var(--nero);transform:translateY(-2px)}
+  .indirizzo{color:var(--grigio);font-size:.98rem;line-height:1.7}
+  .indirizzo a{color:var(--bianco);font-weight:500}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--linea);
+    padding:2.2rem 1.25rem;
+    text-align:center;color:var(--grigio);font-size:.85rem;
+  }
+  footer .f-brand{
+    font-family:var(--display);color:var(--bianco);
+    font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;
+    margin-bottom:.4rem;
+  }
+  footer a{color:var(--grigio)}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Navigazione principale">
+    <a class="brand" href="#hero">
+      <img src="logo.jpg" alt="Logo Zoo Barber">
+      <span>Zoo Barber</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Apri menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#chi-siamo">Chi siamo</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#perche">Perch&eacute; noi</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="hero-logo" src="logo.jpg" alt="Zoo Barber — gorilla con cappellino e occhiali da sole">
+  <h1>Zoo Barber</h1>
+  <p class="tag">Il barber shop di Settimo Torinese dove il tuo stile diventa una bestia. Taglio, barba, attitudine.</p>
+  <div class="cta-row">
+    <a class="btn btn-pieno" href="https://wa.me/393518718246?text=Ciao!%20Vorrei%20prenotare%20un%20taglio%20da%20Zoo%20Barber" target="_blank" rel="noopener" aria-label="Prenota su WhatsApp">
+      &#x1F4AC; Prenota su WhatsApp
+    </a>
+    <a class="btn btn-vuoto" href="tel:+393518718246" aria-label="Chiama il 351 8718246">
+      &#x1F4DE; 351 8718246
+    </a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee-track">
+    <span>Taglio uomo</span><span>Barba</span><span>Styling</span><span>Settimo Torinese</span><span>Zoo Barber</span><span>Su prenotazione</span>
+  </div>
+</div>
+
+<!-- CHI SIAMO -->
+<section class="chi" id="chi-siamo">
+  <div class="wrap chi-grid">
+    <div class="reveal">
+      <span class="kicker">Chi siamo</span>
+      <h2>Due barber,<br>un branco</h2>
+      <p><strong>Zoo Barber</strong> nasce a Settimo Torinese dall'idea di <strong>Stefano Piastra</strong> e <strong>Cristian Romeni</strong>: due soci giovani con le mani veloci, l'occhio allenato e una regola sola &mdash; da qui non esci finch&eacute; non ti guardi allo specchio e ti piaci davvero.</p>
+      <p>Niente sala d'attesa anonima, niente tagli in serie. Da noi trovi un posto dove la musica gira, si chiacchiera e ogni testa viene studiata: forma del viso, tipo di capello, stile di vita. Poi si lavora, con calma e precisione.</p>
+      <p>Il nome lo dice: qui dentro ognuno &egrave; un animale diverso. Il nostro lavoro &egrave; tirare fuori il tuo carattere, non appiattirlo.</p>
+    </div>
+    <div class="chi-card reveal d1">
+      <img src="logo.jpg" alt="Il gorilla di Zoo Barber">
+      <div class="soci">
+        <span class="socio"><b>Stefano</b> Piastra</span>
+        <span class="socio"><b>Cristian</b> Romeni</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="servizi" id="servizi">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Servizi</span>
+      <h2>Cosa facciamo</h2>
+      <p class="lead">Tre specialit&agrave;, zero compromessi. Tutto su prenotazione, cos&igrave; il tempo della poltrona &egrave; solo tuo.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="icona" aria-hidden="true">&#x2702;&#xFE0F;</div>
+        <h3>Taglio uomo</h3>
+        <p>Dal fade pi&ugrave; netto al classico con le forbici: studiamo il taglio sulla tua testa, non su una foto a caso. Linee pulite e un taglio che tiene anche dopo due settimane.</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="icona" aria-hidden="true">&#x1FA92;</div>
+        <h3>Rasatura &amp; barba</h3>
+        <p>Rifinitura, sagomatura e rasatura tradizionale con panno caldo. La barba curata come si deve: definita nei contorni, morbida al tatto, proporzionata al viso.</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="icona" aria-hidden="true">&#x1F4A8;</div>
+        <h3>Styling</h3>
+        <p>Il tocco finale che fa la differenza: prodotto giusto, tecnica giusta e i consigli per rifare lo stesso risultato ogni mattina, a casa tua, in due minuti.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PERCHÉ NOI -->
+<section class="perche" id="perche">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Perch&eacute; sceglierci</span>
+      <h2>Perch&eacute; lo Zoo</h2>
+    </div>
+    <ol>
+      <li class="reveal">
+        <div>
+          <h3>Solo su prenotazione</h3>
+          <p>Un messaggio su WhatsApp o una chiamata e la poltrona &egrave; tua. Niente file, niente attese: arrivi, ti siedi, si lavora.</p>
+        </div>
+      </li>
+      <li class="reveal d1">
+        <div>
+          <h3>Stile studiato su di te</h3>
+          <p>Prima di prendere in mano la macchinetta ti ascoltiamo. Il taglio giusto &egrave; quello che sta bene a te, non quello di moda questa settimana.</p>
+        </div>
+      </li>
+      <li class="reveal d2">
+        <div>
+          <h3>Giovani ma precisi</h3>
+          <p>Conosciamo le tendenze perch&eacute; le viviamo, ma la precisione &egrave; da vecchia scuola: ogni dettaglio controllato prima di farti alzare.</p>
+        </div>
+      </li>
+      <li class="reveal d3">
+        <div>
+          <h3>Un posto con carattere</h3>
+          <p>Zoo Barber non &egrave; solo un taglio: &egrave; il posto a Settimo dove torni volentieri, anche solo per due chiacchiere e la musica giusta.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Contatti</span>
+      <h2>Prenota la tua poltrona</h2>
+      <p class="lead">Scrivici su WhatsApp o chiamaci: rispondiamo in fretta e troviamo l'orario giusto per te.</p>
+    </div>
+    <div class="cont-grid">
+      <div class="cont-box reveal">
+        <h3><span aria-hidden="true">&#x1F4CD;</span> Dove siamo</h3>
+        <p class="indirizzo">
+          Via Giovanni Schiaparelli 1<br>
+          10036 Settimo Torinese (TO)<br>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Zoo+Barber+Via+Giovanni+Schiaparelli+1+Settimo+Torinese" target="_blank" rel="noopener">Apri in Google Maps &rarr;</a>
+        </p>
+        <div class="cont-cta">
+          <a class="btn btn-pieno" href="https://wa.me/393518718246?text=Ciao!%20Vorrei%20prenotare%20un%20taglio%20da%20Zoo%20Barber" target="_blank" rel="noopener">&#x1F4AC; WhatsApp</a>
+          <a class="btn btn-vuoto" href="tel:+393518718246">&#x1F4DE; Chiama</a>
+        </div>
+        <div class="social-row">
+          <a href="https://www.instagram.com/zoobarber_/" target="_blank" rel="noopener" aria-label="Instagram di Zoo Barber">&#x1F4F8; Instagram</a>
+          <a href="https://www.facebook.com/zoobarbersettimo" target="_blank" rel="noopener" aria-label="Facebook di Zoo Barber">&#x1F44D; Facebook</a>
+        </div>
+      </div>
+      <div class="cont-box reveal d1">
+        <h3><span aria-hidden="true">&#x1F552;</span> Orari</h3>
+        <div class="riga"><span>Luned&igrave;</span><span class="chiuso">Chiuso</span></div>
+        <div class="riga"><span>Marted&igrave; &ndash; Venerd&igrave;</span><span>9:00&ndash;12:00 / 14:30&ndash;19:00</span></div>
+        <div class="riga"><span>Sabato</span><span>9:00&ndash;18:00</span></div>
+        <div class="riga"><span>Domenica</span><span class="chiuso">Chiuso</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="f-brand">Zoo Barber</p>
+  <p>Via Giovanni Schiaparelli 1, 10036 Settimo Torinese (TO) &middot; <a href="tel:+393518718246">351 8718246</a></p>
+  <p>&copy; <span id="anno"></span> Zoo Barber &mdash; Stefano Piastra &amp; Cristian Romeni</p>
+</footer>
+
+<script>
+  // Anno corrente nel footer
+  document.getElementById('anno').textContent = new Date().getFullYear();
+
+  // Menu mobile
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  burger.addEventListener('click', function () {
+    var aperto = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', aperto ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Marquee: duplica il contenuto per lo scorrimento infinito
+  var track = document.getElementById('marquee-track');
+  track.innerHTML += track.innerHTML;
+
+  // Reveal allo scroll
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+</script>
+</body>
+</html>
