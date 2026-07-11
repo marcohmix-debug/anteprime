@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair Salon by Noemi — Parrucchiere a Settimo Torinese | Hair stylist dal 2010</title>
+<meta name="description" content="Hair Salon by Noemi: taglio, colore, piega e styling donna a Settimo Torinese. Hair stylist dal 2010, in via Torino 9. Chiama lo 011 6983784 per prenotare.">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bordeaux:#722f4b;
+  --bordeaux-dark:#5a2039;
+  --bordeaux-soft:#f6eef2;
+  --grigio:#4d4d55;
+  --grigio-chiaro:#8b8b93;
+  --bianco:#ffffff;
+  --panna:#faf8f9;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--grigio);
+  background:var(--bianco);
+  line-height:1.6;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--bordeaux);text-decoration:none}
+h1,h2,h3{font-family:var(--serif);color:var(--grigio);font-weight:600;line-height:1.15}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}
+.reveal.d2{transition-delay:.24s}
+.reveal.d3{transition-delay:.36s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-in{animation:none!important;opacity:1!important;transform:none!important}
+}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(114,47,75,.08);
+  transition:box-shadow .3s ease;
+}
+header.scrolled{box-shadow:0 2px 20px rgba(77,77,85,.08)}
+.nav-wrap{
+  max-width:1100px;margin:0 auto;padding:.6rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:.6rem}
+.brand img{height:46px;width:46px;object-fit:cover;border-radius:50%;border:1px solid rgba(114,47,75,.15)}
+.brand span{
+  font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--bordeaux);
+  letter-spacing:.02em;white-space:nowrap;
+}
+nav ul{display:none;list-style:none;gap:1.8rem}
+nav a{
+  color:var(--grigio);font-size:.85rem;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:.3rem 0;position:relative;
+}
+nav a::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;
+  background:var(--bordeaux);transition:width .3s ease;
+}
+nav a:hover::after{width:100%}
+.nav-cta{
+  display:inline-block;background:var(--bordeaux);color:#fff!important;
+  padding:.5rem 1.1rem;border-radius:999px;font-size:.8rem;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  transition:background .3s ease,transform .2s ease;
+  white-space:nowrap;
+}
+.nav-cta:hover{background:var(--bordeaux-dark);transform:translateY(-1px)}
+.nav-cta::after{display:none}
+@media (min-width:820px){
+  nav ul{display:flex}
+  .brand img{height:52px;width:52px}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:7rem 1.5rem 4rem;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, var(--bordeaux-soft) 0%, transparent 65%),
+    var(--bianco);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(114,47,75,.07) 1px, transparent 1px);
+  background-size:26px 26px;
+  mask-image:linear-gradient(to bottom, black 0%, transparent 75%);
+  -webkit-mask-image:linear-gradient(to bottom, black 0%, transparent 75%);
+}
+.hero-in{opacity:0;transform:translateY(24px);animation:heroUp .9s ease forwards}
+.hero .eyebrow{animation-delay:.1s}
+.hero h1{animation-delay:.25s}
+.hero .sub{animation-delay:.4s}
+.hero .cta-row{animation-delay:.55s}
+.hero .scroll-hint{animation-delay:.9s}
+@keyframes heroUp{to{opacity:1;transform:none}}
+.hero img.hero-logo{
+  width:min(240px,60vw);margin:0 auto 2rem;
+  opacity:0;animation:heroUp 1s ease forwards;
+  border-radius:8px;
+}
+.eyebrow{
+  font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--bordeaux);font-weight:500;margin-bottom:1.1rem;
+}
+.hero h1{
+  font-size:clamp(2.5rem,9vw,4.6rem);
+  color:var(--grigio);max-width:14ch;margin:0 auto .4rem;
+}
+.hero h1 em{font-style:italic;color:var(--bordeaux)}
+.hero .sub{
+  font-size:clamp(1rem,2.6vw,1.2rem);color:var(--grigio-chiaro);
+  max-width:32ch;margin:1rem auto 2.2rem;
+}
+.cta-row{display:flex;flex-direction:column;gap:.8rem;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;justify-content:center;
+  padding:.95rem 2.2rem;border-radius:999px;
+  font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.btn-primary{
+  background:var(--bordeaux);color:#fff;
+  box-shadow:0 8px 24px rgba(114,47,75,.28);
+}
+.btn-primary:hover{background:var(--bordeaux-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(114,47,75,.35)}
+.btn-ghost{
+  border:1.5px solid rgba(114,47,75,.35);color:var(--bordeaux);background:transparent;
+}
+.btn-ghost:hover{background:var(--bordeaux-soft);transform:translateY(-2px)}
+@media (min-width:560px){.cta-row{flex-direction:row}}
+.scroll-hint{
+  position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);
+  color:var(--grigio-chiaro);font-size:1.4rem;line-height:1;
+}
+.scroll-hint span{display:inline-block;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+/* ---------- Sections ---------- */
+section{padding:4.5rem 1.5rem}
+.wrap{max-width:1100px;margin:0 auto}
+.sec-label{
+  font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--bordeaux);font-weight:500;margin-bottom:.7rem;
+}
+.sec-title{font-size:clamp(1.9rem,5.5vw,2.8rem);margin-bottom:1.2rem}
+.sec-title em{font-style:italic;color:var(--bordeaux)}
+
+/* ---------- Chi è Noemi ---------- */
+#storia{background:var(--panna)}
+.storia-grid{display:grid;gap:2.5rem;align-items:center}
+.storia-txt p{margin-bottom:1rem;max-width:58ch}
+.storia-txt strong{font-weight:500;color:var(--grigio)}
+.storia-visual{
+  position:relative;border-radius:18px;overflow:hidden;
+  background:linear-gradient(150deg,var(--bordeaux) 0%,var(--bordeaux-dark) 100%);
+  color:#fff;padding:2.4rem 2rem;
+  box-shadow:0 20px 50px rgba(114,47,75,.25);
+}
+.storia-visual::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background-image:radial-gradient(rgba(255,255,255,.18) 1px, transparent 1px);
+  background-size:22px 22px;
+}
+.storia-visual .big{
+  font-family:var(--serif);font-size:clamp(3rem,10vw,4.5rem);
+  font-weight:700;line-height:1;
+}
+.storia-visual .cap{
+  font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;
+  opacity:.85;margin-top:.4rem;
+}
+.storia-visual hr{border:none;border-top:1px solid rgba(255,255,255,.25);margin:1.4rem 0}
+.storia-visual p{font-style:italic;font-family:var(--serif);font-size:1.25rem;line-height:1.4}
+@media (min-width:820px){
+  .storia-grid{grid-template-columns:1.2fr .8fr;gap:4rem}
+}
+
+/* ---------- Servizi ---------- */
+.serv-grid{display:grid;gap:1.2rem;margin-top:2.2rem}
+.card{
+  background:var(--bianco);border:1px solid rgba(114,47,75,.1);
+  border-radius:16px;padding:1.8rem 1.5rem;
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 36px rgba(77,77,85,.12);
+  border-color:rgba(114,47,75,.3);
+}
+.card .icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--bordeaux-soft);color:var(--bordeaux);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.1rem;
+}
+.card .icon svg{width:26px;height:26px}
+.card h3{font-size:1.45rem;margin-bottom:.5rem}
+.card p{font-size:.95rem;color:var(--grigio-chiaro)}
+@media (min-width:640px){.serv-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.serv-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* ---------- Perché sceglierci ---------- */
+#perche{background:var(--panna)}
+.why-grid{display:grid;gap:1.6rem;margin-top:2.2rem}
+.why{
+  display:flex;gap:1.1rem;align-items:flex-start;
+  background:var(--bianco);border-radius:14px;padding:1.4rem 1.3rem;
+  border-left:3px solid var(--bordeaux);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.why:hover{transform:translateX(4px);box-shadow:0 10px 26px rgba(77,77,85,.1)}
+.why .num{
+  font-family:var(--serif);font-size:1.9rem;font-weight:700;
+  color:var(--bordeaux);line-height:1;min-width:2ch;
+}
+.why h3{font-size:1.25rem;margin-bottom:.25rem}
+.why p{font-size:.93rem;color:var(--grigio-chiaro)}
+@media (min-width:820px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Contatti ---------- */
+.cont-grid{display:grid;gap:2.5rem;margin-top:2.2rem}
+.cont-list{display:flex;flex-direction:column;gap:1.2rem}
+.cont-item{display:flex;gap:1rem;align-items:flex-start}
+.cont-item .icon{
+  width:44px;height:44px;flex:none;border-radius:12px;
+  background:var(--bordeaux-soft);color:var(--bordeaux);
+  display:flex;align-items:center;justify-content:center;
+}
+.cont-item .icon svg{width:22px;height:22px}
+.cont-item h3{font-size:1.15rem;margin-bottom:.15rem}
+.cont-item p,.cont-item a{font-size:.97rem}
+.cont-item a{font-weight:400}
+.cont-item a:hover{text-decoration:underline}
+.cont-card{
+  border-radius:18px;padding:2.2rem 1.8rem;
+  background:linear-gradient(150deg,var(--bordeaux) 0%,var(--bordeaux-dark) 100%);
+  color:#fff;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;
+  box-shadow:0 20px 50px rgba(114,47,75,.25);
+}
+.cont-card h3{font-family:var(--serif);color:#fff;font-size:1.7rem}
+.cont-card p{opacity:.9;font-size:.95rem}
+.cont-card .btn{background:#fff;color:var(--bordeaux);box-shadow:none}
+.cont-card .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.social-row{display:flex;gap:.8rem;margin-top:.2rem}
+.social-row a{
+  width:44px;height:44px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.4);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s ease,transform .2s ease;
+}
+.social-row a:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.social-row svg{width:20px;height:20px}
+@media (min-width:820px){.cont-grid{grid-template-columns:1.1fr .9fr;gap:3rem}}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--grigio);color:rgba(255,255,255,.75);
+  padding:2.5rem 1.5rem;text-align:center;font-size:.85rem;
+}
+footer .flogo{
+  font-family:var(--serif);font-size:1.25rem;color:#fff;
+  display:block;margin-bottom:.6rem;
+}
+footer a{color:#fff;font-weight:400}
+footer a:hover{text-decoration:underline}
+footer .fine{margin-top:1rem;opacity:.6}
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="#home" aria-label="Hair Salon by Noemi — torna all'inizio">
+      <img src="logo.jpg" alt="Logo Hair Salon by Noemi" width="52" height="52">
+      <span>Hair Salon <em style="font-style:italic;font-weight:400;color:var(--grigio)">by Noemi</em></span>
+    </a>
+    <nav aria-label="Navigazione principale">
+      <ul>
+        <li><a href="#storia">Noemi</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="tel:+390116983784">☎ Prenota</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <img class="hero-logo" src="logo.jpg" alt="Hair Salon by Noemi — logotipo con forbice stilizzata">
+  <p class="eyebrow hero-in">Settimo Torinese · Via Torino 9</p>
+  <h1 class="hero-in">Le tue mani nei capelli <em>giusti</em></h1>
+  <p class="sub hero-in">Taglio, colore e styling su misura, in un salone piccolo e personale. Hair stylist dal 2010.</p>
+  <div class="cta-row hero-in">
+    <a class="btn btn-primary" href="tel:+390116983784">Chiama ora</a>
+    <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+  </div>
+  <a class="scroll-hint hero-in" href="#storia" aria-label="Scorri alla sezione successiva"><span>↓</span></a>
+</section>
+
+<!-- CHI È NOEMI -->
+<section id="storia">
+  <div class="wrap storia-grid">
+    <div class="storia-txt">
+      <p class="sec-label reveal">La storia</p>
+      <h2 class="sec-title reveal">Un salone che porta <em>il suo nome</em></h2>
+      <p class="reveal d1">Dietro ogni "by Noemi" c'è una promessa: quando ti siedi sulla poltrona, non sei una cliente qualunque. <strong>Noemi</strong> è hair stylist dal 2010 e ha scelto di restare una realtà piccola e personale, dove ogni appuntamento ha il tempo che merita.</p>
+      <p class="reveal d2">Nel salone di <strong>via Torino 9, a Settimo Torinese</strong>, prima delle forbici arriva sempre l'ascolto: il tuo viso, le tue abitudini, quanto tempo dedichi davvero ai capelli la mattina. Da lì nasce un taglio o un colore che funziona nella vita vera, non solo appena uscita dal salone.</p>
+      <p class="reveal d3">È il posto dove torni perché ti fidi — e perché uscire con i capelli a posto cambia la giornata.</p>
+    </div>
+    <div class="storia-visual reveal d2" aria-hidden="true">
+      <div class="big">2010</div>
+      <div class="cap">Hair stylist da allora</div>
+      <hr>
+      <p>«Ogni testa è diversa. Il mio lavoro è trovare la versione più bella della tua.»</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section id="servizi">
+  <div class="wrap">
+    <p class="sec-label reveal">I servizi</p>
+    <h2 class="sec-title reveal">Cosa facciamo <em>bene</em></h2>
+    <p class="reveal" style="max-width:56ch;color:var(--grigio-chiaro)">Servizi dedicati alla donna, curati dalla consulenza al tocco finale.</p>
+    <div class="serv-grid">
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+        </div>
+        <h3>Taglio</h3>
+        <p>Studiato sul tuo viso e sul tuo stile di vita: bello appena fatto, facile da portare ogni giorno.</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7c3 4 6 7.3 6 11a6 6 0 0 1-12 0c0-3.7 3-7 6-11z"/></svg>
+        </div>
+        <h3>Colore</h3>
+        <p>Dal ritocco della ricrescita alle schiariture: nuance che valorizzano l'incarnato e durano nel tempo.</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c2-1 4-4 4-8 0 0 3 1 3 5 0-2 2-3 2-3s2 2 2 5c1.5-.5 2-2 2-2s2 3 2 6a7.5 7.5 0 0 1-15 0c0-1 0-2 0-3z"/></svg>
+        </div>
+        <h3>Piega</h3>
+        <p>Liscia, mossa o voluminosa: la piega giusta per la giornata giusta, che regge fino a sera.</p>
+      </article>
+      <article class="card reveal d3">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>
+        </div>
+        <h3>Styling</h3>
+        <p>Per un evento, una cerimonia o semplicemente per te: acconciature e finish curati nel dettaglio.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PERCHÉ SCEGLIERCI -->
+<section id="perche">
+  <div class="wrap">
+    <p class="sec-label reveal">Perché sceglierci</p>
+    <h2 class="sec-title reveal">Quattro buone <em>ragioni</em></h2>
+    <div class="why-grid">
+      <div class="why reveal">
+        <div class="num" aria-hidden="true">1</div>
+        <div>
+          <h3>Esperienza dal 2010</h3>
+          <p>Più di quindici anni di teste, tendenze e tecniche: le mode passano, la mano resta.</p>
+        </div>
+      </div>
+      <div class="why reveal d1">
+        <div class="num" aria-hidden="true">2</div>
+        <div>
+          <h3>Sempre la stessa persona</h3>
+          <p>Niente staff che cambia a ogni visita: è Noemi che conosce i tuoi capelli e la loro storia.</p>
+        </div>
+      </div>
+      <div class="why reveal d2">
+        <div class="num" aria-hidden="true">3</div>
+        <div>
+          <h3>Consulenza vera</h3>
+          <p>Prima di toccare le forbici si parla: cosa desideri, cosa è realizzabile e come mantenerlo a casa.</p>
+        </div>
+      </div>
+      <div class="why reveal d3">
+        <div class="num" aria-hidden="true">4</div>
+        <div>
+          <h3>Prenotare è facile</h3>
+          <p>Una telefonata o un messaggio sui social e il tuo posto è riservato, anche tramite Fresha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section id="contatti">
+  <div class="wrap">
+    <p class="sec-label reveal">Contatti</p>
+    <h2 class="sec-title reveal">Vieni a <em>trovarci</em></h2>
+    <div class="cont-grid">
+      <div class="cont-list">
+        <div class="cont-item reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"/></svg>
+          </div>
+          <div>
+            <h3>Telefono</h3>
+            <a href="tel:+390116983784">011 6983784</a>
+          </div>
+        </div>
+        <div class="cont-item reveal d1">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h3>Indirizzo</h3>
+            <p>Via Torino 9, 10036 Settimo Torinese (TO)<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hair+Salon+by+Noemi+Via+Torino+9+Settimo+Torinese" target="_blank" rel="noopener">Apri in Google Maps ↗</a></p>
+          </div>
+        </div>
+        <div class="cont-item reveal d2">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+          </div>
+          <div>
+            <h3>Orari</h3>
+            <p>Su appuntamento — chiama o scrivici sui social per trovare il tuo momento.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cont-card reveal d2">
+        <h3>Prenota il tuo appuntamento</h3>
+        <p>Un taglio nuovo, un colore da ravvivare o una piega per l'occasione speciale: bastano due minuti per riservare la tua poltrona.</p>
+        <a class="btn" href="tel:+390116983784">☎ 011 6983784</a>
+        <div class="social-row">
+          <a href="https://www.instagram.com/hairsalon_noemi/" target="_blank" rel="noopener" aria-label="Instagram di Hair Salon by Noemi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/p/Hair-Salon-By-Noemi-100057502477391/" target="_blank" rel="noopener" aria-label="Facebook di Hair Salon by Noemi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.8-3.5h-3.3V7a1 1 0 0 1 1-1H16z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="flogo">Hair Salon <em>by Noemi</em></span>
+  <p>Via Torino 9, 10036 Settimo Torinese (TO) · <a href="tel:+390116983784">011 6983784</a></p>
+  <p class="fine">© <span id="anno">2026</span> Hair Salon by Noemi — Hair stylist dal 2010</p>
+</footer>
+
+<script>
+document.getElementById('anno').textContent = new Date().getFullYear();
+
+// Ombra header allo scroll
+const topbar = document.getElementById('topbar');
+addEventListener('scroll', () => {
+  topbar.classList.toggle('scrolled', scrollY > 10);
+}, {passive:true});
+
+// Reveal allo scroll
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  }
+}, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
