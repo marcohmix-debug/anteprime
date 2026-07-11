@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stilelibero Parrucchieri — Salone specializzato in Degradé a Settimo Torinese</title>
+<meta name="description" content="Stilelibero Parrucchieri di Giuseppina Agueci a Settimo Torinese: taglio e piega donna, colore, styling e la tecnica del degradé. Prenota al 011 3323852.">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nero:#0c0b09;
+    --nero-soft:#171511;
+    --oro:#c8b491;
+    --oro-chiaro:#e4d9c0;
+    --oro-scuro:#a8926b;
+    --avorio:#faf7f0;
+    --avorio-scuro:#f1ebde;
+    --testo:#2b2620;
+    --testo-soft:#6b6252;
+    --transizione:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--avorio);
+    color:var(--testo);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+
+  .container{width:min(1100px,92%);margin-inline:auto}
+
+  h1,h2,h3{font-weight:600;line-height:1.15}
+  .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--oro-scuro);
+    font-weight:600;
+    margin-bottom:1rem;
+  }
+  .titolo{
+    font-size:clamp(1.9rem,5.5vw,2.8rem);
+    letter-spacing:.02em;
+    margin-bottom:1.2rem;
+  }
+  .titolo em{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:500;
+    color:var(--oro-scuro);
+    font-size:1.15em;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--transizione),transform .8s var(--transizione)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.12s}
+  .reveal.d2{transition-delay:.24s}
+  .reveal.d3{transition-delay:.36s}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(12,11,9,.92);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(200,180,145,.18);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.65rem 0;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand img{width:46px;height:46px;border-radius:50%;border:1px solid rgba(200,180,145,.4)}
+  .brand span{
+    color:var(--oro-chiaro);
+    font-size:.82rem;font-weight:600;
+    letter-spacing:.22em;text-transform:uppercase;
+  }
+  .menu{display:flex;gap:1.8rem}
+  .menu a{
+    color:#d8cfbc;font-size:.78rem;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;
+    padding:.4rem 0;position:relative;
+    transition:color .3s;
+  }
+  .menu a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--oro);transition:width .35s var(--transizione);
+  }
+  .menu a:hover{color:var(--oro)}
+  .menu a:hover::after{width:100%}
+  .hamburger{
+    display:none;background:none;border:none;cursor:pointer;
+    width:44px;height:44px;padding:10px;
+  }
+  .hamburger span{
+    display:block;height:2px;background:var(--oro-chiaro);margin:5px 0;
+    transition:transform .35s var(--transizione),opacity .3s;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  @media (max-width:760px){
+    .hamburger{display:block}
+    .menu{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;
+      background:rgba(12,11,9,.98);
+      border-bottom:1px solid rgba(200,180,145,.18);
+      max-height:0;overflow:hidden;
+      transition:max-height .45s var(--transizione);
+    }
+    .menu.open{max-height:340px}
+    .menu a{padding:1rem 4%;border-top:1px solid rgba(200,180,145,.08)}
+    .menu a::after{display:none}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% -10%,rgba(200,180,145,.16),transparent 60%),
+      radial-gradient(ellipse 60% 45% at 85% 105%,rgba(200,180,145,.10),transparent 65%),
+      var(--nero);
+    color:var(--avorio);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:7.5rem 6% 5rem;
+    position:relative;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(200,180,145,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(200,180,145,.045) 1px,transparent 1px);
+    background-size:72px 72px;
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 75%);
+  }
+  .hero>*{position:relative}
+  .hero-logo{
+    width:clamp(120px,28vw,168px);height:auto;border-radius:50%;
+    border:1px solid rgba(200,180,145,.35);
+    box-shadow:0 0 60px rgba(200,180,145,.22);
+    animation:heroIn 1s var(--transizione) both;
+  }
+  .hero-kicker{
+    margin-top:2rem;
+    font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;
+    color:var(--oro);font-weight:500;
+    animation:heroIn 1s .25s var(--transizione) both;
+  }
+  .hero h1{
+    margin-top:1rem;
+    font-size:clamp(2.4rem,8vw,4.6rem);
+    font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    animation:heroIn 1s .4s var(--transizione) both;
+  }
+  .hero h1 .thin{font-weight:300;color:var(--oro-chiaro)}
+  .hero-sub{
+    margin-top:1.2rem;max-width:34rem;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.25rem,4vw,1.6rem);font-style:italic;
+    color:#cfc6b2;
+    animation:heroIn 1s .55s var(--transizione) both;
+  }
+  .hero-cta{
+    margin-top:2.6rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+    animation:heroIn 1s .7s var(--transizione) both;
+  }
+  .btn{
+    display:inline-block;
+    padding:.95rem 2.1rem;
+    font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    border-radius:2px;
+    transition:transform .3s var(--transizione),box-shadow .3s,background .3s,color .3s;
+  }
+  .btn-oro{
+    background:linear-gradient(135deg,var(--oro-chiaro),var(--oro));
+    color:var(--nero);
+  }
+  .btn-oro:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(200,180,145,.35)}
+  .btn-ghost{
+    border:1px solid rgba(200,180,145,.5);color:var(--oro-chiaro);
+  }
+  .btn-ghost:hover{background:rgba(200,180,145,.12);transform:translateY(-3px)}
+  .hero-scroll{
+    position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);
+    color:rgba(200,180,145,.6);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;
+    animation:heroIn 1s 1.1s var(--transizione) both;
+  }
+  .hero-scroll::after{
+    content:"";display:block;width:1px;height:34px;margin:.6rem auto 0;
+    background:linear-gradient(var(--oro),transparent);
+    animation:scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes heroIn{
+    from{opacity:0;transform:translateY(26px)}
+    to{opacity:1;transform:none}
+  }
+  @keyframes scrollPulse{
+    0%,100%{opacity:.3;transform:scaleY(.7)}
+    50%{opacity:1;transform:scaleY(1)}
+  }
+
+  /* ---------- Sezioni ---------- */
+  section{padding:5.5rem 0}
+  @media (min-width:761px){section{padding:7rem 0}}
+
+  /* Chi siamo */
+  .chi-grid{display:grid;gap:2.8rem;align-items:center}
+  @media (min-width:820px){.chi-grid{grid-template-columns:1fr 1.15fr;gap:4.5rem}}
+  .ritratto{
+    aspect-ratio:4/5;border-radius:2px;position:relative;
+    background:
+      radial-gradient(circle at 30% 25%,rgba(200,180,145,.5),transparent 55%),
+      radial-gradient(circle at 75% 80%,rgba(168,146,107,.45),transparent 50%),
+      linear-gradient(160deg,#1c1913,#0c0b09);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .ritratto::before{
+    content:"";position:absolute;inset:14px;border:1px solid rgba(200,180,145,.35);
+    border-radius:2px;
+  }
+  .ritratto svg{width:52%;height:auto;opacity:.9}
+  .firma{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:1.5rem;color:var(--oro-scuro);margin-top:1.6rem;
+  }
+  .chi-testo p{margin-bottom:1.1rem;color:var(--testo-soft)}
+  .chi-testo p strong{color:var(--testo);font-weight:600}
+
+  /* Servizi */
+  .servizi{background:var(--avorio-scuro)}
+  .servizi-head{text-align:center;max-width:38rem;margin:0 auto 3.2rem}
+  .cards{display:grid;gap:1.4rem}
+  @media (min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:1000px){.cards{grid-template-columns:repeat(4,1fr)}}
+  .card{
+    background:var(--avorio);
+    border:1px solid rgba(168,146,107,.22);
+    border-radius:3px;
+    padding:2.2rem 1.6rem;
+    text-align:center;
+    transition:transform .4s var(--transizione),box-shadow .4s,border-color .4s;
+  }
+  .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 22px 45px rgba(43,38,32,.12);
+    border-color:var(--oro);
+  }
+  .card .icona{
+    width:58px;height:58px;margin:0 auto 1.3rem;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,rgba(200,180,145,.25),rgba(200,180,145,.08));
+    border:1px solid rgba(168,146,107,.35);
+    transition:transform .4s var(--transizione);
+  }
+  .card:hover .icona{transform:rotate(-8deg) scale(1.08)}
+  .card .icona svg{width:26px;height:26px;stroke:var(--oro-scuro)}
+  .card h3{font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem}
+  .card p{font-size:.88rem;color:var(--testo-soft)}
+  .card.star{position:relative;overflow:hidden}
+  .card.star::after{
+    content:"Specialità";
+    position:absolute;top:14px;right:-32px;
+    background:var(--nero);color:var(--oro-chiaro);
+    font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+    padding:.28rem 2.4rem;transform:rotate(38deg);
+  }
+
+  /* Degradé */
+  .degrade{
+    background:
+      radial-gradient(ellipse 70% 80% at 15% 20%,rgba(200,180,145,.14),transparent 60%),
+      var(--nero);
+    color:var(--avorio);
+  }
+  .degrade-grid{display:grid;gap:3rem;align-items:center}
+  @media (min-width:860px){.degrade-grid{grid-template-columns:1.1fr 1fr;gap:5rem}}
+  .degrade .titolo{color:var(--avorio)}
+  .degrade p{color:#b6ad99;margin-bottom:1.1rem}
+  .degrade p strong{color:var(--oro-chiaro);font-weight:600}
+  .sfumatura{
+    height:100%;min-height:300px;border-radius:3px;position:relative;overflow:hidden;
+    background:linear-gradient(115deg,#0c0b09 0%,#3a2f1f 30%,#7a6544 55%,#c8b491 80%,#e9dfc8 100%);
+    border:1px solid rgba(200,180,145,.3);
+  }
+  .sfumatura::before{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(12,11,9,.15) 22px 23px);
+  }
+  .sfumatura span{
+    position:absolute;bottom:1.2rem;left:1.4rem;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:1.25rem;color:var(--nero);
+  }
+  .degrade-punti{margin-top:1.6rem;display:grid;gap:.9rem}
+  .degrade-punti li{
+    display:flex;gap:.85rem;align-items:baseline;
+    font-size:.92rem;color:#cfc6b2;
+  }
+  .degrade-punti li::before{
+    content:"—";color:var(--oro);flex-shrink:0;
+  }
+
+  /* Perché noi */
+  .motivi{counter-reset:motivo}
+  .motivi-grid{display:grid;gap:2.2rem;margin-top:3rem}
+  @media (min-width:640px){.motivi-grid{grid-template-columns:repeat(2,1fr);gap:2.8rem 3.5rem}}
+  .motivo{counter-increment:motivo;display:flex;gap:1.4rem}
+  .motivo .num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:2.6rem;line-height:1;color:var(--oro);
+    flex-shrink:0;width:3rem;
+  }
+  .motivo .num::before{content:counter(motivo,decimal-leading-zero)}
+  .motivo h3{font-size:1rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.55rem}
+  .motivo p{font-size:.92rem;color:var(--testo-soft)}
+
+  /* Contatti */
+  .contatti{
+    background:
+      radial-gradient(ellipse 80% 70% at 85% 10%,rgba(200,180,145,.13),transparent 60%),
+      var(--nero-soft);
+    color:var(--avorio);
+  }
+  .contatti .titolo{color:var(--avorio)}
+  .contatti-grid{display:grid;gap:3rem}
+  @media (min-width:860px){.contatti-grid{grid-template-columns:1fr 1fr;gap:5rem}}
+  .contatti-lista{display:grid;gap:1.6rem;margin-top:2rem}
+  .contatto{display:flex;gap:1.1rem;align-items:flex-start}
+  .contatto .c-icona{
+    width:46px;height:46px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;border:1px solid rgba(200,180,145,.4);
+    background:rgba(200,180,145,.08);
+  }
+  .contatto .c-icona svg{width:20px;height:20px;stroke:var(--oro)}
+  .contatto h3{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--oro);margin-bottom:.25rem}
+  .contatto p,.contatto a{font-size:1rem;color:#e6dfd0}
+  .contatto a{border-bottom:1px solid rgba(200,180,145,.35);transition:color .3s,border-color .3s}
+  .contatto a:hover{color:var(--oro);border-color:var(--oro)}
+  .prenota-box{
+    background:rgba(200,180,145,.07);
+    border:1px solid rgba(200,180,145,.28);
+    border-radius:3px;
+    padding:2.6rem 2rem;
+    text-align:center;
+    align-self:center;
+  }
+  .prenota-box .grande{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(1.6rem,5vw,2.1rem);color:var(--oro-chiaro);
+    margin-bottom:.8rem;line-height:1.3;
+  }
+  .prenota-box p{color:#b6ad99;font-size:.92rem;margin-bottom:1.8rem}
+  .tel-grande{
+    display:block;margin-top:1rem;
+    font-size:clamp(1.4rem,6vw,1.9rem);font-weight:600;letter-spacing:.08em;
+    color:var(--avorio);transition:color .3s;
+  }
+  .tel-grande:hover{color:var(--oro)}
+
+  /* Footer */
+  footer{
+    background:var(--nero);color:#8d8471;
+    padding:2.6rem 0;text-align:center;
+    border-top:1px solid rgba(200,180,145,.15);
+  }
+  footer .f-brand{
+    display:flex;align-items:center;justify-content:center;gap:.7rem;margin-bottom:1rem;
+  }
+  footer .f-brand img{width:38px;height:38px;border-radius:50%}
+  footer .f-brand span{
+    color:var(--oro-chiaro);font-size:.75rem;font-weight:600;
+    letter-spacing:.24em;text-transform:uppercase;
+  }
+  footer p{font-size:.8rem;line-height:1.9}
+  footer a{color:var(--oro);transition:color .3s}
+  footer a:hover{color:var(--oro-chiaro)}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav container" aria-label="Navigazione principale">
+    <a class="brand" href="#home" aria-label="Stilelibero Parrucchieri — torna all'inizio">
+      <img src="logo.jpg" alt="Logo Stilelibero Parrucchieri" width="46" height="46">
+      <span>Stilelibero</span>
+    </a>
+    <button class="hamburger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#chi-siamo">Il salone</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#degrade">Degradé</a></li>
+      <li><a href="#perche">Perché noi</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <img class="hero-logo" src="logo.jpg" alt="Stilelibero Parrucchieri — Hair Salon" width="168" height="168">
+  <p class="hero-kicker">Hair Salon · Settimo Torinese</p>
+  <h1>Stile<span class="thin">libero</span></h1>
+  <p class="hero-sub">Il colore che ti somiglia, la piega che ti libera.<br>Specialisti della tecnica degradé.</p>
+  <div class="hero-cta">
+    <a class="btn btn-oro" href="tel:0113323852">Prenota: 011&nbsp;3323852</a>
+    <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+  </div>
+  <span class="hero-scroll" aria-hidden="true">Scorri</span>
+</section>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo">
+  <div class="container chi-grid">
+    <div class="ritratto reveal" role="img" aria-label="Illustrazione stilizzata di forbici da parrucchiere">
+      <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="none" stroke="#c8b491" stroke-width="2" stroke-linecap="round">
+          <circle cx="32" cy="96" r="11"/>
+          <circle cx="68" cy="96" r="11"/>
+          <path d="M38 86 L62 22"/>
+          <path d="M62 86 L38 22"/>
+          <circle cx="50" cy="54" r="3.5" fill="#c8b491"/>
+          <path d="M38 22 Q36 12 40 6" opacity=".6"/>
+          <path d="M62 22 Q64 12 60 6" opacity=".6"/>
+        </g>
+      </svg>
+    </div>
+    <div class="chi-testo">
+      <span class="eyebrow reveal">Il salone</span>
+      <h2 class="titolo reveal">Un salone con <em>un'anima</em>, nel cuore di Settimo</h2>
+      <p class="reveal d1">Stilelibero è il salone di <strong>Giuseppina Agueci</strong>: uno spazio dove il mestiere del parrucchiere è prima di tutto ascolto. Ogni testa è diversa, ogni viso racconta una storia — e il taglio giusto è quello che la fa emergere.</p>
+      <p class="reveal d2">Qui non troverai formule uguali per tutte: <strong>studiamo insieme a te</strong> il colore, la forma e la piega che valorizzano i tuoi lineamenti e si adattano alla tua vita di tutti i giorni. Perché uno stile bello davvero è quello che riesci a portare con naturalezza, anche una settimana dopo.</p>
+      <p class="reveal d2">La nostra firma è il <strong>degradé</strong>: una tecnica di colore che regala sfumature luminose e naturali, rispettando la salute del capello.</p>
+      <p class="firma reveal d3">— Giuseppina Agueci</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="servizi" id="servizi">
+  <div class="container">
+    <div class="servizi-head">
+      <span class="eyebrow reveal">Servizi</span>
+      <h2 class="titolo reveal">Quello che facciamo <em>bene</em></h2>
+      <p class="reveal d1">Pochi servizi, curati fino all'ultimo dettaglio. Ogni appuntamento inizia con una consulenza per capire cosa desideri davvero.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="icona" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/>
+            <path d="M8.2 15.8 L17 3"/><path d="M15.8 15.8 L7 3"/>
+          </svg>
+        </div>
+        <h3>Taglio &amp; Piega</h3>
+        <p>Tagli donna studiati sui tuoi lineamenti e pieghe che durano, morbide o strutturate secondo il tuo stile.</p>
+      </div>
+      <div class="card star reveal d1">
+        <div class="icona" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 C8 8 5 11 5 15 a7 7 0 0 0 14 0 c0-4-3-7-7-12z"/>
+            <path d="M9 15 a3 3 0 0 0 3 3"/>
+          </svg>
+        </div>
+        <h3>Degradé</h3>
+        <p>La nostra specialità: sfumature di colore graduali e luminose, effetto naturale e ricrescita invisibile.</p>
+      </div>
+      <div class="card reveal d2">
+        <div class="icona" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 3 h6 l4 5 v13 H7 z"/><path d="M13 3 v5 h4"/>
+            <path d="M10 13 h4 M10 16 h4"/>
+          </svg>
+        </div>
+        <h3>Colore</h3>
+        <p>Colorazioni piene, riflessi e correzioni: nuance calibrate sul tuo incarnato, con prodotti che rispettano il capello.</p>
+      </div>
+      <div class="card reveal d3">
+        <div class="icona" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 l2.2 4.8 5 .6 -3.7 3.4 1 5 -4.5-2.6 -4.5 2.6 1-5 L4.8 8.4 l5-.6 z"/>
+          </svg>
+        </div>
+        <h3>Styling</h3>
+        <p>Acconciature e finish per le occasioni speciali o per il tocco in più di ogni giorno: raccolti, onde, volume.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEGRADÉ -->
+<section class="degrade" id="degrade">
+  <div class="container degrade-grid">
+    <div>
+      <span class="eyebrow reveal">La nostra firma</span>
+      <h2 class="titolo reveal">Degradé: il colore che <em>cresce bene</em></h2>
+      <p class="reveal d1">Il degradé non è una semplice colorazione: è una <strong>tecnica di schiaritura graduale</strong>, ciocca per ciocca, che ricrea i riflessi naturali del sole nei capelli.</p>
+      <p class="reveal d2">Il risultato? Un colore <strong>luminoso e tridimensionale</strong> che non stacca alla ricrescita: niente riga netta dopo un mese, solo una sfumatura che si evolve con eleganza. Meno ritocchi, capelli più sani.</p>
+      <ul class="degrade-punti reveal d2">
+        <li>Effetto naturale, come schiarito dal sole</li>
+        <li>Ricrescita invisibile: si allunga il tempo tra un ritocco e l'altro</li>
+        <li>Tecnica delicata che preserva la struttura del capello</li>
+        <li>Studiato su misura: incarnato, taglio e stile di vita</li>
+      </ul>
+      <div class="hero-cta reveal d3" style="justify-content:flex-start;margin-top:2.2rem">
+        <a class="btn btn-oro" href="tel:0113323852">Prenota una consulenza</a>
+      </div>
+    </div>
+    <div class="sfumatura reveal d1" role="img" aria-label="Sfumatura di colore dal castano scuro al biondo chiaro, come in un degradé">
+      <span>dal profondo alla luce</span>
+    </div>
+  </div>
+</section>
+
+<!-- PERCHÉ NOI -->
+<section id="perche">
+  <div class="container">
+    <span class="eyebrow reveal">Perché sceglierci</span>
+    <h2 class="titolo reveal">Quattro buoni motivi per <em>affidarti</em> a noi</h2>
+    <div class="motivi motivi-grid">
+      <div class="motivo reveal">
+        <span class="num" aria-hidden="true"></span>
+        <div>
+          <h3>Specialiste del degradé</h3>
+          <p>Non lo facciamo "anche": è la nostra tecnica di punta, perfezionata su centinaia di teste. Sappiamo esattamente come portare la luce dove serve.</p>
+        </div>
+      </div>
+      <div class="motivo reveal d1">
+        <span class="num" aria-hidden="true"></span>
+        <div>
+          <h3>Consulenza vera, non di fretta</h3>
+          <p>Prima delle forbici viene l'ascolto: valutiamo insieme viso, capello e abitudini per proporti solo ciò che ti sta davvero bene.</p>
+        </div>
+      </div>
+      <div class="motivo reveal d2">
+        <span class="num" aria-hidden="true"></span>
+        <div>
+          <h3>Cura del capello prima di tutto</h3>
+          <p>Tecniche delicate e prodotti scelti con criterio: il colore più bello è quello su un capello sano, e da noi la salute del capello non si negozia.</p>
+        </div>
+      </div>
+      <div class="motivo reveal d3">
+        <span class="num" aria-hidden="true"></span>
+        <div>
+          <h3>Il salone di fiducia a Settimo</h3>
+          <p>Siamo in via Don Luigi Paviolo 14, un punto di riferimento per chi a Settimo Torinese cerca qualità senza dover andare a Torino.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div class="container contatti-grid">
+    <div>
+      <span class="eyebrow reveal">Contatti</span>
+      <h2 class="titolo reveal">Vieni a <em>trovarci</em></h2>
+      <div class="contatti-lista">
+        <div class="contatto reveal d1">
+          <div class="c-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4 h4 l2 5 -2.5 1.5 a11 11 0 0 0 5 5 L15 13 l5 2 v4 a2 2 0 0 1 -2 2 A16 16 0 0 1 3 6 a2 2 0 0 1 2 -2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Telefono</h3>
+            <p><a href="tel:0113323852">011 3323852</a></p>
+          </div>
+        </div>
+        <div class="contatto reveal d1">
+          <div class="c-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7 l9 6 9-6"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <p><a href="mailto:stilelibero.hairsalon@gmail.com">stilelibero.hairsalon@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contatto reveal d2">
+          <div class="c-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21 C7 15.5 5 12.5 5 9.5 a7 7 0 0 1 14 0 c0 3-2 6-7 11.5z"/><circle cx="12" cy="9.5" r="2.5"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Indirizzo</h3>
+            <p>Via Don Luigi Paviolo 14,<br>10036 Settimo Torinese (TO)<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=Stilelibero+Parrucchieri+Via+Don+Luigi+Paviolo+14+Settimo+Torinese" target="_blank" rel="noopener">Apri in Google Maps ↗</a></p>
+          </div>
+        </div>
+        <div class="contatto reveal d3">
+          <div class="c-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3 h-2.5 A3.5 3.5 0 0 0 9 6.5 V9 H6.5 v3.5 H9 V21 h3.5 v-8.5 h2.8 l.7 -3.5 h-3.5 V7 a1 1 0 0 1 1 -1 H15 z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Seguici</h3>
+            <p><a href="https://www.facebook.com/stilelibero.parrucchieri.settimo.torinese/" target="_blank" rel="noopener">Facebook — Stilelibero Parrucchieri ↗</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="prenota-box reveal d2">
+      <p class="grande">Il tuo prossimo<br>colore ti aspetta.</p>
+      <p>Riceviamo su appuntamento: chiamaci per trovare l'orario perfetto per te, o scrivici su Facebook.</p>
+      <a class="btn btn-oro" href="tel:0113323852">Chiama ora</a>
+      <a class="tel-grande" href="tel:0113323852">011 3323852</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="f-brand">
+      <img src="logo.jpg" alt="" width="38" height="38" aria-hidden="true">
+      <span>Stilelibero Parrucchieri</span>
+    </div>
+    <p>
+      Via Don Luigi Paviolo 14, 10036 Settimo Torinese (TO) · <a href="tel:0113323852">011 3323852</a><br>
+      <a href="mailto:stilelibero.hairsalon@gmail.com">stilelibero.hairsalon@gmail.com</a> ·
+      <a href="https://www.facebook.com/stilelibero.parrucchieri.settimo.torinese/" target="_blank" rel="noopener">Facebook</a><br>
+      © <span id="anno"></span> Stilelibero Parrucchieri di Giuseppina Agueci — Tutti i diritti riservati
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Anno corrente nel footer
+  document.getElementById('anno').textContent = new Date().getFullYear();
+
+  // Menu mobile
+  const burger = document.querySelector('.hamburger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Reveal allo scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
