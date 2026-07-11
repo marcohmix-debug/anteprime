@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabio e Robi Hair's | Salone Parrucchiere Borgaro Torinese</title>
+    <meta name="description" content="Salone di parrucchieri a Borgaro Torinese. Taglio donna e uomo, colore e trattamenti. Premiati Top Rated 2025 su Treatwell con voto perfetto 5.0.">
+    
+    <!-- Fonts: Syne (Headlines) + Manrope (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET & BASE */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --color-bg: #0d0d1a;
+            --color-accent: #4ecdb4; /* Tiffany / Aqua */
+            --color-text: #f0f2f5;
+            --color-muted: #8b9bb4;
+            --color-surface: rgba(255, 255, 255, 0.03);
+            
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Manrope', sans-serif;
+            
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: opacity 0.3s ease; }
+        
+        /* UTILITIES */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px; /* Sharp corners */
+            transition: transform 0.3s var(--ease-out-expo), background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+        }
+
+        .btn-primary:hover {
+            background-color: #fff;
+            box-shadow: 0 0 25px rgba(78, 205, 180, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active { transform: scale(0.96); }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.5rem 0;
+            background: rgba(13, 13, 26, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(78, 205, 180, 0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-text span { color: var(--color-accent); }
+
+        nav ul {
+            display: none; /* Mobile first */
+            list-style: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            nav ul { display: flex; }
+            .logo-text { font-size: 1.8rem; }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        /* Background Gradient Blob */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; left: 50%;
+            transform: translateX(-50%);
+            width: 80vw; height: 80vw;
+            background: radial-gradient(circle, rgba(78,205,180,0.15) 0%, rgba(13,13,26,0) 70%);
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--color-muted);
+            margin-bottom: 3rem;
+            max-width: 60ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .badge-top-rated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(78, 205, 180, 0.1);
+            border: 1px solid rgba(78, 205, 180, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* SECTIONS GENERAL */
+        section { padding: 6rem 0; position: relative; }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .section-lead {
+            font-size: 1.1rem;
+            color: var(--color-muted);
+            margin-bottom: 4rem;
+            max-width: 50ch;
+        }
+
+        /* SERVICES - GRID LAYOUT */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--color-surface);
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .service-card p {
+            color: var(--color-muted);
+            font-size: 0.95rem;
+        }
+
+        /* WHY US - HORIZONTAL SCROLL/STACK */
+        .why-us-list {
+            display: grid;
+            gap: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .why-item {
+            display: flex;
+            align-items: baseline;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.3s ease;
+        }
+
+        .why-item:hover { background: rgba(255,255,255,0.02); }
+
+        .why-number {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            opacity: 0.5;
+        }
+
+        @media (min-width: 768px) {
+            .why-item { padding-left: 2rem; }
+        }
+
+        /* SOCIAL PROOF / STATS */
+        .stats-section {
+            background: linear-gradient(180deg, var(--color-bg) 0%, #131325 100%);
+            text-align: center;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(78, 205, 180, 0.3);
+        }
+
+        .stat-label {
+            color: var(--color-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+        }
+
+        /* CONTACT / FOOTER */
+        .contact-section {
+            padding-bottom: 4rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: #1a1a2e;
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-muted);
+        }
+
+        .map-placeholder {
+            text-align: center;
+        }
+        
+        .map-link {
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--color-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ANIMATIONS (Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            html { scroll-behavior: auto; }
+        }
+        
+        /* Mobile Nav Toggle */
+        .menu-toggle { display: block; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+        @media (min-width: 768px) { .menu-toggle { display: none; } }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo-text">
+                <!-- SVG Logo Placeholder based on description -->
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="50" fill="#4ecdb4"/>
+                    <path d="M30 80 V30 L70 80 V30" stroke="#0d0d1a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                F&R <span>Hair's</span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Apri menu">☰</button>
+
+            <nav>
+                <ul>
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#chi-siamo">Chi siamo</a></li>
+                    <li><a href="#contatti" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Prenota Ora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content reveal active">
+            <div class="badge-top-rated">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Top Rated 2025 su Treatwell
+            </div>
+            
+            <h1>L'arte di valorizzare<br>il tuo stile.</h1>
+            
+            <p class="hero-subtitle">
+                Da Fabio e Robi Hair's ogni visita è un'esperienza. Tagli, colori e trattamenti curati nei minimi dettagli a Borgaro Torinese.
+            </p>
+
+            <a href="https://www.treatwell.it/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Prenota Appuntamento</a>
+        </div>
+    </section>
+
+    <!-- Chi Siamo -->
+    <section id="chi-siamo">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Non solo un taglio.<br><span style="color: var(--color-accent); font-style: italic;">Un momento per te.</span></h2>
+                <p class="section-lead">
+                    Siamo Fabio e Robi. Il nostro salone in Via Pietro Micca è nato con una visione semplice: unire la precisione tecnica a un'atmosfera dove ti senti subito a casa. Niente fretta, solo risultati che parlano da soli.
+                </p>
+            </div>
+
+            <!-- Why Us -->
+            <div class="why-us-list reveal">
+                <div class="why-item">
+                    <span class="why-number">01</span>
+                    <div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Voto Perfetto 5.0</h3>
+                        <p style="color: var(--color-muted);">Premiati Top Rated con oltre 100 recensioni a cinque stelle. La nostra soddisfazione è la tua.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <span class="why-number">02</span>
+                    <div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Team Esperto</h3>
+                        <p style="color: var(--color-muted);">Punti di forza su taglio uomo e donna, colorimetria avanzata e trattamenti ristrutturanti.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <span class="why-number">03</span>
+                    <div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Atmosfera Accogliente</h3>
+                        <p style="color: var(--color-muted);">Un ambiente rilassante dove ascoltare le tue idee e trasformarle in realtà.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servizi -->
+    <section id="servizi" style="background: #10101c;">
+        <div class="container">
+            <h2 class="section-title reveal">I Nostri Servizi</h2>
+            
+            <div class="services-grid reveal">
+                <div class="service-card">
+                    <span class="service-icon">✂️</span>
+                    <h3>Taglio Donna & Uomo</h3>
+                    <p>Dal classico al moderno. Analisi del viso e consiglio personalizzato per esaltare i tuoi lineamenti.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h3>Colore & Balayage</h3>
+                    <p>Tecniche avanzate per biondezze luminose, riflessi naturali o trasformazioni audaci con prodotti professionali.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">✨</span>
+                    <h3>Trattamenti & Styling</h3>
+                    <p>Keratina, ricostruzioni e piega professionale per restituire luce e salute ai tuoi capelli.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;" class="reveal">
+                <a href="https://www.treatwell.it/" target="_blank" class="btn btn-primary">Vedi tutti i servizi su Treatwell</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Stats -->
+    <section class="stats-section">
+        <div class="container reveal">
+            <div class="stat-grid">
+                <div>
+                    <div class="stat-number">108+</div>
+                    <div class="stat-label">Recensioni Verificate</div>
+                </div>
+                <div>
+                    <div class="stat-number">5.0</div>
+                    <div class="stat-label">Voto Medio</div>
+                </div>
+                <div>
+                    <div class="stat-number">Top</div>
+                    <div class="stat-label">Rated 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti & Mappa -->
+    <section id="contatti" class="contact-section">
+        <div class="container reveal">
+            <h2 class="section-title">Vieni a trovarci</h2>
+            <p class="section-lead">Siamo in Via Pietro Micca, nel cuore di Borgaro Torinese.</p>
+
+            <div style="display: grid; gap: 2rem; margin-bottom: 3rem;">
+                <div>
+                    <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;">Indirizzo</h3>
+                    <p style="color: var(--color-muted);">Via Pietro Micca 3, 10071 Borgaro Torinese (TO)</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;">Social</h3>
+                    <a href="https://www.instagram.com/fabioeroby_hair/" target="_blank" style="color: var(--color-accent); font-weight: 600; border-bottom: 1px solid var(--color-accent);">@fabioeroby_hair</a>
+                </div>
+            </div>
+
+            <!-- Placeholder for Map -->
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <p style="margin-bottom: 1rem;">Mappa interattiva Google Maps</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Via+Pietro+Micca+3+Borgaro+Torinese" target="_blank" class="btn btn-primary">Apri su Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fabio e Robi Hair's. Tutti i diritti riservati.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Prenota online tramite <a href="https://www.treatwell.it/" target="_blank" style="text-decoration: underline;">Treatwell</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Intersection Observer for Reveal Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
