@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biobellezza — Spa per i tuoi capelli | Settimo Torinese</title>
+<meta name="description" content="Biobellezza è il salone-spa per capelli in Piazza Vittorio Veneto a Settimo Torinese: trattamenti bio, cura del cuoio capelluto, tagli, pieghe e colore. 5/5 su Google. Chiama il 375 6263781.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232e4b3a'/%3E%3Cpath d='M32 14c9 7 13 15 13 22 0 8-6 14-13 14s-13-6-13-14c0-7 4-15 13-22z' fill='%23e9e2d2'/%3E%3Cpath d='M32 20v26M32 30c-3-2-5-5-6-8M32 36c3-2 6-5 7-9' stroke='%232e4b3a' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#2e4b3a;
+  --verde-scuro:#22392c;
+  --salvia:#7f9c84;
+  --salvia-chiara:#c9d8c5;
+  --crema:#f7f4ec;
+  --crema-scura:#efe9db;
+  --sabbia:#c8a96e;
+  --inchiostro:#243128;
+  --testo:#41504494;
+  --bianco:#fdfcf9;
+  --radius:22px;
+  --shadow:0 18px 50px -18px rgba(34,57,44,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  font-weight:400;
+  color:var(--inchiostro);
+  background:var(--crema);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.15}
+img{max-width:100%}
+a{color:inherit}
+
+/* ---------- utility reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}
+.reveal.d2{transition-delay:.24s}
+.reveal.d3{transition-delay:.36s}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--salvia);
+}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--sabbia);border-radius:2px}
+
+.section-title{font-size:clamp(1.9rem,5.5vw,2.9rem);color:var(--verde-scuro);margin:.6rem 0 1rem}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  transition:background .35s,box-shadow .35s,padding .35s;
+  padding:1rem 0;
+}
+header.scrolled{
+  background:rgba(247,244,236,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 4px 24px rgba(34,57,44,.08);
+  padding:.55rem 0;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.brand svg{width:40px;height:40px;flex:none}
+.brand-name{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--verde-scuro);line-height:1.05}
+.brand-name small{display:block;font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--salvia);margin-top:.2rem}
+.nav-links{display:none;list-style:none;gap:1.9rem;align-items:center}
+.nav-links a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--inchiostro);position:relative;padding:.2rem 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--sabbia);border-radius:2px;transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--verde);color:var(--crema)!important;
+  padding:.55rem 1.25rem;border-radius:999px;font-weight:500;
+  transition:background .3s,transform .3s;
+}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--verde-scuro);transform:translateY(-2px)}
+
+/* burger */
+.burger{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:10px;border:0;background:transparent;cursor:pointer;z-index:120;
+}
+.burger span{display:block;height:2px;background:var(--verde-scuro);border-radius:2px;transition:transform .35s,opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;inset:0;z-index:110;
+  background:var(--verde-scuro);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.6rem;
+  opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;
+}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{
+  color:var(--crema);text-decoration:none;font-family:'Fraunces',serif;font-size:1.7rem;
+  opacity:0;transform:translateY(14px);transition:opacity .4s,transform .4s;
+}
+.mobile-menu.open a{opacity:1;transform:none}
+.mobile-menu.open a:nth-child(1){transition-delay:.08s}
+.mobile-menu.open a:nth-child(2){transition-delay:.14s}
+.mobile-menu.open a:nth-child(3){transition-delay:.2s}
+.mobile-menu.open a:nth-child(4){transition-delay:.26s}
+.mobile-menu.open a:nth-child(5){transition-delay:.32s}
+.mobile-menu .menu-tel{font-family:'Jost',sans-serif;font-size:1rem;letter-spacing:.12em;color:var(--salvia-chiara);margin-top:1rem}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:center;
+  background:
+    radial-gradient(58% 44% at 82% 12%, rgba(200,169,110,.16), transparent 70%),
+    radial-gradient(70% 60% at 12% 88%, rgba(127,156,132,.22), transparent 70%),
+    linear-gradient(168deg,#f7f4ec 0%,#eef0e4 55%,#e3ead9 100%);
+  overflow:hidden;
+  padding:7.5rem 0 4.5rem;
+}
+.hero-leaf{position:absolute;pointer-events:none;opacity:.5}
+.hero-leaf.l1{top:12%;right:-46px;width:230px;animation:float 9s ease-in-out infinite}
+.hero-leaf.l2{bottom:6%;left:-60px;width:280px;animation:float 11s ease-in-out 1.4s infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(3deg)}}
+
+.hero-inner{position:relative;z-index:2;max-width:640px}
+.hero .eyebrow{animation:heroIn .9s .1s cubic-bezier(.22,.61,.36,1) both}
+.hero h1{
+  font-size:clamp(2.6rem,9.5vw,4.6rem);
+  color:var(--verde-scuro);
+  margin:1rem 0 1.3rem;
+  animation:heroIn .9s .25s cubic-bezier(.22,.61,.36,1) both;
+}
+.hero h1 em{font-style:italic;color:var(--salvia)}
+.hero p.lead{
+  font-size:clamp(1.02rem,2.6vw,1.2rem);color:var(--testo);max-width:46ch;
+  animation:heroIn .9s .4s cubic-bezier(.22,.61,.36,1) both;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.1rem;animation:heroIn .9s .55s cubic-bezier(.22,.61,.36,1) both}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:2.4rem;
+  background:var(--bianco);border:1px solid var(--salvia-chiara);
+  padding:.55rem 1.1rem;border-radius:999px;font-size:.88rem;font-weight:500;
+  box-shadow:0 8px 26px -12px rgba(34,57,44,.25);
+  animation:heroIn .9s .7s cubic-bezier(.22,.61,.36,1) both;
+}
+.hero-badge .stars{color:var(--sabbia);letter-spacing:.12em}
+@keyframes heroIn{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.95rem 1.8rem;border-radius:999px;
+  font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;text-decoration:none;
+  transition:transform .3s,box-shadow .3s,background .3s;
+}
+.btn-primary{background:var(--verde);color:var(--crema);box-shadow:0 14px 34px -12px rgba(46,75,58,.55)}
+.btn-primary:hover{background:var(--verde-scuro);transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(46,75,58,.6)}
+.btn-ghost{border:1.5px solid var(--verde);color:var(--verde)}
+.btn-ghost:hover{background:rgba(46,75,58,.07);transform:translateY(-3px)}
+
+.scroll-hint{
+  position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);
+  color:var(--salvia);font-size:1.4rem;animation:bounce 2.2s ease-in-out infinite;z-index:2;text-decoration:none;
+}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* ---------- sections ---------- */
+section{padding:5.5rem 0}
+
+/* chi siamo */
+.about-grid{display:grid;gap:2.5rem;align-items:center}
+.about-visual{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(155deg,var(--verde) 0%,var(--verde-scuro) 70%);
+  min-height:340px;display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow);
+}
+.about-visual svg{width:72%;max-width:330px}
+.about-copy p{color:var(--testo);margin-bottom:1.1rem;max-width:56ch}
+.about-quote{
+  margin-top:1.6rem;padding:1.2rem 1.4rem;
+  border-left:3px solid var(--sabbia);background:var(--bianco);border-radius:0 16px 16px 0;
+  font-family:'Fraunces',serif;font-style:italic;font-size:1.12rem;color:var(--verde-scuro);
+}
+
+/* servizi */
+.servizi{background:var(--verde-scuro);color:var(--crema);position:relative;overflow:hidden}
+.servizi::before{
+  content:"";position:absolute;top:-140px;right:-140px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,169,110,.14),transparent 70%);
+}
+.servizi .eyebrow{color:var(--salvia-chiara)}
+.servizi .section-title{color:var(--crema)}
+.servizi .section-sub{color:#cdd9cbcc;max-width:52ch}
+.cards{display:grid;gap:1.2rem;margin-top:2.8rem}
+.card{
+  background:rgba(253,252,249,.06);
+  border:1px solid rgba(253,252,249,.14);
+  border-radius:var(--radius);
+  padding:1.7rem 1.5rem;
+  backdrop-filter:blur(4px);
+  transition:transform .35s,background .35s,border-color .35s;
+}
+.card:hover{transform:translateY(-6px);background:rgba(253,252,249,.1);border-color:rgba(200,169,110,.5)}
+.card .icona{
+  width:52px;height:52px;border-radius:16px;
+  background:rgba(200,169,110,.16);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;
+}
+.card .icona svg{width:28px;height:28px;stroke:var(--sabbia)}
+.card h3{font-size:1.25rem;margin-bottom:.5rem;color:var(--crema)}
+.card p{font-size:.95rem;color:#cdd9cbc9}
+
+/* perché */
+.percheGrid{display:grid;gap:1.2rem;margin-top:2.6rem}
+.motivo{
+  background:var(--bianco);border-radius:var(--radius);padding:1.7rem 1.5rem;
+  border:1px solid var(--crema-scura);
+  transition:transform .35s,box-shadow .35s;
+}
+.motivo:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.motivo .num{
+  font-family:'Fraunces',serif;font-size:2.2rem;color:var(--salvia-chiara);
+  line-height:1;margin-bottom:.7rem;
+}
+.motivo h3{font-size:1.18rem;color:var(--verde-scuro);margin-bottom:.45rem}
+.motivo p{font-size:.95rem;color:var(--testo)}
+
+/* recensione strip */
+.review-strip{
+  background:linear-gradient(120deg,var(--salvia-chiara),#dde7d4);
+  padding:3.6rem 0;text-align:center;
+}
+.review-strip .stars{font-size:1.5rem;color:var(--sabbia);letter-spacing:.3em;margin-bottom:.8rem}
+.review-strip blockquote{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:clamp(1.25rem,3.6vw,1.7rem);color:var(--verde-scuro);
+  max-width:32ch;margin:0 auto .9rem;
+}
+.review-strip cite{font-style:normal;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verde);font-weight:500}
+
+/* contatti */
+.contatti-grid{display:grid;gap:1.2rem;margin-top:2.6rem}
+.contact-card{
+  background:var(--bianco);border:1px solid var(--crema-scura);border-radius:var(--radius);
+  padding:1.6rem 1.5rem;display:flex;gap:1.1rem;align-items:flex-start;
+  text-decoration:none;transition:transform .35s,box-shadow .35s,border-color .35s;
+}
+a.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--salvia)}
+.contact-card .icona{
+  flex:none;width:48px;height:48px;border-radius:14px;background:var(--crema);
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-card .icona svg{width:24px;height:24px;stroke:var(--verde)}
+.contact-card h3{font-size:1.05rem;color:var(--verde-scuro);margin-bottom:.25rem}
+.contact-card p{font-size:.95rem;color:var(--testo)}
+.contact-card .link-hint{font-size:.82rem;color:var(--sabbia);font-weight:600;letter-spacing:.06em;margin-top:.3rem;display:inline-block}
+
+.cta-finale{
+  margin-top:2.8rem;background:var(--verde);border-radius:var(--radius);
+  padding:2.6rem 1.6rem;text-align:center;color:var(--crema);
+  position:relative;overflow:hidden;box-shadow:var(--shadow);
+}
+.cta-finale::before{
+  content:"";position:absolute;bottom:-120px;left:-80px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,169,110,.22),transparent 70%);
+}
+.cta-finale h3{font-size:clamp(1.5rem,4.5vw,2.1rem);margin-bottom:.7rem}
+.cta-finale p{color:#d9e3d5;margin-bottom:1.6rem;font-size:1rem}
+.cta-finale .btn-primary{background:var(--sabbia);color:var(--verde-scuro);box-shadow:0 14px 34px -12px rgba(0,0,0,.4)}
+.cta-finale .btn-primary:hover{background:#d8bc85}
+
+/* footer */
+footer{background:var(--verde-scuro);color:#b9c9b8;padding:2.6rem 0 2.2rem;font-size:.9rem}
+.footer-inner{display:flex;flex-direction:column;gap:1.4rem;align-items:center;text-align:center}
+.footer-brand{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--crema)}
+.footer-social{display:flex;gap:.9rem}
+.footer-social a{
+  width:44px;height:44px;border-radius:50%;border:1px solid rgba(253,252,249,.25);
+  display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s;
+}
+.footer-social a:hover{background:rgba(253,252,249,.12);transform:translateY(-3px)}
+.footer-social svg{width:20px;height:20px;fill:var(--crema)}
+footer .fineprint{font-size:.8rem;color:#8ba18c}
+
+/* ---------- desktop ---------- */
+@media (min-width:820px){
+  .nav-links{display:flex}
+  .burger,.mobile-menu{display:none}
+  section{padding:7rem 0}
+  .about-grid{grid-template-columns:1fr 1.1fr;gap:4rem}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .card.wide{grid-column:span 1}
+  .percheGrid{grid-template-columns:repeat(4,1fr)}
+  .contatti-grid{grid-template-columns:repeat(2,1fr)}
+  .cta-finale{padding:3.4rem 2rem}
+  .footer-inner{flex-direction:row;justify-content:space-between;text-align:left}
+}
+@media (min-width:560px) and (max-width:819px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .percheGrid{grid-template-columns:repeat(2,1fr)}
+  .contatti-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Biobellezza — torna all'inizio">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#2e4b3a"/><path d="M32 14c9 7 13 15 13 22 0 8-6 14-13 14s-13-6-13-14c0-7 4-15 13-22z" fill="#e9e2d2"/><path d="M32 20v26M32 30c-3-2-5-5-6-8M32 36c3-2 6-5 7-9" stroke="#2e4b3a" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+      <span class="brand-name">Biobellezza<small>Spa per i tuoi capelli</small></span>
+    </a>
+    <nav aria-label="Navigazione principale">
+      <ul class="nav-links">
+        <li><a href="#chi-siamo">Chi siamo</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+        <li><a class="nav-cta" href="tel:+393756263781">☎ 375 6263781</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#chi-siamo">Chi siamo</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#perche">Perché noi</a>
+  <a href="#contatti">Contatti</a>
+  <a class="menu-tel" href="tel:+393756263781">☎ 375 6263781</a>
+</div>
+
+<main id="home">
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-top:0;padding-bottom:0">
+  <svg class="hero-leaf l1" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 10C150 55 165 110 150 150c-12 32-45 42-70 30C50 165 38 128 52 92 66 55 82 32 100 10z" fill="none" stroke="#7f9c84" stroke-width="1.6"/><path d="M96 40c-4 40-6 80 4 128" stroke="#7f9c84" stroke-width="1.3" fill="none"/><path d="M97 70c-12-4-22-12-28-24M98 105c-14-2-26-8-34-18M99 138c-12 0-24-4-33-11M97 70c10-6 17-15 20-27M98 105c12-4 22-12 28-23M99 138c11-1 21-6 29-14" stroke="#7f9c84" stroke-width="1.1" fill="none"/></svg>
+  <svg class="hero-leaf l2" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 10C150 55 165 110 150 150c-12 32-45 42-70 30C50 165 38 128 52 92 66 55 82 32 100 10z" fill="none" stroke="#c8a96e" stroke-width="1.4"/><path d="M96 40c-4 40-6 80 4 128" stroke="#c8a96e" stroke-width="1.1" fill="none"/><path d="M97 70c-12-4-22-12-28-24M98 105c-14-2-26-8-34-18M99 138c-12 0-24-4-33-11M97 70c10-6 17-15 20-27M98 105c12-4 22-12 28-23M99 138c11-1 21-6 29-14" stroke="#c8a96e" stroke-width="1" fill="none"/></svg>
+
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">Hair spa · Settimo Torinese</span>
+      <h1>Dove la bellezza <em>incontra</em> la natura</h1>
+      <p class="lead">Biobellezza è la spa per i tuoi capelli nel cuore di Piazza Vittorio Veneto: trattamenti bio, cura del cuoio capelluto e l'arte di tagli, pieghe e colore. Un momento tutto per te.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+393756263781">Prenota ora · 375 6263781</a>
+        <a class="btn btn-ghost" href="#servizi">Scopri i rituali</a>
+      </div>
+      <div class="hero-badge">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>5/5 su Google · 35 recensioni</span>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#chi-siamo" aria-label="Scorri per scoprire di più">↓</a>
+</section>
+
+<!-- ===== CHI SIAMO ===== -->
+<section id="chi-siamo">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="118" fill="none" stroke="#c8a96e" stroke-width="1.2" opacity=".55"/>
+        <circle cx="150" cy="150" r="95" fill="none" stroke="#e9e2d2" stroke-width=".8" opacity=".35"/>
+        <path d="M150 52c40 32 58 68 58 100 0 37-27 62-58 62s-58-25-58-62c0-32 18-68 58-100z" fill="#e9e2d2" opacity=".95"/>
+        <path d="M150 80v112M150 124c-13-8-22-21-26-36M150 152c-16-4-28-14-35-28M150 124c13-8 22-21 26-36M150 152c16-4 28-14 35-28M150 180c-12-2-23-8-31-17M150 180c12-2 23-8 31-17" stroke="#2e4b3a" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <g font-family="Georgia,serif" font-style="italic" fill="#e9e2d2" font-size="13" opacity=".85">
+          <text x="150" y="262" text-anchor="middle">naturalmente belli, dal 100% bio</text>
+        </g>
+      </svg>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow reveal">Chi siamo</span>
+      <h2 class="section-title reveal d1">Un salone che si prende cura di te, come fa la natura</h2>
+      <p class="reveal d2">Nel cuore di Settimo Torinese, affacciato su Piazza Vittorio Veneto, Biobellezza non è un semplice parrucchiere: è una spa dedicata ai tuoi capelli. Qui ogni appuntamento inizia con l'ascolto — dei tuoi capelli, del tuo cuoio capelluto e di come vuoi sentirti quando esci dalla porta.</p>
+      <p class="reveal d2">Abbiamo scelto la strada dei trattamenti bio e dei prodotti naturali perché crediamo che la bellezza vera non debba mai chiedere ai capelli di soffrire. Il risultato? Una clientela affezionata che ci regala, recensione dopo recensione, un 5 su 5 pieno.</p>
+      <div class="about-quote reveal d3">«La bellezza incontra la natura: è la nostra promessa, ad ogni poltrona.»</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVIZI ===== -->
+<section id="servizi" class="servizi">
+  <div class="wrap">
+    <span class="eyebrow reveal">I nostri rituali</span>
+    <h2 class="section-title reveal d1">Servizi pensati per capelli felici</h2>
+    <p class="section-sub reveal d2">Dal gesto classico del taglio al rituale spa completo: ogni servizio unisce tecnica, prodotti bio e il tempo giusto per rilassarti.</p>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.5 15.5M14.5 9.5 20 15M8.5 8.5 12 12"/></svg></div>
+        <h3>Tagli &amp; pieghe</h3>
+        <p>Il taglio giusto per il tuo viso e il tuo stile di vita, e pieghe che durano — morbide, luminose, mai forzate.</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 4-5 7.5-5 10.5A5 5 0 0 0 12 18a5 5 0 0 0 5-4.5C17 10.5 15 7 12 3z"/><path d="M9 20.5h6"/></svg></div>
+        <h3>Tinte &amp; colore</h3>
+        <p>Colorazioni delicate e personalizzate: riflessi naturali, copertura perfetta e rispetto della fibra capillare.</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-7-3-7-7 0-5 4-9 7-11 3 2 7 6 7 11 0 4-3 7-7 7z"/><path d="M12 8v9M12 12c-1.5-.8-2.6-2-3.2-3.6M12 14.5c1.6-.6 2.8-1.8 3.4-3.4"/></svg></div>
+        <h3>Trattamenti bio</h3>
+        <p>Maschere, impacchi e linee certificate di origine naturale per nutrire in profondità senza appesantire.</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Cura del cuoio capelluto</h3>
+        <p>Analisi e trattamenti mirati: la salute dei capelli comincia dalla radice, letteralmente.</p>
+      </article>
+      <article class="card wide reveal d2">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M3 20c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M12 3a4.5 4.5 0 0 0-2 8.5c.6.3 1 .9 1 1.5h2c0-.6.4-1.2 1-1.5A4.5 4.5 0 0 0 12 3z"/></svg></div>
+        <h3>Rituali spa capelli</h3>
+        <p>Il nostro fiore all'occhiello: massaggio, aromi e trattamenti in sequenza per un'esperienza che rigenera capelli e mente.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PERCHÉ SCEGLIERCI ===== -->
+<section id="perche">
+  <div class="wrap">
+    <span class="eyebrow reveal">Perché sceglierci</span>
+    <h2 class="section-title reveal d1">Quattro buoni motivi (più uno: provaci)</h2>
+    <div class="percheGrid">
+      <article class="motivo reveal">
+        <div class="num">01</div>
+        <h3>5/5 su Google</h3>
+        <p>35 recensioni, tutte a cinque stelle: la nostra clientela affezionata parla per noi.</p>
+      </article>
+      <article class="motivo reveal d1">
+        <div class="num">02</div>
+        <h3>Approccio bio, davvero</h3>
+        <p>Prodotti naturali e trattamenti delicati non sono una moda: sono il nostro metodo, ogni giorno.</p>
+      </article>
+      <article class="motivo reveal d2">
+        <div class="num">03</div>
+        <h3>Spa, non catena di montaggio</h3>
+        <p>Ogni appuntamento ha il suo tempo: qui non sei un numero, sei un ospite da coccolare.</p>
+      </article>
+      <article class="motivo reveal d3">
+        <div class="num">04</div>
+        <h3>Nel cuore di Settimo</h3>
+        <p>In Piazza Vittorio Veneto, la piazza principale: comodo da raggiungere, facile da amare.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEW STRIP ===== -->
+<div class="review-strip">
+  <div class="wrap reveal">
+    <div class="stars" aria-hidden="true">★★★★★</div>
+    <blockquote>Una valutazione perfetta, costruita una cliente felice alla volta.</blockquote>
+    <cite>5/5 su Google · 35 recensioni · presenti anche su Treatwell e Groupon</cite>
+  </div>
+</div>
+
+<!-- ===== CONTATTI ===== -->
+<section id="contatti">
+  <div class="wrap">
+    <span class="eyebrow reveal">Contatti</span>
+    <h2 class="section-title reveal d1">Vieni a trovarci in piazza</h2>
+    <p class="reveal d2" style="color:var(--testo);max-width:52ch">Prenota con una telefonata o passa a salutarci: siamo nella piazza principale di Settimo Torinese.</p>
+
+    <div class="contatti-grid">
+      <a class="contact-card reveal" href="tel:+393756263781">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9z"/></svg></div>
+        <div>
+          <h3>Telefono</h3>
+          <p>375 6263781</p>
+          <span class="link-hint">Tocca per chiamare →</span>
+        </div>
+      </a>
+      <a class="contact-card reveal d1" href="https://www.google.com/maps/search/?api=1&query=Biobellezza+Piazza+Vittorio+Veneto+Settimo+Torinese" target="_blank" rel="noopener">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h3>Dove siamo</h3>
+          <p>Piazza Vittorio Veneto<br>10036 Settimo Torinese (TO)</p>
+          <span class="link-hint">Apri in Google Maps →</span>
+        </div>
+      </a>
+      <a class="contact-card reveal d2" href="https://www.instagram.com/biobellezzasettimotorinese/" target="_blank" rel="noopener">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div>
+          <h3>Instagram</h3>
+          <p>@biobellezzasettimotorinese — i nostri lavori, prima e dopo, ispirazioni.</p>
+          <span class="link-hint">Seguici →</span>
+        </div>
+      </a>
+      <a class="contact-card reveal d3" href="https://www.facebook.com/p/Biobellezza-Settimo-Torinese-100091540543148/" target="_blank" rel="noopener">
+        <div class="icona"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <div>
+          <h3>Facebook</h3>
+          <p>Biobellezza Settimo Torinese — novità, orari e promozioni.</p>
+          <span class="link-hint">Trovaci →</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="cta-finale reveal">
+      <h3>I tuoi capelli meritano una spa</h3>
+      <p>Chiamaci per prenotare il tuo momento di bellezza naturale.</p>
+      <a class="btn btn-primary" href="tel:+393756263781">Chiama il 375 6263781</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">Biobellezza</div>
+      <div>Spa per i tuoi capelli · Piazza Vittorio Veneto, 10036 Settimo Torinese (TO)</div>
+      <div><a href="tel:+393756263781" style="text-decoration:none">375 6263781</a></div>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/biobellezzasettimotorinese/" target="_blank" rel="noopener" aria-label="Instagram di Biobellezza">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/Biobellezza-Settimo-Torinese-100091540543148/" target="_blank" rel="noopener" aria-label="Facebook di Biobellezza">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+    </div>
+    <div class="fineprint">© <span id="anno">2026</span> Biobellezza — Settimo Torinese<br>5/5 su Google · 35 recensioni</div>
+  </div>
+</footer>
+
+<script>
+// anno corrente
+document.getElementById('anno').textContent = new Date().getFullYear();
+
+// header compatto allo scroll
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+// menu mobile
+const burger = document.getElementById('burger');
+const menu = document.getElementById('mobileMenu');
+const toggleMenu = (open) => {
+  const isOpen = open !== undefined ? open : !menu.classList.contains('open');
+  menu.classList.toggle('open', isOpen);
+  burger.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', isOpen);
+  burger.setAttribute('aria-label', isOpen ? 'Chiudi il menu' : 'Apri il menu');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+};
+burger.addEventListener('click', () => toggleMenu());
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+// reveal allo scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
