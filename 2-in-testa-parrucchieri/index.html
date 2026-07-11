@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 in Testa Parrucchieri — Settimo Torinese | Prenota la tua trasformazione</title>
+<meta name="description" content="2 in Testa Parrucchieri a Settimo Torinese: salone uomo, donna e bambino con reparto barber. Specialisti in ricci, colore e ricostruzione. 5,0 su Treatwell con 720 recensioni. Via Italia 53 — 011 8000669.">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nero:#0d0d12;
+    --nero-2:#13131a;
+    --nero-3:#1a1a23;
+    --bianco:#ffffff;
+    --avorio:#f4f1ea;
+    --champagne:#cfb37f;
+    --grigio:#9d9da8;
+    --linea:rgba(244,241,234,.12);
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--nero);
+    color:var(--avorio);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--champagne);color:var(--nero);}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+  .wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto;}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--champagne);font-weight:600;margin-bottom:1.1rem;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--champagne);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:100;
+    transition:background .35s,box-shadow .35s,backdrop-filter .35s;
+  }
+  header.scrolled{
+    background:rgba(13,13,18,.82);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 1px 0 var(--linea);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.9rem 0;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+  .brand img{
+    width:46px;height:46px;object-fit:cover;border-radius:10px;
+    border:1px solid var(--linea);
+  }
+  .brand span{font-family:'Fraunces',serif;font-size:1.05rem;letter-spacing:.02em;}
+  .nav-links{display:none;list-style:none;gap:2rem;}
+  .nav-links a{
+    text-decoration:none;font-size:.85rem;font-weight:500;color:var(--grigio);
+    transition:color .25s;
+  }
+  .nav-links a:hover{color:var(--avorio);}
+  .nav-cta{
+    display:none;text-decoration:none;font-size:.82rem;font-weight:700;
+    padding:.65rem 1.3rem;border-radius:999px;
+    background:var(--avorio);color:var(--nero);
+    transition:background .25s,transform .25s;
+  }
+  .nav-cta:hover{background:var(--champagne);transform:translateY(-1px);}
+  .burger{
+    display:flex;flex-direction:column;gap:5px;background:none;border:0;
+    padding:.6rem;cursor:pointer;z-index:110;
+  }
+  .burger span{width:24px;height:2px;background:var(--avorio);transition:transform .3s,opacity .3s;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-menu{
+    position:fixed;inset:0;z-index:105;
+    background:rgba(13,13,18,.97);
+    backdrop-filter:blur(10px);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.9rem;
+    opacity:0;pointer-events:none;transition:opacity .35s;
+  }
+  .mobile-menu.open{opacity:1;pointer-events:auto;}
+  .mobile-menu a{
+    text-decoration:none;font-family:'Fraunces',serif;font-size:1.7rem;color:var(--avorio);
+  }
+  .mobile-menu a.mm-cta{
+    font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:700;
+    background:var(--avorio);color:var(--nero);padding:.9rem 2rem;border-radius:999px;margin-top:.6rem;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+    padding:7.5rem 0 4rem;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(60rem 34rem at 85% -10%,rgba(207,179,127,.13),transparent 60%),
+      radial-gradient(44rem 30rem at -10% 100%,rgba(207,179,127,.07),transparent 60%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;
+    background-image:radial-gradient(rgba(244,241,234,.05) 1px,transparent 1px);
+    background-size:26px 26px;
+    mask-image:radial-gradient(closest-side at 50% 40%,#000,transparent);
+    -webkit-mask-image:radial-gradient(closest-side at 50% 40%,#000,transparent);
+  }
+  .hero .wrap{position:relative;z-index:1;}
+  .hero-logo{
+    width:86px;height:86px;object-fit:cover;border-radius:20px;
+    border:1px solid var(--linea);margin-bottom:2rem;
+    animation:rise .9s .1s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem,9vw,5.4rem);
+    line-height:1.04;letter-spacing:-.01em;font-weight:300;
+    animation:rise .9s .25s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .hero h1 em{font-style:italic;color:var(--champagne);}
+  .hero p.lead{
+    max-width:34rem;margin-top:1.4rem;color:var(--grigio);font-size:1.02rem;
+    animation:rise .9s .4s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .hero-actions{
+    display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.3rem;
+    animation:rise .9s .55s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.6rem;
+    text-decoration:none;font-weight:700;font-size:.92rem;
+    padding:1rem 1.8rem;border-radius:999px;
+    transition:transform .25s,background .25s,border-color .25s,color .25s;
+  }
+  .btn-solid{background:var(--avorio);color:var(--nero);}
+  .btn-solid:hover{background:var(--champagne);transform:translateY(-2px);}
+  .btn-ghost{border:1px solid rgba(244,241,234,.25);color:var(--avorio);}
+  .btn-ghost:hover{border-color:var(--champagne);color:var(--champagne);transform:translateY(-2px);}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:.7rem;margin-top:2.6rem;
+    padding:.7rem 1.2rem;border:1px solid var(--linea);border-radius:999px;
+    background:rgba(244,241,234,.04);font-size:.85rem;color:var(--grigio);
+    animation:rise .9s .7s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .hero-badge strong{color:var(--avorio);font-weight:700;}
+  .stars{color:var(--champagne);letter-spacing:.15em;font-size:.8rem;}
+  @keyframes rise{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
+  .scroll-hint{
+    position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);
+    width:1px;height:52px;overflow:hidden;z-index:1;
+  }
+  .scroll-hint::after{
+    content:"";position:absolute;inset:0;background:linear-gradient(var(--champagne),transparent);
+    animation:drop 2.2s infinite cubic-bezier(.4,0,.2,1);
+  }
+  @keyframes drop{0%{transform:translateY(-100%);}60%,100%{transform:translateY(100%);}}
+
+  /* ---------- Sections ---------- */
+  section{padding:5.5rem 0;}
+  .sec-head h2{font-size:clamp(1.9rem,5.5vw,3rem);font-weight:300;line-height:1.15;letter-spacing:-.01em;}
+  .sec-head h2 em{font-style:italic;color:var(--champagne);}
+  .sec-head p{color:var(--grigio);max-width:38rem;margin-top:1rem;}
+
+  /* Numeri / trust bar */
+  .trust{
+    border-block:1px solid var(--linea);
+    background:var(--nero-2);padding:2.6rem 0;
+  }
+  .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;text-align:center;}
+  .trust-grid b{
+    display:block;font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(1.9rem,6vw,2.7rem);color:var(--avorio);line-height:1.1;
+  }
+  .trust-grid b sup{font-size:.45em;color:var(--champagne);}
+  .trust-grid span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grigio);}
+
+  /* Chi siamo */
+  .about-grid{display:grid;gap:2.6rem;margin-top:2.8rem;}
+  .about-copy p+p{margin-top:1rem;}
+  .about-copy p{color:var(--grigio);}
+  .about-copy strong{color:var(--avorio);font-weight:600;}
+  .founders{
+    margin-top:1.8rem;display:flex;gap:1rem;align-items:center;
+    padding:1.1rem 1.3rem;border:1px solid var(--linea);border-radius:var(--radius);
+    background:var(--nero-2);
+  }
+  .founders .sigla{
+    flex:none;width:52px;height:52px;border-radius:50%;
+    display:grid;place-items:center;
+    font-family:'Fraunces',serif;font-size:1.05rem;color:var(--nero);
+    background:linear-gradient(135deg,var(--avorio),var(--champagne));
+  }
+  .founders small{display:block;color:var(--grigio);font-size:.82rem;}
+  .founders b{font-weight:600;}
+
+  /* Servizi */
+  #servizi{background:var(--nero-2);border-block:1px solid var(--linea);}
+  .cards{display:grid;gap:1.1rem;margin-top:2.8rem;}
+  .card{
+    position:relative;padding:1.9rem 1.6rem;border:1px solid var(--linea);
+    border-radius:var(--radius);background:var(--nero);
+    transition:transform .3s,border-color .3s,box-shadow .3s;
+  }
+  .card:hover{transform:translateY(-5px);border-color:rgba(207,179,127,.45);box-shadow:0 18px 40px -22px rgba(0,0,0,.9);}
+  .card .icon{
+    width:48px;height:48px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(207,179,127,.1);border:1px solid rgba(207,179,127,.25);
+    margin-bottom:1.2rem;color:var(--champagne);
+  }
+  .card h3{font-size:1.25rem;margin-bottom:.55rem;}
+  .card p{color:var(--grigio);font-size:.93rem;}
+  .card .tag{
+    position:absolute;top:1.3rem;right:1.3rem;font-size:.62rem;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--champagne);
+    border:1px solid rgba(207,179,127,.35);border-radius:999px;padding:.28rem .65rem;
+  }
+
+  /* Perche' */
+  .why-list{display:grid;gap:0;margin-top:2.4rem;border-top:1px solid var(--linea);}
+  .why{
+    display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:baseline;
+    padding:1.7rem 0;border-bottom:1px solid var(--linea);
+  }
+  .why .num{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;color:var(--champagne);
+  }
+  .why h3{font-size:1.2rem;margin-bottom:.35rem;}
+  .why p{color:var(--grigio);font-size:.93rem;max-width:44rem;}
+
+  /* Recensioni */
+  #recensioni{background:var(--nero-2);border-block:1px solid var(--linea);text-align:center;}
+  .review-big{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(4rem,18vw,8.5rem);line-height:1;
+    background:linear-gradient(135deg,var(--avorio) 30%,var(--champagne));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .review-stars{font-size:clamp(1.3rem,5vw,1.8rem);color:var(--champagne);letter-spacing:.4em;margin:.8rem 0 .4rem;}
+  #recensioni .sub{color:var(--grigio);max-width:30rem;margin:0 auto;}
+  #recensioni .sub strong{color:var(--avorio);}
+  .quote{
+    max-width:36rem;margin:2.6rem auto 0;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;line-height:1.5;color:var(--avorio);
+  }
+  .quote::before{content:"“";color:var(--champagne);}
+  .quote::after{content:"”";color:var(--champagne);}
+
+  /* Contatti */
+  .contact-grid{display:grid;gap:1.1rem;margin-top:2.8rem;}
+  .c-item{
+    display:flex;gap:1.1rem;align-items:flex-start;
+    padding:1.5rem 1.4rem;border:1px solid var(--linea);border-radius:var(--radius);
+    background:var(--nero-2);text-decoration:none;
+    transition:border-color .3s,transform .3s;
+  }
+  a.c-item:hover{border-color:rgba(207,179,127,.45);transform:translateY(-3px);}
+  .c-item .icon{
+    flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(207,179,127,.1);border:1px solid rgba(207,179,127,.25);color:var(--champagne);
+  }
+  .c-item b{display:block;font-weight:700;font-size:.95rem;margin-bottom:.15rem;}
+  .c-item span{color:var(--grigio);font-size:.88rem;}
+  .c-item .go{margin-left:auto;align-self:center;color:var(--champagne);opacity:.7;}
+  .hours{width:100%;}
+  .hours table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.4rem;}
+  .hours td{padding:.32rem 0;color:var(--grigio);}
+  .hours td:last-child{text-align:right;color:var(--avorio);}
+  .hours tr.off td:last-child{color:var(--grigio);font-style:italic;}
+  .cta-final{
+    margin-top:3rem;padding:2.6rem 1.6rem;text-align:center;
+    border:1px solid rgba(207,179,127,.3);border-radius:calc(var(--radius) + 6px);
+    background:
+      radial-gradient(30rem 16rem at 50% -40%,rgba(207,179,127,.16),transparent 70%),
+      var(--nero-2);
+  }
+  .cta-final h3{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:300;margin-bottom:.7rem;}
+  .cta-final h3 em{font-style:italic;color:var(--champagne);}
+  .cta-final p{color:var(--grigio);font-size:.95rem;max-width:30rem;margin:0 auto 1.6rem;}
+
+  /* Footer */
+  footer{border-top:1px solid var(--linea);padding:2.6rem 0;background:var(--nero);}
+  .foot{
+    display:flex;flex-direction:column;gap:1.4rem;align-items:center;text-align:center;
+  }
+  .foot .brand img{width:40px;height:40px;}
+  .foot-social{display:flex;gap:.8rem;}
+  .foot-social a{
+    width:42px;height:42px;border:1px solid var(--linea);border-radius:50%;
+    display:grid;place-items:center;color:var(--grigio);
+    transition:color .25s,border-color .25s,transform .25s;
+  }
+  .foot-social a:hover{color:var(--champagne);border-color:var(--champagne);transform:translateY(-2px);}
+  .foot small{color:var(--grigio);font-size:.78rem;line-height:1.8;}
+
+  /* ---------- Desktop ---------- */
+  @media (min-width:820px){
+    .nav-links{display:flex;}
+    .nav-cta{display:inline-flex;}
+    .burger,.mobile-menu{display:none;}
+    section{padding:7.5rem 0;}
+    .trust-grid{grid-template-columns:repeat(4,1fr);}
+    .about-grid{grid-template-columns:1.1fr .9fr;align-items:start;}
+    .cards{grid-template-columns:repeat(3,1fr);}
+    .contact-grid{grid-template-columns:repeat(2,1fr);}
+    .why{grid-template-columns:auto 1fr;column-gap:2rem;}
+    .foot{flex-direction:row;justify-content:space-between;text-align:left;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important;}
+    .reveal{opacity:1;transform:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="2 in Testa Parrucchieri — torna su">
+      <img src="logo.jpg" alt="Logo 2 in Testa Parrucchieri">
+      <span>2 in Testa</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#chi-siamo">Chi siamo</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#perche">Perché noi</a></li>
+      <li><a href="#recensioni">Recensioni</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+    <a href="tel:0118000669" class="nav-cta">Prenota ora</a>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu di navigazione">
+  <a href="#chi-siamo">Chi siamo</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#perche">Perché noi</a>
+  <a href="#recensioni">Recensioni</a>
+  <a href="#contatti">Contatti</a>
+  <a href="tel:0118000669" class="mm-cta">Prenota ora — 011 8000669</a>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Presentazione">
+    <div class="wrap">
+      <img src="logo.jpg" alt="" class="hero-logo" aria-hidden="true">
+      <h1>Prenota la tua<br><em>trasformazione</em></h1>
+      <p class="lead">Salone unisex nel cuore di Settimo Torinese: donna, uomo, bambino e un reparto barber dedicato. Specialisti in ricci, colore e ricostruzione del capello.</p>
+      <div class="hero-actions">
+        <a href="tel:0118000669" class="btn btn-solid">☎ Chiama e prenota</a>
+        <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
+      </div>
+      <div class="hero-badge">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><strong>5,0 su 5</strong> · 720 recensioni verificate su Treatwell</span>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"></div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust">
+    <div class="wrap trust-grid">
+      <div class="reveal"><b>5,0<sup>/5</sup></b><span>Valutazione Treatwell</span></div>
+      <div class="reveal d1"><b>720</b><span>Recensioni a 5 stelle</span></div>
+      <div class="reveal d2"><b>3<sup>+</sup></b><span>Anime: donna · uomo · bimbi</span></div>
+      <div class="reveal d3"><b>1</b><span>Reparto barber dedicato</span></div>
+    </div>
+  </div>
+
+  <!-- CHI SIAMO -->
+  <section id="chi-siamo">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Chi siamo</span>
+        <h2>Due teste, <em>un'unica</em> visione</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy reveal d1">
+          <p>In <strong>via Italia 53</strong>, nel centro di Settimo Torinese, c'è un salone dove ogni testa è un progetto: <strong>2 in Testa</strong> nasce dall'incontro di due professioniste che hanno fatto della cura del capello un mestiere di precisione e di ascolto.</p>
+          <p>Qui non esistono tagli in serie. Che tu venga per un riccio da domare e valorizzare, per una <strong>trasformazione colore</strong> di quelle che raccontiamo nei nostri reel, o per la rasatura perfetta del reparto barber, il punto di partenza è sempre lo stesso: capire chi sei e come vuoi sentirti quando esci dalla porta.</p>
+          <p>È così che, recensione dopo recensione, siamo arrivati a una valutazione che parla da sola: <strong>5,0 su 5 con 720 recensioni</strong> su Treatwell. Non un numero, ma settecentoventi persone che sono uscite felici.</p>
+        </div>
+        <div class="reveal d2">
+          <div class="founders">
+            <div class="sigla" aria-hidden="true">AG</div>
+            <div><b>Antonella Guida</b><small>Titolare e hairstylist</small></div>
+          </div>
+          <div class="founders" style="margin-top:1rem;">
+            <div class="sigla" aria-hidden="true">DC</div>
+            <div><b>Dominique Cimino</b><small>Titolare e hairstylist</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Servizi</span>
+        <h2>Tutto quello che serve <em>alla tua testa</em></h2>
+        <p>Donna, uomo, bambino: un unico salone, tre esperienze su misura. Prenoti online su Treatwell o con una telefonata.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true">✂</div>
+          <h3>Tagli donna, uomo &amp; bimbi</h3>
+          <p>Consulenza, taglio e piega studiati sul viso e sullo stile di vita. Anche i più piccoli escono con il sorriso (e un gran bel taglio).</p>
+        </article>
+        <article class="card reveal d1">
+          <span class="tag">Specialità</span>
+          <div class="icon" aria-hidden="true">➰</div>
+          <h3>Capelli ricci</h3>
+          <p>Il riccio non si combatte, si valorizza: tagli e trattamenti specifici per definizione, volume controllato e zero effetto crespo.</p>
+        </article>
+        <article class="card reveal d2">
+          <span class="tag">Specialità</span>
+          <div class="icon" aria-hidden="true">◑</div>
+          <h3>Colore &amp; tonalizzanti</h3>
+          <p>Trasformazioni colore documentate nei nostri reel: balayage, schiariture, riflessature e tonalizzanti per un risultato luminoso e naturale.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true">✚</div>
+          <h3>Ricostruzione capelli</h3>
+          <p>Trattamenti intensivi che riparano la fibra dall'interno: la scelta giusta dopo decolorazioni, calore o stress meccanico.</p>
+        </article>
+        <article class="card reveal d1">
+          <div class="icon" aria-hidden="true">✦</div>
+          <h3>Reparto barber</h3>
+          <p>Uno spazio dedicato all'uomo: sfumature precise, regolazione barba e rituali di rasatura in pieno stile barberia.</p>
+        </article>
+        <article class="card reveal d2">
+          <div class="icon" aria-hidden="true">◷</div>
+          <h3>Prenotazione online</h3>
+          <p>Scegli giorno e ora in autonomia su Treatwell, oppure chiamaci: troviamo insieme il momento perfetto per te.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE' -->
+  <section id="perche">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Perché sceglierci</span>
+        <h2>Quattro motivi, <em>zero dubbi</em></h2>
+      </div>
+      <div class="why-list">
+        <div class="why reveal">
+          <span class="num">01</span>
+          <div>
+            <h3>720 recensioni, tutte a 5 stelle</h3>
+            <p>Una valutazione perfetta su Treatwell non si compra e non si improvvisa: si costruisce una cliente alla volta, per anni.</p>
+          </div>
+        </div>
+        <div class="why reveal">
+          <span class="num">02</span>
+          <div>
+            <h3>Specialisti veri, non generalisti</h3>
+            <p>Ricci, ricostruzione e colore sono le nostre aree di eccellenza: formazione continua e tecniche aggiornate, con risultati che mostriamo — non che raccontiamo.</p>
+          </div>
+        </div>
+        <div class="why reveal">
+          <span class="num">03</span>
+          <div>
+            <h3>Un salone per tutta la famiglia</h3>
+            <p>Donna, uomo e bambino nello stesso posto, con un reparto barber dedicato: un solo appuntamento, tutta la famiglia a posto.</p>
+          </div>
+        </div>
+        <div class="why reveal">
+          <span class="num">04</span>
+          <div>
+            <h3>Nel cuore di Settimo Torinese</h3>
+            <p>Siamo in via Italia 53, comodi da raggiungere, con prenotazione online per organizzarti senza telefonate (ma se preferisci chiamare, ci siamo).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENSIONI -->
+  <section id="recensioni">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow" style="justify-content:center;">La prova</span>
+        <div class="review-big">5,0</div>
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p class="sub">La valutazione media di <strong>720 recensioni verificate</strong> su Treatwell. Perfetta. Non una in meno.</p>
+      </div>
+      <p class="quote reveal d1">Quando ogni singola cliente esce contenta, per settecentoventi volte di fila, non è fortuna: è metodo.</p>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Contatti</span>
+        <h2>Vieni a trovarci <em>in via Italia</em></h2>
+        <p>Chiamaci, scrivici sui social o prenota online su Treatwell: la tua trasformazione inizia con un appuntamento.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:0118000669" class="c-item reveal">
+          <div class="icon" aria-hidden="true">☎</div>
+          <div><b>Telefono</b><span>011 8000669</span></div>
+          <span class="go" aria-hidden="true">→</span>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Via+Italia+53%2C+10036+Settimo+Torinese+TO" target="_blank" rel="noopener" class="c-item reveal d1">
+          <div class="icon" aria-hidden="true">⚲</div>
+          <div><b>Indirizzo</b><span>Via Italia 53, 10036 Settimo Torinese (TO) — apri in Google Maps</span></div>
+          <span class="go" aria-hidden="true">→</span>
+        </a>
+        <a href="https://www.instagram.com/2intesta/" target="_blank" rel="noopener" class="c-item reveal d2">
+          <div class="icon" aria-hidden="true">◎</div>
+          <div><b>Instagram</b><span>@2intesta — le trasformazioni nei nostri reel</span></div>
+          <span class="go" aria-hidden="true">→</span>
+        </a>
+        <div class="c-item reveal d3">
+          <div class="icon" aria-hidden="true">◷</div>
+          <div class="hours">
+            <b>Orari di apertura</b>
+            <table>
+              <tr class="off"><td>Lunedì</td><td>Chiuso</td></tr>
+              <tr><td>Martedì – Sabato</td><td>8:00/9:00 – 19:00</td></tr>
+              <tr class="off"><td>Domenica</td><td>Chiuso</td></tr>
+            </table>
+            <span style="display:block;margin-top:.5rem;font-size:.78rem;">Prenotazione consigliata via Treatwell o telefono.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-final reveal">
+        <h3>Pronta (o pronto) per la tua <em>trasformazione</em>?</h3>
+        <p>Un appuntamento è tutto ciò che ti separa dalla versione migliore dei tuoi capelli.</p>
+        <a href="tel:0118000669" class="btn btn-solid">Prenota ora — 011 8000669</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="brand" aria-label="2 in Testa Parrucchieri">
+      <img src="logo.jpg" alt="Logo 2 in Testa Parrucchieri">
+      <span>2 in Testa</span>
+    </a>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/2intesta/" target="_blank" rel="noopener" aria-label="Instagram di 2 in Testa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/2-in-TESTA-100063496243184/" target="_blank" rel="noopener" aria-label="Facebook di 2 in Testa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.6l.4-3h-3V9.1c0-.9.3-1.5 1.6-1.5h1.5V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9V11H8v3h2.5v7h3z"/></svg>
+      </a>
+    </div>
+    <small>
+      2 in Testa Parrucchieri di Guida Antonella e Cimino Dominique<br>
+      Via Italia 53, 10036 Settimo Torinese (TO) · <a href="tel:0118000669" style="color:var(--avorio);">011 8000669</a><br>
+      © <span id="anno">2026</span> 2 in Testa Parrucchieri
+    </small>
+  </div>
+</footer>
+
+<script>
+  // Anno corrente
+  document.getElementById('anno').textContent = new Date().getFullYear();
+
+  // Header su scroll
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Menu mobile
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  const toggleMenu = (open) => {
+    burger.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => toggleMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+  // Reveal allo scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: .12, rootMargin: '0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
