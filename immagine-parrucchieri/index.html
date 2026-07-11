@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immagine Parrucchieri — Salone a Settimo Torinese | Taglio, Colore, Styling</title>
+<meta name="description" content="Immagine Parrucchieri a Settimo Torinese: taglio e piega donna e uomo, colore e styling. Il salone di Giuseppe Iaconis e Agostino Migliaccio, raccomandato dal 98% dei clienti. Via San Mauro 1/B — da martedì a sabato, 9:00–19:00 orario continuato.">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosso:#d21e1e;
+    --rosso-scuro:#a91414;
+    --nero:#111111;
+    --bianco:#ffffff;
+    --grigio:#f6f4f2;
+    --grigio-testo:#585552;
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Manrope', -apple-system, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    color:var(--nero);
+    background:var(--bianco);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}
+  .reveal.d2{transition-delay:.2s}
+  .reveal.d3{transition-delay:.3s}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(17,17,17,.07);
+    transition:box-shadow .3s ease;
+  }
+  header.scrolled{box-shadow:0 4px 24px rgba(17,17,17,.08)}
+  .nav-wrap{
+    max-width:1100px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.65rem 1.25rem;
+  }
+  .brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+  .brand img{width:44px;height:44px;border-radius:50%;box-shadow:0 2px 8px rgba(17,17,17,.12)}
+  .brand-name{font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:.01em}
+  .brand-name em{font-style:normal;color:var(--rosso)}
+  nav ul{display:none;list-style:none;gap:1.75rem;align-items:center}
+  nav a{
+    text-decoration:none;font-weight:600;font-size:.9rem;color:var(--nero);
+    position:relative;padding:.25rem 0;
+  }
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+    background:var(--rosso);transition:width .25s ease;
+  }
+  nav a:hover::after{width:100%}
+  .nav-cta{
+    background:var(--rosso);color:#fff !important;padding:.55rem 1.15rem;
+    border-radius:999px;font-size:.85rem;
+    transition:background .25s ease,transform .25s ease;
+  }
+  .nav-cta::after{display:none}
+  .nav-cta:hover{background:var(--rosso-scuro);transform:translateY(-1px)}
+  .burger{
+    display:flex;flex-direction:column;justify-content:center;gap:5px;
+    width:44px;height:44px;background:none;border:0;cursor:pointer;padding:10px;
+  }
+  .burger span{display:block;height:2px;background:var(--nero);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{
+    position:fixed;inset:0;top:61px;background:var(--bianco);z-index:99;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;
+    opacity:0;pointer-events:none;transition:opacity .3s ease;
+  }
+  .mobile-menu.open{opacity:1;pointer-events:auto}
+  .mobile-menu a{
+    text-decoration:none;font-family:var(--font-display);font-size:1.6rem;font-weight:600;
+  }
+  .mobile-menu a:active{color:var(--rosso)}
+  .mobile-menu .nav-cta{font-family:var(--font-body);font-size:1rem;padding:.8rem 2rem}
+  @media (min-width:820px){
+    nav ul{display:flex}
+    .burger{display:none}
+    .mobile-menu{display:none}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:6.5rem 1.5rem 4rem;position:relative;
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(210,30,30,.07), transparent),
+      var(--bianco);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(17,17,17,.05) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:radial-gradient(ellipse 65% 55% at 50% 40%, #000 20%, transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 65% 55% at 50% 40%, #000 20%, transparent 75%);
+  }
+  .hero > *{position:relative}
+  .hero-logo{
+    width:118px;height:118px;border-radius:50%;
+    box-shadow:0 10px 40px rgba(17,17,17,.15);
+    animation:heroPop .9s cubic-bezier(.2,.8,.25,1.1) both;
+  }
+  .hero-kicker{
+    margin-top:1.75rem;font-size:.78rem;font-weight:700;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--rosso);
+    animation:heroUp .8s ease .25s both;
+  }
+  .hero h1{
+    font-family:var(--font-display);font-weight:600;
+    font-size:clamp(2.5rem, 8.5vw, 4.6rem);
+    line-height:1.08;letter-spacing:-.01em;margin-top:.75rem;max-width:14ch;
+    animation:heroUp .8s ease .4s both;
+  }
+  .hero h1 em{font-style:italic;color:var(--rosso)}
+  .hero-sub{
+    margin-top:1.25rem;max-width:34rem;color:var(--grigio-testo);
+    font-size:clamp(1rem, 2.6vw, 1.15rem);
+    animation:heroUp .8s ease .55s both;
+  }
+  .hero-actions{
+    margin-top:2.25rem;display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center;
+    animation:heroUp .8s ease .7s both;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.95rem 1.9rem;border-radius:999px;text-decoration:none;
+    font-weight:700;font-size:.95rem;
+    transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  }
+  .btn-primary{
+    background:var(--rosso);color:#fff;
+    box-shadow:0 8px 24px rgba(210,30,30,.3);
+  }
+  .btn-primary:hover{background:var(--rosso-scuro);transform:translateY(-2px);box-shadow:0 12px 30px rgba(210,30,30,.38)}
+  .btn-ghost{
+    border:1.5px solid rgba(17,17,17,.18);color:var(--nero);background:transparent;
+  }
+  .btn-ghost:hover{border-color:var(--nero);transform:translateY(-2px)}
+  .hero-badge{
+    margin-top:2.5rem;display:inline-flex;align-items:center;gap:.6rem;
+    background:var(--nero);color:#fff;padding:.6rem 1.2rem;border-radius:999px;
+    font-size:.85rem;font-weight:600;
+    animation:heroUp .8s ease .85s both;
+  }
+  .hero-badge strong{color:#ff8a8a}
+  @keyframes heroPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+  @keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+  /* ---------- Sections base ---------- */
+  section{padding:4.5rem 1.5rem}
+  .container{max-width:1100px;margin:0 auto}
+  .section-kicker{
+    font-size:.75rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--rosso);margin-bottom:.6rem;
+  }
+  .section-title{
+    font-family:var(--font-display);font-weight:600;
+    font-size:clamp(1.8rem, 5.5vw, 2.7rem);line-height:1.15;letter-spacing:-.01em;
+  }
+  .section-intro{margin-top:1rem;color:var(--grigio-testo);max-width:38rem}
+
+  /* ---------- Chi siamo ---------- */
+  #chi-siamo{background:var(--grigio)}
+  .storia-grid{display:grid;gap:2.5rem;margin-top:2.5rem}
+  .storia-testo p{color:var(--grigio-testo);margin-bottom:1rem}
+  .storia-testo strong{color:var(--nero)}
+  .storia-firma{
+    margin-top:1.5rem;font-family:var(--font-display);font-style:italic;
+    font-size:1.15rem;color:var(--nero);
+  }
+  .storia-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;align-content:start}
+  .stat-card{
+    background:var(--bianco);border-radius:18px;padding:1.5rem 1.25rem;
+    border:1px solid rgba(17,17,17,.06);
+    transition:transform .3s ease,box-shadow .3s ease;
+  }
+  .stat-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(17,17,17,.09)}
+  .stat-num{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(1.9rem, 5vw, 2.5rem);color:var(--rosso);line-height:1;
+  }
+  .stat-label{margin-top:.5rem;font-size:.85rem;font-weight:600;color:var(--grigio-testo)}
+  @media (min-width:820px){
+    .storia-grid{grid-template-columns:1.3fr 1fr;gap:4rem;align-items:center}
+  }
+
+  /* ---------- Servizi ---------- */
+  .servizi-grid{display:grid;gap:1.25rem;margin-top:2.5rem}
+  .servizio-card{
+    position:relative;background:var(--bianco);border:1px solid rgba(17,17,17,.08);
+    border-radius:20px;padding:2rem 1.6rem;overflow:hidden;
+    transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  }
+  .servizio-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--rosso),#ff7a5c);
+    transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+  }
+  .servizio-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(17,17,17,.1);border-color:transparent}
+  .servizio-card:hover::before{transform:scaleX(1)}
+  .servizio-icona{
+    width:56px;height:56px;border-radius:16px;
+    background:rgba(210,30,30,.08);color:var(--rosso);
+    display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;
+  }
+  .servizio-icona svg{width:28px;height:28px}
+  .servizio-card h3{font-family:var(--font-display);font-weight:600;font-size:1.3rem;margin-bottom:.6rem}
+  .servizio-card p{color:var(--grigio-testo);font-size:.95rem}
+  @media (min-width:640px){.servizi-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:960px){.servizi-grid{grid-template-columns:repeat(4,1fr)}}
+
+  /* ---------- Perché noi ---------- */
+  #perche{background:var(--nero);color:var(--bianco)}
+  #perche .section-title{color:var(--bianco)}
+  #perche .section-intro{color:rgba(255,255,255,.65)}
+  .perche-grid{display:grid;gap:1.25rem;margin-top:2.5rem}
+  .perche-item{
+    border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:1.75rem 1.5rem;
+    transition:background .3s ease,transform .3s ease;
+  }
+  .perche-item:hover{background:rgba(255,255,255,.05);transform:translateY(-4px)}
+  .perche-num{
+    font-family:var(--font-display);font-style:italic;font-size:1rem;
+    color:var(--rosso);margin-bottom:.75rem;font-weight:600;
+  }
+  .perche-item h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+  .perche-item p{color:rgba(255,255,255,.65);font-size:.92rem}
+  @media (min-width:640px){.perche-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:960px){.perche-grid{grid-template-columns:repeat(4,1fr)}}
+
+  /* ---------- Prenota banner ---------- */
+  .prenota-banner{
+    background:linear-gradient(135deg,var(--rosso),var(--rosso-scuro));
+    color:#fff;text-align:center;
+  }
+  .prenota-banner h2{
+    font-family:var(--font-display);font-weight:600;
+    font-size:clamp(1.7rem, 5.5vw, 2.5rem);max-width:22ch;margin:0 auto;
+  }
+  .prenota-banner p{margin:1rem auto 0;max-width:32rem;color:rgba(255,255,255,.85)}
+  .prenota-banner .btn{margin-top:1.75rem;background:#fff;color:var(--rosso);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+  .prenota-banner .btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.28)}
+
+  /* ---------- Contatti ---------- */
+  .contatti-grid{display:grid;gap:1.25rem;margin-top:2.5rem}
+  .contatto-card{
+    background:var(--grigio);border-radius:20px;padding:1.75rem 1.5rem;
+    transition:transform .3s ease,box-shadow .3s ease;
+  }
+  .contatto-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(17,17,17,.08)}
+  .contatto-card h3{
+    font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rosso);margin-bottom:.85rem;
+  }
+  .contatto-card a{text-decoration:none;font-weight:600}
+  .contatto-card a:hover{color:var(--rosso)}
+  .contatto-card p, .contatto-card li{color:var(--grigio-testo);font-size:.97rem}
+  .contatto-card ul{list-style:none}
+  .contatto-card li{display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0;border-bottom:1px dashed rgba(17,17,17,.1)}
+  .contatto-card li:last-child{border-bottom:0}
+  .contatto-card li span:last-child{font-weight:700;color:var(--nero);white-space:nowrap}
+  .contatto-card .chiuso span:last-child{color:var(--rosso)}
+  .contatto-tel{display:block;font-size:1.15rem;margin-bottom:.4rem}
+  .maps-link{
+    display:inline-flex;align-items:center;gap:.4rem;margin-top:.85rem;
+    color:var(--rosso) !important;font-size:.9rem;
+  }
+  .maps-link:hover{text-decoration:underline}
+  .social-row{display:flex;gap:.75rem;margin-top:.5rem}
+  .social-row a{
+    display:inline-flex;align-items:center;gap:.5rem;
+    border:1.5px solid rgba(17,17,17,.15);border-radius:999px;
+    padding:.55rem 1.1rem;font-size:.88rem;text-decoration:none;
+    transition:border-color .25s ease,color .25s ease,transform .25s ease;
+  }
+  .social-row a:hover{border-color:var(--rosso);color:var(--rosso);transform:translateY(-2px)}
+  .social-row svg{width:17px;height:17px}
+  @media (min-width:820px){.contatti-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--nero);color:rgba(255,255,255,.6);
+    padding:2.5rem 1.5rem;text-align:center;font-size:.88rem;
+  }
+  .footer-brand{
+    display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:1rem;
+  }
+  .footer-brand img{width:38px;height:38px;border-radius:50%}
+  .footer-brand span{font-family:var(--font-display);color:#fff;font-size:1.05rem}
+  .footer-brand em{font-style:normal;color:var(--rosso)}
+  footer a{color:rgba(255,255,255,.75);text-decoration:none}
+  footer a:hover{color:#fff}
+  .footer-meta{margin-top:.75rem;font-size:.8rem;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="nav-wrap">
+    <a class="brand" href="#top" aria-label="Immagine Parrucchieri — torna su">
+      <img src="logo.jpg" alt="Logo Immagine Parrucchieri" width="44" height="44">
+      <span class="brand-name"><em>immagine</em> parrucchieri</span>
+    </a>
+    <nav aria-label="Navigazione principale">
+      <ul>
+        <li><a href="#chi-siamo">Chi siamo</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+        <li><a class="nav-cta" href="tel:+393516331474">Prenota ora</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#chi-siamo">Chi siamo</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#perche">Perché noi</a>
+  <a href="#contatti">Contatti</a>
+  <a class="nav-cta" href="tel:+393516331474">☎ Prenota ora</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Presentazione">
+    <img class="hero-logo" src="logo.jpg" alt="Immagine Parrucchieri" width="118" height="118">
+    <p class="hero-kicker">Settimo Torinese · dal cuore di Via San Mauro</p>
+    <h1>La tua <em>immagine</em>, nelle mani giuste.</h1>
+    <p class="hero-sub">Taglio, colore e styling per donna e uomo nel salone di Giuseppe e Agostino. Orario continuato dal martedì al sabato, 9:00–19:00.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="tel:+393516331474">☎ Prenota il tuo posto</a>
+      <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+    </div>
+    <p class="hero-badge">⭐ Raccomandato dal <strong>98%</strong> dei clienti</p>
+  </section>
+
+  <!-- CHI SIAMO -->
+  <section id="chi-siamo" aria-label="Chi siamo">
+    <div class="container">
+      <p class="section-kicker reveal">Chi siamo</p>
+      <h2 class="section-title reveal">Un salone storico,<br>due mani esperte.</h2>
+      <div class="storia-grid">
+        <div class="storia-testo reveal d1">
+          <p>Immagine Parrucchieri è il salone che <strong>Giuseppe Iaconis</strong> e <strong>Agostino Migliaccio</strong> portano avanti insieme, giorno dopo giorno, a Settimo Torinese. Non una catena, non un franchising: due professionisti che conoscono i loro clienti per nome e sanno cosa sta bene a ciascuno di loro.</p>
+          <p>Qui non si esce mai con un taglio "qualsiasi". Prima di prendere in mano le forbici, ascoltiamo: com'è la tua giornata, quanto tempo dedichi ai capelli, cosa vuoi raccontare di te. Poi lavoriamo perché il risultato ti somigli davvero — <strong>ma nella versione migliore</strong>.</p>
+          <p>È così che ci siamo guadagnati la fiducia del quartiere: il 98% di chi si siede sulle nostre poltrone ci raccomanda ad amici e famiglia. Per noi non c'è recensione che valga di più.</p>
+          <p class="storia-firma">— Giuseppe & Agostino</p>
+        </div>
+        <div class="storia-stats">
+          <div class="stat-card reveal d1">
+            <p class="stat-num">98%</p>
+            <p class="stat-label">di raccomandazioni positive dai clienti</p>
+          </div>
+          <div class="stat-card reveal d2">
+            <p class="stat-num">2</p>
+            <p class="stat-label">soci fondatori, un'unica visione dello stile</p>
+          </div>
+          <div class="stat-card reveal d2">
+            <p class="stat-num">6<span style="font-size:.6em">/7</span></p>
+            <p class="stat-label">aperti da martedì a sabato, orario continuato</p>
+          </div>
+          <div class="stat-card reveal d3">
+            <p class="stat-num">1/B</p>
+            <p class="stat-label">Via San Mauro, nel cuore di Settimo Torinese</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi" aria-label="Servizi">
+    <div class="container">
+      <p class="section-kicker reveal">I nostri servizi</p>
+      <h2 class="section-title reveal">Tutto quello che serve<br>ai tuoi capelli.</h2>
+      <p class="section-intro reveal">Ogni servizio inizia con una consulenza: guardiamo il viso, il capello e lo stile di vita, poi ti proponiamo la strada giusta.</p>
+      <div class="servizi-grid">
+        <article class="servizio-card reveal">
+          <div class="servizio-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8.5 20 20"/><path d="M8.5 15.5 20 4"/></svg>
+          </div>
+          <h3>Taglio donna</h3>
+          <p>Dal cambio look radicale al ritocco che mantiene la forma: un taglio costruito sul tuo viso e sulla tua routine, non su una foto di tendenza.</p>
+        </article>
+        <article class="servizio-card reveal d1">
+          <div class="servizio-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M8 7c0 4 -2 6 -2 10a6 6 0 0 0 12 0c0-4-2-6-2-10"/><path d="M9 21h6"/></svg>
+          </div>
+          <h3>Taglio uomo</h3>
+          <p>Precisione, geometrie pulite e finiture curate. Un taglio maschile che resta in ordine anche a due settimane dal salone.</p>
+        </article>
+        <article class="servizio-card reveal d2">
+          <div class="servizio-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 14a8 8 0 0 0 16 0Z"/><path d="M12 18a4 4 0 0 1-4-4"/></svg>
+          </div>
+          <h3>Colore</h3>
+          <p>Colorazioni, schiariture e riflessi studiati sul tuo incarnato. Colori pieni e luminosi che invecchiano bene, senza effetto "ricrescita drammatica".</p>
+        </article>
+        <article class="servizio-card reveal d3">
+          <div class="servizio-icona" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20c3-1 4-3 4-6V7a5 5 0 0 1 10 0v7c0 3 1 5 4 6"/><path d="M7 10h10"/></svg>
+          </div>
+          <h3>Piega & styling</h3>
+          <p>Pieghe morbide, liscio impeccabile o onde naturali: lo styling giusto per tutti i giorni o per il giorno importante.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHÉ NOI -->
+  <section id="perche" aria-label="Perché sceglierci">
+    <div class="container">
+      <p class="section-kicker reveal">Perché sceglierci</p>
+      <h2 class="section-title reveal">Quattro buone ragioni<br>per sederti da noi.</h2>
+      <div class="perche-grid">
+        <div class="perche-item reveal">
+          <p class="perche-num">n. 01</p>
+          <h3>Il 98% ci raccomanda</h3>
+          <p>Non lo diciamo noi: lo dicono i clienti. Quasi tutti quelli che ci provano tornano — e portano qualcuno con sé.</p>
+        </div>
+        <div class="perche-item reveal d1">
+          <p class="perche-num">n. 02</p>
+          <h3>I titolari in salone</h3>
+          <p>Da noi ti seguono direttamente Giuseppe e Agostino, i soci fondatori. Stessa cura, stessa mano, ogni volta.</p>
+        </div>
+        <div class="perche-item reveal d2">
+          <p class="perche-num">n. 03</p>
+          <h3>Orario continuato</h3>
+          <p>Dalle 9:00 alle 19:00 senza pausa, da martedì a sabato: passi anche in pausa pranzo, quando gli altri sono chiusi.</p>
+        </div>
+        <div class="perche-item reveal d3">
+          <p class="perche-num">n. 04</p>
+          <h3>Prenotare è facile</h3>
+          <p>Una telefonata o la prenotazione online su Prenotado: scegli il canale che preferisci, al resto pensiamo noi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER PRENOTA -->
+  <section class="prenota-banner" aria-label="Prenota un appuntamento">
+    <div class="container">
+      <h2 class="reveal">Il prossimo posto libero potrebbe essere il tuo.</h2>
+      <p class="reveal d1">Chiamaci per fissare il tuo appuntamento: troviamo insieme l'orario che ti incastra meglio.</p>
+      <a class="btn reveal d2" href="tel:+393516331474">☎ 351 633 1474</a>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti" aria-label="Contatti">
+    <div class="container">
+      <p class="section-kicker reveal">Contatti</p>
+      <h2 class="section-title reveal">Ci trovi qui.</h2>
+      <div class="contatti-grid">
+        <div class="contatto-card reveal">
+          <h3>Telefono</h3>
+          <a class="contatto-tel" href="tel:+393516331474">351 633 1474</a>
+          <a class="contatto-tel" href="tel:+390118960348">011 896 0348</a>
+          <p>Chiamaci per prenotare o per qualsiasi informazione.</p>
+        </div>
+        <div class="contatto-card reveal d1">
+          <h3>Dove siamo</h3>
+          <p><strong style="color:var(--nero)">Via San Mauro 1/B</strong><br>10036 Settimo Torinese (TO)</p>
+          <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Immagine+Parrucchieri+Via+San+Mauro+1B+Settimo+Torinese" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apri in Google Maps →
+          </a>
+        </div>
+        <div class="contatto-card reveal d2">
+          <h3>Orari</h3>
+          <ul>
+            <li class="chiuso"><span>Lunedì</span><span>Chiuso</span></li>
+            <li><span>Martedì – Sabato</span><span>9:00 – 19:00</span></li>
+            <li class="chiuso"><span>Domenica</span><span>Chiuso</span></li>
+          </ul>
+          <p style="margin-top:.85rem;font-size:.85rem">Orario continuato, anche in pausa pranzo.</p>
+        </div>
+        <div class="contatto-card reveal d3">
+          <h3>Scrivici & seguici</h3>
+          <p style="margin-bottom:.85rem"><a href="mailto:immagine_parrucchieri@email.it">immagine_parrucchieri@email.it</a></p>
+          <div class="social-row">
+            <a href="https://www.instagram.com/immaginep/" target="_blank" rel="noopener" aria-label="Instagram di Immagine Parrucchieri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/p/Immagine-Parrucchieri-100050981905974/" target="_blank" rel="noopener" aria-label="Facebook di Immagine Parrucchieri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <img src="logo.jpg" alt="" width="38" height="38">
+    <span><em>immagine</em> parrucchieri</span>
+  </div>
+  <p>Via San Mauro 1/B, 10036 Settimo Torinese (TO) · <a href="tel:+393516331474">351 633 1474</a> · <a href="tel:+390118960348">011 896 0348</a></p>
+  <p class="footer-meta">Immagine s.n.c. di Iaconis Giuseppe e Migliaccio Agostino — © <span id="anno">2026</span> Tutti i diritti riservati</p>
+</footer>
+
+<script>
+  // Anno corrente nel footer
+  document.getElementById('anno').textContent = new Date().getFullYear();
+
+  // Ombra header allo scroll
+  const header = document.querySelector('header');
+  addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', scrollY > 10);
+  }, {passive:true});
+
+  // Menu mobile
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+
+  // Reveal allo scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: .12, rootMargin: '0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
