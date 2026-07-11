@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elenhair di Elena Zanconi | Parrucchiere e colore a Volpiano</title>
+<meta name="description" content="Salone di Elena Zanconi nel centro di Volpiano, specializzato nel colore: balayage, biondi e castani sofisticati, tonalizzazioni e acconciature sposa. Prodotti Wella e Alfaparf." />
+<meta name="theme-color" content="#1a1a1a" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231a1a1a'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-style='italic' text-anchor='middle' fill='%23c69a5e'%3EeH%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --ink-soft:#2a2622;
+    --caramel:#c69a5e;
+    --caramel-deep:#a97c3f;
+    --cream:#faf6ef;
+    --paper:#fffdf9;
+    --sand:#efe6d7;
+    --line:#e4d9c6;
+    --muted:#6d6459;
+    --shadow:0 24px 60px -30px rgba(42,38,34,.5);
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Manrope",system-ui,sans-serif;
+    font-size:clamp(1rem,.96rem + .3vw,1.075rem);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+  h1 em,h2 em,h3 em{font-style:italic;color:var(--caramel-deep);font-weight:500}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  ::selection{background:var(--caramel);color:#fff}
+  .wrap{width:min(1160px,92vw);margin-inline:auto}
+  .eyebrow{
+    font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--caramel-deep);display:inline-flex;align-items:center;gap:.7em;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--caramel)}
+  section{padding:clamp(4.5rem,10vw,8rem) 0}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;white-space:nowrap;
+    font-family:"Manrope";font-weight:600;font-size:.98rem;letter-spacing:.01em;
+    padding:.95em 1.6em;border-radius:999px;border:1px solid transparent;
+    transition:transform .25s var(--ease),background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--caramel-deep)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--ink);background:var(--paper)}
+  .btn-ghost:active{transform:translateY(1px)}
+  .btn svg{width:15px;height:15px}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+    padding:1.15rem 0;
+  }
+  header.scrolled{background:rgba(250,246,239,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:.7rem 0}
+  .navbar{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{font-family:"Manrope";font-weight:600;font-size:1.18rem;letter-spacing:.22em;text-transform:lowercase;color:var(--ink)}
+  .brand .h{color:var(--caramel-deep)}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-size:.9rem;font-weight:500;letter-spacing:.02em;color:var(--ink-soft);position:relative;padding:.2em 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:1px;background:var(--caramel);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+  .nav-links a:hover::after{transform:scaleX(1)}
+  .nav-cta{margin-left:.6rem}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.4rem}
+  .burger span{width:24px;height:2px;background:var(--ink);transition:transform .35s var(--ease),opacity .25s var(--ease)}
+  .mobile-menu{display:none}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding-top:6rem;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:2rem;width:100%}
+  .hero-copy{max-width:34ch;position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.9rem,7vw,5.1rem);margin:1.1rem 0 1.4rem}
+  .hero p.lead{font-size:clamp(1.05rem,1rem + .5vw,1.28rem);color:var(--muted);max-width:32ch;line-height:1.55}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+  .hero-visual{position:relative;height:min(72vh,620px)}
+  .hero-visual svg{position:absolute;inset:0;width:100%;height:100%}
+  .hero-mono{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:"Fraunces";font-style:italic;font-weight:500;
+    font-size:clamp(9rem,20vw,17rem);color:var(--ink);line-height:1;z-index:2;
+  }
+  .hero-mono span{color:var(--caramel-deep)}
+  .scroll-hint{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);z-index:3}
+
+  /* ---------- Salone / editorial ---------- */
+  .salone{background:var(--ink);color:var(--cream)}
+  .salone h2{color:var(--paper)}
+  .salone em{color:var(--caramel)}
+  .salone-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+  .salone-inner .eyebrow{color:var(--caramel)}
+  .salone-inner .eyebrow::before{background:var(--caramel)}
+  .salone h2{font-size:clamp(2.1rem,4.5vw,3.4rem);margin:1.1rem 0 1.3rem;max-width:14ch}
+  .salone p{color:#d8cfc0;max-width:42ch;margin-bottom:1.1rem}
+  .signature{font-family:"Fraunces";font-style:italic;font-size:1.5rem;color:var(--caramel);margin-top:1.6rem}
+  .portrait{
+    position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 30% 12%, rgba(198,154,94,.55), transparent 55%),
+      linear-gradient(160deg,#f2e6d2 0%, #d9b483 26%, #a97c3f 52%, #4a3826 82%, #241a12 100%);
+    box-shadow:var(--shadow);
+  }
+  .portrait::after{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(74deg, rgba(255,255,255,.06) 0 2px, transparent 2px 9px);
+    mix-blend-mode:overlay;
+  }
+  .portrait-tag{position:absolute;left:1.1rem;bottom:1.1rem;color:#fff;font-family:"Fraunces";font-style:italic;font-size:1.15rem;text-shadow:0 2px 12px rgba(0,0,0,.4);z-index:2}
+
+  /* ---------- Servizi ---------- */
+  .sec-head{max-width:62ch}
+  .sec-head h2{font-size:clamp(2rem,4.5vw,3.3rem);margin:1rem 0 .8rem}
+  .sec-head p{color:var(--muted);max-width:52ch}
+  .services{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:3rem}
+  .service{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    padding:1.9rem 1.5rem;display:flex;flex-direction:column;min-height:230px;
+    transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+  }
+  .service:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--caramel)}
+  .service .num{font-family:"Fraunces";font-style:italic;font-size:1.15rem;color:var(--caramel-deep)}
+  .service h3{font-size:1.32rem;margin:.9rem 0 .6rem;font-weight:600}
+  .service p{font-size:.94rem;color:var(--muted);line-height:1.55}
+  .service .tag{margin-top:auto;padding-top:1.1rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--caramel-deep);font-weight:600}
+
+  /* ---------- Collezioni (bento colore) ---------- */
+  .collezioni{background:var(--sand)}
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:1rem;margin-top:3rem}
+  .tone{
+    position:relative;border-radius:16px;overflow:hidden;padding:1.4rem;
+    display:flex;flex-direction:column;justify-content:flex-end;color:#fff;
+    box-shadow:var(--shadow);isolation:isolate;
+    transition:transform .5s var(--ease);
+  }
+  .tone::before{content:"";position:absolute;inset:0;z-index:-1;transition:transform 1.1s var(--ease)}
+  .tone:hover::before{transform:scale(1.08)}
+  .tone h3{font-size:1.3rem;font-weight:500}
+  .tone span{font-size:.82rem;opacity:.9;margin-top:.25rem}
+  .tone .k{position:absolute;top:1.1rem;left:1.4rem;font-family:"Fraunces";font-style:italic;font-size:1rem;opacity:.85}
+  .t-balayage{grid-column:span 2;grid-row:span 2}
+  .t-balayage::before{background:linear-gradient(158deg,#f3e3c8 0%, #dcb178 30%, #a9743a 60%, #3c2a1b 100%)}
+  .t-biondo::before{background:linear-gradient(150deg,#fbf2df 0%, #ecd39f 55%, #cdaa6b 100%)}
+  .t-castano::before{background:linear-gradient(150deg,#6b4a30 0%, #452e1e 60%, #2a1a10 100%)}
+  .t-rame{grid-column:span 2}
+  .t-rame::before{background:linear-gradient(120deg,#e6a25c 0%, #c26a2c 55%, #8a3f16 100%)}
+  .t-cenere::before{background:linear-gradient(150deg,#e9e2d4 0%, #c9c0ad 55%, #9a9482 100%);color:#000}
+  .t-cenere h3,.t-cenere span,.t-cenere .k{color:#2a2622}
+  .t-miele::before{background:linear-gradient(150deg,#f6dfa8 0%, #d8a557 60%, #a9762f 100%)}
+  .collezioni .foot{margin-top:2rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between}
+  .collezioni .foot p{color:var(--muted);max-width:44ch;font-size:.95rem}
+
+  /* ---------- Perché (lista numerata stacked) ---------- */
+  .why-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+  .why-list{display:flex;flex-direction:column}
+  .why-item{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;padding:1.7rem 0;border-top:1px solid var(--line)}
+  .why-item:last-child{border-bottom:1px solid var(--line)}
+  .why-item .idx{font-family:"Fraunces";font-style:italic;font-size:1.6rem;color:var(--caramel-deep);line-height:1}
+  .why-item h3{font-size:1.28rem;font-weight:600;margin-bottom:.35rem}
+  .why-item p{color:var(--muted);font-size:.96rem;max-width:46ch}
+  .why-aside{position:sticky;top:6rem}
+  .why-aside h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:1rem 0 1rem}
+  .why-aside p{color:var(--muted);max-width:34ch}
+
+  /* ---------- Wedding band ---------- */
+  .wedding{
+    position:relative;color:#fff;text-align:center;overflow:hidden;
+    background:linear-gradient(115deg,#241a12 0%, #4a3626 40%, #a97c3f 100%);
+  }
+  .wedding::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 120% at 50% 0%, rgba(255,255,255,.14), transparent 60%);pointer-events:none}
+  .wedding .inner{position:relative;z-index:2;max-width:56ch;margin-inline:auto}
+  .wedding .eyebrow{color:#f0dcbd}
+  .wedding .eyebrow::before{background:#f0dcbd}
+  .wedding h2{font-size:clamp(2.1rem,5vw,3.6rem);margin:1.1rem 0 1.2rem}
+  .wedding p{color:#efe4d3;margin-bottom:2rem;font-size:1.1rem}
+
+  /* ---------- Contatti ---------- */
+  .contatti-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,4.5rem);align-items:start}
+  .contatti h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:1rem 0 1.4rem}
+  .info-row{display:flex;gap:1rem;padding:1.25rem 0;border-top:1px solid var(--line);align-items:flex-start}
+  .info-row:last-child{border-bottom:1px solid var(--line)}
+  .info-row .ico{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--sand);color:var(--caramel-deep)}
+  .info-row .ico svg{width:18px;height:18px}
+  .info-row .label{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .info-row .val{font-size:1.12rem;font-weight:500;color:var(--ink);margin-top:.15rem}
+  .info-row a.val:hover{color:var(--caramel-deep)}
+  .map-card{
+    border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--paper);
+    display:flex;flex-direction:column;box-shadow:var(--shadow);
+  }
+  .map-visual{
+    aspect-ratio:16/12;position:relative;
+    background:
+      linear-gradient(0deg, rgba(198,154,94,.12), rgba(198,154,94,.12)),
+      linear-gradient(#efe6d7,#efe6d7);
+  }
+  .map-visual svg{position:absolute;inset:0;width:100%;height:100%}
+  .map-pin{position:absolute;top:44%;left:50%;transform:translate(-50%,-100%);z-index:3;color:var(--caramel-deep)}
+  .map-pin svg{width:34px;height:34px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+  .map-foot{padding:1.2rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .map-foot .place{font-family:"Fraunces";font-style:italic;font-size:1.1rem}
+  .socials{display:flex;gap:.6rem;margin-top:1.6rem}
+  .socials a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+  .socials a:hover{background:var(--ink);color:var(--caramel);border-color:var(--ink);transform:translateY(-3px)}
+  .socials svg{width:19px;height:19px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#cfc6b8;padding:3.5rem 0 2.5rem}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
+  .foot-brand{font-family:"Manrope";font-weight:600;font-size:1.3rem;letter-spacing:.22em;text-transform:lowercase;color:var(--cream)}
+  .foot-brand .h{color:var(--caramel)}
+  footer .cols{display:flex;gap:3rem;flex-wrap:wrap}
+  footer .cols a,footer .cols p{font-size:.92rem;color:#cfc6b8;line-height:1.9}
+  footer .cols a:hover{color:var(--caramel)}
+  footer .colhead{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--caramel);margin-bottom:.6rem;font-weight:600}
+  .foot-bottom{margin-top:2.6rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:.6rem;justify-content:space-between;font-size:.82rem;color:#8f877a}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+  .reveal[data-d="4"]{transition-delay:.32s}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .nav-links,.nav-cta{display:none}
+    .burger{display:flex}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-visual{display:none}
+    .hero{min-height:100dvh}
+    .hero-copy{max-width:none}
+    .salone-inner,.why-grid,.contatti-grid{grid-template-columns:1fr}
+    .why-aside{position:static}
+    .portrait{max-width:420px}
+    .services{grid-template-columns:repeat(2,1fr)}
+    .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+    .t-balayage{grid-column:span 2}
+    .t-rame{grid-column:span 2}
+    .mobile-menu{
+      display:block;position:fixed;inset:0;z-index:45;background:var(--cream);
+      padding:6rem 8vw 3rem;transform:translateY(-100%);transition:transform .5s var(--ease);
+      opacity:0;pointer-events:none;
+    }
+    .mobile-menu.open{transform:none;opacity:1;pointer-events:auto}
+    .mobile-menu a{display:block;font-family:"Fraunces";font-size:2rem;padding:.5rem 0;color:var(--ink)}
+    .mobile-menu .btn{margin-top:1.5rem}
+    body.locked{overflow:hidden}
+    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
+  @media (max-width:560px){
+    .services{grid-template-columns:1fr}
+    .hero h1{font-size:clamp(2.7rem,12vw,3.6rem)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto !important}
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+    .tone::before{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap navbar">
+    <a href="#top" class="brand" aria-label="Elenhair, torna su">elen<span class="h">h</span>air</a>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#salone">Il salone</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#collezioni">Collezioni</a>
+      <a href="#sposa">Sposa</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a href="tel:+390114179927" class="btn btn-primary nav-cta">Prenota</a>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#salone">Il salone</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#collezioni">Collezioni</a>
+  <a href="#sposa">Sposa</a>
+  <a href="#contatti">Contatti</a>
+  <a href="tel:+390114179927" class="btn btn-primary">Chiama ora</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">Colore e stile · Volpiano</span>
+        <h1 class="reveal" data-d="1">Il colore<br>che ti <em>somiglia</em>.</h1>
+        <p class="lead reveal" data-d="2">Balayage, biondi e castani su misura nel cuore di Volpiano, con la cura artigianale di Elena Zanconi.</p>
+        <div class="hero-actions reveal" data-d="3">
+          <a href="tel:+390114179927" class="btn btn-primary">
+            Prenota
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#collezioni" class="btn btn-ghost">Le collezioni</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 420 600" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="strand" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f2e2c6"/>
+              <stop offset=".5" stop-color="#c69a5e"/>
+              <stop offset="1" stop-color="#4a3626"/>
+            </linearGradient>
+            <linearGradient id="strand2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e8cfa4"/>
+              <stop offset="1" stop-color="#a97c3f"/>
+            </linearGradient>
+          </defs>
+          <path d="M120 -20 C 60 140, 260 220, 150 360 C 70 470, 240 520, 200 620" fill="none" stroke="url(#strand)" stroke-width="46" stroke-linecap="round" opacity=".9"/>
+          <path d="M240 -20 C 300 130, 120 230, 250 380 C 340 490, 190 540, 260 620" fill="none" stroke="url(#strand2)" stroke-width="30" stroke-linecap="round" opacity=".7"/>
+          <path d="M320 0 C 360 150, 250 250, 340 420" fill="none" stroke="#1a1a1a" stroke-width="14" stroke-linecap="round" opacity=".25"/>
+        </svg>
+        <div class="hero-mono">e<span>H</span></div>
+      </div>
+    </div>
+    <span class="scroll-hint reveal" data-d="4">Scorri</span>
+  </section>
+
+  <!-- SALONE -->
+  <section class="salone" id="salone">
+    <div class="wrap salone-inner">
+      <div class="portrait reveal" role="img" aria-label="Sfumatura di colore balayage, dal castano profondo al biondo caramello">
+        <span class="portrait-tag">balayage &amp; luce</span>
+      </div>
+      <div>
+        <span class="eyebrow reveal">Il salone</span>
+        <h2 class="reveal" data-d="1">Un salone dove il colore si <em>disegna</em>.</h2>
+        <p class="reveal" data-d="2">Nel centro di Volpiano, Elena Zanconi lavora il colore come un mestiere di precisione: legge il tuo incarnato, la tua ricrescita e la luce che ti sta bene, e costruisce sfumature che sembrano nate con te.</p>
+        <p class="reveal" data-d="3">Biondi, castani, tonalizzazioni: ogni tono nasce da un dialogo, non da una cartella standard. Solo prodotti Wella e Alfaparf, per un risultato che resta luminoso a lungo.</p>
+        <p class="signature reveal" data-d="3">Elena Zanconi</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Cosa facciamo</span>
+        <h2 class="reveal" data-d="1">Servizi pensati per il tuo capello.</h2>
+        <p class="reveal" data-d="2">Dalla piega quotidiana al progetto colore più articolato, ogni servizio parte dall'ascolto e finisce con un capello sano e facile da gestire a casa.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal" data-d="1">
+          <span class="num">01</span>
+          <h3>Taglio e piega</h3>
+          <p>Un taglio che segue la tua forma e cade bene anche senza fatica. Piega curata, styling che dura.</p>
+          <span class="tag">Su misura</span>
+        </article>
+        <article class="service reveal" data-d="2">
+          <span class="num">02</span>
+          <h3>Balayage e biondi</h3>
+          <p>Schiariture morbide, biondi caldi o freddi, giochi di luce che seguono il movimento del capello.</p>
+          <span class="tag">La specialità</span>
+        </article>
+        <article class="service reveal" data-d="3">
+          <span class="num">03</span>
+          <h3>Colore e tonalizzazione</h3>
+          <p>Castani profondi, riflessi su misura e tonalizzazioni che correggono e rifiniscono ogni sfumatura.</p>
+          <span class="tag">Wella · Alfaparf</span>
+        </article>
+        <article class="service reveal" data-d="4">
+          <span class="num">04</span>
+          <h3>Trattamenti</h3>
+          <p>Rituali di cura Wella e Alfaparf per ricostruire, idratare e proteggere il capello dopo il colore.</p>
+          <span class="tag">Capello sano</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLEZIONI -->
+  <section class="collezioni" id="collezioni">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Le collezioni di colore</span>
+        <h2 class="reveal" data-d="1">Trova la tua sfumatura.</h2>
+        <p class="reveal" data-d="2">Le nostre famiglie di colore, dai biondi luminosi ai castani sofisticati. Un punto di partenza per immaginare insieme il tuo prossimo tono.</p>
+      </div>
+      <div class="bento">
+        <div class="tone t-balayage reveal"><span class="k">01</span><h3>Balayage caramello</h3><span>Dal castano profondo alle punte luce</span></div>
+        <div class="tone t-biondo reveal" data-d="1"><span class="k">02</span><h3>Biondo perla</h3><span>Caldo, naturale, avvolgente</span></div>
+        <div class="tone t-castano reveal" data-d="2"><span class="k">03</span><h3>Castano sofisticato</h3><span>Profondità e riflessi</span></div>
+        <div class="tone t-rame reveal" data-d="1"><span class="k">04</span><h3>Rame e miele</h3><span>Toni caldi che accendono</span></div>
+        <div class="tone t-cenere reveal" data-d="2"><span class="k">05</span><h3>Beige cenere</h3><span>Freddo ed elegante</span></div>
+        <div class="tone t-miele reveal" data-d="3"><span class="k">06</span><h3>Miele dorato</h3><span>Luce solare tutto l'anno</span></div>
+      </div>
+      <div class="foot">
+        <p class="reveal">Vuoi vedere altre sfumature? Le trovi ogni giorno sui nostri profili social.</p>
+        <a href="https://www.instagram.com/elenhair_volpiano/" target="_blank" rel="noopener" class="btn btn-ghost">Guarda su Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE -->
+  <section id="perche">
+    <div class="wrap why-grid">
+      <div class="why-aside">
+        <span class="eyebrow reveal">Perché Elenhair</span>
+        <h2 class="reveal" data-d="1">Quattro buoni motivi per sederti da noi.</h2>
+        <p class="reveal" data-d="2">Un salone piccolo, dove conta il tempo dedicato a te e la costanza del risultato.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal">
+          <span class="idx">01</span>
+          <div><h3>Specialisti del colore</h3><p>Il colore è il nostro mestiere quotidiano: balayage, biondi e tonalizzazioni studiati con metodo, non improvvisati.</p></div>
+        </div>
+        <div class="why-item reveal" data-d="1">
+          <span class="idx">02</span>
+          <div><h3>Prodotti professionali</h3><p>Solo Wella e Alfaparf: gamme affidabili che rispettano il capello e mantengono il tono più a lungo.</p></div>
+        </div>
+        <div class="why-item reveal" data-d="2">
+          <span class="idx">03</span>
+          <div><h3>Nel centro di Volpiano</h3><p>Facile da raggiungere, in Via Umberto I. Un ambiente accogliente dove sentirsi a proprio agio.</p></div>
+        </div>
+        <div class="why-item reveal" data-d="3">
+          <span class="idx">04</span>
+          <div><h3>Consiglio su misura</h3><p>Ti guidiamo verso il tono giusto per te e ti mostriamo come gestirlo a casa, giorno dopo giorno.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEDDING -->
+  <section class="wedding" id="sposa">
+    <div class="wrap inner">
+      <span class="eyebrow">Wedding day</span>
+      <h2>Il tuo giorno merita un'acconciatura perfetta.</h2>
+      <p>Acconciature sposa curate nei dettagli, provate insieme prima del grande giorno. Colore luminoso, tenuta sicura e un look che resta impeccabile dalla mattina fino all'ultimo ballo.</p>
+      <a href="tel:+390114179927" class="btn btn-ghost" style="border-color:rgba(255,255,255,.6);color:#fff">Prenota la prova</a>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti">
+    <div class="wrap contatti-grid">
+      <div>
+        <span class="eyebrow reveal">Contatti</span>
+        <h2 class="reveal" data-d="1">Prenota il tuo appuntamento.</h2>
+        <div class="reveal" data-d="2">
+          <div class="info-row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <div><div class="label">Telefono</div><a href="tel:+390114179927" class="val">011 4179927</a></div>
+          </div>
+          <div class="info-row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><div class="label">Indirizzo</div><a href="https://www.google.com/maps/search/?api=1&query=Via+Umberto+I+9+Volpiano+TO" target="_blank" rel="noopener" class="val">Via Umberto I 9, Volpiano (TO)</a></div>
+          </div>
+          <div class="info-row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><div class="label">Orari</div><div class="val">Su appuntamento. Chiama per la disponibilità.</div></div>
+          </div>
+        </div>
+        <div class="socials reveal" data-d="3">
+          <a href="https://www.instagram.com/elenhair_volpiano/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/elenhairvolpiano/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.2A21 21 0 0 0 14.7 0C12.3 0 10.6 1.5 10.6 4.2V6H8v3h2.6v9H14z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <a class="map-card reveal" data-d="2" href="https://www.google.com/maps/search/?api=1&query=Via+Umberto+I+9+Volpiano+TO" target="_blank" rel="noopener" aria-label="Apri la posizione su Google Maps">
+        <div class="map-visual">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="300" fill="#efe6d7"/>
+            <path d="M0 90 H400 M0 190 H400 M120 0 V300 M270 0 V300" stroke="#e0d3bd" stroke-width="10"/>
+            <path d="M0 140 H400" stroke="#d8c9ae" stroke-width="18"/>
+            <path d="M200 0 V300" stroke="#d8c9ae" stroke-width="18"/>
+            <rect x="150" y="105" width="55" height="45" fill="#e6dac4"/>
+            <rect x="285" y="205" width="45" height="55" fill="#e6dac4"/>
+          </svg>
+          <span class="map-pin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg></span>
+        </div>
+        <div class="map-foot">
+          <span class="place">Volpiano, TO</span>
+          <span class="btn btn-ghost" style="pointer-events:none">Apri la mappa</span>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">elen<span class="h">h</span>air</div>
+        <p style="max-width:34ch;margin-top:.8rem;color:#a89f90;font-size:.92rem">Salone di Elena Zanconi. Colore, cura e stile nel centro di Volpiano.</p>
+      </div>
+      <div class="cols">
+        <div>
+          <div class="colhead">Salone</div>
+          <a href="#servizi">Servizi</a><br>
+          <a href="#collezioni">Collezioni</a><br>
+          <a href="#sposa">Wedding day</a>
+        </div>
+        <div>
+          <div class="colhead">Contatti</div>
+          <a href="tel:+390114179927">011 4179927</a><br>
+          <p>Via Umberto I 9<br>10088 Volpiano (TO)</p>
+        </div>
+        <div>
+          <div class="colhead">Seguici</div>
+          <a href="https://www.instagram.com/elenhair_volpiano/" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="https://www.facebook.com/elenhairvolpiano/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Elenhair di Elena Zanconi</span>
+      <span>Via Umberto I 9, Volpiano (TO) · 011 4179927</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  const toggleMenu = (open) => {
+    const isOpen = open ?? !menu.classList.contains('open');
+    menu.classList.toggle('open', isOpen);
+    burger.classList.toggle('open', isOpen);
+    document.body.classList.toggle('locked', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+    burger.setAttribute('aria-label', isOpen ? 'Chiudi il menu' : 'Apri il menu');
+  };
+  burger.addEventListener('click', () => toggleMenu());
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
