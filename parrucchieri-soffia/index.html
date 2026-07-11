@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrucchieri Soffia | Hair Studio San Mauro Torinese</title>
+    <meta name="description" content="Salone di parrucchiere Cristiano Soffia a San Mauro Torinese. Tagli di tendenza, butterfly cut e colorazioni firmate dal team di Katia La Motta. Tradizione dal 1958.">
+    
+    <!-- Google Fonts: Outfit (Sans) & Playfair Display (Serif per dettagli eleganti) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <!-- GSAP + ScrollTrigger per animazioni fluide -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* 
+         * PALETTE & VARIABILI
+         * Brand: Monocromatico Elegante (Nero Profondo + Bianco Off-White)
+         * Accento: Oro Satinato (per i dettagli "Hair Studio")
+         */
+        :root {
+            --bg-color: #111111;       /* Nero profondo ma non assoluto */
+            --text-color: #F5F5F5;     /* Bianco sporco per leggibilità */
+            --accent-color: #D4AF37;   /* Oro classico */
+            --muted-color: #888888;    /* Grigio medio per testi secondari */
+            
+            --font-sans: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            
+            --container-width: 1200px;
+            --section-padding: clamp(4rem, 8vw, 8rem);
+        }
+
+        /* RESET & BASE */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: opacity 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* UTILITY CLASSES */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding-top: var(--section-padding);
+            padding-bottom: var(--section-padding);
+        }
+
+        .text-serif-italic {
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        /* ANIMAZIONI BASE */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* HEADER / NAV */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(17, 17, 17, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px; /* Dimensione logo */
+            width: auto;
+        }
+        
+        /* Fallback se il logo non carica, usa testo elegante */
+        .logo-text {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: none; /* Mobile first hidden */
+        }
+
+        .cta-btn {
+            background-color: transparent;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            padding: 0.8rem 1.8rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0%; height: 100%;
+            background-color: var(--text-color);
+            z-index: -1;
+            transition: width 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            color: var(--bg-color);
+        }
+
+        .cta-btn:hover::before {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        #hero {
+            height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #2a2a2a 0%, #111111 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--muted-color);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* CHI SIAMO */
+        #about {
+            background-color: #151515;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        /* SERVIZI */
+        #services {
+            background-color: var(--bg-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 2rem;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .service-desc {
+            color: var(--muted-color);
+            font-size: 0.95rem;
+        }
+
+        /* TEAM / COLORE */
+        #team {
+            background-color: #1a1a1a;
+            position: relative;
+        }
+
+        .team-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .team-content {
+            padding: var(--section-padding) 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .team-image-placeholder {
+            background-color: #222;
+            min-height: 400px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="100" height="100" fill="%23222"/><text x="50%" y="50%" font-family="sans-serif" font-size="14" fill="%23444" text-anchor="middle" dy=".3em">Foto Team Katia La Motta</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* CONTATTI */
+        #contact {
+            background-color: var(--bg-color);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .info-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .label {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .value {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+            margin-top: 2rem;
+            filter: grayscale(100%) invert(92%) contrast(83%); /* Effetto mappa scura elegante */
+        }
+
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            color: var(--muted-color);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (min-width: 768px) {
+            nav ul {
+                display: flex;
+                gap: 2rem;
+            }
+            
+            .nav-link {
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .team-split {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+        }
+
+        /* ACCESSIBILITÀ */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal-up { opacity: 1; transform: none; }
+            * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo" aria-label="Torna alla home">
+                <img src="logo.jpg" alt="Soffia Hair Studio Logo" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
+                <span class="logo-text" style="display:none;">SOFFIA</span>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#about" class="nav-link">Lo Studio</a></li>
+                    <li><a href="#services" class="nav-link">Servizi</a></li>
+                    <li><a href="#team" class="nav-link">Il Team</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="tel:+390118225496" class="cta-btn">Prenota</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="reveal-up text-serif-italic" style="font-style: italic;">Eleganza senza tempo</h1>
+            <p class="hero-subtitle reveal-up">Dal 1958, il punto di riferimento per il tuo stile a San Mauro Torinese. Tagli d'autore e colori firmati.</p>
+            <div class="reveal-up" style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                <a href="#contact" class="cta-btn">Vienici a trovare</a>
+                <a href="https://www.instagram.com/parrucchierisoffia/" target="_blank" class="nav-link" style="border-bottom: 1px solid var(--text-color); padding-bottom: 2px;">Seguici su IG</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section id="about" class="section-padding">
+        <div class="container about-grid">
+            <div class="reveal-up">
+                <h2 class="section-title">Tradizione,<br><span style="font-family: var(--font-serif); font-style: italic;">innovazione.</span></h2>
+                <p class="value" style="color: var(--muted-color); max-width: 90%;">
+                    Soffia Hair Studio non è solo un salone, è uno spazio dove la tecnica incontra l'ascolto. Cristiano Soffia ha fondato questa realtà nel 1958, trasformandola nel tempo in un progetto di alta cura dell'immagine.
+                </p>
+                <br>
+                <p class="value" style="color: var(--muted-color); max-width: 90%;">
+                    Il nostro ambiente, progettato da Vezzosi Arredamenti, è pensato per offrirti un'esperienza rilassante e sofisticata. Qui non fai solo un taglio: vivi un momento dedicato al tuo stile.
+                </p>
+            </div>
+            <div class="reveal-up">
+                <!-- Placeholder grafico pulito invece di immagine generica -->
+                <div style="position: relative; width: 100%; aspect-ratio: 4/5; background-color: #1a1a1a; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center;">
+                    <span style="color: var(--accent-color); font-family: var(--font-serif); font-size: 3rem; opacity: 0.3;">S</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIZI -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title reveal-up text-center" style="text-align: center;">I Nostri Servizi</h2>
+            
+            <div class="service-grid">
+                <article class="service-card reveal-up">
+                    <span class="service-icon">✂️</span>
+                    <h3 class="service-title">Taglio D'Autore</h3>
+                    <p class="service-desc">Dal taglio classico al più richiesto Butterfly Cut. Analisi del viso e della struttura per esaltare i tuoi tratti.</p>
+                </article>
+
+                <article class="service-card reveal-up">
+                    <span class="service-icon">🎨</span>
+                    <h3 class="service-title">Color Lab & Schiariture</h3>
+                    <p class="service-desc">Firmate dal team di Katia La Motta. Tecniche personalizzate per un colore luminoso, sano e duraturo.</p>
+                </article>
+
+                <article class="service-card reveal-up">
+                    <span class="service-icon">✨</span>
+                    <h3 class="service-title">Styling & Trattamenti</h3>
+                    <p class="service-desc">Asciugatura professionale e trattamenti di rivitalizzazione per capelli che tornano a splendere.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section-padding">
+        <div class="team-split">
+            <div class="team-image-placeholder reveal-up"></div>
+            <div class="team-content reveal-up">
+                <span class="label" style="margin-bottom: 1rem;">Il Team</span>
+                <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">La firma<br><span style="font-family: var(--font-serif); font-style: italic;">di Katia La Motta.</span></h2>
+                <p class="value" style="color: var(--muted-color); margin-bottom: 2rem;">
+                    Ogni trattamento Soffia è firmato. Ci affidiamo alla maestria di Katia La Motta per le colorazioni più complesse e le tendenze del momento, garantendo un risultato che parla da solo.
+                </p>
+                <a href="https://www.instagram.com/parrucchierisoffia/" class="cta-btn" style="display: inline-block; width: fit-content;">Vedi i lavori</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title reveal-up" style="margin-bottom: 4rem;">Contatti</h2>
+            
+            <div class="contact-layout">
+                <div class="reveal-up">
+                    <div class="info-item">
+                        <span class="label">Dove siamo</span>
+                        <p class="value">Via Speranza 39<br>10099 San Mauro Torinese (TO)</p>
+                        <a href="https://www.google.com/maps/dir//Parrucchieri+Soffia,+Via+Speranza+39,+10099+San+Mauro_Torinese_TO" target="_blank" style="display: inline-block; margin-top: 1rem; border-bottom: 1px solid var(--accent-color); color: var(--accent-color);">Ottieni indicazioni</a>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">Prenota ora</span>
+                        <p class="value"><a href="tel:+390118225496" style="font-size: 1.5rem; font-weight: 500; color: var(--text-color);">011 8225496</a></p>
+                        <p class="value" style="margin-top: 0.5rem;">Cristiano Soffia (Cell): <a href="tel:+393355874652">335 5874652</a></p>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">Orari</span>
+                        <p class="value" style="font-size: 1rem;">Lun - Sab: 09:30 - 19:30<br>Domenica: Chiuso</p>
+                    </div>
+                </div>
+
+                <div class="reveal-up">
+                    <!-- Mappa statica simulata con link reale per evitare API keys -->
+                    <a href="https://www.google.com/maps/place/Parrucchieri+Soffia/@45.0768,7.5812,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!8m2!3d45.0768!4d7.58379!16s%2Fg%2F1tdq5_8x?entry=ttu" target="_blank">
+                        <div class="map-container" style="display: flex; align-items: center; justify-content: center; color: #444;">
+                            <span style="font-family: var(--font-sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em;">Clicca per aprire la mappa</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Parrucchieri Soffia. Tutti i diritti riservati.</p>
+            <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.5;">San Mauro Torinese - Hair Studio Est. 1958</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT LOGICA -->
+    <script>
+        // Registra plugin GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Gestione Header Sticky e Blur
+            const header = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // 2. Animazione Hero (Staggered Reveal)
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            
+            tl.to(".reveal-up", {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2,
+                clearProps: "opacity, transform" // Rimuove le classi inline dopo l'animazione per pulizia
+            });
+
+            // 3. Scroll Reveal per il resto delle sezioni
+            const sections = document.querySelectorAll('.section-padding');
+            
+            sections.forEach(section => {
+                gsap.fromTo(section.querySelectorAll('.reveal-up'), 
+                    { y: 50, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        stagger: 0.1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 80%", // Inizia quando il top della sezione è all'80% dell'altezza viewport
+                        }
+                    }
+                );
+            });
+
+            // 4. Parallax leggero per l'immagine Team (se presente)
+            gsap.to(".team-image-placeholder", {
+                yPercent: 10,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#team",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+    </script>
+</body>
+</html>
