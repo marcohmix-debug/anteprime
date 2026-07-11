@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPS Acconciature — Parrucchiere a Settimo Torinese | Via Torino 43/C</title>
+<meta name="description" content="OPS Acconciature: salone di acconciature in via Torino 43/C, Settimo Torinese. Tagli donna, colore, piega e styling su appuntamento. Mar–Sab 9:00–18:00 orario continuato. Chiama lo 011 2239010.">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lime:#a8d327;
+    --lime-dark:#8ab318;
+    --lime-soft:#f2f9dd;
+    --copper:#c8552a;
+    --ink:#2b2b2b;
+    --grey:#8a8a8a;
+    --grey-light:#f5f5f4;
+    --white:#ffffff;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(43,43,43,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.12s}
+  .reveal.d2{transition-delay:.24s}
+  .reveal.d3{transition-delay:.36s}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .balloon,.hero-title span{animation:none !important}
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(138,138,138,.15);
+  }
+  .nav{
+    max-width:1080px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.7rem 1.25rem;
+  }
+  .brand{
+    display:flex;align-items:center;gap:.6rem;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;
+    text-decoration:none;
+  }
+  .brand img{
+    width:38px;height:38px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--lime);
+  }
+  .brand em{font-style:normal;color:var(--lime-dark)}
+  .nav-links{display:none;list-style:none;gap:1.6rem}
+  .nav-links a{
+    text-decoration:none;font-size:.92rem;font-weight:500;color:var(--ink);
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--lime-dark)}
+  .nav-cta{
+    display:inline-block;background:var(--ink);color:var(--white);
+    text-decoration:none;font-weight:600;font-size:.85rem;
+    padding:.55rem 1.05rem;border-radius:999px;
+    transition:background .2s,transform .2s;
+  }
+  .nav-cta:hover{background:var(--lime-dark);transform:translateY(-1px)}
+  @media (min-width:760px){
+    .nav-links{display:flex}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:6.5rem 1.5rem 4rem;
+    background:
+      radial-gradient(ellipse 80% 55% at 85% -5%, var(--lime-soft) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 45% at -10% 100%, #fdeee7 0%, transparent 55%),
+      var(--white);
+    overflow:hidden;
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;width:100%;position:relative;z-index:2}
+  .hero-kicker{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--grey);
+    animation:heroUp .8s ease both;
+  }
+  .hero-kicker::before{
+    content:"";width:26px;height:2px;background:var(--lime);border-radius:2px;
+  }
+  .hero-title{
+    font-size:clamp(2.9rem,11vw,5.6rem);
+    font-weight:700;margin:.6rem 0 1rem;letter-spacing:-.02em;
+  }
+  .hero-title .ops{color:var(--lime-dark)}
+  .hero-title span{display:inline-block;animation:heroUp .8s ease both}
+  .hero-title span:nth-child(2){animation-delay:.1s}
+  .hero-sub{
+    max-width:34rem;font-size:clamp(1.02rem,2.6vw,1.2rem);color:#555;
+    animation:heroUp .8s .2s ease both;
+  }
+  .hero-actions{
+    display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;
+    animation:heroUp .8s .32s ease both;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    text-decoration:none;font-weight:600;font-size:1rem;
+    padding:.95rem 1.7rem;border-radius:999px;
+    transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-primary{
+    background:var(--lime);color:var(--ink);
+    box-shadow:0 8px 22px rgba(168,211,39,.4);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(168,211,39,.5)}
+  .btn-ghost{
+    background:transparent;color:var(--ink);
+    border:2px solid rgba(43,43,43,.18);
+  }
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .hero-meta{
+    margin-top:2.4rem;font-size:.88rem;color:var(--grey);
+    display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;
+    animation:heroUp .8s .44s ease both;
+  }
+  .hero-meta strong{color:var(--ink);font-weight:600}
+  @keyframes heroUp{
+    from{opacity:0;transform:translateY(26px)}
+    to{opacity:1;transform:none}
+  }
+  /* balloons (richiamo alla vetrina) */
+  .balloon{
+    position:absolute;border-radius:50%;z-index:1;pointer-events:none;
+    animation:float 7s ease-in-out infinite;
+  }
+  .balloon::after{ /* riflesso */
+    content:"";position:absolute;top:16%;left:20%;
+    width:26%;height:20%;border-radius:50%;
+    background:rgba(255,255,255,.55);transform:rotate(-25deg);
+  }
+  .b1{width:120px;height:130px;background:var(--lime);top:14%;right:-34px;opacity:.9}
+  .b2{width:74px;height:82px;background:#e9e9e7;top:30%;right:76px;animation-delay:1.4s}
+  .b3{width:52px;height:58px;background:var(--lime);top:47%;right:22px;opacity:.75;animation-delay:2.6s}
+  .b4{width:88px;height:96px;background:#f0f0ee;bottom:12%;left:-26px;animation-delay:.9s}
+  .b5{width:46px;height:52px;background:var(--copper);bottom:24%;left:56px;opacity:.6;animation-delay:2s}
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(-2deg)}
+    50%{transform:translateY(-18px) rotate(3deg)}
+  }
+  @media (min-width:760px){
+    .b1{width:170px;height:184px;right:6%}
+    .b2{right:16%}
+    .b3{right:9%}
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:4.5rem 1.5rem}
+  .wrap{max-width:1080px;margin:0 auto}
+  .kicker{
+    font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--lime-dark);margin-bottom:.5rem;
+  }
+  .section-title{
+    font-size:clamp(1.8rem,5.5vw,2.6rem);font-weight:700;
+    letter-spacing:-.01em;margin-bottom:1rem;
+  }
+
+  /* chi siamo */
+  #chi-siamo{background:var(--grey-light)}
+  .about-grid{display:grid;gap:2.2rem;align-items:center}
+  .about-grid p{color:#555;margin-bottom:1rem;max-width:38rem}
+  .about-photo{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .about-photo img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .about-photo figcaption{
+    position:absolute;left:.9rem;bottom:.9rem;
+    background:rgba(255,255,255,.92);border-radius:999px;
+    font-size:.78rem;font-weight:600;padding:.4rem .9rem;
+  }
+  .about-badges{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.2rem}
+  .about-badges span{
+    background:var(--white);border:1px solid rgba(138,138,138,.25);
+    border-radius:999px;padding:.4rem .95rem;font-size:.85rem;font-weight:500;
+  }
+  @media (min-width:820px){
+    .about-grid{grid-template-columns:1fr 1fr;gap:3.5rem}
+  }
+
+  /* servizi */
+  .services-grid{display:grid;gap:1.1rem;margin-top:2rem}
+  .card{
+    background:var(--white);border:1px solid rgba(138,138,138,.18);
+    border-radius:var(--radius);padding:1.7rem 1.5rem;
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--lime)}
+  .card .icon{
+    width:52px;height:52px;border-radius:16px;
+    display:grid;place-items:center;font-size:1.5rem;
+    background:var(--lime-soft);margin-bottom:1rem;
+  }
+  .card:nth-child(even) .icon{background:#fdeee7}
+  .card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .card p{font-size:.93rem;color:#555}
+  @media (min-width:640px){.services-grid{grid-template-columns:1fr 1fr}}
+  @media (min-width:960px){.services-grid{grid-template-columns:repeat(4,1fr)}}
+
+  /* perché noi */
+  #perche{background:var(--ink);color:var(--white)}
+  #perche .kicker{color:var(--lime)}
+  .why-grid{display:grid;gap:1.6rem;margin-top:2.2rem}
+  .why{
+    border-left:3px solid var(--lime);padding-left:1.1rem;
+  }
+  .why h3{font-size:1.08rem;margin-bottom:.35rem}
+  .why p{font-size:.92rem;color:#bdbdbd}
+  .why .num{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    color:var(--lime);font-size:.85rem;letter-spacing:.1em;
+  }
+  @media (min-width:760px){.why-grid{grid-template-columns:repeat(2,1fr);gap:2.2rem 3rem}}
+
+  /* contatti */
+  .contact-grid{display:grid;gap:1.1rem;margin-top:2rem}
+  .contact-card{
+    background:var(--grey-light);border-radius:var(--radius);
+    padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .contact-card .icon{
+    flex:0 0 46px;height:46px;border-radius:14px;
+    display:grid;place-items:center;font-size:1.25rem;
+    background:var(--white);box-shadow:0 3px 10px rgba(43,43,43,.07);
+  }
+  .contact-card h3{font-size:1rem;margin-bottom:.2rem}
+  .contact-card p,.contact-card a{font-size:.93rem;color:#555}
+  .contact-card a{font-weight:600;color:var(--ink);text-decoration:none}
+  .contact-card a:hover{color:var(--lime-dark)}
+  .contact-card small{display:block;color:var(--grey);font-size:.8rem;margin-top:.15rem}
+  @media (min-width:760px){.contact-grid{grid-template-columns:1fr 1fr}}
+  .booking-banner{
+    margin-top:2rem;background:linear-gradient(120deg,var(--lime) 0%,#c3e35c 100%);
+    border-radius:var(--radius);padding:2rem 1.6rem;
+    display:flex;flex-direction:column;gap:1rem;
+  }
+  .booking-banner h3{font-size:clamp(1.25rem,4vw,1.6rem)}
+  .booking-banner p{font-size:.95rem;color:#3b4713}
+  .booking-banner .btn{background:var(--ink);color:var(--white)}
+  .booking-banner .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(43,43,43,.3)}
+  @media (min-width:760px){
+    .booking-banner{flex-direction:row;align-items:center;justify-content:space-between}
+  }
+
+  /* footer */
+  footer{
+    background:var(--ink);color:#9a9a9a;
+    padding:2.2rem 1.5rem;font-size:.85rem;
+  }
+  footer .wrap{
+    display:flex;flex-direction:column;gap:.9rem;
+  }
+  footer strong{color:var(--white);font-family:'Space Grotesk',sans-serif}
+  footer a{color:#cfcfcf;text-decoration:none}
+  footer a:hover{color:var(--lime)}
+  footer .foot-links{display:flex;flex-wrap:wrap;gap:1.2rem}
+  @media (min-width:760px){
+    footer .wrap{flex-direction:row;align-items:center;justify-content:space-between}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Navigazione principale">
+    <a class="brand" href="#top">
+      <img src="logo.jpg" alt="La vetrina di OPS Acconciature">
+      <span><em>OPS</em> Acconciature</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#chi-siamo">Chi siamo</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#perche">Perché noi</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+390112239010" aria-label="Chiama OPS Acconciature allo 011 2239010">📞 Prenota</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Presentazione">
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <div class="balloon b4"></div>
+    <div class="balloon b5"></div>
+    <div class="hero-inner">
+      <p class="hero-kicker">Parrucchiere · Settimo Torinese</p>
+      <h1 class="hero-title">
+        <span class="ops">OPS!</span> <span>I tuoi capelli<br>meritano di più.</span>
+      </h1>
+      <p class="hero-sub">
+        Tagli, colore e styling su misura nel cuore di Settimo Torinese.
+        Su appuntamento, con orario continuato: entri, ti rilassi, esci con i capelli che volevi davvero.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+390112239010">📞 Chiama e prenota</a>
+        <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+      </div>
+      <p class="hero-meta">
+        <span><strong>Mar–Sab</strong> 9:00–18:00 continuato</span>
+        <span><strong>Via Torino 43/C</strong>, Settimo T.se</span>
+        <span><strong>Solo su appuntamento</strong></span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CHI SIAMO -->
+  <section id="chi-siamo">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <p class="kicker">Chi siamo</p>
+        <h2 class="section-title">Il salone dove ti senti a casa (e ne esci più bella)</h2>
+        <p>
+          OPS Acconciature è il salone di via Torino, in pieno centro a Settimo Torinese.
+          Un ambiente luminoso e curato, dove ogni cliente viene accolta per nome e
+          seguita dall'inizio alla fine: niente catene, niente fretta, solo il piacere
+          di prendersi cura dei propri capelli.
+        </p>
+        <p>
+          Lavoriamo esclusivamente su appuntamento, con orario continuato dal martedì
+          al sabato: così il tempo dedicato a te è davvero tuo, anche in pausa pranzo.
+        </p>
+        <div class="about-badges">
+          <span>✂️ Su appuntamento</span>
+          <span>🕘 Orario continuato</span>
+          <span>📍 Pieno centro</span>
+        </div>
+      </div>
+      <figure class="about-photo reveal d1">
+        <img src="logo.jpg" alt="La vetrina di OPS Acconciature con palloncini verde lime e bianchi">
+        <figcaption>📍 Via Torino 43/C, Settimo Torinese</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi">
+    <div class="wrap">
+      <p class="kicker reveal">Servizi</p>
+      <h2 class="section-title reveal">Tutto quello che serve ai tuoi capelli</h2>
+      <p class="reveal" style="color:#555;max-width:36rem">
+        Ogni servizio parte da una consulenza: guardiamo insieme viso, capelli e stile
+        di vita, poi costruiamo il risultato giusto per te.
+      </p>
+      <div class="services-grid">
+        <article class="card reveal">
+          <div class="icon" aria-hidden="true">✂️</div>
+          <h3>Tagli &amp; acconciature</h3>
+          <p>Tagli donna su misura, dal corto sbarazzino alle lunghezze da domare: forme che valorizzano il viso e resistono anche alla mattina di corsa.</p>
+        </article>
+        <article class="card reveal d1">
+          <div class="icon" aria-hidden="true">🎨</div>
+          <h3>Colore</h3>
+          <p>Colorazioni piene, riflessi e schiariture calibrate sul tuo incarnato. Anche un rosso rame acceso come quello in vetrina, se hai voglia di osare.</p>
+        </article>
+        <article class="card reveal d2">
+          <div class="icon" aria-hidden="true">💨</div>
+          <h3>Piega</h3>
+          <p>Liscia, mossa o voluminosa: la piega che tiene davvero, per tutti i giorni o per la serata che aspettavi da settimane.</p>
+        </article>
+        <article class="card reveal d3">
+          <div class="icon" aria-hidden="true">✨</div>
+          <h3>Styling</h3>
+          <p>Raccolti, onde e finish curati nei dettagli per cerimonie e occasioni speciali. Arrivi con un'idea, esci con il tuo look.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHÉ NOI -->
+  <section id="perche">
+    <div class="wrap">
+      <p class="kicker reveal">Perché sceglierci</p>
+      <h2 class="section-title reveal">Quattro buoni motivi per dire "OPS"</h2>
+      <div class="why-grid">
+        <div class="why reveal">
+          <p class="num">01</p>
+          <h3>Il tempo è tutto tuo</h3>
+          <p>Solo su appuntamento: niente sale d'attesa affollate, niente lavorazioni a catena. Quando entri, ci dedichiamo a te.</p>
+        </div>
+        <div class="why reveal d1">
+          <p class="num">02</p>
+          <h3>Orario continuato</h3>
+          <p>Dal martedì al sabato, dalle 9 alle 18 senza chiusura: perfetto per la pausa pranzo o per chi ha giornate incastrate al minuto.</p>
+        </div>
+        <div class="why reveal d2">
+          <p class="num">03</p>
+          <h3>In pieno centro</h3>
+          <p>Via Torino 43/C, nel cuore di Settimo Torinese: comodo da raggiungere a piedi, in bici o con i mezzi.</p>
+        </div>
+        <div class="why reveal d3">
+          <p class="num">04</p>
+          <h3>Prenotare è semplice</h3>
+          <p>Una telefonata, un messaggio su Instagram o due tap su Fresha: scegli il canale che preferisci, al resto pensiamo noi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti">
+    <div class="wrap">
+      <p class="kicker reveal">Contatti</p>
+      <h2 class="section-title reveal">Prenota il tuo appuntamento</h2>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <div class="icon" aria-hidden="true">📞</div>
+          <div>
+            <h3>Telefono</h3>
+            <a href="tel:+390112239010">011 2239010</a>
+            <small>Il modo più veloce per prenotare</small>
+          </div>
+        </div>
+        <div class="contact-card reveal d1">
+          <div class="icon" aria-hidden="true">📍</div>
+          <div>
+            <h3>Dove siamo</h3>
+            <p>Via Torino 43/C, 10036 Settimo Torinese (TO)</p>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=OPS+Acconciature+Via+Torino+43%2FC+10036+Settimo+Torinese" target="_blank" rel="noopener">Apri in Google Maps →</a>
+          </div>
+        </div>
+        <div class="contact-card reveal d2">
+          <div class="icon" aria-hidden="true">🕘</div>
+          <div>
+            <h3>Orari</h3>
+            <p>Martedì–Sabato · 9:00–18:00<br>Orario continuato, su appuntamento</p>
+            <small>Domenica e lunedì chiuso</small>
+          </div>
+        </div>
+        <div class="contact-card reveal d3">
+          <div class="icon" aria-hidden="true">📸</div>
+          <div>
+            <h3>Instagram</h3>
+            <a href="https://www.instagram.com/acconciatureops/" target="_blank" rel="noopener">@acconciatureops</a>
+            <small>Scrivici in direct o sbircia i nostri lavori</small>
+          </div>
+        </div>
+      </div>
+      <div class="booking-banner reveal">
+        <div>
+          <h3>Preferisci prenotare online?</h3>
+          <p>Ci trovi anche su Fresha: scegli servizio, giorno e ora in autonomia, quando vuoi tu.</p>
+        </div>
+        <a class="btn" href="https://www.fresha.com/it" target="_blank" rel="noopener">Prenota su Fresha →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>OPS Acconciature</strong><br>Via Torino 43/C, 10036 Settimo Torinese (TO)</p>
+    <div class="foot-links">
+      <a href="tel:+390112239010">011 2239010</a>
+      <a href="https://www.instagram.com/acconciatureops/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#top">Torna su ↑</a>
+    </div>
+    <p>© <span id="year"></span> OPS Acconciature</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // reveal allo scroll
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    }
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
