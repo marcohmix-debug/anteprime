@@ -1,0 +1,420 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Salon Glow Up · Parrucchiere a Leini (TO)</title>
+<meta name="description" content="Salon Glow Up, parrucchiere a Leini guidato da Maria Cifrese. Taglio, colore, trattamenti e styling con professionalita, passione e amore. Su appuntamento." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c4ac8c'/%3E%3Cpath d='M16 25s-8-4.7-8-10.2C8 11.6 10.2 10 12.4 10c1.6 0 3 .9 3.6 2.2C16.6 10.9 18 10 19.6 10c1.7 0 3.2 1 3.8 2.6l-4.2 3.1 5.3-1.1-6.7 6.9z' fill='%23d8262c'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --sand: #c4ac8c;
+    --sand-soft: #e7dccb;
+    --sand-pale: #f6f0e6;
+    --ink: #241d16;
+    --ink-soft: #5b4f42;
+    --paper: #fbf8f2;
+    --red: #d8262c;
+    --red-deep: #b81d23;
+    --white: #ffffff;
+    --r: 18px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Manrope", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: "Fraunces", serif; font-weight: 600; line-height: 1.05; letter-spacing: -0.01em; }
+  em { font-style: italic; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  section { padding: clamp(4.5rem, 11vw, 8.5rem) 0; }
+  .wrap { width: min(1120px, 90vw); margin: 0 auto; }
+  .eyebrow {
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  /* Header */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem clamp(1.2rem, 5vw, 3rem);
+    transition: background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
+  }
+  header.solid {
+    background: rgba(251, 248, 242, 0.86);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(36, 29, 22, 0.08);
+    padding-top: 0.75rem; padding-bottom: 0.75rem;
+  }
+  .brand { display: flex; align-items: center; gap: .6rem; font-family: "Fraunces", serif; font-size: 1.28rem; font-weight: 600; color: var(--ink); }
+  .brand svg { width: 26px; height: 26px; flex: none; }
+  nav.desk { display: none; gap: 2.2rem; }
+  nav.desk a { font-size: .92rem; font-weight: 500; color: var(--ink-soft); transition: color .25s var(--ease); }
+  nav.desk a:hover { color: var(--red); }
+  .cta-top {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--red); color: var(--white);
+    padding: .62rem 1.2rem; border-radius: 999px;
+    font-weight: 600; font-size: .9rem;
+    transition: transform .25s var(--ease), background .25s var(--ease);
+  }
+  .cta-top:hover { background: var(--red-deep); }
+  .cta-top:active { transform: translateY(1px); }
+
+  /* Hero */
+  .hero {
+    min-height: 100dvh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 82% 12%, rgba(216,38,44,.10), transparent 55%),
+      linear-gradient(165deg, var(--sand-pale) 0%, var(--sand-soft) 100%);
+    padding-top: 5rem;
+  }
+  .hero-grid { display: grid; gap: clamp(2rem, 5vw, 3rem); align-items: center; }
+  .hero-copy { max-width: 620px; }
+  .hero h1 { font-size: clamp(2.9rem, 9vw, 5.4rem); margin: 1.1rem 0; }
+  .hero h1 em { color: var(--red); }
+  .hero p.lead { font-size: clamp(1.05rem, 2.6vw, 1.25rem); color: var(--ink-soft); max-width: 34ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .55rem;
+    padding: .95rem 1.7rem; border-radius: 999px;
+    font-weight: 600; font-size: 1rem;
+    transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+  }
+  .btn-primary { background: var(--red); color: var(--white); }
+  .btn-primary:hover { background: var(--red-deep); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid rgba(36,29,22,.22); }
+  .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+  .btn:active { transform: translateY(1px); }
+
+  /* Hero visual card */
+  .hero-visual { position: relative; }
+  .glow-card {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 26px;
+    background: linear-gradient(155deg, var(--sand) 0%, #a98f6d 100%);
+    box-shadow: 0 40px 80px -30px rgba(102, 74, 40, .55);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .glow-card .mark { width: 62%; color: var(--white); }
+  .glow-card::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(60% 45% at 30% 15%, rgba(255,255,255,.28), transparent 60%);
+  }
+  .float-tag {
+    position: absolute; left: -14px; bottom: 30px;
+    background: var(--paper); color: var(--ink);
+    padding: .8rem 1.1rem; border-radius: 14px;
+    box-shadow: 0 20px 40px -18px rgba(36,29,22,.4);
+    font-size: .85rem; font-weight: 600;
+    display: flex; align-items: center; gap: .55rem;
+  }
+  .float-tag b { color: var(--red); font-family: "Fraunces", serif; font-size: 1.15rem; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Story */
+  .story-head { max-width: 62ch; }
+  .story-head h2 { font-size: clamp(2rem, 5vw, 3rem); margin: 1rem 0 1.1rem; }
+  .story-head p { font-size: 1.08rem; color: var(--ink-soft); }
+  .story-body { display: grid; gap: 2.4rem; margin-top: 3rem; }
+  .signature { border-left: 3px solid var(--red); padding-left: 1.3rem; }
+  .signature p { font-size: 1.05rem; color: var(--ink-soft); }
+  .signature .name { font-family: "Fraunces", serif; font-size: 1.35rem; color: var(--ink); margin-top: .6rem; }
+  .signature .role { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--red); font-weight: 600; }
+
+  /* Services */
+  .services { background: var(--ink); color: var(--sand-pale); }
+  .services .eyebrow { color: var(--sand); }
+  .services h2 { color: var(--white); font-size: clamp(2rem, 5vw, 3rem); margin: 1rem 0 3rem; max-width: 18ch; }
+  .svc-list { display: grid; gap: 0; }
+  .svc-row {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 1.2rem; align-items: baseline;
+    padding: 1.7rem 0; border-top: 1px solid rgba(246,240,230,.16);
+    transition: padding-left .35s var(--ease);
+  }
+  .svc-row:last-child { border-bottom: 1px solid rgba(246,240,230,.16); }
+  .svc-row:hover { padding-left: .8rem; }
+  .svc-num { font-family: "Fraunces", serif; color: var(--sand); font-size: 1rem; opacity: .8; }
+  .svc-name { font-family: "Fraunces", serif; font-size: clamp(1.4rem, 3.5vw, 1.9rem); color: var(--white); }
+  .svc-name span { display: block; font-family: "Manrope", sans-serif; font-size: .92rem; font-weight: 400; color: var(--sand-soft); margin-top: .35rem; }
+  .svc-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); align-self: center; opacity: .0; transition: opacity .3s var(--ease); }
+  .svc-row:hover .svc-dot { opacity: 1; }
+
+  /* Why - bento */
+  .why h2 { font-size: clamp(2rem, 5vw, 3rem); margin: 1rem 0 2.6rem; max-width: 16ch; }
+  .bento { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+  .cell { background: var(--white); border: 1px solid var(--sand-soft); border-radius: var(--r); padding: 1.8rem; transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+  .cell:hover { transform: translateY(-4px); box-shadow: 0 24px 44px -28px rgba(102,74,40,.4); }
+  .cell .k { font-family: "Fraunces", serif; font-size: 2.6rem; color: var(--red); line-height: 1; }
+  .cell h3 { font-size: 1.25rem; margin: .9rem 0 .5rem; }
+  .cell p { color: var(--ink-soft); font-size: .98rem; }
+  .cell.wide { background: var(--sand); color: var(--white); border: none; }
+  .cell.wide h3, .cell.wide p { color: var(--white); }
+  .cell.wide p { opacity: .92; }
+  .cell.wide .k { color: var(--white); }
+
+  /* Contact */
+  .contact { background: linear-gradient(165deg, var(--sand-pale), var(--sand-soft)); }
+  .contact-grid { display: grid; gap: 2.6rem; }
+  .contact h2 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin: 1rem 0 1.4rem; }
+  .contact h2 em { color: var(--red); }
+  .contact .sub { color: var(--ink-soft); font-size: 1.08rem; max-width: 40ch; margin-bottom: 2rem; }
+  .info-list { display: grid; gap: 1.4rem; }
+  .info-item { display: flex; gap: .95rem; align-items: flex-start; }
+  .info-item .ico { width: 42px; height: 42px; flex: none; border-radius: 12px; background: var(--white); display: grid; place-items: center; color: var(--red); box-shadow: 0 10px 24px -14px rgba(102,74,40,.5); }
+  .info-item .ico svg { width: 20px; height: 20px; }
+  .info-item .lbl { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .info-item .val { font-size: 1.06rem; font-weight: 600; color: var(--ink); }
+  .info-item a.val:hover { color: var(--red); }
+
+  .hours-card { background: var(--white); border-radius: var(--r); padding: 1.9rem; box-shadow: 0 30px 60px -34px rgba(102,74,40,.45); }
+  .hours-card h3 { font-size: 1.3rem; margin-bottom: 1.1rem; }
+  .hours-row { display: flex; justify-content: space-between; padding: .6rem 0; border-bottom: 1px dashed var(--sand-soft); font-size: .98rem; }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row .d { color: var(--ink-soft); }
+  .hours-row .h { font-weight: 600; }
+  .hours-row.closed .h { color: var(--red); }
+  .hours-cta { display: inline-flex; margin-top: 1.4rem; }
+
+  /* Footer */
+  footer { background: var(--ink); color: var(--sand-pale); padding: 3.4rem 0 2.4rem; }
+  .foot-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+  .foot-brand { display: flex; align-items: center; gap: .6rem; font-family: "Fraunces", serif; font-size: 1.3rem; color: var(--white); }
+  .foot-brand svg { width: 26px; height: 26px; }
+  .foot-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+  .foot-links a { color: var(--sand-soft); font-size: .92rem; transition: color .25s var(--ease); }
+  .foot-links a:hover { color: var(--red); }
+  .foot-bottom { margin-top: 2.4rem; padding-top: 1.6rem; border-top: 1px solid rgba(246,240,230,.14); font-size: .82rem; color: rgba(246,240,230,.6); display: flex; flex-wrap: wrap; gap: .6rem; justify-content: space-between; }
+
+  @media (min-width: 720px) {
+    .hero-grid { grid-template-columns: 1.15fr .85fr; }
+    .story-body { grid-template-columns: 1.4fr 1fr; align-items: end; }
+    .bento { grid-template-columns: repeat(3, 1fr); }
+    .cell.tall { grid-row: span 2; }
+    .cell.wide { grid-column: span 2; }
+    .contact-grid { grid-template-columns: 1.1fr .9fr; align-items: start; }
+  }
+  @media (min-width: 940px) {
+    nav.desk { display: flex; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+
+<header id="site-head">
+  <a href="#top" class="brand" aria-label="Salon Glow Up home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 25s-8-4.7-8-10.2C8 11.6 10.2 10 12.4 10c1.6 0 3 .9 3.6 2.2C16.6 10.9 18 10 19.6 10c1.7 0 3.2 1 3.8 2.6l-4.2 3.1 5.3-1.1-6.7 6.9z" fill="#d8262c"/></svg>
+    Salon Glow Up
+  </a>
+  <nav class="desk">
+    <a href="#storia">Il salone</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#perche">Perche noi</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+  <a href="tel:+390119983533" class="cta-top">Prenota ora</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal in">
+        <span class="eyebrow">Parrucchiere · Leini (TO)</span>
+        <h1>Il tuo <em>glow</em> comincia qui.</h1>
+        <p class="lead">Taglio, colore e cura dei capelli con professionalita, passione e amore. Solo su appuntamento.</p>
+        <div class="hero-actions">
+          <a href="tel:+390119983533" class="btn btn-primary">Chiama il salone</a>
+          <a href="https://www.instagram.com/salon_glow_up/" target="_blank" rel="noopener" class="btn btn-ghost">Guarda i lavori</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="glow-card">
+          <svg class="mark" viewBox="0 0 200 160" aria-hidden="true">
+            <path d="M100 132s-52-30-52-66C48 44 62 34 76 34c11 0 20 6 24 15 4-9 13-15 24-15 12 0 23 8 27 20l-30 22 38-8-59 44z" fill="#d8262c"/>
+            <text x="100" y="152" text-anchor="middle" font-family="Fraunces, serif" font-size="17" fill="#ffffff" letter-spacing="1">SALON GLOW UP</text>
+          </svg>
+        </div>
+        <div class="float-tag" aria-hidden="true"><b>@</b> nashiargan · su appuntamento</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="storia">
+    <div class="wrap">
+      <div class="story-head reveal">
+        <span class="eyebrow">Il salone</span>
+        <h2>Un piccolo salone dove ti senti <em>a casa</em>.</h2>
+        <p>Nel cuore di Leini, in Viale Europa, Salon Glow Up e il posto dove il capello diventa un gesto di cura. Un team giovane e disponibile ti accoglie, ascolta cosa desideri e lo costruisce insieme a te, senza fretta.</p>
+      </div>
+      <div class="story-body">
+        <p class="reveal" style="font-size:1.08rem;color:var(--ink-soft);max-width:52ch;">Lavoriamo esclusivamente su appuntamento, per dedicarti tutto il tempo che meriti. Ogni piega, ogni colore e ogni trattamento nasce dal tuo viso, dal tuo stile e dalla tua giornata. Il risultato lo trovi anche sul nostro profilo Instagram, aggiornato con i lavori veri di ogni settimana.</p>
+        <div class="signature reveal">
+          <p>«Ci prendiamo cura di te con professionalita, passione e amore.»</p>
+          <div class="name">Maria Cifrese</div>
+          <div class="role">Titolare</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servizi" class="services">
+    <div class="wrap">
+      <span class="eyebrow">Cosa facciamo</span>
+      <h2>Servizi pensati per il tuo capello.</h2>
+      <div class="svc-list">
+        <div class="svc-row reveal">
+          <span class="svc-num">01</span>
+          <div class="svc-name">Taglio donna e uomo<span>Studiato sulla forma del viso e sulla tua routine.</span></div>
+          <span class="svc-dot"></span>
+        </div>
+        <div class="svc-row reveal">
+          <span class="svc-num">02</span>
+          <div class="svc-name">Colore<span>Riflessi, coperture e schiariture su misura, luminosi e naturali.</span></div>
+          <span class="svc-dot"></span>
+        </div>
+        <div class="svc-row reveal">
+          <span class="svc-num">03</span>
+          <div class="svc-name">Trattamenti capelli<span>Cura e nutrimento per capelli piu sani, forti e morbidi.</span></div>
+          <span class="svc-dot"></span>
+        </div>
+        <div class="svc-row reveal">
+          <span class="svc-num">04</span>
+          <div class="svc-name">Piega e styling<span>La messa in piega giusta per ogni occasione, anche last minute.</span></div>
+          <span class="svc-dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="perche" class="why">
+    <div class="wrap">
+      <span class="eyebrow reveal">Perche sceglierci</span>
+      <h2 class="reveal">Piccole ragioni, grande differenza.</h2>
+      <div class="bento">
+        <div class="cell tall reveal">
+          <div class="k">1:1</div>
+          <h3>Solo su appuntamento</h3>
+          <p>Niente attese e niente fretta: il tuo tempo in salone e riservato solo a te.</p>
+        </div>
+        <div class="cell wide reveal">
+          <div class="k">♥</div>
+          <h3>Un team giovane e disponibile</h3>
+          <p>Guidato da Maria Cifrese, ti ascolta davvero e ti consiglia con onesta, che tu voglia un cambio deciso o solo una spuntatina.</p>
+        </div>
+        <div class="cell reveal">
+          <div class="k">↑</div>
+          <h3>Sempre aggiornati</h3>
+          <p>Tecniche di taglio e colore curate, condivise passo passo sul nostro Instagram.</p>
+        </div>
+        <div class="cell reveal">
+          <div class="k">1'</div>
+          <h3>Facile da raggiungere</h3>
+          <p>In Viale Europa a Leini, a un minuto dalla fermata bus Betulle 1.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contatti" class="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Prenota</span>
+        <h2>Passa a trovarci a <em>Leini</em>.</h2>
+        <p class="sub">Chiamaci per fissare il tuo appuntamento o prenota online tramite Treatwell. Ti aspettiamo.</p>
+        <div class="info-list">
+          <div class="info-item">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <div><div class="lbl">Telefono</div><a class="val" href="tel:+390119983533">011 9983533</a></div>
+          </div>
+          <div class="info-item">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><div class="lbl">Dove siamo</div><a class="val" href="https://www.google.com/maps/search/?api=1&query=Viale+Europa+38+Leini+TO" target="_blank" rel="noopener">Viale Europa 38, Leini (TO)</a></div>
+          </div>
+          <div class="info-item">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+            <div><div class="lbl">Instagram</div><a class="val" href="https://www.instagram.com/salon_glow_up/" target="_blank" rel="noopener">@salon_glow_up</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-card reveal">
+        <h3>Orari di apertura</h3>
+        <div class="hours-row closed"><span class="d">Lunedi</span><span class="h">Chiuso</span></div>
+        <div class="hours-row"><span class="d">Martedi</span><span class="h">9:00 - 18:00</span></div>
+        <div class="hours-row"><span class="d">Mercoledi</span><span class="h">12:00 - 18:00</span></div>
+        <div class="hours-row"><span class="d">Giovedi</span><span class="h">9:00 - 18:00</span></div>
+        <div class="hours-row"><span class="d">Venerdi</span><span class="h">9:00 - 19:00</span></div>
+        <div class="hours-row"><span class="d">Sabato</span><span class="h">8:30 - 18:00</span></div>
+        <div class="hours-row"><span class="d">Domenica</span><span class="h">Chiuso</span></div>
+        <a href="tel:+390119983533" class="btn btn-primary hours-cta">Fissa un appuntamento</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 25s-8-4.7-8-10.2C8 11.6 10.2 10 12.4 10c1.6 0 3 .9 3.6 2.2C16.6 10.9 18 10 19.6 10c1.7 0 3.2 1 3.8 2.6l-4.2 3.1 5.3-1.1-6.7 6.9z" fill="#d8262c"/></svg>
+        Salon Glow Up
+      </div>
+      <nav class="foot-links">
+        <a href="#storia">Il salone</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#perche">Perche noi</a>
+        <a href="#contatti">Contatti</a>
+        <a href="https://www.instagram.com/salon_glow_up/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>Viale Europa 38, 10040 Leini (TO) · 011 9983533</span>
+      <span>© <span id="yr"></span> Salon Glow Up · Su appuntamento</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  const head = document.getElementById("site-head");
+  const onScroll = () => head.classList.toggle("solid", window.scrollY > 24);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+</script>
