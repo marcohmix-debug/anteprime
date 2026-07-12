@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il Salotto Parrucchieria | Gassino Torinese</title>
+<meta name="description" content="Il Salotto Parrucchieria a Gassino Torinese: taglio donna, uomo e bambino, colore, piega e styling in un ambiente accogliente come un vero salotto. Corso Italia 21.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23243b2e'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23e9dfce' font-family='Georgia,serif' font-style='italic'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bosco:#243b2e;
+    --bosco-deep:#1a2c22;
+    --bone:#f3eee2;
+    --bone-soft:#e9e2d1;
+    --ink:#1d211c;
+    --ink-soft:#4a5148;
+    --accent:#b9763f;
+    --line:rgba(29,33,28,.12);
+    --line-light:rgba(243,238,226,.16);
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Manrope",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--bone);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.01em}
+  em{font-style:italic}
+  a{color:inherit;text-decoration:none}
+  section{padding:clamp(4.5rem,11vw,8.5rem) clamp(1.25rem,5vw,4rem)}
+  .wrap{max-width:1180px;margin:0 auto}
+  .eyebrow{
+    font-family:var(--sans);font-weight:600;font-size:.74rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+  }
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.9rem clamp(1.25rem,5vw,4rem);
+    background:rgba(243,238,226,.82);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:1.15rem;font-weight:600}
+  .brand span{font-style:italic;color:var(--bosco)}
+  .brand .mark{
+    width:34px;height:34px;border-radius:9px;background:var(--bosco);
+    display:grid;place-items:center;color:var(--bone);font-style:italic;font-size:1.05rem;
+  }
+  .nav-links{display:none;gap:2rem;align-items:center;font-size:.92rem;font-weight:500}
+  .nav-links a{color:var(--ink-soft);transition:color .25s}
+  .nav-links a:hover{color:var(--bosco)}
+  .nav-cta{
+    padding:.62rem 1.15rem;border-radius:999px;background:var(--bosco);color:var(--bone);
+    font-weight:600;font-size:.88rem;transition:transform .2s,background .25s;
+  }
+  .nav-cta:hover{background:var(--bosco-deep)}
+  .nav-cta:active{transform:translateY(1px)}
+  @media(min-width:860px){.nav-links{display:flex}}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:calc(100dvh - 62px);
+    display:grid;align-items:center;
+    padding-top:clamp(2.5rem,7vw,4rem);padding-bottom:clamp(2.5rem,7vw,4rem);
+    overflow:hidden;
+  }
+  .hero-grid{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+  .hero h1{font-size:clamp(2.9rem,8.5vw,5.6rem);letter-spacing:-.025em}
+  .hero h1 em{color:var(--bosco)}
+  .hero p.lead{
+    margin-top:1.4rem;max-width:34ch;font-size:clamp(1.02rem,2.2vw,1.18rem);
+    color:var(--ink-soft);
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.1rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.92rem 1.55rem;border-radius:999px;font-weight:600;font-size:.98rem;
+    transition:transform .2s,background .25s,color .25s,border-color .25s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--bosco);color:var(--bone)}
+  .btn-primary:hover{background:var(--bosco-deep)}
+  .btn-primary:active,.btn-ghost:active{transform:translateY(1px)}
+  .btn-ghost{border:1.5px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--bosco);color:var(--bosco)}
+
+  /* hero visual: stylized salotto scene */
+  .scene{
+    position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;
+    background:linear-gradient(160deg,var(--bosco),var(--bosco-deep));
+    box-shadow:0 40px 80px -40px rgba(26,44,34,.6);
+    min-height:340px;
+  }
+  .scene .glow{position:absolute;width:70%;height:70%;border-radius:50%;
+    background:radial-gradient(circle,rgba(185,118,63,.55),transparent 65%);
+    top:-10%;right:-15%;filter:blur(10px)}
+  .scene .arch{
+    position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+    width:72%;height:82%;border-radius:50% 50% 0 0/60% 60% 0 0;
+    border:1.5px solid var(--line-light);
+    background:linear-gradient(180deg,rgba(243,238,226,.06),rgba(243,238,226,.01));
+  }
+  .scene .label{
+    position:absolute;bottom:1.6rem;left:0;right:0;text-align:center;color:var(--bone);
+  }
+  .scene .label .k{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,4vw,2.1rem)}
+  .scene .label .s{display:block;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(243,238,226,.6);margin-top:.4rem}
+  .scene .chair{
+    position:absolute;top:12%;left:50%;transform:translateX(-50%);
+    width:44%;aspect-ratio:1;border-radius:26px 26px 40px 40px;
+    background:linear-gradient(180deg,rgba(185,118,63,.9),rgba(185,118,63,.55));
+    box-shadow:0 20px 40px -20px rgba(0,0,0,.5);
+  }
+  .scene .chair::after{content:"";position:absolute;inset:auto 22% -18% 22%;height:24%;border-radius:0 0 14px 14px;background:rgba(26,44,34,.85)}
+
+  /* STORIA */
+  .storia{background:var(--bone)}
+  .storia-grid{display:grid;gap:clamp(1.8rem,4vw,3.5rem)}
+  @media(min-width:820px){.storia-grid{grid-template-columns:.9fr 1.1fr;align-items:start}}
+  .storia h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-top:.9rem;max-width:14ch}
+  .storia h2 em{color:var(--accent)}
+  .storia .body p{color:var(--ink-soft);font-size:1.06rem;max-width:60ch}
+  .storia .body p+p{margin-top:1.1rem}
+  .quote{
+    margin-top:2rem;padding-left:1.4rem;border-left:2.5px solid var(--accent);
+    font-family:var(--serif);font-style:italic;font-size:1.32rem;color:var(--bosco);line-height:1.35;
+  }
+
+  /* SERVIZI - horizontal scroll rail */
+  .servizi{background:var(--bosco);color:var(--bone)}
+  .servizi .eyebrow{color:#d69a63}
+  .servizi h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-top:.9rem;color:var(--bone);max-width:16ch}
+  .servizi h2 em{color:#d69a63}
+  .rail{
+    display:grid;grid-auto-flow:column;grid-auto-columns:minmax(78%,320px);
+    gap:1.1rem;overflow-x:auto;padding:2.6rem .3rem 1rem;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  }
+  .rail::-webkit-scrollbar{height:6px}
+  .rail::-webkit-scrollbar-thumb{background:var(--line-light);border-radius:99px}
+  @media(min-width:820px){.rail{grid-auto-columns:1fr;overflow:visible}}
+  .svc{
+    scroll-snap-align:start;
+    padding:1.9rem 1.6rem;border-radius:18px;
+    border:1px solid var(--line-light);background:rgba(243,238,226,.04);
+    display:flex;flex-direction:column;gap:.7rem;min-height:230px;
+  }
+  .svc .no{font-family:var(--serif);font-style:italic;color:#d69a63;font-size:1.25rem}
+  .svc h3{color:var(--bone);font-size:1.5rem}
+  .svc p{color:rgba(243,238,226,.72);font-size:.98rem}
+
+  /* PERCHE - stat band */
+  .perche{background:var(--bone-soft)}
+  .perche-head{max-width:60ch;margin-bottom:clamp(2.4rem,5vw,3.6rem)}
+  .perche-head h2{font-size:clamp(2rem,5vw,3.2rem);margin-top:.9rem}
+  .perche-head h2 em{color:var(--accent)}
+  .stats{display:grid;gap:1.4rem;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{padding:1.4rem 0;border-top:1.5px solid var(--line)}
+  .stat .n{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3rem);color:var(--bosco);line-height:1}
+  .stat .n em{color:var(--accent)}
+  .stat .t{margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);max-width:22ch}
+
+  /* CONTATTI */
+  .contatti{background:var(--bosco-deep);color:var(--bone)}
+  .contatti .eyebrow{color:#d69a63}
+  .contatti-grid{display:grid;gap:clamp(2rem,5vw,3.5rem)}
+  @media(min-width:840px){.contatti-grid{grid-template-columns:1.1fr .9fr;align-items:start}}
+  .contatti h2{font-size:clamp(2.2rem,5.5vw,3.6rem);margin-top:.9rem;color:var(--bone);max-width:13ch}
+  .contatti h2 em{color:#d69a63}
+  .contatti .sub{margin-top:1.2rem;color:rgba(243,238,226,.72);max-width:42ch}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+  .btn-bone{background:var(--bone);color:var(--bosco-deep)}
+  .btn-bone:hover{background:#fff}
+  .btn-outline{border:1.5px solid var(--line-light);color:var(--bone)}
+  .btn-outline:hover{border-color:#d69a63;color:#d69a63}
+  .info-card{
+    border:1px solid var(--line-light);border-radius:18px;padding:1.7rem;
+    background:rgba(243,238,226,.04);
+  }
+  .info-row{display:flex;gap:.9rem;padding:.95rem 0;border-bottom:1px solid var(--line-light)}
+  .info-row:last-child{border-bottom:0;padding-bottom:0}
+  .info-row:first-child{padding-top:0}
+  .info-row .ico{color:#d69a63;font-size:1.05rem;flex-shrink:0;width:1.4rem;text-align:center}
+  .info-row .k{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,238,226,.55)}
+  .info-row .v{color:var(--bone);font-weight:500;margin-top:.15rem}
+  .info-row .v a{border-bottom:1px solid rgba(214,154,99,.5)}
+  .info-row .v .day{display:flex;justify-content:space-between;gap:1.5rem;font-weight:400;color:rgba(243,238,226,.85);font-size:.94rem}
+
+  /* FOOTER */
+  footer{background:var(--bosco-deep);color:rgba(243,238,226,.6);
+    padding:2.2rem clamp(1.25rem,5vw,4rem);border-top:1px solid var(--line-light);
+    display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-size:.86rem}
+  footer .brand{color:var(--bone);font-size:1rem}
+  footer .brand .mark{width:28px;height:28px;font-size:.9rem;border-radius:7px}
+  footer a:hover{color:#d69a63}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    *{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top"><span class="mark">S</span>Il <span>Salotto</span></a>
+  <nav class="nav-links">
+    <a href="#storia">La storia</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#perche">Perche noi</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+  <a class="nav-cta" href="#contatti">Prenota</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow reveal">Parrucchiere a Gassino Torinese</p>
+        <h1 class="reveal" style="transition-delay:.05s">Il tuo look,<br>curato come<br>in un <em>salotto</em>.</h1>
+        <p class="lead reveal" style="transition-delay:.12s">Donna, uomo e bambino. Taglio, colore e piega in un ambiente familiare, dove ti senti a casa dal primo saluto.</p>
+        <div class="hero-actions reveal" style="transition-delay:.18s">
+          <a class="btn btn-primary" href="#contatti">Prenota il tuo posto</a>
+          <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+        </div>
+      </div>
+      <div class="scene reveal" style="transition-delay:.1s" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="chair"></div>
+        <div class="arch"></div>
+        <div class="label"><span class="k">Il Salotto</span><span class="s">Corso Italia 21</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIA -->
+  <section class="storia" id="storia">
+    <div class="wrap storia-grid">
+      <div>
+        <p class="eyebrow reveal">La nostra storia</p>
+        <h2 class="reveal" style="transition-delay:.05s">Un <em>salotto</em>, prima ancora di un salone.</h2>
+      </div>
+      <div class="body">
+        <p class="reveal">Lo abbiamo chiamato Il Salotto perche e' esattamente questo: un luogo accogliente dove fermarsi, chiacchierare e prendersi cura di se senza fretta. Chi entra la prima volta, poi torna. E ci porta anche gli amici.</p>
+        <p class="reveal" style="transition-delay:.06s">In corso Italia, a Gassino Torinese, accompagniamo donne, uomini e bambini con la stessa attenzione: ascoltiamo cosa desideri, studiamo la forma giusta per te e la realizziamo con mani esperte e prodotti di qualita'.</p>
+        <p class="quote reveal" style="transition-delay:.1s">Non solo una piega nuova: la sensazione di uscire di qui piu' sicuri di come si e' entrati.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section class="servizi" id="servizi">
+    <div class="wrap">
+      <p class="eyebrow reveal">Cosa facciamo</p>
+      <h2 class="reveal" style="transition-delay:.05s">Servizi su misura per <em>ogni testa</em>.</h2>
+      <div class="rail">
+        <article class="svc reveal">
+          <span class="no">01</span>
+          <h3>Taglio donna</h3>
+          <p>Forme moderne o classiche, pensate per il tuo viso e per la tua routine di tutti i giorni.</p>
+        </article>
+        <article class="svc reveal" style="transition-delay:.05s">
+          <span class="no">02</span>
+          <h3>Taglio uomo</h3>
+          <p>Linee pulite e definizione precisa, dal look ordinato di sempre allo stile piu' attuale.</p>
+        </article>
+        <article class="svc reveal" style="transition-delay:.1s">
+          <span class="no">03</span>
+          <h3>Taglio bambino</h3>
+          <p>Pazienza e sorrisi per i piu' piccoli, con un taglio comodo e senza capricci.</p>
+        </article>
+        <article class="svc reveal" style="transition-delay:.15s">
+          <span class="no">04</span>
+          <h3>Colore</h3>
+          <p>Nuance calde o fredde, coperture naturali e riflessi luminosi che valorizzano i tuoi capelli.</p>
+        </article>
+        <article class="svc reveal" style="transition-delay:.2s">
+          <span class="no">05</span>
+          <h3>Piega e styling</h3>
+          <p>Volume, movimento e tenuta per l'occasione speciale o semplicemente per sentirti al meglio.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE -->
+  <section class="perche" id="perche">
+    <div class="wrap">
+      <div class="perche-head">
+        <p class="eyebrow reveal">Perche sceglierci</p>
+        <h2 class="reveal" style="transition-delay:.05s">Un punto di riferimento a <em>Gassino</em>.</h2>
+      </div>
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="n"><em>800</em></div>
+          <div class="t">Persone ci seguono giorno dopo giorno su Facebook.</div>
+        </div>
+        <div class="stat reveal" style="transition-delay:.06s">
+          <div class="n"><em>200+</em></div>
+          <div class="t">Check-in di chi ci ha scelto e voluto raccontarlo.</div>
+        </div>
+        <div class="stat reveal" style="transition-delay:.12s">
+          <div class="n">3</div>
+          <div class="t">Un solo posto per tutta la famiglia: donna, uomo e bambino.</div>
+        </div>
+        <div class="stat reveal" style="transition-delay:.18s">
+          <div class="n">0</div>
+          <div class="t">Fretta. Ci prendiamo il tempo che il tuo look merita.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contatti" id="contatti">
+    <div class="wrap contatti-grid">
+      <div>
+        <p class="eyebrow reveal">Vieni a trovarci</p>
+        <h2 class="reveal" style="transition-delay:.05s">Ti aspettiamo <em>in salotto</em>.</h2>
+        <p class="sub reveal" style="transition-delay:.1s">Scrivici un messaggio per fissare il tuo appuntamento oppure passa in corso Italia: il caffe' e la buona compagnia sono assicurati.</p>
+        <div class="cta-row reveal" style="transition-delay:.15s">
+          <a class="btn btn-bone" href="https://www.facebook.com/ilsalottoparrucchieria/" target="_blank" rel="noopener">Scrivici su Facebook</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Il+Salotto+Parrucchieria+Corso+Italia+21+Gassino+Torinese" target="_blank" rel="noopener">Apri la mappa</a>
+        </div>
+      </div>
+      <div class="info-card reveal" style="transition-delay:.1s">
+        <div class="info-row">
+          <span class="ico" aria-hidden="true">&#9678;</span>
+          <div>
+            <div class="k">Dove siamo</div>
+            <div class="v"><a href="https://www.google.com/maps/search/?api=1&query=Il+Salotto+Parrucchieria+Corso+Italia+21+Gassino+Torinese" target="_blank" rel="noopener">Corso Italia 21, 10090 Gassino Torinese (TO)</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="ico" aria-hidden="true">&#9993;</span>
+          <div>
+            <div class="k">Restiamo in contatto</div>
+            <div class="v"><a href="https://www.facebook.com/ilsalottoparrucchieria/" target="_blank" rel="noopener">facebook.com/ilsalottoparrucchieria</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="ico" aria-hidden="true">&#9200;</span>
+          <div style="flex:1">
+            <div class="k">Orari indicativi</div>
+            <div class="v" style="margin-top:.55rem">
+              <div class="day"><span>Marted&igrave; - Venerd&igrave;</span><span>9:00 - 18:30</span></div>
+              <div class="day"><span>Sabato</span><span>9:00 - 17:00</span></div>
+              <div class="day"><span>Domenica e Luned&igrave;</span><span>Chiuso</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="brand" href="#top"><span class="mark">S</span>Il Salotto Parrucchieria</a>
+  <div>Corso Italia 21, Gassino Torinese (TO) &middot; <span id="year"></span></div>
+  <a href="https://www.facebook.com/ilsalottoparrucchieria/" target="_blank" rel="noopener">Seguici su Facebook</a>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var els = document.querySelectorAll('.reveal');
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.16, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
