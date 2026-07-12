@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miami Hairs & Beauty | Parrucchiere, Estetica e Lounge a Leini'</title>
+<meta name="description" content="Miami Hairs & Beauty a Leini': parrucchiere uomo e donna, estetica, solarium, sauna, nails e angolo bar. Il tuo salone di bellezza tutto in uno in via Torino 45.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23111111'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Georgia,serif' fill='%23c9a24b' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111111;
+    --bg-2:#181614;
+    --ink:#f4efe6;
+    --muted:#a9a196;
+    --gold:#c9a24b;
+    --gold-soft:rgba(201,162,75,.14);
+    --red:#e8241f;
+    --line:rgba(201,162,75,.22);
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Manrope",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:.4px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  section{padding:96px 24px}
+  .wrap{max-width:1120px;margin:0 auto}
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:.72rem;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;
+    background:rgba(17,17,17,0);
+    transition:background .4s ease,padding .4s ease,border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.solid{
+    background:rgba(15,14,13,.86);
+    backdrop-filter:blur(12px);
+    padding:12px 24px;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{font-family:var(--serif);font-size:1.5rem;letter-spacing:3px;color:var(--ink)}
+  .brand span{color:var(--gold)}
+  nav.desk{display:none;gap:34px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  nav.desk a{transition:color .25s}
+  nav.desk a:hover{color:var(--gold)}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line);color:var(--gold);
+    padding:9px 16px;border-radius:100px;font-size:.78rem;
+    letter-spacing:.08em;font-weight:600;transition:.25s;
+  }
+  .nav-cta:hover{background:var(--gold-soft);border-color:var(--gold)}
+  @media(min-width:900px){nav.desk{display:flex}}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100dvh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:120px 24px 90px;
+    text-align:center;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 50% 8%,rgba(201,162,75,.16),transparent 55%),
+      radial-gradient(90% 70% at 50% 120%,rgba(232,36,31,.12),transparent 60%),
+      var(--bg);
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(circle at 50% 35%,#000,transparent 72%);
+            mask-image:radial-gradient(circle at 50% 35%,#000,transparent 72%);
+    opacity:.5;
+  }
+  .hero .inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+  .hero .eyebrow{display:block;margin-bottom:22px}
+  .glyph{
+    display:inline-block;font-family:var(--serif);
+    font-size:clamp(76px,20vw,168px);line-height:.8;color:var(--gold);
+    letter-spacing:6px;margin-bottom:6px;
+    text-shadow:0 0 60px rgba(201,162,75,.35);
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,5.4vw,4rem);color:var(--ink);margin:8px 0 20px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p.sub{
+    color:var(--muted);font-size:clamp(1rem,2.2vw,1.18rem);
+    max-width:38ch;margin:0 auto 34px;line-height:1.6;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:15px 30px;border-radius:100px;font-weight:600;
+    font-size:.94rem;letter-spacing:.02em;transition:transform .2s,background .25s,box-shadow .25s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--gold);color:#1a1408;box-shadow:0 12px 34px -12px rgba(201,162,75,.7)}
+  .btn-primary:hover{background:#d9b45f}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .btn-ghost:active{transform:translateY(1px)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* STORY */
+  .story{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .story .wrap{max-width:720px;text-align:center}
+  .story h2{font-size:clamp(1.9rem,4.6vw,3rem);margin:20px 0 22px}
+  .story h2 em{font-style:italic;color:var(--gold)}
+  .story p{color:var(--muted);font-size:1.08rem;max-width:60ch;margin:0 auto 18px}
+  .story .marks{display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:center;margin-top:34px}
+  .story .marks span{font-family:var(--serif);font-size:1.15rem;color:var(--ink);font-style:italic}
+  .story .marks span::before{content:"·";color:var(--gold);margin-right:26px}
+  .story .marks span:first-child::before{content:none;margin:0}
+
+  /* SERVICES bento */
+  .services .head{max-width:640px;margin-bottom:44px}
+  .services h2{font-size:clamp(1.9rem,4.6vw,3rem);margin:14px 0 16px}
+  .services .head p{color:var(--muted);max-width:52ch}
+  .bento{display:grid;grid-template-columns:1fr;gap:16px}
+  .card{
+    position:relative;border:1px solid var(--line);border-radius:20px;
+    padding:30px 26px;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+    transition:border-color .3s,transform .3s,background .3s;overflow:hidden;
+  }
+  .card:hover{border-color:var(--gold);transform:translateY(-4px)}
+  .card .ico{font-size:1.7rem;margin-bottom:16px;filter:saturate(0) brightness(1.4)}
+  .card h3{font-size:1.55rem;color:var(--ink);margin-bottom:10px}
+  .card p{color:var(--muted);font-size:.96rem}
+  .card .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .card .tags b{
+    font-family:var(--sans);font-weight:500;font-size:.76rem;color:var(--gold);
+    border:1px solid var(--line);padding:5px 11px;border-radius:100px;letter-spacing:.02em;
+  }
+  .card.wide h3{font-size:1.9rem}
+  @media(min-width:760px){
+    .bento{grid-template-columns:repeat(6,1fr);grid-auto-rows:1fr}
+    .card.a{grid-column:span 4}
+    .card.b{grid-column:span 2}
+    .card.c{grid-column:span 3}
+    .card.d{grid-column:span 3}
+    .card.e{grid-column:span 2}
+    .card.f{grid-column:span 4}
+  }
+
+  /* WHY - horizontal band with numerals */
+  .why{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .why .grid{display:grid;grid-template-columns:1fr;gap:2px;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+  .why .cell{padding:34px 28px;background:var(--bg)}
+  .why .num{font-family:var(--serif);font-size:2.4rem;color:var(--gold);font-style:italic;display:block;margin-bottom:12px}
+  .why h3{font-size:1.35rem;color:var(--ink);margin-bottom:8px}
+  .why p{color:var(--muted);font-size:.96rem}
+  @media(min-width:820px){.why .grid{grid-template-columns:repeat(4,1fr)}}
+  .why .lead{max-width:600px;margin:0 auto 42px;text-align:center}
+  .why .lead h2{font-size:clamp(1.9rem,4.6vw,3rem);margin:14px 0}
+  .why .lead h2 em{font-style:italic;color:var(--gold)}
+
+  /* QUOTE / social proof */
+  .quote{text-align:center}
+  .quote .wrap{max-width:800px}
+  .quote blockquote{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(1.7rem,4.5vw,2.7rem);line-height:1.25;color:var(--ink);
+  }
+  .quote blockquote b{color:var(--gold);font-style:normal;font-weight:600}
+  .quote .from{display:block;margin-top:26px;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* CONTACT */
+  .contact{position:relative;overflow:hidden}
+  .contact .layout{display:grid;grid-template-columns:1fr;gap:44px}
+  .contact h2{font-size:clamp(2rem,5vw,3.2rem);margin:16px 0 18px}
+  .contact h2 em{font-style:italic;color:var(--gold)}
+  .contact .lead{color:var(--muted);max-width:44ch;margin-bottom:30px}
+  .info{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line)}
+  .info a,.info div{
+    display:flex;align-items:baseline;gap:14px;
+    padding:18px 4px;border-bottom:1px solid var(--line);transition:color .25s,padding .25s;
+  }
+  .info a:hover{color:var(--gold);padding-left:10px}
+  .info .lab{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);min-width:74px;font-weight:600}
+  .info .val{font-size:1.06rem}
+  .hours{border:1px solid var(--line);border-radius:20px;padding:26px 24px;background:var(--bg-2);align-self:start}
+  .hours h3{font-size:1.4rem;margin-bottom:16px}
+  .hours ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .hours li{display:flex;justify-content:space-between;gap:16px;font-size:.95rem;color:var(--muted);border-bottom:1px dashed rgba(201,162,75,.16);padding-bottom:10px}
+  .hours li b{color:var(--ink);font-weight:600}
+  .hours li.closed span{color:var(--red)}
+  .hours .socials{display:flex;gap:12px;margin-top:22px}
+  .hours .socials a{
+    flex:1;text-align:center;border:1px solid var(--line);border-radius:100px;
+    padding:11px;font-size:.82rem;letter-spacing:.04em;color:var(--gold);font-weight:600;transition:.25s;
+  }
+  .hours .socials a:hover{background:var(--gold-soft);border-color:var(--gold)}
+  @media(min-width:880px){.contact .layout{grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}}
+
+  /* red band */
+  .band{background:var(--red);color:#fff;text-align:center;padding:20px 24px}
+  .band p{font-family:var(--serif);font-style:italic;font-size:1.25rem;letter-spacing:.3px}
+  .band b{font-family:var(--sans);font-style:normal;font-weight:700;letter-spacing:.02em}
+
+  /* FOOTER */
+  footer{background:#0d0c0b;padding:52px 24px 34px;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-direction:column;gap:24px;text-align:center;align-items:center}
+  footer .brand{font-size:1.7rem}
+  footer p{color:var(--muted);font-size:.9rem;max-width:46ch}
+  footer .fnav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  footer .fnav a:hover{color:var(--gold)}
+  footer .cr{font-size:.78rem;color:#6d675e;border-top:1px solid var(--line);padding-top:22px;width:100%}
+  footer .cr b{color:var(--gold);font-weight:600}
+
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important}
+    .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <a href="#top" class="brand">MIA<span>MI</span></a>
+  <nav class="desk">
+    <a href="#storia">Salone</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#perche">Perche' noi</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+  <a href="tel:0119973470" class="nav-cta">Prenota</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="inner">
+    <span class="eyebrow">Parrucchiere · Estetica · Lounge · Leini'</span>
+    <span class="glyph">M</span>
+    <h1>Il tuo salone di <em>bellezza</em>, tutto in un posto</h1>
+    <p class="sub">Capelli, estetica, solarium, sauna e un angolo bar dove concederti una pausa. A Leini', in via Torino 45.</p>
+    <div class="cta-row">
+      <a href="tel:0119973470" class="btn btn-primary">Chiama 011 9973470</a>
+      <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="storia">
+  <div class="wrap reveal">
+    <span class="eyebrow">Il salone</span>
+    <h2>Un piccolo <em>tempio del benessere</em> nel cuore di Leini'</h2>
+    <p>Da Miami trovi tutto quello che serve per prenderti cura di te, senza spostarti da una parte all'altra della citta'. Un taglio nuovo, le unghie curate, una seduta di solarium o il tepore della sauna: qui capelli, estetica e relax vivono sotto lo stesso tetto.</p>
+    <p>E quando vuoi solo staccare, l'angolo bar ti aspetta. Un ambiente accogliente, dove ci si sente a casa e si esce sempre un po' piu' belli.</p>
+    <div class="marks">
+      <span>Vicino al Penny Market</span>
+      <span>Ambiente familiare</span>
+      <span>Su appuntamento</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servizi">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Cosa offriamo</span>
+      <h2>Un'unica <span style="font-style:italic;color:var(--gold)">destinazione</span> per capelli, pelle e relax</h2>
+      <p>Tutti i nostri servizi, pensati per farti sentire curata dal primo all'ultimo dettaglio.</p>
+    </div>
+    <div class="bento">
+      <div class="card a reveal">
+        <div class="ico">✂️</div>
+        <h3>Parrucchiere uomo e donna</h3>
+        <p>Taglio, piega, colore e trattamenti su misura. Uno stile che ti somiglia, curato da mani esperte.</p>
+        <div class="tags"><b>Taglio</b><b>Colore</b><b>Extension capelli</b></div>
+      </div>
+      <div class="card b reveal">
+        <div class="ico">☀️</div>
+        <h3>Solarium</h3>
+        <p>Un colorito luminoso in ogni stagione, con lampade sicure e confortevoli.</p>
+      </div>
+      <div class="card c reveal">
+        <div class="ico">💅</div>
+        <h3>Nails & ciglia</h3>
+        <p>Ricostruzione unghie, semipermanente e extension ciglia per uno sguardo intenso.</p>
+        <div class="tags"><b>Nails</b><b>Extension ciglia</b></div>
+      </div>
+      <div class="card d reveal">
+        <div class="ico">💆‍♀️</div>
+        <h3>Estetica & massaggi</h3>
+        <p>Trattamenti viso e corpo, massaggi rilassanti e rituali di benessere per ritrovare l'equilibrio.</p>
+      </div>
+      <div class="card e reveal">
+        <div class="ico">🌿</div>
+        <h3>Sauna</h3>
+        <p>Il calore che scioglie la giornata e rigenera corpo e mente.</p>
+      </div>
+      <div class="card f wide reveal">
+        <div class="ico">🥂</div>
+        <h3>Angolo bar</h3>
+        <p>Aspetta il tuo turno, o semplicemente rilassati, con qualcosa di buono da sorseggiare. Perche' la bellezza e' anche il piacere di prendersi il proprio tempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="perche">
+  <div class="wrap">
+    <div class="lead reveal">
+      <span class="eyebrow">Perche' Miami</span>
+      <h2>Quattro buoni motivi per <em>sceglierci</em></h2>
+    </div>
+    <div class="grid reveal">
+      <div class="cell">
+        <span class="num">01</span>
+        <h3>Tutto in uno</h3>
+        <p>Capelli, estetica, solarium, sauna e bar nello stesso posto. Un'offerta rara in zona.</p>
+      </div>
+      <div class="cell">
+        <span class="num">02</span>
+        <h3>Mani esperte</h3>
+        <p>Professionisti che seguono ogni cliente con attenzione e passione vera.</p>
+      </div>
+      <div class="cell">
+        <span class="num">03</span>
+        <h3>A due passi</h3>
+        <p>In via Torino 45, comodo e ben servito, con parcheggio facile nei dintorni.</p>
+      </div>
+      <div class="cell">
+        <span class="num">04</span>
+        <h3>Ti senti a casa</h3>
+        <p>Un salone di paese dove l'accoglienza conta quanto il risultato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="wrap reveal">
+    <span class="eyebrow">Dicono di noi</span>
+    <blockquote style="margin-top:22px">Il <b>88%</b> di chi ci ha provato consiglia Miami ad amici e famiglia.</blockquote>
+    <span class="from">Recensioni Facebook · @miami_leini</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contatti">
+  <div class="wrap">
+    <div class="layout">
+      <div class="reveal">
+        <span class="eyebrow">Vieni a trovarci</span>
+        <h2>Prenota il tuo <em>momento</em></h2>
+        <p class="lead">Chiama per fissare un appuntamento o passa a salutarci. Ti aspettiamo per un caffe' e un consiglio di bellezza.</p>
+        <div class="info">
+          <a href="tel:0119973470">
+            <span class="lab">Telefono</span>
+            <span class="val">011 9973470</span>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Torino+45+Leini" target="_blank" rel="noopener">
+            <span class="lab">Dove</span>
+            <span class="val">Via Torino 45, 10040 Leini' (TO)</span>
+          </a>
+          <a href="https://www.instagram.com/miami_leini/" target="_blank" rel="noopener">
+            <span class="lab">Social</span>
+            <span class="val">@miami_leini su Instagram</span>
+          </a>
+        </div>
+      </div>
+      <div class="hours reveal">
+        <h3>Orari indicativi</h3>
+        <ul>
+          <li><b>Lunedi'</b> <span class="">Su appuntamento</span></li>
+          <li><b>Martedi' - Venerdi'</b> <span>9:00 - 19:00</span></li>
+          <li><b>Sabato</b> <span>9:00 - 18:00</span></li>
+          <li class="closed"><b>Domenica</b> <span>Chiuso</span></li>
+        </ul>
+        <div class="socials">
+          <a href="tel:0119973470">Chiama</a>
+          <a href="https://www.facebook.com/p/Miami-estetica-parrucchiere-solarium-bar-sauna-100054600063677/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RED BAND -->
+<div class="band">
+  <p>Miami · <b>Estetica, Parrucchiere e Lounge Bar</b> · Leini'</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand">MIA<span style="color:var(--gold)">MI</span></a>
+    <p>Il tuo salone di bellezza a Leini': capelli, estetica, solarium, sauna e angolo bar in un unico posto.</p>
+    <nav class="fnav">
+      <a href="#storia">Salone</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perche' noi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <div class="cr">
+      &copy; <span id="year"></span> Miami Hairs &amp; Beauty · Via Torino 45, Leini' (TO) · Tel. <b>011 9973470</b>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  var head=document.querySelector('header');
+  var onScroll=function(){head.classList.toggle('solid',window.scrollY>40)};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+      });
+    },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+  }
+</script>
+</body>
+</html>
