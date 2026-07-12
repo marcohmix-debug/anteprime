@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dinaro Barber | Alessio e Daniele - Barbiere a Settimo Torinese</title>
+<meta name="description" content="Dinaro Barber di Alessio e Daniele in via San Rocco a Settimo Torinese. Taglio uomo, barba e rasatura tradizionale. Prenota al 347 1154810.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2314110d'/%3E%3Ctext x='50' y='68' font-family='Georgia' font-size='52' fill='%23c9a15f' text-anchor='middle' font-weight='700'%3E%26%23038;%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14110d;
+    --ink-soft:#211c15;
+    --bone:#f3efe7;
+    --bone-dim:#d8d0c2;
+    --muted:#a49a89;
+    --camel:#c9a15f;
+    --camel-deep:#b0863f;
+    --line:rgba(243,239,231,.12);
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--ink);
+    color:var(--bone);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.05;font-weight:600;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{position:relative}
+  .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.28em;
+    font-size:.72rem;
+    color:var(--camel);
+    font-weight:500;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    transition:background .4s ease,border-color .4s ease,padding .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.solid{background:rgba(20,17,13,.82);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:var(--max);margin:0 auto}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+  .brand b{color:var(--camel);font-weight:700}
+  .nav-links{display:none;gap:34px;align-items:center}
+  .nav-links a{font-size:.9rem;color:var(--bone-dim);transition:color .25s}
+  .nav-links a:hover{color:var(--bone)}
+  .nav-cta{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.85rem;
+    background:var(--camel);color:var(--ink);padding:11px 20px;border-radius:999px;
+    transition:transform .2s,background .25s;white-space:nowrap;
+  }
+  .nav-cta:hover{background:#d8b273}
+  .nav-cta:active{transform:translateY(1px)}
+  @media(min-width:860px){.nav-links{display:flex}}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100dvh;display:flex;align-items:flex-end;padding-bottom:6vh;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 80% 10%,rgba(201,161,95,.16),transparent 55%),
+      radial-gradient(90% 70% at 10% 100%,rgba(176,134,63,.10),transparent 60%);
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;opacity:.5;
+    background-image:repeating-linear-gradient(115deg,transparent 0 38px,rgba(243,239,231,.028) 38px 39px);
+  }
+  .amp{
+    position:absolute;right:-4vw;top:8vh;z-index:0;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:min(62vw,780px);line-height:.8;color:rgba(201,161,95,.08);
+    user-select:none;pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .hero .eyebrow{display:block;margin-bottom:22px;opacity:0;animation:rise .9s .1s forwards}
+  .hero h1{
+    font-size:clamp(2.9rem,11vw,7rem);font-weight:700;letter-spacing:-.03em;
+    max-width:14ch;
+  }
+  .hero h1 span{color:var(--camel);font-style:italic}
+  .hero h1 .l{display:block;overflow:hidden}
+  .hero h1 .l i{display:block;font-style:normal;transform:translateY(105%);animation:up 1s cubic-bezier(.16,1,.3,1) forwards}
+  .hero h1 .l:nth-child(1) i{animation-delay:.18s}
+  .hero h1 .l:nth-child(2) i{animation-delay:.30s}
+  .hero-sub{
+    margin-top:26px;max-width:46ch;font-size:1.12rem;color:var(--bone-dim);
+    opacity:0;animation:rise .9s .6s forwards;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;opacity:0;animation:rise .9s .75s forwards}
+  .btn{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;
+    padding:15px 28px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;
+    transition:transform .2s,background .25s,border-color .25s;white-space:nowrap;
+  }
+  .btn-primary{background:var(--camel);color:var(--ink)}
+  .btn-primary:hover{background:#d8b273}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--bone)}
+  .btn-ghost:hover{border-color:var(--camel);color:var(--camel)}
+  .btn-ghost:active{transform:translateY(1px)}
+  .scroll-hint{
+    position:absolute;left:24px;bottom:26px;z-index:2;font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;
+    opacity:0;animation:rise .9s 1s forwards;
+  }
+  .scroll-hint .bar{width:44px;height:1px;background:var(--muted);position:relative;overflow:hidden}
+  .scroll-hint .bar::after{content:"";position:absolute;inset:0;background:var(--camel);animation:slide 2.4s infinite}
+
+  @keyframes up{to{transform:translateY(0)}}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  @keyframes slide{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.1s}
+  .reveal[data-d="2"]{transition-delay:.2s}
+  .reveal[data-d="3"]{transition-delay:.3s}
+
+  /* ---------- STORIA ---------- */
+  .storia{padding:120px 0 90px}
+  .storia .lead{
+    font-family:'Space Grotesk',sans-serif;font-weight:500;letter-spacing:-.02em;
+    font-size:clamp(1.7rem,4.6vw,2.9rem);line-height:1.18;max-width:20ch;margin-top:20px;
+  }
+  .storia .lead em{color:var(--camel);font-style:italic}
+  .storia .body{max-width:62ch;margin-top:34px;color:var(--bone-dim);font-size:1.08rem}
+  .storia .body p+p{margin-top:18px}
+
+  /* ---------- SERVIZI (list layout) ---------- */
+  .servizi{padding:80px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(2rem,6vw,3.4rem)}
+  .srv{
+    display:grid;grid-template-columns:auto 1fr auto;gap:18px 26px;align-items:baseline;
+    padding:30px 0;border-top:1px solid var(--line);
+  }
+  .srv:last-child{border-bottom:1px solid var(--line)}
+  .srv .num{font-family:'Space Grotesk',sans-serif;color:var(--camel);font-size:.85rem;letter-spacing:.1em;padding-top:6px}
+  .srv h3{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:500}
+  .srv p{grid-column:2;color:var(--muted);max-width:52ch;margin-top:8px;font-size:1rem}
+  .srv .tag{
+    font-family:'Space Grotesk',sans-serif;font-size:.8rem;color:var(--bone-dim);
+    border:1px solid var(--line);border-radius:999px;padding:7px 15px;white-space:nowrap;align-self:center;
+    transition:border-color .3s,color .3s;
+  }
+  .srv:hover .tag{border-color:var(--camel);color:var(--camel)}
+  @media(max-width:640px){
+    .srv{grid-template-columns:auto 1fr;gap:6px 16px}
+    .srv .tag{grid-column:2;justify-self:start;margin-top:14px}
+    .srv p{grid-column:1 / -1}
+  }
+
+  /* ---------- STATS band ---------- */
+  .stats{background:var(--bone);color:var(--ink);padding:74px 0}
+  .stats-grid{display:grid;grid-template-columns:1fr;gap:44px}
+  .stat .n{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,9vw,4rem);letter-spacing:-.03em;line-height:1}
+  .stat .n small{color:var(--camel-deep);font-size:.5em;font-weight:600}
+  .stat .k{margin-top:8px;font-size:1rem;color:#5b5348;max-width:30ch}
+  @media(min-width:720px){.stats-grid{grid-template-columns:repeat(3,1fr);gap:30px}}
+
+  /* ---------- IL DUO (split) ---------- */
+  .duo{padding:110px 0 90px}
+  .duo-head{max-width:34ch;margin-bottom:50px}
+  .duo-head h2{font-size:clamp(2rem,6vw,3.4rem);margin-top:14px}
+  .duo-head p{color:var(--bone-dim);margin-top:18px;font-size:1.08rem;max-width:52ch}
+  .duo-grid{display:grid;grid-template-columns:1fr;gap:20px}
+  @media(min-width:760px){.duo-grid{grid-template-columns:1fr 1fr}}
+  .face{
+    position:relative;border:1px solid var(--line);border-radius:20px;padding:40px 34px 34px;
+    background:linear-gradient(160deg,var(--ink-soft),rgba(33,28,21,.35));overflow:hidden;
+    transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s;
+  }
+  .face:hover{transform:translateY(-6px);border-color:rgba(201,161,95,.4)}
+  .face .glyph{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:8rem;line-height:.8;
+    color:rgba(201,161,95,.14);position:absolute;top:-10px;right:14px;pointer-events:none;
+  }
+  .face h3{font-size:1.9rem;font-weight:600;position:relative}
+  .face .role{color:var(--camel);font-family:'Space Grotesk',sans-serif;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;margin-top:10px}
+  .face p{color:var(--bone-dim);margin-top:18px;position:relative;max-width:38ch}
+
+  /* ---------- CONTATTI ---------- */
+  .contatti{padding:100px 0;border-top:1px solid var(--line)}
+  .cta-grid{display:grid;grid-template-columns:1fr;gap:46px}
+  @media(min-width:840px){.cta-grid{grid-template-columns:1.1fr .9fr;gap:64px}}
+  .contatti h2{font-size:clamp(2.2rem,7vw,4rem);margin-top:16px}
+  .contatti .book{color:var(--bone-dim);margin-top:22px;max-width:44ch;font-size:1.1rem}
+  .contatti .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .info-block{display:flex;flex-direction:column;gap:26px}
+  .info{display:flex;gap:16px;align-items:flex-start}
+  .info .ic{
+    flex:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);
+    display:grid;place-items:center;color:var(--camel);
+  }
+  .info .ic svg{width:20px;height:20px}
+  .info .t{font-family:'Space Grotesk',sans-serif;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .info a,.info .v{color:var(--bone);font-size:1.05rem;transition:color .25s}
+  .info a:hover{color:var(--camel)}
+  .hours-row{display:flex;justify-content:space-between;gap:20px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.98rem;max-width:340px}
+  .hours-row span:first-child{color:var(--bone-dim)}
+  .hours-row span:last-child{color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:.9rem}
+  .hours-row.closed span:last-child{color:var(--camel)}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:44px 0 40px}
+  .foot{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+  .foot .brand{font-size:1.2rem}
+  .foot-meta{color:var(--muted);font-size:.9rem;line-height:1.8}
+  .foot-social{display:flex;gap:14px;align-items:center}
+  .foot-social a{
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;
+    color:var(--bone-dim);transition:border-color .25s,color .25s,transform .25s;
+  }
+  .foot-social a:hover{border-color:var(--camel);color:var(--camel);transform:translateY(-3px)}
+  .foot-social svg{width:19px;height:19px}
+  @media(min-width:760px){.foot{flex-direction:row;justify-content:space-between;align-items:center}}
+  .foot-bottom{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .hero h1 .l i,.hero .eyebrow,.hero-sub,.hero-actions,.scroll-hint{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="head">
+  <nav class="nav">
+    <a href="#top" class="brand">Dinaro <b>Barber</b></a>
+    <div class="nav-links">
+      <a href="#storia">La barberia</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#duo">Il duo</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+    <a href="tel:+393471154810" class="nav-cta">Prenota</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="amp" aria-hidden="true">&amp;</div>
+    <div class="wrap">
+      <span class="eyebrow">Barbiere &middot; Settimo Torinese</span>
+      <h1>
+        <span class="l"><i>Alessio &amp; Daniele.</i></span>
+        <span class="l"><i>Due mani, <span>un taglio</span>.</i></span>
+      </h1>
+      <p class="hero-sub">La barberia di via San Rocco dove taglio, barba e rasatura tradizionale diventano un rituale. Ti sistemiamo come piace a te.</p>
+      <div class="hero-actions">
+        <a href="tel:+393471154810" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Prenota ora
+        </a>
+        <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span class="bar"></span> Scorri</div>
+  </section>
+
+  <!-- STORIA -->
+  <section class="storia" id="storia">
+    <div class="wrap">
+      <span class="eyebrow reveal">La barberia</span>
+      <p class="lead reveal" data-d="1">Un mestiere fatto di <em>ascolto</em>, forbici affilate e la voglia di farti uscire meglio di come sei entrato.</p>
+      <div class="body">
+        <p class="reveal" data-d="1">Dinaro Barber nasce dalla passione di Daniele Dinaro e cresce insieme ad Alessio: due barbieri, un solo modo di lavorare, quello curato. Da anni siamo un punto fermo in via San Rocco, con una clientela che torna perche' sa cosa aspettarsi.</p>
+        <p class="reveal" data-d="2">Non facciamo tagli in fretta: leggiamo la forma del viso, capiamo la tua routine e ti proponiamo cio' che funziona davvero. Ambiente rilassato, chiacchiere quando vuoi, silenzio quando serve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section class="servizi" id="servizi">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Cosa facciamo</span>
+        <h2>Servizi su misura</h2>
+      </div>
+
+      <div class="srv reveal">
+        <span class="num">01</span>
+        <h3>Taglio uomo</h3>
+        <span class="tag">Consulenza inclusa</span>
+        <p>Sfumature pulite, classico o moderno. Studiamo la forma giusta per il tuo viso e per come ti pettini ogni mattina.</p>
+      </div>
+
+      <div class="srv reveal">
+        <span class="num">02</span>
+        <h3>Barba</h3>
+        <span class="tag">Rifinitura e cura</span>
+        <p>Contorni definiti, lunghezza modellata, panno caldo e prodotti che lasciano la pelle morbida. Anche solo per una sistemata.</p>
+      </div>
+
+      <div class="srv reveal">
+        <span class="num">03</span>
+        <h3>Rasatura tradizionale</h3>
+        <span class="tag">Rasoio a mano libera</span>
+        <p>Il rituale di una volta: asciugamano caldo, sapone montato e lama. Pochi minuti tutti per te, pelle perfettamente liscia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat reveal">
+        <div class="n">470<small>+</small></div>
+        <div class="k">Recensioni raccolte dai clienti nel tempo.</div>
+      </div>
+      <div class="stat reveal" data-d="1">
+        <div class="n">2</div>
+        <div class="k">Barbieri, Alessio e Daniele, sempre in sala.</div>
+      </div>
+      <div class="stat reveal" data-d="2">
+        <div class="n">6<small>gg</small></div>
+        <div class="k">Aperti da martedi a sabato, sabato continuato.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IL DUO -->
+  <section class="duo" id="duo">
+    <div class="wrap">
+      <div class="duo-head reveal">
+        <span class="eyebrow">Il duo</span>
+        <h2>Le due facce di Dinaro Barber</h2>
+        <p>Stesso banco, stessa cura. Cambia la mano, non il risultato: con Alessio o con Daniele sei in mani sicure.</p>
+      </div>
+      <div class="duo-grid">
+        <article class="face reveal">
+          <span class="glyph" aria-hidden="true">A</span>
+          <h3>Alessio</h3>
+          <div class="role">Barbiere</div>
+          <p>Preciso sulle sfumature e sui dettagli, ama i tagli moderni e le linee nette. Se cerchi qualcosa di attuale, sa dove guardare.</p>
+        </article>
+        <article class="face reveal" data-d="1">
+          <span class="glyph" aria-hidden="true">D</span>
+          <h3>Daniele</h3>
+          <div class="role">Titolare &middot; Barbiere</div>
+          <p>Il fondatore. Mano classica ed esperta, maestro della rasatura tradizionale e della barba curata nei minimi particolari.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contatti" id="contatti">
+    <div class="wrap cta-grid">
+      <div class="reveal">
+        <span class="eyebrow">Passa a trovarci</span>
+        <h2>Prenotiamo il tuo posto</h2>
+        <p class="book">Una telefonata e ti troviamo lo spazio. In via San Rocco 39, a Settimo Torinese, ti aspettiamo.</p>
+        <div class="actions">
+          <a href="tel:+393471154810" class="btn btn-primary">Chiama 347 1154810</a>
+          <a href="https://www.instagram.com/_dinaro__barber/" target="_blank" rel="noopener" class="btn btn-ghost">Seguici su Instagram</a>
+        </div>
+      </div>
+
+      <div class="info-block reveal" data-d="1">
+        <div class="info">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div>
+            <div class="t">Telefono</div>
+            <a href="tel:+393471154810">347 1154810</a><br>
+            <a href="tel:+390113740240">011 3740240</a>
+          </div>
+        </div>
+        <div class="info">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <div class="t">Dove siamo</div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Via+San+Rocco+39+Settimo+Torinese" target="_blank" rel="noopener">Via San Rocco 39<br>10036 Settimo Torinese (TO)</a>
+          </div>
+        </div>
+        <div class="info">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div style="width:100%">
+            <div class="t">Orari</div>
+            <div class="hours-row"><span>Martedi &ndash; Venerdi</span><span>8:30&ndash;12 / 14:30&ndash;19</span></div>
+            <div class="hours-row"><span>Sabato</span><span>Orario continuato</span></div>
+            <div class="hours-row closed"><span>Lunedi e Domenica</span><span>Chiuso</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="brand">Dinaro <b>Barber</b></a>
+        <div class="foot-meta">
+          Via San Rocco 39, Settimo Torinese (TO)<br>
+          Alessio &amp; Daniele &middot; Tel. 347 1154810
+        </div>
+      </div>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/_dinaro__barber/" target="_blank" rel="noopener" aria-label="Instagram Dinaro Barber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="tel:+393471154810" aria-label="Chiama Dinaro Barber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr"></span> Dinaro Barber di Daniele Dinaro. Tutti i diritti riservati.</span>
+      <span>Settimo Torinese &middot; Barbiere</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header solido allo scroll (per leggibilita' del menu)
+  var head=document.getElementById('head');
+  var onScroll=function(){head.classList.toggle('solid',window.scrollY>40)};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Reveal allo scroll: comunica la gerarchia sezione per sezione
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+    });
+  },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // Anno corrente nel footer
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
