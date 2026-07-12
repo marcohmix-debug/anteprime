@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bossi Fiori | Fioreria storica a Settimo Torinese</title>
+<meta name="description" content="Bossi Fiori, fioreria di famiglia a Settimo Torinese dal cuore floricoltore. Fiori recisi, piante, composizioni e idee regalo. Aperti anche la domenica mattina.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2324463a'/%3E%3Cg fill='%23e5654b'%3E%3Ccircle cx='16' cy='9' r='4'/%3E%3Ccircle cx='23' cy='16' r='4'/%3E%3Ccircle cx='16' cy='23' r='4'/%3E%3Ccircle cx='9' cy='16' r='4'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23f6f2ea'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1e2822;
+    --bg:#f6f2ea;
+    --card:#fffdf8;
+    --green:#24463a;
+    --green-deep:#193328;
+    --accent:#e0573c;
+    --accent-ink:#fff7f2;
+    --muted:#5c6a61;
+    --line:#e2dccf;
+    --maxw:1140px;
+    font-synthesis:none;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+  em{font-style:italic}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  .eyebrow{
+    font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:18px;
+  }
+  .lead{color:var(--muted);font-size:1.06rem;max-width:60ch}
+
+  /* Nav */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;
+    transition:background .4s ease,box-shadow .4s ease,padding .4s ease;
+  }
+  header.nav.scrolled{background:rgba(246,242,234,.9);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:12px 24px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.22rem;font-weight:600;color:var(--green)}
+  .brand .mark{width:30px;height:30px;flex:0 0 30px}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{font-size:.92rem;font-weight:500;color:var(--ink);opacity:.8;transition:opacity .2s}
+  .navlinks a:hover{opacity:1}
+  .navlinks .cta{
+    background:var(--green);color:var(--bg);padding:10px 20px;border-radius:100px;opacity:1;
+    transition:transform .25s cubic-bezier(.16,1,.3,1),background .25s;
+  }
+  .navlinks .cta:hover{background:var(--green-deep)}
+  .navlinks .cta:active{transform:translateY(1px)}
+  @media(max-width:820px){.navlinks a:not(.cta){display:none}}
+
+  /* Hero */
+  .hero{
+    min-height:100dvh;display:grid;align-items:center;
+    grid-template-columns:1.1fr .9fr;gap:40px;
+    padding-top:120px;padding-bottom:60px;
+  }
+  .hero-copy{max-width:36ch}
+  .hero h1{font-size:clamp(2.9rem,7vw,5rem);color:var(--green)}
+  .hero h1 em{color:var(--accent)}
+  .hero p{margin:24px 0 34px;font-size:1.12rem;color:var(--muted);max-width:34ch}
+  .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:15px 26px;border-radius:100px;font-weight:600;font-size:.98rem;white-space:nowrap;
+    transition:transform .25s cubic-bezier(.16,1,.3,1),background .25s,color .25s;
+  }
+  .btn-primary{background:var(--accent);color:var(--accent-ink)}
+  .btn-primary:hover{background:#c8462d}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{background:transparent;color:var(--green);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--green);background:rgba(36,70,58,.04)}
+  .btn-ghost:active{transform:translateY(1px)}
+
+  .hero-art{position:relative;aspect-ratio:1/1.05;width:100%}
+  .bloom-card{
+    position:absolute;inset:0;border-radius:220px 220px 26px 26px;
+    background:radial-gradient(120% 120% at 50% 15%,#2c5346 0%,var(--green) 45%,var(--green-deep) 100%);
+    overflow:hidden;box-shadow:0 40px 80px -40px rgba(25,51,40,.55);
+  }
+  .bloom-card svg{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:78%}
+  .hero-badge{
+    position:absolute;left:-14px;bottom:34px;z-index:2;
+    background:var(--card);border-radius:18px;padding:16px 20px;
+    box-shadow:0 20px 40px -24px rgba(25,51,40,.4);border:1px solid var(--line);
+    display:flex;align-items:center;gap:14px;
+  }
+  .hero-badge b{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--green);display:block;line-height:1}
+  .hero-badge span{font-size:.78rem;color:var(--muted);max-width:15ch;display:block}
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr;gap:36px;text-align:left;padding-top:110px}
+    .hero p{max-width:42ch}
+    .hero-art{max-width:360px;margin:0 auto;aspect-ratio:1/1.1}
+    .hero-badge{left:0}
+  }
+
+  /* Storia */
+  .storia{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .storia .imgcol{
+    border-radius:26px;min-height:420px;
+    background:
+      radial-gradient(60% 55% at 78% 22%,rgba(224,87,60,.5),transparent 60%),
+      radial-gradient(70% 60% at 20% 82%,rgba(122,167,140,.55),transparent 62%),
+      linear-gradient(160deg,#2c5346,var(--green-deep));
+    position:relative;overflow:hidden;box-shadow:0 30px 60px -40px rgba(25,51,40,.5);
+  }
+  .storia .imgcol .quote{
+    position:absolute;left:28px;right:28px;bottom:26px;color:#f3efe6;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.28rem;line-height:1.35;
+  }
+  .storia .imgcol .quote small{display:block;margin-top:12px;font-style:normal;font-family:'Manrope';font-size:.82rem;letter-spacing:.06em;opacity:.8;text-transform:uppercase}
+  .storia h2{font-size:clamp(2rem,4.4vw,3rem);color:var(--green);margin-bottom:22px;max-width:16ch}
+  .storia p+p{margin-top:16px}
+  @media(max-width:820px){.storia{grid-template-columns:1fr;gap:34px}.storia .imgcol{min-height:300px;order:-1}}
+
+  /* Servizi */
+  .servizi h2{font-size:clamp(2rem,4.4vw,3rem);color:var(--green);margin-bottom:12px}
+  .grid-serv{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .scard{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 26px;
+    transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s;
+  }
+  .scard:hover{transform:translateY(-6px);box-shadow:0 26px 46px -30px rgba(25,51,40,.4);border-color:#cfc8b8}
+  .scard .n{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--accent);margin-bottom:14px}
+  .scard h3{font-size:1.32rem;color:var(--green);margin-bottom:10px}
+  .scard p{font-size:.96rem;color:var(--muted)}
+  @media(max-width:820px){.grid-serv{grid-template-columns:1fr}}
+
+  /* Perche (dark band) */
+  .perche{background:var(--green-deep);color:#eef1ea;border-radius:34px;margin:0 24px;padding:80px 0}
+  .perche .wrap{max-width:1040px}
+  .perche .top{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end;margin-bottom:52px}
+  .perche h2{font-size:clamp(2rem,4.4vw,3rem);color:#fff;max-width:14ch}
+  .perche .top p{color:#c3cec6;max-width:40ch}
+  .reasons{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .reason{border-top:1.5px solid rgba(255,255,255,.16);padding-top:20px}
+  .reason .rn{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--accent);line-height:1}
+  .reason h3{font-size:1.08rem;color:#fff;margin:12px 0 8px}
+  .reason p{font-size:.9rem;color:#b7c3ba}
+  @media(max-width:820px){.perche{margin:0 16px;border-radius:26px}.perche .top{grid-template-columns:1fr;gap:16px}.reasons{grid-template-columns:1fr 1fr;gap:26px}}
+  @media(max-width:460px){.reasons{grid-template-columns:1fr}}
+
+  /* Domenica band */
+  .domenica{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:26px;padding:36px 40px}
+  .domenica .big{font-family:'Fraunces',serif;font-size:clamp(2.4rem,6vw,3.6rem);color:var(--accent);line-height:.9}
+  .domenica .txt h3{font-size:1.5rem;color:var(--green);margin-bottom:6px}
+  .domenica .txt p{color:var(--muted);max-width:48ch}
+  @media(max-width:820px){.domenica{grid-template-columns:1fr;gap:16px;padding:30px 26px}.domenica .btn{justify-self:start}}
+
+  /* Contatti */
+  .contatti{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .contatti h2{font-size:clamp(2rem,4.4vw,3rem);color:var(--green);margin-bottom:20px}
+  .cinfo{display:flex;flex-direction:column;gap:4px}
+  .crow{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .crow .ic{width:22px;flex:0 0 22px;color:var(--accent);margin-top:2px}
+  .crow .lbl{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .crow .val{font-size:1.05rem;font-weight:600;color:var(--ink)}
+  .crow a.val:hover{color:var(--accent)}
+  .hours{background:var(--green);color:#eef1ea;border-radius:24px;padding:34px 32px;align-self:start}
+  .hours h3{font-family:'Fraunces',serif;color:#fff;font-size:1.5rem;margin-bottom:20px}
+  .hline{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:.98rem}
+  .hline:last-child{border-bottom:0}
+  .hline .d{color:#c3cec6}
+  .hline .t{font-weight:600;text-align:right}
+  .hline.closed .t{color:#e79b8b}
+  .hline.open{color:#fff}
+  .hours .note{margin-top:18px;font-size:.86rem;color:#bcd0c4}
+  @media(max-width:820px){.contatti{grid-template-columns:1fr;gap:34px}}
+
+  footer{background:var(--green-deep);color:#c3cec6;padding:56px 0 30px}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+  footer .brand{color:#fff;margin-bottom:14px}
+  footer p{font-size:.92rem;line-height:1.7}
+  footer h4{color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;font-family:'Manrope';font-weight:700}
+  footer a{color:#c3cec6;font-size:.94rem;display:block;padding:4px 0;transition:color .2s}
+  footer a:hover{color:var(--accent)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;font-size:.82rem;color:#9aa89f}
+  @media(max-width:820px){footer .wrap{grid-template-columns:1fr;gap:26px}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Bossi Fiori, home">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#24463a"/><g fill="#e0573c"><circle cx="16" cy="9" r="4"/><circle cx="23" cy="16" r="4"/><circle cx="16" cy="23" r="4"/><circle cx="9" cy="16" r="4"/></g><circle cx="16" cy="16" r="3.4" fill="#f6f2ea"/></svg>
+    Bossi Fiori
+  </a>
+  <nav class="navlinks">
+    <a href="#storia">La storia</a>
+    <a href="#servizi">Cosa offriamo</a>
+    <a href="#perche">Perche noi</a>
+    <a href="#contatti" class="cta">Vieni a trovarci</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap" aria-label="Introduzione">
+    <div class="hero-copy">
+      <p class="eyebrow">Fioreria di famiglia a Settimo Torinese</p>
+      <h1>Fiori che <em>parlano</em> per te.</h1>
+      <p>Da generazioni coltiviamo e scegliamo a mano ogni stelo. Recisi, piante e composizioni per dire quello che conta, con cura vera.</p>
+      <div class="btns">
+        <a href="tel:+390118003810" class="btn btn-primary">Chiama la fioreria</a>
+        <a href="#servizi" class="btn btn-ghost">Scopri cosa offriamo</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="bloom-card">
+        <svg viewBox="0 0 240 240">
+          <g fill="none" stroke="#f3efe6" stroke-width="1.4" opacity=".28">
+            <path d="M120 200 C118 150 116 120 120 70"/>
+            <path d="M120 150 C100 140 84 128 78 108"/>
+            <path d="M120 130 C142 122 158 110 164 92"/>
+          </g>
+          <g>
+            <circle cx="120" cy="66" r="30" fill="#e0573c"/>
+            <circle cx="120" cy="66" r="30" fill="none" stroke="#f6f2ea" stroke-width="2" opacity=".5"/>
+            <path d="M120 66 m-30 0 a30 30 0 1 0 60 0" fill="#c8462d" opacity=".55"/>
+            <circle cx="120" cy="66" r="11" fill="#f6d94f"/>
+            <g fill="#eec9bd">
+              <ellipse cx="120" cy="30" rx="10" ry="18"/>
+              <ellipse cx="150" cy="47" rx="10" ry="18" transform="rotate(60 150 47)"/>
+              <ellipse cx="150" cy="85" rx="10" ry="18" transform="rotate(120 150 85)"/>
+              <ellipse cx="120" cy="102" rx="10" ry="18"/>
+              <ellipse cx="90" cy="85" rx="10" ry="18" transform="rotate(60 90 85)"/>
+              <ellipse cx="90" cy="47" rx="10" ry="18" transform="rotate(120 90 47)"/>
+            </g>
+            <circle cx="120" cy="66" r="30" fill="#e0573c"/>
+            <circle cx="120" cy="66" r="10" fill="#f6d94f"/>
+          </g>
+          <g fill="#7aa78c">
+            <ellipse cx="86" cy="128" rx="9" ry="20" transform="rotate(38 86 128)"/>
+            <ellipse cx="156" cy="112" rx="9" ry="20" transform="rotate(-42 156 112)"/>
+            <ellipse cx="100" cy="168" rx="8" ry="17" transform="rotate(30 100 168)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-badge">
+        <b>96%</b>
+        <span>di clienti che ci raccomandano su Facebook</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIA -->
+  <section id="storia">
+    <div class="storia wrap">
+      <div class="imgcol reveal">
+        <div class="quote">
+          Coltiviamo fiori da floricoltori, prima ancora che da negozianti.
+          <small>La famiglia Bossi</small>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">La nostra storia</p>
+        <h2>Una fioreria nata tra le serre.</h2>
+        <p class="lead">Bossi Fiori e' l'attivita' di una famiglia di floricoltori radicata a Settimo Torinese. In via Milano non trovi solo un negozio, ma persone che conoscono ogni pianta perche' l'hanno vista crescere.</p>
+        <p class="lead">Questo si sente in ogni mazzo: freschezza reale, consigli sinceri e la stessa attenzione, che tu stia scegliendo una rosa o allestendo un evento importante.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi" class="servizi">
+    <div class="wrap">
+      <p class="eyebrow reveal">Cosa offriamo</p>
+      <h2 class="reveal">Tutto il verde e il colore che cerchi.</h2>
+      <div class="grid-serv">
+        <div class="scard reveal">
+          <div class="n">01</div>
+          <h3>Fiori recisi</h3>
+          <p>Steli freschi selezionati ogni settimana. Mazzi pronti o composti al momento, per ogni occasione e ogni stagione.</p>
+        </div>
+        <div class="scard reveal">
+          <div class="n">02</div>
+          <h3>Piante</h3>
+          <p>Verdi e fiorite, da interno e da giardino. Ti aiutiamo a scegliere quella giusta per la luce e lo spazio che hai.</p>
+        </div>
+        <div class="scard reveal">
+          <div class="n">03</div>
+          <h3>Composizioni floreali</h3>
+          <p>Allestimenti su misura per matrimoni, cerimonie e ricorrenze. Diamo forma alla tua idea, curando ogni dettaglio.</p>
+        </div>
+        <div class="scard reveal">
+          <div class="n">04</div>
+          <h3>Fiori artificiali</h3>
+          <p>Soluzioni eleganti e durature, indistinguibili dal vero. Perfette dove servono colore e ordine tutto l'anno.</p>
+        </div>
+        <div class="scard reveal">
+          <div class="n">05</div>
+          <h3>Idee regalo</h3>
+          <p>Piante confezionate, bouquet e pensieri floreali per stupire. Ti guidiamo a trovare il dono adatto a chi lo ricevera'.</p>
+        </div>
+        <div class="scard reveal">
+          <div class="n">06</div>
+          <h3>Consiglio dedicato</h3>
+          <p>Vieni in negozio e raccontaci l'occasione. Scegliamo insieme fiori e colori giusti, senza fretta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE -->
+  <section id="perche">
+    <div class="perche reveal">
+      <div class="wrap">
+        <div class="top">
+          <h2>Perche' la gente torna da noi.</h2>
+          <p>Non e' solo questione di fiori belli. E' il modo in cui li scegliamo e ve li consegniamo, ogni giorno.</p>
+        </div>
+        <div class="reasons">
+          <div class="reason">
+            <div class="rn">A</div>
+            <h3>Freschezza da floricoltori</h3>
+            <p>Conosciamo la filiera perche' ci lavoriamo dentro da sempre.</p>
+          </div>
+          <div class="reason">
+            <div class="rn">B</div>
+            <h3>Aperti la domenica</h3>
+            <p>Ci siamo quando serve un fiore all'ultimo, anche a inizio settimana.</p>
+          </div>
+          <div class="reason">
+            <div class="rn">C</div>
+            <h3>Consiglio sincero</h3>
+            <p>Ti diciamo cosa dura e cosa conviene, senza forzare la scelta.</p>
+          </div>
+          <div class="reason">
+            <div class="rn">D</div>
+            <h3>Amati dai clienti</h3>
+            <p>96% di raccomandazioni su 22 recensioni Facebook.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMENICA -->
+  <section aria-label="Aperti la domenica" style="padding-top:0">
+    <div class="wrap">
+      <div class="domenica reveal">
+        <div class="big">Dom</div>
+        <div class="txt">
+          <h3>Sì, la domenica siamo aperti.</h3>
+          <p>Mattina 8:30 - 12:00 e pomeriggio 14:30 - 17:00. Il giorno in cui i fiori servono di piu', ci trovi.</p>
+        </div>
+        <a href="#contatti" class="btn btn-primary">Come raggiungerci</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti">
+    <div class="contatti wrap">
+      <div class="reveal">
+        <p class="eyebrow">Vieni a trovarci</p>
+        <h2>Passa in via Milano.</h2>
+        <p class="lead" style="margin-bottom:26px">Chiama per un consiglio o per prenotare una composizione, oppure fai un salto in negozio: ti aspettiamo tra i fiori.</p>
+        <div class="cinfo">
+          <div class="crow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z"/></svg>
+            <div><div class="lbl">Telefono</div><a class="val" href="tel:+390118003810">011 8003810</a></div>
+          </div>
+          <div class="crow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <div><div class="lbl">Email</div><a class="val" href="mailto:marco_bossieden@msn.com">marco_bossieden@msn.com</a></div>
+          </div>
+          <div class="crow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><div class="lbl">Dove siamo</div><a class="val" href="https://www.google.com/maps/search/?api=1&query=Via+Milano+103+Settimo+Torinese" target="_blank" rel="noopener">Via Milano 103, Settimo Torinese</a></div>
+          </div>
+          <div class="crow">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 2h-1V1h-2v1H9V1H7v1H6a2 2 0 0 0-2 2v3h16V4a2 2 0 0 0-2-2zM4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/></svg>
+            <div><div class="lbl">Social</div><a class="val" href="https://www.facebook.com/bossifiori/" target="_blank" rel="noopener">facebook.com/bossifiori</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="hours reveal">
+        <h3>Orari di apertura</h3>
+        <div class="hline closed"><span class="d">Lunedì</span><span class="t">Chiuso</span></div>
+        <div class="hline open"><span class="d">Martedì - Sabato</span><span class="t">8:30 - 12:00<br>14:00 - 18:00</span></div>
+        <div class="hline open"><span class="d">Domenica</span><span class="t">8:30 - 12:00<br>14:30 - 17:00</span></div>
+        <p class="note">Aperti anche la domenica mattina, il momento migliore per scegliere fiori freschi.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand" style="color:#fff">
+        <svg class="mark" style="width:28px;height:28px" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#e0573c"/><g fill="#24463a"><circle cx="16" cy="9" r="4"/><circle cx="23" cy="16" r="4"/><circle cx="16" cy="23" r="4"/><circle cx="9" cy="16" r="4"/></g><circle cx="16" cy="16" r="3.4" fill="#f6f2ea"/></svg>
+        Bossi Fiori
+      </div>
+      <p>Fioreria di famiglia a Settimo Torinese. Fiori recisi, piante, composizioni e idee regalo, con la cura di chi i fiori li coltiva da sempre.</p>
+    </div>
+    <div>
+      <h4>Naviga</h4>
+      <a href="#storia">La storia</a>
+      <a href="#servizi">Cosa offriamo</a>
+      <a href="#perche">Perche' noi</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+    <div>
+      <h4>Contatti</h4>
+      <a href="tel:+390118003810">011 8003810</a>
+      <a href="mailto:marco_bossieden@msn.com">marco_bossieden@msn.com</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Via+Milano+103+Settimo+Torinese" target="_blank" rel="noopener">Via Milano 103, Settimo T.se</a>
+      <a href="https://www.facebook.com/bossifiori/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year"></span> Bossi Fiori, Bossi Giuseppe & C. floricoltori. Tutti i diritti riservati.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 20); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el, i){
+      el.style.transitionDelay = (Math.min(i%6,5)*60) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
