@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fabio e Robi Hair's | Parrucchiere a Borgaro Torinese</title>
+<meta name="description" content="Salone di parrucchieri a Borgaro Torinese, Top Rated 2025 su Treatwell con 5,0 su 5. Taglio, colore, piega e trattamenti per donna e uomo. Prenota online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d0d1a'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-style='italic' font-size='52' fill='%234ecdb4' text-anchor='middle'%3EFR%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0d0d1a;
+    --bg-2:#12122099;
+    --surface:#16162a;
+    --ink:#f2f4f3;
+    --muted:#a6adc0;
+    --accent:#4ecdb4;
+    --accent-deep:#2f9d87;
+    --line:#26263e;
+    --max:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Space Grotesk',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+  .serif{font-family:'Fraunces',serif}
+  .accent{color:var(--accent)}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    transition:background .4s ease, border-color .4s ease, backdrop-filter .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(13,13,26,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.2px}
+  .brand .mono{
+    width:40px;height:40px;border-radius:12px;flex:none;
+    display:grid;place-items:center;
+    border:1px solid var(--line);
+    background:linear-gradient(150deg,#191934,#0d0d1a);
+    font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--accent);
+  }
+  .brand span{font-size:15px}
+  .nav-links{display:none;gap:34px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--muted);transition:color .25s}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;
+    padding:13px 24px;border-radius:100px;cursor:pointer;border:1px solid transparent;
+    transition:transform .18s cubic-bezier(0.16,1,0.3,1), background .25s, box-shadow .25s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent);color:#062019;box-shadow:0 8px 30px -12px var(--accent)}
+  .btn-primary:hover{background:#63dcc4;box-shadow:0 14px 40px -12px var(--accent)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-ghost:active{transform:translateY(1px)}
+  .nav .btn{padding:10px 20px;font-size:14px}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;min-height:100dvh;display:flex;align-items:center;
+    padding:96px 0 40px;overflow:hidden;
+  }
+  .hero-glow{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(50% 55% at 78% 22%, rgba(78,205,180,.22), transparent 70%),
+      radial-gradient(45% 45% at 12% 88%, rgba(78,205,180,.10), transparent 70%);
+  }
+  .hero-grid-lines{
+    position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(circle at 70% 40%,#000,transparent 75%);
+    mask-image:radial-gradient(circle at 70% 40%,#000,transparent 75%);
+  }
+  .hero .wrap{position:relative;z-index:2;display:grid;gap:48px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+    border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:var(--bg-2);
+  }
+  .eyebrow b{color:var(--ink);font-weight:600;letter-spacing:.04em;text-transform:none}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:400;
+    font-size:clamp(2.9rem,9vw,5.6rem);line-height:1.02;letter-spacing:-.02em;margin:22px 0 20px;
+  }
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:36ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+  /* Hero visual */
+  .hero-visual{position:relative;justify-self:center;width:100%;max-width:420px}
+  .rating-card{
+    position:relative;border-radius:26px;padding:34px 30px;
+    background:linear-gradient(160deg,#191933,#101024);
+    border:1px solid var(--line);
+    box-shadow:0 40px 90px -50px #000;
+  }
+  .rating-card .badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:#062019;background:var(--accent);
+    padding:7px 14px;border-radius:100px;font-weight:700;
+  }
+  .rating-num{font-family:'Fraunces',serif;font-size:5.2rem;line-height:1;margin:22px 0 4px}
+  .stars{color:var(--accent);font-size:1.4rem;letter-spacing:4px}
+  .rating-card .sub{color:var(--muted);font-size:.95rem;margin-top:12px}
+  .rating-mono{
+    position:absolute;top:-26px;right:-14px;width:88px;height:88px;border-radius:22px;
+    display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);
+    font-family:'Fraunces',serif;font-style:italic;font-size:46px;color:var(--accent);
+    box-shadow:0 20px 50px -24px #000;
+  }
+
+  /* ---------- Section shared ---------- */
+  section{position:relative}
+  .band{padding:96px 0}
+  .sec-head{max-width:620px;margin-bottom:52px}
+  .kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .sec-head h2{
+    font-family:'Fraunces',serif;font-weight:400;letter-spacing:-.02em;
+    font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.06;margin:16px 0 18px;
+  }
+  .sec-head h2 em{font-style:italic;color:var(--accent)}
+  .sec-head p{color:var(--muted);font-size:1.05rem}
+
+  /* ---------- Story (split) ---------- */
+  .story{display:grid;gap:40px;align-items:center}
+  .story-panel{
+    position:relative;border-radius:24px;padding:38px 34px;overflow:hidden;
+    background:linear-gradient(155deg,#17172d,#0f0f20);border:1px solid var(--line);
+  }
+  .story-panel .big{
+    font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.6rem,4.5vw,2.3rem);
+    line-height:1.25;color:var(--ink);
+  }
+  .story-panel .big b{color:var(--accent);font-style:normal;font-weight:600}
+  .story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px;border-top:1px solid var(--line);padding-top:26px}
+  .story-stats .n{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--accent);line-height:1}
+  .story-stats .l{font-size:.78rem;color:var(--muted);margin-top:6px;letter-spacing:.03em}
+  .story-copy p{color:var(--muted);margin-bottom:18px}
+  .story-copy p strong{color:var(--ink);font-weight:600}
+
+  /* ---------- Services (bento) ---------- */
+  .bento{display:grid;gap:16px;grid-template-columns:1fr}
+  .svc{
+    position:relative;border-radius:22px;padding:30px;border:1px solid var(--line);
+    background:var(--surface);overflow:hidden;transition:transform .3s cubic-bezier(0.16,1,0.3,1),border-color .3s;
+  }
+  .svc:hover{transform:translateY(-4px);border-color:var(--accent-deep)}
+  .svc .num{font-family:'Fraunces',serif;font-style:italic;color:var(--accent);font-size:1.1rem}
+  .svc h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;margin:14px 0 10px;letter-spacing:-.01em}
+  .svc p{color:var(--muted);font-size:.96rem}
+  .svc.feature{
+    background:linear-gradient(150deg,rgba(78,205,180,.14),var(--surface) 60%);
+    border-color:var(--accent-deep);
+  }
+  .svc .tag{display:inline-block;margin-top:16px;font-size:.8rem;color:var(--accent);letter-spacing:.04em}
+
+  /* ---------- Why (numbered list) ---------- */
+  .why-grid{display:grid;gap:0;border-top:1px solid var(--line)}
+  .why-row{
+    display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;
+    padding:30px 4px;border-bottom:1px solid var(--line);transition:padding-left .3s ease;
+  }
+  .why-row:hover{padding-left:16px}
+  .why-row .idx{font-family:'Fraunces',serif;font-style:italic;color:var(--accent);font-size:1.4rem;min-width:44px}
+  .why-row h3{font-size:1.2rem;font-weight:600;margin-bottom:6px}
+  .why-row p{color:var(--muted);font-size:.98rem;max-width:60ch}
+
+  /* ---------- Marquee ---------- */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;background:#0b0b16}
+  .marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 26s linear infinite}
+  .marquee span{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;color:var(--muted);white-space:nowrap;display:inline-flex;align-items:center;gap:56px}
+  .marquee span::after{content:'\2022';color:var(--accent);font-style:normal}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;gap:30px}
+  .contact-card{
+    border-radius:24px;padding:38px 32px;border:1px solid var(--line);
+    background:linear-gradient(160deg,#16162c,#0e0e1e);
+  }
+  .contact-list{list-style:none;margin-top:8px}
+  .contact-list li{padding:18px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+  .contact-list li:last-child{border-bottom:0}
+  .contact-list .lab{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  .contact-list .val{font-size:1.12rem;color:var(--ink);transition:color .2s}
+  .contact-list a.val:hover{color:var(--accent)}
+  .hours{display:grid;gap:10px;margin-top:10px}
+  .hours .row{display:flex;justify-content:space-between;color:var(--muted);font-size:.96rem;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+  .hours .row span:last-child{color:var(--ink)}
+  .contact-cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+  .map-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:.95rem;margin-top:18px}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:48px 0 40px;background:#0a0a14}
+  .foot{display:flex;flex-direction:column;gap:26px}
+  .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+  .foot p{color:var(--muted);font-size:.9rem;max-width:34ch}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);font-size:.9rem;transition:color .2s}
+  .foot-links a:hover{color:var(--accent)}
+  .foot-bar{border-top:1px solid var(--line);padding-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;color:#6b7288;font-size:.82rem}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(0.16,1,0.3,1),transform .8s cubic-bezier(0.16,1,0.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media(min-width:720px){
+    .bento{grid-template-columns:repeat(2,1fr)}
+    .svc.feature{grid-column:span 2}
+    .story-stats .n{font-size:2.2rem}
+  }
+  @media(min-width:940px){
+    .nav-links{display:flex}
+    .hero .wrap{grid-template-columns:1.05fr .85fr}
+    .story{grid-template-columns:.95fr 1.05fr}
+    .contact-grid{grid-template-columns:1fr 1fr}
+    .bento{grid-template-columns:repeat(3,1fr)}
+    .svc.feature{grid-column:span 1}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Fabio e Robi Hair's home">
+      <span class="mono" aria-hidden="true">FR</span>
+      <span>Fabio e Robi Hair's</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#storia">Il salone</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perche' noi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary" href="https://www.treatwell.it/" target="_blank" rel="noopener">Prenota</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="eyebrow reveal">Top Rated 2025 &nbsp;<b>Borgaro Torinese</b></span>
+        <h1 class="reveal">Il tuo stile,<br><em>curato davvero.</em></h1>
+        <p class="lead reveal">Parrucchiere per donna e uomo in via Pietro Micca. Taglio, colore e trattamenti in un'atmosfera calda e rilassante.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="https://www.treatwell.it/" target="_blank" rel="noopener">Prenota su Treatwell</a>
+          <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="rating-card">
+          <span class="mono rating-mono" aria-hidden="true">FR</span>
+          <span class="badge">Top Rated 2025</span>
+          <div class="rating-num serif">5,0</div>
+          <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="sub">Valutazione perfetta su oltre 100 recensioni verificate su Treatwell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Taglio donna e uomo</span><span>Colore</span><span>Piega e styling</span><span>Trattamenti capelli</span>
+      <span>Taglio donna e uomo</span><span>Colore</span><span>Piega e styling</span><span>Trattamenti capelli</span>
+    </div>
+  </div>
+
+  <!-- STORIA -->
+  <section id="storia" class="band">
+    <div class="wrap story">
+      <div class="story-panel reveal">
+        <p class="big">Un salone dove ci si sente <b>a casa</b>, e si esce sentendosi al meglio.</p>
+        <div class="story-stats">
+          <div><div class="n serif">5,0</div><div class="l">Media recensioni</div></div>
+          <div><div class="n serif">108+</div><div class="l">Clienti soddisfatti</div></div>
+          <div><div class="n serif">2025</div><div class="l">Top Rated Treatwell</div></div>
+        </div>
+      </div>
+      <div class="story-copy reveal">
+        <span class="kicker">Il salone</span>
+        <h2 class="serif" style="font-weight:400;font-size:clamp(1.9rem,5vw,2.8rem);letter-spacing:-.02em;line-height:1.08;margin:14px 0 20px">Fabio, Robi <em style="font-style:italic;color:var(--accent)">e il loro mestiere.</em></h2>
+        <p>Nel cuore di Borgaro Torinese, in via Pietro Micca, il nostro salone unisce <strong>tecnica</strong> e ascolto. Ogni testa e' diversa: partiamo da te, dal tuo viso e dal tuo tempo, per costruire il look giusto.</p>
+        <p>Atmosfera rilassante, mani esperte e la voglia di far bene: e' cosi' che abbiamo conquistato la fiducia di tante persone e il <strong>badge Top Rated 2025</strong>. I nostri traguardi li festeggiamo con voi, anche su Instagram.</p>
+        <a class="map-link" href="https://www.instagram.com/fabioeroby_hair/" target="_blank" rel="noopener">Seguici su Instagram &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi" class="band">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Cosa facciamo</span>
+        <h2>Servizi pensati <em>attorno a te.</em></h2>
+        <p>Dal taglio quotidiano al cambio look completo, con prodotti e cura per lasciare i capelli sani e luminosi.</p>
+      </div>
+      <div class="bento">
+        <article class="svc feature reveal">
+          <div class="num">01</div>
+          <h3>Taglio donna e uomo</h3>
+          <p>Forme studiate sulla tua struttura e sul tuo stile di vita, per un risultato che sta bene anche il giorno dopo.</p>
+          <span class="tag">Consulenza inclusa</span>
+        </article>
+        <article class="svc reveal">
+          <div class="num">02</div>
+          <h3>Colore</h3>
+          <p>Tinte, riflessi e schiariture su misura: naturali o d'impatto, sempre con la giusta cura della fibra.</p>
+        </article>
+        <article class="svc reveal">
+          <div class="num">03</div>
+          <h3>Piega e styling</h3>
+          <p>La messa in piega perfetta per ogni occasione, dal look di tutti i giorni alla serata speciale.</p>
+        </article>
+        <article class="svc reveal">
+          <div class="num">04</div>
+          <h3>Trattamenti capelli</h3>
+          <p>Rituali di cura mirati per rigenerare, idratare e dare forza a capelli stressati o spenti.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE' -->
+  <section id="perche" class="band">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Perche' sceglierci</span>
+        <h2>Quattro buoni <em>motivi.</em></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-row reveal">
+          <div class="idx serif">01</div>
+          <div><h3>Valutazione perfetta</h3><p>5,0 su 5 su oltre 100 recensioni verificate: la fiducia dei clienti e' la nostra migliore vetrina.</p></div>
+        </div>
+        <div class="why-row reveal">
+          <div class="idx serif">02</div>
+          <div><h3>Atmosfera che rilassa</h3><p>Uno spazio accogliente dove prenderti cura di te senza fretta, coccolato dal primo all'ultimo minuto.</p></div>
+        </div>
+        <div class="why-row reveal">
+          <div class="idx serif">03</div>
+          <div><h3>Donna e uomo</h3><p>Un unico salone per tutta la famiglia, con la stessa attenzione alla qualita' per ogni tipo di capello.</p></div>
+        </div>
+        <div class="why-row reveal">
+          <div class="idx serif">04</div>
+          <div><h3>Prenoti in un tocco</h3><p>Appuntamento online su Treatwell, quando vuoi, con conferma immediata e nessuna attesa al telefono.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contatti" class="band">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Vieni a trovarci</span>
+        <h2>Ti aspettiamo <em>a Borgaro.</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <ul class="contact-list">
+            <li>
+              <span class="lab">Indirizzo</span>
+              <a class="val" href="https://www.google.com/maps/search/?api=1&query=Via+Pietro+Micca+3+Borgaro+Torinese" target="_blank" rel="noopener">Via Pietro Micca 3, 10071 Borgaro Torinese (TO)</a>
+            </li>
+            <li>
+              <span class="lab">Prenotazioni</span>
+              <a class="val" href="https://www.treatwell.it/" target="_blank" rel="noopener">Online su Treatwell</a>
+            </li>
+            <li>
+              <span class="lab">Instagram</span>
+              <a class="val" href="https://www.instagram.com/fabioeroby_hair/" target="_blank" rel="noopener">@fabioeroby_hair</a>
+            </li>
+          </ul>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Via+Pietro+Micca+3+Borgaro+Torinese" target="_blank" rel="noopener">Apri su Google Maps &rarr;</a>
+        </div>
+        <div class="contact-card reveal">
+          <span class="lab" style="font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Orari</span>
+          <div class="hours">
+            <div class="row"><span>Lunedi'</span><span>Chiuso</span></div>
+            <div class="row"><span>Martedi' - Venerdi'</span><span>9:00 - 19:00</span></div>
+            <div class="row"><span>Sabato</span><span>9:00 - 18:00</span></div>
+            <div class="row"><span>Domenica</span><span>Chiuso</span></div>
+          </div>
+          <div class="contact-cta">
+            <a class="btn btn-primary" href="https://www.treatwell.it/" target="_blank" rel="noopener">Prenota ora</a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/fabioeroby_hair/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-top">
+      <a class="brand" href="#top">
+        <span class="mono" aria-hidden="true">FR</span>
+        <span>Fabio e Robi Hair's</span>
+      </a>
+      <p>Salone di parrucchieri a Borgaro Torinese. Top Rated 2025 su Treatwell.</p>
+      <nav class="foot-links" aria-label="Link utili">
+        <a href="#storia">Il salone</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#contatti">Contatti</a>
+        <a href="https://www.treatwell.it/" target="_blank" rel="noopener">Prenota</a>
+      </nav>
+    </div>
+    <div class="foot-bar">
+      <span>&copy; <span id="yr"></span> Fabio e Robi Hair's &middot; Via Pietro Micca 3, Borgaro Torinese (TO)</span>
+      <span>Realizzato con cura.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header background on scroll
+  var hdr=document.getElementById('hdr');
+  var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>20)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
