@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Cambiamenti di Sara Scalzo | Parrucchiera & Estetica a Volpiano</title>
+<meta name="description" content="Studio Cambiamenti a Volpiano: parrucchiera donna, estetica e consulenza d'immagine in un unico spazio. Sara Scalzo e il suo team ti aspettano. Prenota su Fresha.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231f6b6b'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23f4efe6' font-family='Georgia,serif' font-style='italic'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#1f6b6b;
+    --teal-deep:#134f4f;
+    --petrol:#3a8fa8;
+    --ink:#1a1c1c;
+    --bone:#f4efe6;
+    --bone-2:#ece5d8;
+    --paper:#fbf9f4;
+    --muted:#5c6664;
+    --accent:#3a8fa8;
+    --line:rgba(26,28,28,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Manrope",sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+  .em{font-style:italic;font-weight:500}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,92vw);margin-inline:auto}
+  section{position:relative}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+
+  /* ===== NAV ===== */
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,box-shadow .4s,padding .4s;padding:22px 0}
+  header.nav.scrolled{background:rgba(251,249,244,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:14px 0}
+  .nav-in{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:12px;font-family:"Fraunces",serif;font-size:1.15rem;color:var(--bone);transition:color .4s}
+  header.nav.scrolled .brand{color:var(--ink)}
+  .mark{width:38px;height:38px;border-radius:11px;background:var(--petrol);display:grid;place-items:center;color:var(--bone);font-family:"Fraunces",serif;font-style:italic;font-size:1.25rem;flex:none}
+  .brand small{display:block;font-family:"Manrope";font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;opacity:.7;line-height:1}
+  .menu{display:flex;gap:34px;align-items:center}
+  .menu a{font-size:.9rem;color:var(--bone);opacity:.9;transition:color .4s,opacity .3s}
+  header.nav.scrolled .menu a{color:var(--ink)}
+  .menu a:hover{opacity:1}
+  .menu .cta{padding:10px 20px;border-radius:100px;background:var(--petrol);color:var(--bone);opacity:1;font-weight:600}
+  header.nav.scrolled .menu .cta{color:var(--bone)}
+  .menu .cta:hover{background:var(--teal)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--bone);transition:.3s}
+  header.nav.scrolled .burger span{background:var(--ink)}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100dvh;display:flex;align-items:center;background:
+    radial-gradient(120% 90% at 82% 8%, rgba(58,143,168,.55) 0%, rgba(58,143,168,0) 55%),
+    linear-gradient(160deg,var(--teal) 0%, var(--teal-deep) 100%);
+    color:var(--bone);overflow:hidden;padding:120px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;width:100%}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(244,239,230,.82);margin-bottom:26px}
+  .eyebrow::before{content:"";width:30px;height:1px;background:rgba(244,239,230,.5)}
+  .hero h1{font-size:clamp(2.9rem,7.4vw,5.3rem);margin-bottom:22px}
+  .hero h1 .em{color:#bfe6ea}
+  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:36ch;color:rgba(244,239,230,.9);margin-bottom:38px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:100px;font-weight:600;font-size:.98rem;transition:transform .25s cubic-bezier(.16,1,.3,1),background .3s,box-shadow .3s;white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn-solid{background:var(--bone);color:var(--teal-deep);box-shadow:0 14px 34px -14px rgba(0,0,0,.5)}
+  .btn-solid:hover{background:#fff;transform:translateY(-2px)}
+  .btn-ghost{border:1px solid rgba(244,239,230,.45);color:var(--bone)}
+  .btn-ghost:hover{background:rgba(244,239,230,.12)}
+
+  /* hero portrait card */
+  .portrait{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;
+    background:linear-gradient(150deg,var(--petrol),var(--teal-deep));
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.55);border:1px solid rgba(244,239,230,.18)}
+  .portrait .chair{position:absolute;left:50%;bottom:-2%;transform:translateX(-50%);width:78%;height:64%;background:
+    linear-gradient(180deg,var(--petrol),#2f7086);border-radius:120px 120px 30px 30px}
+  .portrait .chair::after{content:"";position:absolute;inset:14% 18% auto 18%;height:40%;border-radius:80px 80px 0 0;background:rgba(255,255,255,.08)}
+  .portrait .figure{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);width:46%;height:66%;background:var(--ink);border-radius:90px 90px 12px 12px}
+  .portrait .head{position:absolute;left:50%;top:16%;transform:translateX(-50%);width:20%;aspect-ratio:1;border-radius:50%;background:#e8c6a8}
+  .portrait .scissors{position:absolute;right:16%;top:42%;font-size:2.2rem;filter:drop-shadow(0 6px 12px rgba(0,0,0,.35));animation:sway 5s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg)}}
+  .portrait .tag{position:absolute;left:20px;bottom:20px;background:rgba(251,249,244,.94);color:var(--ink);padding:12px 16px;border-radius:14px;font-size:.82rem;line-height:1.3;font-weight:600}
+  .portrait .tag span{display:block;font-weight:400;color:var(--muted);font-size:.72rem}
+  .float-badge{position:absolute;top:26px;right:-10px;background:var(--bone);color:var(--teal-deep);border-radius:16px;padding:14px 18px;font-family:"Fraunces",serif;font-size:.95rem;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);animation:bob 6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* marquee */
+  .marquee{background:var(--ink);color:var(--bone);padding:16px 0;overflow:hidden;white-space:nowrap}
+  .marquee-track{display:inline-flex;gap:44px;animation:slide 26s linear infinite;font-family:"Fraunces",serif;font-size:1.05rem}
+  .marquee-track span{opacity:.85}
+  .marquee-track .dot{color:var(--petrol);opacity:1}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ===== STORY ===== */
+  .story{padding:clamp(80px,12vw,140px) 0}
+  .story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:center}
+  .kicker{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px}
+  .story h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:24px}
+  .story p{color:var(--muted);max-width:60ch;margin-bottom:18px;font-size:1.05rem}
+  .story .sign{margin-top:30px;font-family:"Fraunces",serif;font-style:italic;font-size:1.6rem;color:var(--teal)}
+  .story .sign small{display:block;font-family:"Manrope";font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .story-visual{position:relative;aspect-ratio:1/1;border-radius:24px;background:
+    radial-gradient(90% 90% at 30% 20%, var(--petrol) 0%, var(--teal) 55%, var(--teal-deep) 100%);
+    display:grid;place-items:center;overflow:hidden;box-shadow:0 30px 70px -34px rgba(19,79,79,.7)}
+  .story-visual .ring{position:absolute;border:1px solid rgba(244,239,230,.25);border-radius:50%}
+  .story-visual .r1{inset:8%}.story-visual .r2{inset:20%}.story-visual .r3{inset:32%}
+  .story-visual .big{font-family:"Fraunces",serif;color:var(--bone);text-align:center;line-height:1}
+  .story-visual .big b{display:block;font-size:clamp(3rem,8vw,5rem);font-weight:400}
+  .story-visual .big span{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;font-family:"Manrope";opacity:.85}
+
+  /* ===== SERVICES (bento) ===== */
+  .services{padding:clamp(70px,10vw,120px) 0;background:var(--bone)}
+  .sec-head{max-width:62ch;margin-bottom:54px}
+  .sec-head h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:16px}
+  .sec-head p{color:var(--muted);font-size:1.05rem}
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+  .cardb{border-radius:22px;padding:32px;position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s}
+  .cardb:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(19,79,79,.5)}
+  .cardb h3{font-size:1.55rem;margin-bottom:12px}
+  .cardb p{font-size:.98rem}
+  .cardb .num{font-family:"Fraunces",serif;font-style:italic;opacity:.5;font-size:1rem;margin-bottom:auto}
+  .c-lg{grid-column:span 4;background:linear-gradient(155deg,var(--teal),var(--teal-deep));color:var(--bone);min-height:280px;display:flex;flex-direction:column}
+  .c-lg p{color:rgba(244,239,230,.86)}
+  .c-sm{grid-column:span 2;background:#fff;border:1px solid var(--line);color:var(--ink)}
+  .c-sm p{color:var(--muted)}
+  .c-wide{grid-column:span 3;background:var(--ink);color:var(--bone)}
+  .c-wide p{color:rgba(244,239,230,.8)}
+  .c-med{grid-column:span 3;background:linear-gradient(155deg,var(--petrol),#2c7288);color:var(--bone)}
+  .c-med p{color:rgba(244,239,230,.9)}
+  .glyph{font-size:1.8rem;margin-bottom:20px;display:block}
+  .cardb ul{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .cardb ul li{font-size:.8rem;padding:6px 12px;border-radius:100px;background:rgba(244,239,230,.16);font-weight:500}
+  .c-sm ul li{background:var(--bone-2);color:var(--muted)}
+
+  /* ===== WHY ===== */
+  .why{padding:clamp(80px,11vw,130px) 0}
+  .why-top{display:grid;grid-template-columns:1fr;gap:14px;max-width:60ch;margin-bottom:60px}
+  .why h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+  .why-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+  .why-item{padding:34px 34px 34px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
+  .why-item .idx{font-family:"Fraunces",serif;font-style:italic;color:var(--accent);font-size:1.4rem;min-width:44px}
+  .why-item h3{font-family:"Fraunces",serif;font-size:1.4rem;margin-bottom:8px}
+  .why-item p{color:var(--muted);font-size:.98rem;max-width:42ch}
+  .why-item:nth-child(odd){padding-right:44px}
+
+  /* ===== BOOK BANNER ===== */
+  .book{background:linear-gradient(160deg,var(--teal) 0%,var(--teal-deep) 100%);color:var(--bone);padding:clamp(70px,10vw,110px) 0;text-align:center;overflow:hidden;position:relative}
+  .book::before,.book::after{content:"";position:absolute;border:1px solid rgba(244,239,230,.16);border-radius:50%;width:520px;height:520px}
+  .book::before{top:-260px;left:-120px}
+  .book::after{bottom:-320px;right:-140px;width:640px;height:640px}
+  .book .wrap{position:relative;z-index:2}
+  .book h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:20px}
+  .book p{max-width:46ch;margin:0 auto 34px;color:rgba(244,239,230,.9);font-size:1.08rem}
+
+  /* ===== CONTACT ===== */
+  .contact{padding:clamp(80px,11vw,130px) 0}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px)}
+  .contact h2{font-size:clamp(2rem,4.4vw,3rem);margin-bottom:26px}
+  .info-row{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .info-row .ic{width:44px;height:44px;border-radius:12px;background:var(--bone);display:grid;place-items:center;font-size:1.2rem;flex:none}
+  .info-row .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:4px}
+  .info-row a,.info-row span{font-size:1.06rem;color:var(--ink)}
+  .info-row a:hover{color:var(--teal)}
+  .socials{display:flex;gap:14px;margin-top:30px}
+  .socials a{padding:12px 20px;border-radius:100px;border:1px solid var(--line);font-weight:600;font-size:.9rem;transition:.3s;display:inline-flex;gap:8px}
+  .socials a:hover{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+  .map-card{border-radius:24px;overflow:hidden;background:linear-gradient(155deg,var(--petrol),var(--teal-deep));min-height:340px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;color:var(--bone)}
+  .map-card .pin{position:absolute;top:32px;left:32px;font-size:2rem}
+  .map-card .grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(244,239,230,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(244,239,230,.12) 1px,transparent 1px);background-size:44px 44px;opacity:.6}
+  .map-card h3{font-size:1.5rem;margin-bottom:6px;position:relative}
+  .map-card p{opacity:.9;position:relative;margin-bottom:18px}
+  .map-card .btn{position:relative;align-self:flex-start;background:var(--bone);color:var(--teal-deep)}
+  .map-card .btn:hover{background:#fff}
+  .hours{margin-top:26px;background:var(--bone);border-radius:18px;padding:24px 28px}
+  .hours h4{font-family:"Fraunces",serif;font-weight:400;font-size:1.15rem;margin-bottom:14px}
+  .hours .hrow{display:flex;justify-content:space-between;padding:7px 0;font-size:.95rem;border-bottom:1px dashed var(--line)}
+  .hours .hrow:last-child{border:0}
+  .hours .hrow span:last-child{color:var(--muted)}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--ink);color:var(--bone);padding:64px 0 30px}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(244,239,230,.14)}
+  .foot-brand{font-family:"Fraunces",serif;font-size:1.6rem}
+  .foot-brand small{display:block;font-family:"Manrope";font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-top:6px}
+  .foot-links{display:flex;gap:30px;flex-wrap:wrap}
+  .foot-links a{opacity:.75;font-size:.95rem;transition:.3s}
+  .foot-links a:hover{opacity:1}
+  .foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:26px;font-size:.82rem;opacity:.6}
+
+  @media(max-width:900px){
+    .hero-grid,.story-grid,.contact-grid{grid-template-columns:1fr}
+    .story-visual{max-width:420px;margin-inline:auto}
+    .portrait{max-width:400px;margin:8px auto 0}
+    .bento{grid-template-columns:1fr 1fr}
+    .c-lg,.c-sm,.c-wide,.c-med{grid-column:span 2}
+    .why-list{grid-template-columns:1fr}
+    .why-item:nth-child(odd){padding-right:0}
+    .menu{position:fixed;inset:0 0 0 auto;width:78%;max-width:320px;background:var(--teal-deep);flex-direction:column;justify-content:center;align-items:flex-start;padding:40px;gap:26px;transform:translateX(100%);transition:transform .45s cubic-bezier(.16,1,.3,1);z-index:60}
+    .menu.open{transform:none}
+    .menu a{color:var(--bone)!important;font-size:1.3rem;font-family:"Fraunces",serif}
+    .menu .cta{background:var(--petrol);padding:12px 26px;font-family:"Manrope"}
+    .burger{display:flex;z-index:70}
+    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--bone)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--bone)}
+  }
+  @media(max-width:520px){
+    .bento{grid-template-columns:1fr}
+    .c-lg,.c-sm,.c-wide,.c-med{grid-column:span 1}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .btn{justify-content:center}
+    .float-badge{right:14px;top:14px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand">
+      <span class="mark">S</span>
+      <span>Studio Cambiamenti<small>Sara Scalzo</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#storia">La storia</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perche noi</a>
+      <a href="#contatti">Contatti</a>
+      <a class="cta" href="https://www.fresha.com" target="_blank" rel="noopener">Prenota</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow rv">Volpiano (TO) . Parrucchiera & Estetica</span>
+      <h1 class="rv d1">Capelli e bellezza, <span class="em">in un solo posto</span> che senti tuo.</h1>
+      <p class="lead rv d2">Da Sara e dal suo team trovi il taglio giusto e le cure estetiche che ti fanno stare bene. Ti ascoltiamo, ti consigliamo, ti vogliamo bene.</p>
+      <div class="hero-cta rv d3">
+        <a class="btn btn-solid" href="https://www.fresha.com" target="_blank" rel="noopener">Prenota su Fresha</a>
+        <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
+      </div>
+    </div>
+    <div class="rv d2" style="position:relative">
+      <div class="float-badge">Doppio servizio<br><em>capelli + estetica</em></div>
+      <div class="portrait" aria-label="Illustrazione della poltrona dello studio">
+        <div class="chair"></div>
+        <div class="figure"></div>
+        <div class="head"></div>
+        <div class="scissors">&#9986;</div>
+        <div class="tag">Sara Scalzo<span>Titolare & hair stylist</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Taglio & Piega</span><span class="dot">.</span><span>Colore</span><span class="dot">.</span><span>Trattamenti viso</span><span class="dot">.</span><span>Consulenza d'immagine</span><span class="dot">.</span><span>Estetica</span><span class="dot">.</span>
+    <span>Taglio & Piega</span><span class="dot">.</span><span>Colore</span><span class="dot">.</span><span>Trattamenti viso</span><span class="dot">.</span><span>Consulenza d'immagine</span><span class="dot">.</span><span>Estetica</span><span class="dot">.</span>
+  </div>
+</div>
+
+<section class="story" id="storia">
+  <div class="wrap story-grid">
+    <div class="story-visual rv">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="big"><b>2</b><span>servizi, un unico studio</span></div>
+    </div>
+    <div>
+      <p class="kicker rv">La nostra storia</p>
+      <h2 class="rv d1">Uno spazio dove <span class="em">ti prendi cura di te</span> dalla testa ai piedi.</h2>
+      <p class="rv d2">Studio Cambiamenti nasce dall'idea di Sara Scalzo: riunire il lavoro della parrucchiera e quello dell'estetista sotto lo stesso tetto, cosi non devi rincorrere appuntamenti in posti diversi. Un cambio look e una coccola estetica, nello stesso pomeriggio.</p>
+      <p class="rv d3">Siamo un piccolo team affiatato, e questo si sente: c'e tempo per ascoltarti, capire cosa ti fa sentire bene e consigliarti con sincerita. Qui non sei una cliente qualsiasi, sei di casa.</p>
+      <div class="sign rv d3">Sara & il team<small>Studio Cambiamenti</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servizi">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Cosa facciamo</p>
+      <h2>Tutto quello che serve per sentirti <span class="em">al meglio</span>.</h2>
+      <p>Capelli, viso e corpo, con la consulenza giusta per valorizzare chi sei davvero.</p>
+    </div>
+    <div class="bento">
+      <div class="cardb c-lg rv">
+        <span class="glyph">&#9986;</span>
+        <h3>Parrucchiera donna</h3>
+        <p>Taglio, piega, colore e trattamenti pensati per i tuoi capelli e per il tuo stile di vita. Ogni look parte da una chiacchierata, non da un catalogo.</p>
+        <ul><li>Taglio & Piega</li><li>Colore</li><li>Trattamenti</li><li>Acconciature</li></ul>
+      </div>
+      <div class="cardb c-sm rv d1">
+        <span class="glyph">&#10024;</span>
+        <h3>Estetica</h3>
+        <p>Trattamenti viso e corpo per prenderti cura della pelle con dolcezza.</p>
+      </div>
+      <div class="cardb c-med rv d2">
+        <span class="glyph">&#128172;</span>
+        <h3>Consulenza d'immagine</h3>
+        <p>Ti aiutiamo a trovare colori, tagli e stile che ti rappresentano, con consigli concreti e su misura.</p>
+      </div>
+      <div class="cardb c-wide rv d1">
+        <span class="num">Il nostro plus</span>
+        <h3>Capelli + estetica, stesso studio</h3>
+        <p>Ottimizzi il tempo e affidi il tuo aspetto a un unico team di fiducia. Un solo appuntamento, cura completa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="perche">
+  <div class="wrap">
+    <div class="why-top rv">
+      <p class="kicker">Perche sceglierci</p>
+      <h2>Piccole cose che fanno <span class="em">la differenza</span>.</h2>
+    </div>
+    <div class="why-list">
+      <div class="why-item rv"><span class="idx">01</span><div><h3>Due servizi, un solo posto</h3><p>Parrucchiera ed estetica insieme: risparmi tempo e trovi un unico riferimento di fiducia.</p></div></div>
+      <div class="why-item rv d1"><span class="idx">02</span><div><h3>Ti ascoltiamo davvero</h3><p>Prima del taglio viene la chiacchierata. Capiamo cosa ti piace e ti consigliamo con sincerita.</p></div></div>
+      <div class="why-item rv"><span class="idx">03</span><div><h3>Un team piccolo e affiatato</h3><p>Poche mani, tante attenzioni. Torni e trovi sempre le stesse persone che ti conoscono.</p></div></div>
+      <div class="why-item rv d1"><span class="idx">04</span><div><h3>Prenoti in un attimo</h3><p>Con Fresha scegli giorno e ora dal telefono, quando vuoi, senza telefonate.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="book">
+  <div class="wrap">
+    <h2 class="rv">Pronta per il tuo <span class="em">cambiamento</span>?</h2>
+    <p class="rv d1">Prenota il tuo appuntamento in pochi tocchi. Ti aspettiamo in Via Cesare Battisti, a Volpiano.</p>
+    <a class="btn btn-solid rv d2" href="https://www.fresha.com" target="_blank" rel="noopener">Prenota ora su Fresha</a>
+  </div>
+</section>
+
+<section class="contact" id="contatti">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="kicker rv">Contatti</p>
+      <h2 class="rv d1">Vieni a trovarci.</h2>
+      <div class="info-row rv d1">
+        <div class="ic">&#128205;</div>
+        <div><div class="lbl">Indirizzo</div><a href="https://www.google.com/maps/search/?api=1&query=Via+Cesare+Battisti+2%2FA+10088+Volpiano+TO" target="_blank" rel="noopener">Via Cesare Battisti 2/A, 10088 Volpiano (TO)</a></div>
+      </div>
+      <div class="info-row rv d1">
+        <div class="ic">&#128241;</div>
+        <div><div class="lbl">Prenotazioni</div><a href="https://www.fresha.com" target="_blank" rel="noopener">Prenota online su Fresha</a></div>
+      </div>
+      <div class="info-row rv d2">
+        <div class="ic">&#9749;</div>
+        <div><div class="lbl">Ci trovi anche qui</div><span>Instagram e Facebook, sempre aggiornati</span></div>
+      </div>
+      <div class="socials rv d2">
+        <a href="https://www.instagram.com/studio_cambiamenti_sara/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61560040267888" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <div class="hours rv d3">
+        <h4>Come funziona la prenotazione</h4>
+        <div class="hrow"><span>Scegli il servizio</span><span>Capelli o estetica</span></div>
+        <div class="hrow"><span>Scegli giorno e ora</span><span>Su Fresha</span></div>
+        <div class="hrow"><span>Ricevi conferma</span><span>Ti aspettiamo</span></div>
+      </div>
+    </div>
+    <div class="map-card rv d1">
+      <div class="grid-lines"></div>
+      <div class="pin">&#128205;</div>
+      <h3>Studio Cambiamenti</h3>
+      <p>Via Cesare Battisti 2/A . Volpiano (TO)</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Via+Cesare+Battisti+2%2FA+10088+Volpiano+TO" target="_blank" rel="noopener">Apri in Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">Studio Cambiamenti<small>di Sara Scalzo . Parrucchiera & Estetica</small></div>
+      <nav class="foot-links">
+        <a href="#storia">La storia</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#perche">Perche noi</a>
+        <a href="#contatti">Contatti</a>
+        <a href="https://www.fresha.com" target="_blank" rel="noopener">Prenota</a>
+      </nav>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span id="yr"></span> Studio Cambiamenti di Sara Scalzo . Via Cesare Battisti 2/A, Volpiano (TO)</span>
+      <span>Fatto con cura per le nostre clienti.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile menu
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); menu.classList.remove('open');
+  }));
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
