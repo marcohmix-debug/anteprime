@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solo Stile - Parrucchiere a Settimo Torinese</title>
+<meta name="description" content="Solo Stile, salone di parrucchieri nel cuore di Settimo Torinese. Taglio, colore, trattamenti Kerastase e L'Oreal Professionnel. Guidato da Fabrizio Fornaresio, hair expert.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23e87511'/%3E%3Ctext x='50' y='72' font-family='Arial Black,sans-serif' font-size='64' font-weight='900' text-anchor='middle' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#e87511;
+  --orange-deep:#c85e07;
+  --ink:#1a1512;
+  --ink-soft:#5a514a;
+  --paper:#f7f2ec;
+  --paper-2:#efe7dd;
+  --white:#fffdfa;
+  --line:rgba(26,21,18,.12);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --wrap:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+em{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.accent{color:var(--orange)}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+header.solid{background:rgba(247,242,236,.88);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.02em}
+.mark{width:38px;height:38px;border-radius:50%;background:var(--orange);display:grid;place-items:center;color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:22px;box-shadow:0 6px 18px rgba(232,117,17,.35)}
+.brand span{font-size:18px}
+.menu{display:flex;gap:34px;font-size:15px;font-weight:500}
+.menu a{position:relative;color:var(--ink-soft);transition:color .25s}
+.menu a:after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--orange);transition:width .3s var(--ease)}
+.menu a:hover{color:var(--ink)}.menu a:hover:after{width:100%}
+.nav-cta{padding:11px 20px;background:var(--ink);color:var(--white);border-radius:999px;font-size:14px;font-weight:600;transition:transform .25s var(--ease),background .25s}
+.nav-cta:hover{background:var(--orange-deep)}
+.nav-cta:active{transform:translateY(1px)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ink);transition:.3s var(--ease)}
+
+/* HERO */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;overflow:hidden;padding:110px 0 60px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55}
+.blob.a{width:520px;height:520px;background:radial-gradient(circle,#f4a35a,transparent 70%);top:-120px;right:-140px;animation:float 14s ease-in-out infinite}
+.blob.b{width:420px;height:420px;background:radial-gradient(circle,#e87511,transparent 70%);bottom:-160px;left:-120px;opacity:.28;animation:float 18s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:26px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.hero h1{font-size:clamp(3rem,7.4vw,5.6rem);margin-bottom:22px}
+.hero p.lead{font-size:clamp(1.05rem,1.7vw,1.25rem);color:var(--ink-soft);max-width:34ch;margin-bottom:36px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:16px;font-family:'Space Grotesk';cursor:pointer;transition:transform .25s var(--ease),background .25s,box-shadow .25s;white-space:nowrap}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 12px 30px rgba(232,117,17,.32)}
+.btn-primary:hover{background:var(--orange-deep);box-shadow:0 16px 36px rgba(232,117,17,.4)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--white)}
+.btn-ghost:active{transform:translateY(1px)}
+
+/* hero visual */
+.hero-card{position:relative;aspect-ratio:4/5;border-radius:26px;background:linear-gradient(150deg,#201914,#3a2a1c);overflow:hidden;box-shadow:0 40px 80px rgba(26,21,18,.28)}
+.hero-card .glow{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--orange),transparent 65%);top:-70px;right:-70px;opacity:.7}
+.hero-mono{position:absolute;inset:0;display:grid;place-items:center}
+.hero-mono .circle{width:190px;height:190px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:0 20px 50px rgba(232,117,17,.5)}
+.hero-mono .circle b{font-family:'Space Grotesk';font-weight:700;color:#fff;font-size:120px;line-height:1;transform:translateY(-4px)}
+.hero-tag{position:absolute;left:22px;bottom:22px;right:22px;color:#f7f2ec;font-family:'Fraunces';font-size:1.4rem;font-style:italic;opacity:.95}
+.rating-chip{position:absolute;top:22px;left:22px;background:rgba(255,253,250,.94);border-radius:14px;padding:10px 15px;display:flex;align-items:center;gap:9px;box-shadow:0 10px 26px rgba(0,0,0,.2)}
+.rating-chip .stars{color:var(--orange);font-size:14px;letter-spacing:1px}
+.rating-chip b{font-size:15px}.rating-chip small{color:var(--ink-soft);font-size:12px;display:block}
+
+/* SECTION shells */
+section{position:relative}
+.band{padding:110px 0}
+.tag{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:18px;display:block}
+.h-sec{font-size:clamp(2.1rem,4.4vw,3.3rem);margin-bottom:20px;max-width:16ch}
+.sub{color:var(--ink-soft);max-width:60ch;font-size:1.05rem}
+
+/* STORY */
+.story{background:var(--white)}
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.portrait{border-radius:24px;background:linear-gradient(160deg,var(--paper-2),#e2d3c1);aspect-ratio:1/1.1;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(26,21,18,.14)}
+.portrait .ring{position:absolute;inset:0;display:grid;place-items:center}
+.portrait .ring .c{width:150px;height:150px;border:2px solid var(--orange);border-radius:50%;display:grid;place-items:center;color:var(--orange-deep);font-family:'Fraunces';font-style:italic;font-size:1.15rem;text-align:center;line-height:1.2}
+.portrait .sig{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-family:'Fraunces';font-style:italic;font-size:1.7rem;color:var(--ink)}
+.story-body p{color:var(--ink-soft);margin-bottom:18px;font-size:1.08rem;max-width:52ch}
+.loreal{display:inline-flex;align-items:center;gap:12px;margin-top:14px;padding:12px 20px;border:1.5px solid var(--line);border-radius:14px;background:var(--paper);font-size:14px;font-weight:500}
+.loreal b{font-weight:600}
+
+/* SERVICES bento */
+.serv-head{display:flex;flex-direction:column;margin-bottom:52px}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.cell{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;display:flex;flex-direction:column;justify-content:space-between;min-height:210px}
+.cell:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(26,21,18,.1);border-color:transparent}
+.cell .num{font-family:'Fraunces';font-style:italic;color:var(--orange);font-size:1.2rem;margin-bottom:auto}
+.cell h3{font-size:1.5rem;margin:26px 0 8px}
+.cell p{color:var(--ink-soft);font-size:.98rem}
+.cell.big{grid-column:span 3}
+.cell.med{grid-column:span 3}
+.cell.sm{grid-column:span 2}
+.cell.feature{background:linear-gradient(155deg,var(--ink),#332318);color:var(--paper);grid-column:span 3;justify-content:flex-end}
+.cell.feature .num{color:#f4a35a}
+.cell.feature h3{color:#fff}
+.cell.feature p{color:rgba(247,242,236,.72)}
+
+/* WHY - horizontal stack */
+.why{background:var(--white)}
+.why-list{display:grid;grid-template-columns:1fr;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.why-row{display:grid;grid-template-columns:80px 1fr 1.3fr;gap:30px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding-left .35s var(--ease)}
+.why-row:hover{padding-left:14px}
+.why-row .idx{font-family:'Fraunces';font-style:italic;color:var(--orange);font-size:1.6rem}
+.why-row h3{font-size:1.55rem}
+.why-row p{color:var(--ink-soft);font-size:1.02rem}
+
+/* REVIEWS */
+.reviews{background:linear-gradient(165deg,#201914,#2c2016);color:var(--paper);overflow:hidden}
+.reviews .tag{color:#f4a35a}
+.rev-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+.rev-top h2{color:#fff;max-width:14ch}
+.score{text-align:right}
+.score .big{font-family:'Fraunces';font-size:3.6rem;color:var(--orange);line-height:1}
+.score .stars{color:var(--orange);letter-spacing:3px;font-size:1.1rem;margin:6px 0}
+.score small{color:rgba(247,242,236,.6)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:rgba(255,253,250,.05);border:1px solid rgba(255,253,250,.12);border-radius:20px;padding:30px}
+.rev .q{color:#fff;font-family:'Fraunces';font-size:1.22rem;font-style:italic;line-height:1.35;margin-bottom:20px}
+.rev .who{display:flex;align-items:center;gap:12px;color:rgba(247,242,236,.7);font-size:.9rem}
+.rev .av{width:34px;height:34px;border-radius:50%;background:var(--orange);display:grid;place-items:center;color:#fff;font-weight:600;font-size:14px}
+
+/* CONTACT */
+.contact{background:var(--paper)}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.c-info h2{margin-bottom:26px}
+.info-list{display:flex;flex-direction:column;gap:2px;margin-top:10px}
+.info-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.info-item .ico{width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;font-size:19px}
+.info-item .lab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-deep);font-weight:600;margin-bottom:3px}
+.info-item a,.info-item p{color:var(--ink);font-size:1.05rem;font-weight:500}
+.info-item a:hover{color:var(--orange-deep)}
+.info-item .muted{color:var(--ink-soft);font-weight:400;font-size:.96rem}
+.c-card{background:linear-gradient(160deg,var(--ink),#33241a);border-radius:26px;padding:44px;color:var(--paper);display:flex;flex-direction:column;justify-content:center;box-shadow:0 30px 60px rgba(26,21,18,.22)}
+.c-card .k{font-family:'Fraunces';font-style:italic;color:#f4a35a;font-size:1.2rem;margin-bottom:14px}
+.c-card h3{color:#fff;font-size:2rem;margin-bottom:14px}
+.c-card p{color:rgba(247,242,236,.72);margin-bottom:30px}
+.c-card .btn-primary{justify-content:center}
+.c-card .socials{display:flex;gap:14px;margin-top:24px}
+.c-card .socials a{width:46px;height:46px;border-radius:12px;border:1px solid rgba(255,253,250,.18);display:grid;place-items:center;color:var(--paper);transition:.25s var(--ease)}
+.c-card .socials a:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-3px)}
+.hours{margin-top:26px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.hours .row{display:flex;justify-content:space-between;padding:7px 0;font-size:.98rem}
+.hours .row+.row{border-top:1px dashed var(--line)}
+.hours .row span:last-child{color:var(--ink-soft)}
+.hours .row.closed span:last-child{color:var(--orange-deep);font-weight:500}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--paper);padding:56px 0 34px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+.foot .brand span{color:#fff}
+.foot .mark{box-shadow:none}
+.foot-links{display:flex;gap:26px;font-size:.95rem}
+.foot-links a{color:rgba(247,242,236,.7)}.foot-links a:hover{color:#fff}
+.foot-bot{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,253,250,.12);color:rgba(247,242,236,.5);font-size:.85rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .menu,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .hero-card{max-width:360px;margin:0 auto}
+  .story-grid,.c-grid{grid-template-columns:1fr;gap:40px}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .cell.big,.cell.med,.cell.sm,.cell.feature{grid-column:span 2}
+  .rev-grid{grid-template-columns:1fr}
+  .why-row{grid-template-columns:44px 1fr;gap:16px}
+  .why-row p{grid-column:1/-1}
+}
+@media(max-width:560px){
+  .band{padding:78px 0}
+  .hero{padding:100px 0 50px}
+  .bento{grid-template-columns:1fr}
+  .cell.big,.cell.med,.cell.sm,.cell.feature{grid-column:span 1}
+  .hero-cta .btn{flex:1;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* mobile menu */
+.mnav{position:fixed;inset:0;z-index:60;background:var(--paper);transform:translateY(-100%);transition:transform .5s var(--ease);display:flex;flex-direction:column;padding:26px 24px}
+.mnav.open{transform:none}
+.mnav .top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.mnav .close{background:none;border:0;font-size:30px;cursor:pointer;color:var(--ink);line-height:1}
+.mnav .links{display:flex;flex-direction:column;gap:6px;margin-top:40px}
+.mnav .links a{font-family:'Fraunces';font-size:2.1rem;padding:10px 0;color:var(--ink)}
+.mnav .links a .accent{color:var(--orange)}
+.mnav .m-cta{margin-top:auto;text-align:center}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="mark">S</span><span>Solo Stile</span></a>
+    <nav class="menu">
+      <a href="#storia">Il salone</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perche' noi</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a href="tel:+390118984600" class="nav-cta">Prenota</a>
+    <button class="burger" id="burger" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mnav" id="mnav">
+  <div class="top">
+    <a href="#top" class="brand"><span class="mark">S</span><span>Solo Stile</span></a>
+    <button class="close" id="mclose" aria-label="Chiudi il menu">&times;</button>
+  </div>
+  <nav class="links">
+    <a href="#storia"><span class="accent">01</span> Il salone</a>
+    <a href="#servizi"><span class="accent">02</span> Servizi</a>
+    <a href="#perche"><span class="accent">03</span> Perche' noi</a>
+    <a href="#recensioni"><span class="accent">04</span> Recensioni</a>
+    <a href="#contatti"><span class="accent">05</span> Contatti</a>
+  </nav>
+  <a href="tel:+390118984600" class="btn btn-primary m-cta">Chiama il salone</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><span class="blob a"></span><span class="blob b"></span></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow"><span class="dot"></span>Parrucchieri a Settimo Torinese</span>
+      <h1>Il tuo stile, <em>solo</em> il tuo.</h1>
+      <p class="lead">Nel cuore pedonale di Piazza Campidoglio, Fabrizio Fornaresio e il suo team firmano tagli, colori e trattamenti su misura. Salone L'Oreal Professionnel.</p>
+      <div class="hero-cta">
+        <a href="tel:+390118984600" class="btn btn-primary">Prenota un appuntamento</a>
+        <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-card">
+        <span class="glow"></span>
+        <div class="rating-chip">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span><b>4.8/5</b><small>174 recensioni Google</small></span>
+        </div>
+        <div class="hero-mono"><div class="circle"><b>S</b></div></div>
+        <div class="hero-tag">Un salone storico, sempre al passo con le tendenze.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="band story" id="storia">
+  <div class="wrap story-grid">
+    <div class="portrait reveal">
+      <div class="ring"><div class="c">Hair<br>Expert</div></div>
+      <div class="sig">Fabrizio Fornaresio</div>
+    </div>
+    <div class="story-body reveal">
+      <span class="tag">Il salone</span>
+      <h2 class="h-sec">Un punto di riferimento nella zona pedonale di Settimo.</h2>
+      <p>Solo Stile e' un salone storico che unisce anni di esperienza e formazione continua sulle ultime tendenze. Fabrizio Fornaresio accoglie ogni cliente con ascolto e cura, per trovare insieme il look che valorizza davvero.</p>
+      <p>Una clientela affezionata, recensioni eccellenti e un metodo che parte sempre dalla persona: la tua immagine, il tuo carattere, la tua giornata. Qui non si segue una moda, si trova il proprio stile.</p>
+      <div class="loreal"><span class="mark" style="width:30px;height:30px;font-size:17px;box-shadow:none">S</span><span>Salone certificato circuito <b>L'Oreal Professionnel</b></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="band servizi" id="servizi">
+  <div class="wrap">
+    <div class="serv-head reveal">
+      <span class="tag">Cosa facciamo</span>
+      <h2 class="h-sec">Servizi pensati per te, uomo e donna.</h2>
+      <p class="sub">Dal taglio quotidiano al cambio look, dai colori piu' delicati ai rituali di cura piu' avanzati. Ogni servizio parte da una consulenza dedicata.</p>
+    </div>
+    <div class="bento">
+      <div class="cell feature reveal">
+        <span class="num">Taglio e piega</span>
+        <div><h3>Donna e uomo</h3><p>Tagli su misura e piega professionale, studiati sulla forma del viso e sul tuo stile di vita.</p></div>
+      </div>
+      <div class="cell med reveal">
+        <span class="num">Colore</span>
+        <h3>Colore e schiariture</h3>
+        <p>Colorazioni, riflessi, balayage e schiariture luminose, con tecniche che rispettano il capello.</p>
+      </div>
+      <div class="cell sm reveal">
+        <span class="num">Rituali</span>
+        <h3>Kerastase</h3>
+        <p>Trattamenti su misura per capelli sani e forti.</p>
+      </div>
+      <div class="cell sm reveal">
+        <span class="num">Cura</span>
+        <h3>L'Oreal Pro</h3>
+        <p>Prodotti e protocolli del circuito professionale.</p>
+      </div>
+      <div class="cell sm reveal">
+        <span class="num">Eventi</span>
+        <h3>Acconciature</h3>
+        <p>Raccolti e styling per le occasioni speciali.</p>
+      </div>
+      <div class="cell big reveal">
+        <span class="num">Consulenza</span>
+        <div><h3>Consulenza d'immagine</h3><p>Un confronto dedicato per definire taglio, colore e forma piu' adatti a te, oggi e nel tempo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="band why" id="perche">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">Perche' Solo Stile</span>
+      <h2 class="h-sec">Quattro motivi per sederti sulla nostra poltrona.</h2>
+    </div>
+    <div class="why-list">
+      <div class="why-row reveal"><span class="idx">01</span><h3>Esperienza vera</h3><p>Un salone storico guidato da un hair expert: mani sicure e un occhio allenato su ogni tipo di capello.</p></div>
+      <div class="why-row reveal"><span class="idx">02</span><h3>Sempre aggiornati</h3><p>Formazione continua sulle ultime tendenze, dentro il circuito L'Oreal Professionnel.</p></div>
+      <div class="why-row reveal"><span class="idx">03</span><h3>Ascolto prima di tutto</h3><p>Ogni servizio nasce da una consulenza: prima capiamo te, poi lavoriamo sul capello.</p></div>
+      <div class="why-row reveal"><span class="idx">04</span><h3>Clientela affezionata</h3><p>4.8 su 174 recensioni Google. Chi entra da Solo Stile, torna.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="band reviews" id="recensioni">
+  <div class="wrap">
+    <div class="rev-top reveal">
+      <div><span class="tag">Le parole dei clienti</span><h2 class="h-sec">Recensioni che parlano di fiducia.</h2></div>
+      <div class="score">
+        <div class="big">4.8</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <small>174 recensioni su Google</small>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><p class="q">"Ottimo servizio, cortesia e professionalita' dello staff."</p><div class="who"><span class="av">G</span>Recensione Google</div></div>
+      <div class="rev reveal"><p class="q">"Idee sempre al passo con moda e tendenze."</p><div class="who"><span class="av">M</span>Recensione Google</div></div>
+      <div class="rev reveal"><p class="q">"Un salone dove ti senti seguito e torni sempre volentieri."</p><div class="who"><span class="av">L</span>Cliente affezionata</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="band contact" id="contatti">
+  <div class="wrap c-grid">
+    <div class="c-info reveal">
+      <span class="tag">Vieni a trovarci</span>
+      <h2 class="h-sec">Ti aspettiamo in Piazza Campidoglio.</h2>
+      <div class="info-list">
+        <div class="info-item"><span class="ico">&#128222;</span><div><div class="lab">Telefono</div><a href="tel:+390118984600">011 8984600</a> &nbsp;&middot;&nbsp; <a href="tel:+393494223450">349 4223450</a></div></div>
+        <div class="info-item"><span class="ico">&#128205;</span><div><div class="lab">Dove siamo</div><a href="https://www.google.com/maps/search/?api=1&query=Piazza+Campidoglio+41+Settimo+Torinese" target="_blank" rel="noopener">Piazza Campidoglio 41, 10036 Settimo Torinese (TO)</a><div class="muted">Zona pedonale del centro</div></div></div>
+      </div>
+      <div class="hours">
+        <div class="row"><span>Martedi' - Venerdi'</span><span>10:00 - 19:00</span></div>
+        <div class="row"><span>Sabato</span><span>9:00 - 18:00</span></div>
+        <div class="row closed"><span>Domenica e Lunedi'</span><span>Chiuso</span></div>
+      </div>
+    </div>
+    <div class="c-card reveal">
+      <span class="k">Prenota il tuo posto</span>
+      <h3>Un appuntamento su misura.</h3>
+      <p>Chiama il salone per fissare taglio, colore o una consulenza dedicata. Ti richiamiamo volentieri se sei impegnata.</p>
+      <a href="tel:+390118984600" class="btn btn-primary">Chiama 011 8984600</a>
+      <div class="socials">
+        <a href="https://www.instagram.com/solostileparrucchieresettimo/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/solostileparrucchieresettimo/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#top" class="brand"><span class="mark">S</span><span>Solo Stile</span></a>
+      <nav class="foot-links">
+        <a href="#storia">Il salone</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#recensioni">Recensioni</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span id="yr"></span> Solo Stile &middot; Professionisti parrucchieri &middot; Settimo Torinese</span>
+      <span>Piazza Campidoglio 41 &middot; 011 8984600</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// header solid on scroll
+var hd=document.getElementById('hd');
+var onScroll=function(){hd.classList.toggle('solid',window.scrollY>30)};
+onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+// mobile menu
+var mnav=document.getElementById('mnav');
+document.getElementById('burger').onclick=function(){mnav.classList.add('open')};
+document.getElementById('mclose').onclick=function(){mnav.classList.remove('open')};
+mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mnav.classList.remove('open')})});
+
+// reveal on scroll
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
