@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alessia Estetica &amp; Benessere | Centro estetico a Settimo Torinese</title>
+<meta name="description" content="Centro estetico a conduzione personale in via Monviso a Settimo Torinese. Trattamenti viso e corpo, massaggi, epilazione e manicure e pedicure dry. Mar-Sab, orario continuato." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23c3b6e3'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' text-anchor='middle' fill='%232b2333'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --lavanda:#c3b6e3;
+    --lavanda-soft:#e7e1f2;
+    --oro:#cba368;
+    --beige:#f4efe7;
+    --beige-deep:#ded4c2;
+    --ink:#2b2333;
+    --ink-soft:#5a5266;
+    --paper:#fbf9f5;
+    --line:#e6ddd0;
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Manrope",sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:"Fraunces",serif;font-weight:400;line-height:1.05;letter-spacing:-0.01em}
+  em{font-style:italic}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1140px,90vw);margin-inline:auto}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    font-weight:600;color:var(--oro);
+  }
+  section{padding:clamp(4.5rem,9vw,8rem) 0}
+
+  /* NAV */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem clamp(1.2rem,5vw,3rem);
+    transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+  }
+  header.nav.scrolled{
+    background:rgba(251,249,245,.86);
+    backdrop-filter:blur(14px);
+    box-shadow:0 1px 0 var(--line);
+    padding-block:.8rem;
+  }
+  .brand{display:flex;align-items:center;gap:.65rem;font-family:"Fraunces",serif;font-size:1.15rem}
+  .brand .mark{
+    width:38px;height:38px;border-radius:50%;
+    display:grid;place-items:center;
+    background:var(--lavanda);color:var(--ink);
+    font-size:1.25rem;flex-shrink:0;
+  }
+  .brand span{line-height:1.05}
+  .brand small{display:block;font-family:"Manrope";font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .menu{display:none;gap:2.2rem;font-size:.9rem;font-weight:500}
+  .menu a{position:relative;padding-block:.2rem;color:var(--ink-soft);transition:color .3s}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ink);transition:width .35s var(--ease)}
+  .menu a:hover{color:var(--ink)}
+  .menu a:hover::after{width:100%}
+  .nav-cta{
+    display:none;font-size:.85rem;font-weight:600;
+    padding:.6rem 1.2rem;border-radius:100px;
+    background:var(--ink);color:var(--paper);
+    transition:transform .3s var(--ease),background .3s;
+  }
+  .nav-cta:hover{background:#3d3348}
+  .nav-cta:active{transform:translateY(1px)}
+  @media(min-width:900px){.menu{display:flex}.nav-cta{display:inline-block}}
+
+  /* HERO */
+  .hero{
+    min-height:100dvh;display:flex;align-items:center;
+    padding-top:6rem;position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 82% 12%,var(--lavanda-soft) 0%,rgba(231,225,242,0) 55%),
+      radial-gradient(90% 80% at 8% 95%,#efe7d8 0%,rgba(239,231,216,0) 55%),
+      var(--paper);
+  }
+  .hero-grid{display:grid;gap:2.5rem;align-items:center;width:100%}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:4rem}}
+  .hero h1{font-size:clamp(2.9rem,8vw,5.1rem);margin:1.1rem 0 1.4rem}
+  .hero h1 em{color:var(--oro)}
+  .hero p.lead{font-size:clamp(1.05rem,2.3vw,1.28rem);color:var(--ink-soft);max-width:34ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-weight:600;font-size:.95rem;white-space:nowrap;
+    padding:.9rem 1.7rem;border-radius:100px;
+    transition:transform .3s var(--ease),background .3s,box-shadow .3s;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper);box-shadow:0 12px 30px -12px rgba(43,35,51,.55)}
+  .btn-primary:hover{background:#3d3348;transform:translateY(-2px)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn-ghost:active{transform:translateY(1px)}
+
+  /* hero visual */
+  .hero-visual{position:relative;aspect-ratio:4/5;max-width:440px;justify-self:center;width:100%}
+  .portrait{
+    position:absolute;inset:0;border-radius:180px 180px 26px 26px;
+    background:linear-gradient(160deg,var(--lavanda) 0%,#a898d4 100%);
+    overflow:hidden;box-shadow:0 40px 80px -30px rgba(120,100,170,.6);
+  }
+  .portrait::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(60% 40% at 30% 20%,rgba(255,255,255,.35),transparent 60%),
+      repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,transparent 2px 22px);
+  }
+  .portrait .initial{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    font-family:"Fraunces",serif;font-size:15rem;color:rgba(255,255,255,.9);line-height:1;
+  }
+  .badge{
+    position:absolute;background:var(--paper);border-radius:18px;
+    padding:.85rem 1.1rem;box-shadow:0 20px 40px -18px rgba(43,35,51,.4);
+    display:flex;align-items:center;gap:.7rem;
+  }
+  .badge .dot{width:34px;height:34px;border-radius:11px;background:var(--beige-deep);display:grid;place-items:center;font-size:1.1rem}
+  .badge b{font-family:"Fraunces",serif;font-weight:500;font-size:1rem;display:block}
+  .badge small{font-size:.72rem;color:var(--ink-soft)}
+  .badge.b1{bottom:1.4rem;left:-1.2rem}
+  .badge.b2{top:2rem;right:-1.1rem}
+  @media(max-width:520px){.badge.b1{left:.4rem}.badge.b2{right:.4rem}}
+
+  /* STORIA */
+  .storia .wrap{display:grid;gap:2.5rem;align-items:start}
+  @media(min-width:820px){.storia .wrap{grid-template-columns:.85fr 1.15fr;gap:5rem}}
+  .storia h2{font-size:clamp(2rem,5vw,3.1rem);margin:.8rem 0}
+  .storia p{color:var(--ink-soft);max-width:62ch;margin-bottom:1.1rem}
+  .storia p:first-of-type{color:var(--ink);font-size:1.12rem}
+  .sig{font-family:"Fraunces",serif;font-style:italic;font-size:1.35rem;color:var(--oro);margin-top:1.6rem}
+
+  /* SERVIZI */
+  .servizi{background:var(--ink);color:var(--paper)}
+  .servizi .head{max-width:60ch;margin-bottom:3rem}
+  .servizi .eyebrow{color:var(--lavanda)}
+  .servizi h2{font-size:clamp(2rem,5vw,3.1rem);color:var(--paper);margin:.8rem 0}
+  .servizi .head p{color:#c9c1d4;margin-top:.6rem}
+  .serv-grid{display:grid;gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:20px;overflow:hidden}
+  @media(min-width:640px){.serv-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:960px){.serv-grid{grid-template-columns:repeat(3,1fr)}}
+  .serv{background:var(--ink);padding:2rem 1.8rem;transition:background .4s var(--ease)}
+  .serv:hover{background:#37304a}
+  .serv .num{font-size:.72rem;letter-spacing:.2em;color:var(--lavanda);font-weight:600}
+  .serv h3{font-size:1.4rem;color:var(--paper);margin:1.4rem 0 .6rem}
+  .serv p{color:#b7aec6;font-size:.95rem}
+
+  /* DRY FEATURE */
+  .dry{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--lavanda-soft),#f3ecdd)}
+  .dry .wrap{display:grid;gap:2.5rem;align-items:center}
+  @media(min-width:860px){.dry .wrap{grid-template-columns:1.1fr .9fr;gap:4rem}}
+  .dry h2{font-size:clamp(2rem,5.5vw,3.4rem);margin:1rem 0 1.2rem}
+  .dry h2 em{color:var(--oro)}
+  .dry p{color:var(--ink-soft);max-width:52ch;font-size:1.08rem;margin-bottom:1.6rem}
+  .dry-points{display:flex;flex-direction:column;gap:1rem;list-style:none}
+  .dry-points li{display:flex;gap:.9rem;align-items:flex-start;font-size:.98rem}
+  .dry-points .tick{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:.8rem;margin-top:.15rem}
+  .dry-card{
+    background:var(--paper);border-radius:24px;padding:2.4rem;
+    box-shadow:0 40px 70px -34px rgba(120,100,170,.55);
+  }
+  .dry-card .big{font-family:"Fraunces",serif;font-size:3.4rem;line-height:1;color:var(--oro)}
+  .dry-card .lbl{font-family:"Fraunces",serif;font-size:1.4rem;margin:.4rem 0 1.4rem}
+  .dry-card hr{border:none;border-top:1px solid var(--line);margin:1.4rem 0}
+  .dry-card .row{display:flex;justify-content:space-between;font-size:.95rem;padding:.35rem 0;color:var(--ink-soft)}
+  .dry-card .row b{color:var(--ink);font-weight:600}
+
+  /* PERCHE */
+  .perche h2{font-size:clamp(2rem,5vw,3.1rem);text-align:center;max-width:20ch;margin:.9rem auto 3rem}
+  .perche .center{text-align:center}
+  .why-grid{display:grid;gap:2.5rem 3rem}
+  @media(min-width:720px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  .why{padding-top:1.6rem;border-top:1px solid var(--line)}
+  .why .k{font-family:"Fraunces",serif;font-size:1.7rem;color:var(--oro);display:block;margin-bottom:.5rem}
+  .why h3{font-size:1.3rem;margin-bottom:.5rem}
+  .why p{color:var(--ink-soft);max-width:46ch}
+
+  /* CONTATTI */
+  .contatti{background:var(--beige-deep)}
+  .contatti .wrap{display:grid;gap:2.5rem}
+  @media(min-width:840px){.contatti .wrap{grid-template-columns:1fr 1fr;gap:4rem}}
+  .contatti h2{font-size:clamp(2rem,5.5vw,3.4rem);margin:1rem 0 1.2rem}
+  .contatti .intro{color:var(--ink-soft);max-width:40ch;margin-bottom:2rem;font-size:1.08rem}
+  .contact-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+  .info-card{background:var(--paper);border-radius:22px;padding:2rem 2rem;box-shadow:0 30px 60px -34px rgba(43,35,51,.35)}
+  .info-row{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+  .info-row:last-child{border-bottom:none}
+  .info-row .ic{flex-shrink:0;width:42px;height:42px;border-radius:12px;background:var(--lavanda-soft);display:grid;place-items:center;font-size:1.2rem}
+  .info-row .lab{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .info-row .val{font-size:1.02rem;font-weight:500}
+  .info-row .val a:hover{color:var(--oro)}
+  .maplink{display:inline-block;margin-top:.3rem;font-size:.85rem;color:var(--oro);font-weight:600;border-bottom:1px solid transparent;transition:border .3s}
+  .maplink:hover{border-color:var(--oro)}
+  .hours-open{color:#4a7a52}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#b7aec6;padding:3.5rem 0 2.5rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
+  footer .brand{color:var(--paper)}
+  footer .brand small{color:#9a92a8}
+  footer .socials{display:flex;gap:.7rem}
+  footer .socials a{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;transition:background .3s,transform .3s var(--ease);color:var(--paper)}
+  footer .socials a:hover{background:var(--lavanda);color:var(--ink);transform:translateY(-2px)}
+  footer .fine{width:100%;border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.6rem;font-size:.82rem;color:#8b melody;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:space-between;color:#8b8397}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="Alessia Estetica e Benessere, torna su">
+    <span class="mark" aria-hidden="true">A</span>
+    <span>Alessia<small>Estetica &amp; Benessere</small></span>
+  </a>
+  <nav class="menu" aria-label="Navigazione principale">
+    <a href="#storia">Chi siamo</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#dry">Manicure dry</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+  <a href="#contatti" class="nav-cta">Prenota</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Centro estetico &middot; Settimo Torinese</p>
+        <h1 class="reveal">Il tuo <em>benessere</em>, curato a mano.</h1>
+        <p class="lead reveal">Un centro a conduzione personale in via Monviso, dove viso, corpo e unghie ricevono attenzione vera, un appuntamento alla volta.</p>
+        <div class="hero-cta reveal">
+          <a href="#contatti" class="btn btn-primary">Prenota ora</a>
+          <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="portrait"><span class="initial">A</span></div>
+        <div class="badge b1">
+          <span class="dot">&#128131;</span>
+          <span><b>Manicure &amp; pedicure dry</b><small>Tecnica a secco</small></span>
+        </div>
+        <div class="badge b2">
+          <span class="dot">&#10024;</span>
+          <span><b>Mar&ndash;Sab</b><small>Orario continuato</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIA -->
+  <section class="storia" id="storia">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">La nostra storia</p>
+        <h2>Un salotto di bellezza a misura di persona.</h2>
+      </div>
+      <div class="reveal">
+        <p>Alessia Estetica &amp; Benessere nasce dal desiderio di offrire un luogo intimo, dove ogni cliente viene accolta con calma e seguita personalmente dall'inizio alla fine.</p>
+        <p>Niente fretta, niente trattamenti in serie. Qui si lavora su misura: la pelle, le mani, il momento di pausa che ti concedi. La cura dei dettagli e la costanza dei risultati sono il nostro modo di dirti che ci teniamo.</p>
+        <p>Dal martedi al sabato, con orario continuato, trovi uno spazio pensato per rallentare e prenderti cura di te davvero.</p>
+        <p class="sig">Alessia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section class="servizi" id="servizi">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="eyebrow">Trattamenti</p>
+        <h2>Tutto quello che serve al tuo benessere.</h2>
+        <p>Viso, corpo e unghie in un unico spazio, con la precisione di chi ti segue sempre di persona.</p>
+      </div>
+      <div class="serv-grid">
+        <article class="serv reveal">
+          <span class="num">01</span>
+          <h3>Trattamenti viso</h3>
+          <p>Pulizie profonde e protocolli su misura per una pelle luminosa, idratata e visibilmente rilassata.</p>
+        </article>
+        <article class="serv reveal">
+          <span class="num">02</span>
+          <h3>Trattamenti corpo</h3>
+          <p>Percorsi mirati per tonicita e freschezza, pensati sulle esigenze reali della tua pelle.</p>
+        </article>
+        <article class="serv reveal">
+          <span class="num">03</span>
+          <h3>Massaggi</h3>
+          <p>Un momento per sciogliere le tensioni e ritrovare leggerezza, con pressioni calibrate su di te.</p>
+        </article>
+        <article class="serv reveal">
+          <span class="num">04</span>
+          <h3>Epilazione</h3>
+          <p>Pelle liscia e curata con metodi delicati, per risultati puliti e duraturi senza stress.</p>
+        </article>
+        <article class="serv reveal">
+          <span class="num">05</span>
+          <h3>Manicure e pedicure dry</h3>
+          <p>La tecnica a secco che rispetta l'unghia e fa durare il colore piu a lungo, senza ammollo.</p>
+        </article>
+        <article class="serv reveal">
+          <span class="num">06</span>
+          <h3>Ricostruzione unghie</h3>
+          <p>Unghie forti e naturali, modellate con cura per una tenuta impeccabile giorno dopo giorno.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRY FEATURE -->
+  <section class="dry" id="dry">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">La nostra specialita</p>
+        <h2>Manicure e pedicure <em>dry</em>.</h2>
+        <p>La tecnica a secco lavora l'unghia senza ammollo in acqua: la lamina resta piu compatta, il colore aderisce meglio e la manicure dura sensibilmente piu a lungo. Piu igiene, piu precisione, piu durata.</p>
+        <ul class="dry-points">
+          <li><span class="tick" aria-hidden="true">&#10003;</span><span>Rispetta la naturale idratazione dell'unghia e delle cuticole.</span></li>
+          <li><span class="tick" aria-hidden="true">&#10003;</span><span>Smalto e semipermanente con tenuta piu lunga e uniforme.</span></li>
+          <li><span class="tick" aria-hidden="true">&#10003;</span><span>Lavorazione precisa e igienica, senza vasca d'ammollo condivisa.</span></li>
+        </ul>
+      </div>
+      <div class="dry-card reveal">
+        <div class="big">Dry</div>
+        <div class="lbl">Perche la scegliamo</div>
+        <div class="row"><span>Tenuta del colore</span><b>Piu lunga</b></div>
+        <hr />
+        <div class="row"><span>Ammollo in acqua</span><b>No</b></div>
+        <hr />
+        <div class="row"><span>Precisione sulle cuticole</span><b>Massima</b></div>
+        <hr />
+        <div class="row"><span>Su mani e piedi</span><b>Manicure &amp; pedicure</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE -->
+  <section class="perche">
+    <div class="wrap">
+      <div class="center reveal">
+        <p class="eyebrow">Perche sceglierci</p>
+        <h2>Attenzione vera, non trattamenti in serie.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why reveal">
+          <span class="k">01</span>
+          <h3>Conduzione personale</h3>
+          <p>Sei seguita sempre dalla stessa mano, che conosce la tua pelle e le tue preferenze appuntamento dopo appuntamento.</p>
+        </div>
+        <div class="why reveal">
+          <span class="k">02</span>
+          <h3>Tecniche di tendenza</h3>
+          <p>Dalla manicure dry ai protocolli viso aggiornati, scegliamo metodi che uniscono risultato e rispetto della pelle.</p>
+        </div>
+        <div class="why reveal">
+          <span class="k">03</span>
+          <h3>Orario continuato</h3>
+          <p>Aperto dal martedi al sabato con orario continuato, per trovare il tuo momento anche in pausa pranzo.</p>
+        </div>
+        <div class="why reveal">
+          <span class="k">04</span>
+          <h3>Ambiente accogliente</h3>
+          <p>Uno spazio intimo e curato in via Monviso, pensato per farti rilassare davvero dal primo minuto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contatti" id="contatti">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Contatti</p>
+        <h2>Prenotiamo insieme il tuo momento.</h2>
+        <p class="intro">Le prenotazioni si gestiscono su Fresha o scrivendoci su Instagram e Facebook. Rispondiamo con piacere e troviamo l'orario giusto per te.</p>
+        <div class="contact-cta">
+          <a href="https://www.instagram.com/alessia.esteticaebenessere_/" class="btn btn-primary" target="_blank" rel="noopener">Scrivici su Instagram</a>
+          <a href="https://www.facebook.com/people/Alessia-Estetica-Benessere/100084285337356/" class="btn btn-ghost" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-row">
+          <span class="ic" aria-hidden="true">&#128205;</span>
+          <div>
+            <div class="lab">Dove siamo</div>
+            <div class="val">Via Monviso 21<br />10036 Settimo Torinese (TO)</div>
+            <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Monviso+21+Settimo+Torinese" target="_blank" rel="noopener">Apri su Google Maps</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="ic" aria-hidden="true">&#128336;</span>
+          <div>
+            <div class="lab">Orari</div>
+            <div class="val hours-open">Martedi &ndash; Sabato, 9:30&ndash;19:00</div>
+            <div class="val" style="font-size:.9rem;color:var(--ink-soft);font-weight:400">Orario continuato &middot; Chiuso lunedi e domenica</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="ic" aria-hidden="true">&#128241;</span>
+          <div>
+            <div class="lab">Prenotazioni</div>
+            <div class="val">Via Fresha, Instagram o Facebook</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Alessia Estetica e Benessere">
+      <span class="mark" aria-hidden="true">A</span>
+      <span>Alessia<small>Estetica &amp; Benessere</small></span>
+    </a>
+    <div class="socials">
+      <a href="https://www.instagram.com/alessia.esteticaebenessere_/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/people/Alessia-Estetica-Benessere/100084285337356/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.6V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.3H7.9V14h2.4v8z"/></svg>
+      </a>
+    </div>
+    <div class="fine">
+      <span>&copy; <span id="year"></span> Alessia Estetica &amp; Benessere &middot; Via Monviso 21, Settimo Torinese</span>
+      <span>Centro estetico a conduzione personale</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav background on scroll
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // year
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  // reveal on scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        e.target.style.transitionDelay=(e.target.dataset.d||'0')+'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    const group=el.parentElement;
+    const sibs=[...group.querySelectorAll(':scope > .reveal')];
+    el.dataset.d=(sibs.indexOf(el)*80);
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
