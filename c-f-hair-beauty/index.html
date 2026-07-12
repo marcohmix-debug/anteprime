@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C.F. Hair Beauty | Parrucchiere donna a San Mauro Torinese</title>
+<meta name="description" content="C.F. Hair Beauty, salone di acconciature donna in via Roma a San Mauro Torinese. Taglio, piega, colore e trattamenti curati da Maria Cinzia Inversi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a1614'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23c9506f' text-anchor='middle'%3ECF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#f4efe8;
+    --bone-2:#ece5da;
+    --ink:#1a1614;
+    --ink-soft:#4a423d;
+    --accent:#a83158;
+    --accent-deep:#7f2643;
+    --line:rgba(26,22,20,.14);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,sans-serif;
+    background:var(--bone);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 22px}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:600;color:var(--accent);
+  }
+  section{position:relative}
+
+  /* NAV */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    transition:background .4s ease, box-shadow .4s ease, padding .4s ease;
+    padding:20px 0;
+  }
+  header.nav.scrolled{
+    background:rgba(244,239,232,.86);
+    backdrop-filter:blur(12px);
+    box-shadow:0 1px 0 var(--line);
+    padding:12px 0;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:baseline;gap:.5ch;font-family:'Fraunces',serif;font-size:1.35rem}
+  .brand b{font-weight:500}
+  .brand span{color:var(--accent)}
+  .nav-links{display:none;gap:34px;align-items:center}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--ink-soft);position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--accent);transition:width .3s cubic-bezier(.16,1,.3,1)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:.5ch;
+    background:var(--ink);color:var(--bone);
+    padding:11px 20px;border-radius:100px;font-weight:600;font-size:.88rem;
+    transition:transform .25s cubic-bezier(.16,1,.3,1),background .25s;
+  }
+  .nav-cta:hover{background:var(--accent-deep)}
+  .nav-cta:active{transform:translateY(1px)}
+
+  /* HERO */
+  .hero{min-height:100dvh;display:flex;align-items:center;padding-top:90px;padding-bottom:40px;position:relative;overflow:hidden}
+  .hero-glow{
+    position:absolute;z-index:0;width:min(70vw,620px);aspect-ratio:1;border-radius:50%;
+    right:-14%;top:8%;
+    background:radial-gradient(circle at 40% 40%, rgba(168,49,88,.30), rgba(168,49,88,0) 62%);
+    filter:blur(10px);
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:36px;align-items:center;width:100%}
+  .hero h1{font-size:clamp(2.9rem,12vw,5.4rem)}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:34ch;margin-top:22px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:.6ch;
+    background:var(--accent);color:#fff;font-weight:600;font-size:1rem;
+    padding:15px 28px;border-radius:100px;
+    transition:transform .25s cubic-bezier(.16,1,.3,1),background .25s,box-shadow .25s;
+    box-shadow:0 10px 26px -12px rgba(168,49,88,.7);
+  }
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:.6ch;
+    border:1.5px solid var(--line);color:var(--ink);font-weight:600;font-size:1rem;
+    padding:15px 26px;border-radius:100px;transition:border-color .25s,transform .25s;
+  }
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-ghost:active{transform:translateY(1px)}
+  .hero-visual{position:relative;order:-1}
+  .hero-card{
+    position:relative;border-radius:26px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 0%, rgba(168,49,88,.22), transparent 55%),
+      linear-gradient(160deg,#241d1b,#0e0b0a);
+    aspect-ratio:4/5;max-width:340px;margin:0 auto;
+    display:flex;align-items:flex-end;padding:26px;
+    box-shadow:0 40px 80px -40px rgba(26,22,20,.55);
+  }
+  .hero-card .mono{
+    font-family:'Fraunces',serif;color:var(--bone);font-size:2.4rem;line-height:1;letter-spacing:.02em;
+    position:absolute;top:26px;left:26px;opacity:.9;
+  }
+  .hero-card .mono span{color:var(--accent)}
+  .hero-card .cap{color:rgba(244,239,232,.82);font-size:.92rem;position:relative;z-index:2}
+  .hero-card .cap strong{color:#fff;display:block;font-weight:600;margin-bottom:2px}
+  .hero-card::after{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(115deg,transparent,transparent 22px,rgba(255,255,255,.028) 22px,rgba(255,255,255,.028) 23px);
+  }
+
+  /* STORY */
+  .story{padding:clamp(70px,10vw,120px) 0}
+  .story-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  .story h2{font-size:clamp(2rem,6vw,3rem);margin-top:14px}
+  .story h2 em{font-style:italic;color:var(--accent)}
+  .story p{margin-top:18px;color:var(--ink-soft);font-size:1.05rem;max-width:60ch}
+  .story-sign{margin-top:26px;font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem}
+  .story-sign small{display:block;font-family:'Manrope';font-style:normal;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+  .story-figure{
+    position:relative;border-radius:var(--radius);padding:34px;
+    background:var(--bone-2);border:1px solid var(--line);
+  }
+  .story-stats{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .stat b{font-family:'Fraunces',serif;font-size:2.6rem;display:block;line-height:1;color:var(--accent-deep)}
+  .stat span{font-size:.9rem;color:var(--ink-soft);margin-top:6px;display:block}
+  .story-quote{grid-column:1/-1;border-top:1px solid var(--line);padding-top:22px;font-family:'Fraunces',serif;font-size:1.15rem;font-style:italic;line-height:1.5}
+
+  /* SERVICES */
+  .services{padding:clamp(70px,10vw,120px) 0;background:var(--ink);color:var(--bone)}
+  .services .eyebrow{color:#e0839c}
+  .services h2{font-size:clamp(2rem,6vw,3rem);margin-top:14px;color:var(--bone)}
+  .services h2 em{font-style:italic;color:#e0839c}
+  .services .intro{color:rgba(244,239,232,.7);max-width:52ch;margin-top:16px}
+  .srv-list{margin-top:52px;border-top:1px solid rgba(244,239,232,.16)}
+  .srv-row{
+    display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:baseline;
+    padding:30px 0;border-bottom:1px solid rgba(244,239,232,.16);
+    transition:padding-left .35s cubic-bezier(.16,1,.3,1);
+  }
+  .srv-row:hover{padding-left:12px}
+  .srv-no{font-family:'Fraunces',serif;font-size:1rem;color:#e0839c;font-style:italic}
+  .srv-body h3{font-size:1.7rem;color:var(--bone)}
+  .srv-body p{color:rgba(244,239,232,.66);margin-top:8px;max-width:56ch}
+  .srv-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .srv-tags span{font-size:.76rem;border:1px solid rgba(244,239,232,.24);padding:5px 12px;border-radius:100px;color:rgba(244,239,232,.8)}
+
+  /* WHY (bento) */
+  .why{padding:clamp(70px,10vw,120px) 0}
+  .why h2{font-size:clamp(2rem,6vw,3rem);margin-top:14px;max-width:16ch}
+  .why h2 em{font-style:italic;color:var(--accent)}
+  .bento{display:grid;grid-template-columns:1fr;gap:16px;margin-top:48px}
+  .cell{
+    border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+    background:var(--bone-2);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;
+  }
+  .cell:hover{transform:translateY(-4px);box-shadow:0 22px 44px -30px rgba(26,22,20,.5)}
+  .cell .k{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--accent-deep)}
+  .cell h3{font-size:1.25rem;margin-top:14px}
+  .cell p{color:var(--ink-soft);margin-top:8px;font-size:.98rem}
+  .cell.feature{background:var(--accent);color:#fff;border-color:transparent}
+  .cell.feature .k,.cell.feature h3{color:#fff}
+  .cell.feature p{color:rgba(255,255,255,.86)}
+
+  /* CONTACT */
+  .contact{padding:clamp(70px,10vw,120px) 0}
+  .contact-card{
+    display:grid;grid-template-columns:1fr;gap:0;
+    border-radius:24px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 40px 90px -50px rgba(26,22,20,.5);
+  }
+  .contact-info{padding:clamp(30px,5vw,52px);background:var(--bone-2)}
+  .contact-info h2{font-size:clamp(1.9rem,6vw,2.8rem)}
+  .contact-info h2 em{font-style:italic;color:var(--accent)}
+  .contact-info .lead{color:var(--ink-soft);margin-top:14px;max-width:40ch}
+  .info-rows{margin-top:30px;display:grid;gap:2px}
+  .info-row{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line)}
+  .info-row .ico{flex:0 0 22px;color:var(--accent);margin-top:2px}
+  .info-row .lab{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .info-row .val{font-size:1.08rem;font-weight:600}
+  .info-row a.val:hover{color:var(--accent)}
+  .contact-side{
+    padding:clamp(30px,5vw,52px);color:var(--bone);
+    background:radial-gradient(120% 90% at 90% 10%, rgba(168,49,88,.34), transparent 55%),linear-gradient(160deg,#241d1b,#100c0b);
+    display:flex;flex-direction:column;justify-content:space-between;gap:28px;
+  }
+  .contact-side h3{font-size:1.7rem;color:var(--bone)}
+  .contact-side h3 em{font-style:italic;color:#e0839c}
+  .contact-side p{color:rgba(244,239,232,.72);margin-top:12px}
+  .side-cta{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+  .side-cta a{
+    display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:16px 22px;border-radius:100px;font-weight:600;
+    transition:transform .25s cubic-bezier(.16,1,.3,1);
+  }
+  .side-cta a:active{transform:translateY(1px)}
+  .side-cta .call{background:var(--accent);color:#fff}
+  .side-cta .call:hover{background:var(--accent-deep)}
+  .side-cta .map{border:1.5px solid rgba(244,239,232,.3);color:var(--bone)}
+  .side-cta .map:hover{border-color:var(--bone)}
+  .side-cta .arw{transition:transform .25s cubic-bezier(.16,1,.3,1)}
+  .side-cta a:hover .arw{transform:translateX(4px)}
+
+  /* FOOTER */
+  footer.ft{background:var(--ink);color:rgba(244,239,232,.7);padding:52px 0 34px}
+  .ft-top{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;border-bottom:1px solid rgba(244,239,232,.14);padding-bottom:28px}
+  .ft-brand{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--bone)}
+  .ft-brand span{color:#e0839c}
+  .ft-links{display:flex;flex-wrap:wrap;gap:22px;font-size:.92rem}
+  .ft-links a:hover{color:var(--bone)}
+  .ft-bottom{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:22px;font-size:.84rem}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+  @media (min-width:720px){
+    .story-grid{grid-template-columns:1.05fr .95fr;gap:64px}
+    .bento{grid-template-columns:repeat(3,1fr)}
+    .cell.wide{grid-column:span 2}
+    .contact-card{grid-template-columns:1.15fr .85fr}
+  }
+  @media (min-width:960px){
+    .nav-links{display:flex}
+    .hero-grid{grid-template-columns:1.15fr .85fr;gap:56px}
+    .hero-visual{order:0}
+    .hero p.lead{max-width:38ch}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    .srv-row:hover{padding-left:0}
+    .cell:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><b>C.F.</b> <span>Hair Beauty</span></a>
+    <nav class="nav-links">
+      <a href="#storia">La storia</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perche noi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a class="nav-cta" href="tel:+390118222256">Chiama ora</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow reveal">Parrucchiere donna, San Mauro Torinese</p>
+        <h1 class="reveal d1">Capelli che <em>ti somigliano</em>.</h1>
+        <p class="lead reveal d2">Taglio, colore e trattamenti pensati su di te, nel salone di quartiere in via Roma curato da Maria Cinzia Inversi.</p>
+        <div class="hero-actions reveal d3">
+          <a class="btn-primary" href="tel:+390118222256">Prenota una piega</a>
+          <a class="btn-ghost" href="#servizi">Scopri i servizi</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal d2">
+        <div class="hero-card">
+          <div class="mono">C<span>.</span>F<span>.</span></div>
+          <div class="cap"><strong>Via Roma 94</strong>Il tuo salone a San Mauro Torinese</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="storia">
+    <div class="wrap story-grid">
+      <div>
+        <p class="eyebrow reveal">La nostra storia</p>
+        <h2 class="reveal d1">Un salone di <em>quartiere</em>, un rapporto che dura.</h2>
+        <p class="reveal d2">C.F. Hair Beauty e' un punto di riferimento per le donne di San Mauro Torinese. Qui non si viene solo per un taglio: si torna per la cura, la mano sicura e l'ascolto di chi conosce i tuoi capelli stagione dopo stagione.</p>
+        <p class="reveal d2">A guidare il salone c'e' Maria Cinzia Inversi, con l'attenzione artigianale di chi mette la persona prima della moda del momento. Il risultato e' un look naturale, che ti fa sentire a tuo agio ogni giorno.</p>
+        <p class="story-sign reveal d3">Maria Cinzia Inversi<small>Titolare e hair stylist</small></p>
+      </div>
+      <div class="story-figure reveal d1">
+        <div class="story-stats">
+          <div class="stat"><b>Via Roma</b><span>Nel cuore di San Mauro Torinese</span></div>
+          <div class="stat"><b>Donna</b><span>Acconciature dedicate a te</span></div>
+          <div class="story-quote">Tra i parrucchieri piu' citati della zona nelle guide locali: la fiducia del quartiere, giorno dopo giorno.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servizi">
+    <div class="wrap">
+      <p class="eyebrow reveal">Cosa facciamo</p>
+      <h2 class="reveal d1">Servizi curati, <em>nel dettaglio</em>.</h2>
+      <p class="intro reveal d2">Ogni servizio parte da una domanda semplice: cosa fa stare bene te e i tuoi capelli. Poi arriva la tecnica.</p>
+      <div class="srv-list">
+        <div class="srv-row reveal">
+          <div class="srv-no">01</div>
+          <div class="srv-body">
+            <h3>Taglio e piega donna</h3>
+            <p>Un taglio studiato sul tuo viso e sul tuo capello, con una piega che dura e che sai rifare a casa.</p>
+            <div class="srv-tags"><span>Consulenza forma</span><span>Piega su misura</span><span>Styling quotidiano</span></div>
+          </div>
+        </div>
+        <div class="srv-row reveal d1">
+          <div class="srv-no">02</div>
+          <div class="srv-body">
+            <h3>Colore</h3>
+            <p>Colorazioni, riflessi e coperture pensati per valorizzare l'incarnato e mantenere il capello sano e luminoso.</p>
+            <div class="srv-tags"><span>Colore naturale</span><span>Riflessi e schiariture</span><span>Copertura bianchi</span></div>
+          </div>
+        </div>
+        <div class="srv-row reveal d2">
+          <div class="srv-no">03</div>
+          <div class="srv-body">
+            <h3>Trattamenti capelli</h3>
+            <p>Rituali di cura per rinforzare, idratare e ridare corpo, scelti in base alla condizione reale del tuo capello.</p>
+            <div class="srv-tags"><span>Ristrutturanti</span><span>Idratazione</span><span>Cute e benessere</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why" id="perche">
+    <div class="wrap">
+      <p class="eyebrow reveal">Perche sceglierci</p>
+      <h2 class="reveal d1">Quattro buoni motivi per <em>sederti qui</em>.</h2>
+      <div class="bento">
+        <div class="cell feature wide reveal">
+          <div class="k">01</div>
+          <h3>Ti ascoltiamo davvero</h3>
+          <p>Prima delle forbici viene la conversazione. Capiamo la tua routine, i tuoi gusti e cosa vuoi ottenere, poi costruiamo il look giusto per te.</p>
+        </div>
+        <div class="cell reveal d1">
+          <div class="k">02</div>
+          <h3>Mano esperta</h3>
+          <p>Tecnica solida e attenzione ai dettagli su ogni taglio, colore e piega.</p>
+        </div>
+        <div class="cell reveal">
+          <div class="k">03</div>
+          <h3>Capelli sani</h3>
+          <p>Prodotti e trattamenti scelti per proteggere la fibra, non solo per il risultato del momento.</p>
+        </div>
+        <div class="cell wide reveal d1">
+          <div class="k">04</div>
+          <h3>Un salone di fiducia in via Roma</h3>
+          <p>La comodita' di un punto di riferimento vicino, dove ti riconoscono e sanno gia' cosa ami. Il calore del quartiere, la cura di un salone che ti segue nel tempo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contatti">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <div class="contact-info">
+          <p class="eyebrow">Contatti</p>
+          <h2>Prenota il tuo <em>appuntamento</em>.</h2>
+          <p class="lead">Chiamaci o scrivici per fissare taglio, colore o un trattamento. Ti aspettiamo in via Roma.</p>
+          <div class="info-rows">
+            <div class="info-row">
+              <span class="ico">&#9742;</span>
+              <div><div class="lab">Telefono</div><a class="val" href="tel:+390118222256">011 8222256</a></div>
+            </div>
+            <div class="info-row">
+              <span class="ico">&#9993;</span>
+              <div><div class="lab">Email</div><a class="val" href="mailto:cfhairbeauty@gmail.com">cfhairbeauty@gmail.com</a></div>
+            </div>
+            <div class="info-row">
+              <span class="ico">&#9678;</span>
+              <div><div class="lab">Dove siamo</div><a class="val" href="https://www.google.com/maps/search/?api=1&query=Via+Roma+94+San+Mauro+Torinese" target="_blank" rel="noopener">Via Roma 94, San Mauro Torinese (TO)</a></div>
+            </div>
+            <div class="info-row">
+              <span class="ico">&#9201;</span>
+              <div><div class="lab">Appuntamenti</div><div class="val">Su prenotazione, chiamaci per la disponibilita'</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-side">
+          <div>
+            <h3>Pronta per un <em>nuovo look</em>?</h3>
+            <p>Il modo piu' veloce e' una telefonata: raccontaci cosa hai in mente e troviamo insieme il momento giusto.</p>
+          </div>
+          <div class="side-cta">
+            <a class="call" href="tel:+390118222256"><span>Chiama il salone</span><span class="arw">&rarr;</span></a>
+            <a class="map" href="https://www.google.com/maps/search/?api=1&query=Via+Roma+94+San+Mauro+Torinese" target="_blank" rel="noopener"><span>Apri la mappa</span><span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">C.F. <span>Hair Beauty</span></div>
+      <nav class="ft-links">
+        <a href="#storia">La storia</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#perche">Perche noi</a>
+        <a href="#contatti">Contatti</a>
+        <a href="https://www.facebook.com/101031978047879" target="_blank" rel="noopener">Facebook</a>
+      </nav>
+    </div>
+    <div class="ft-bottom">
+      <span>Via Roma 94, 10099 San Mauro Torinese (TO) &middot; 011 8222256</span>
+      <span>&copy; <span id="yr"></span> C.F. Hair Beauty</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // nav background on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.16, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
