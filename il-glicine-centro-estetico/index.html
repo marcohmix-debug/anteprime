@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Glicine Centro Estetico | Trattamenti viso e skincare a Settimo Torinese</title>
+<meta name="description" content="Centro estetico specializzato in trattamenti viso, skincare e percorsi per pelli acneiche in via Montello a Settimo Torinese. Apertura serale il giovedi fino alle 21.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237a6ba8'/%3E%3Cpath d='M16 7c-3 0-4.5 2-4.5 4 0 1.6 1 2.6 2 3.2-1.3.3-2.5 1.3-2.5 3 0 2 1.6 3.3 3.5 3.6V25h3v-4.2c1.9-.3 3.5-1.6 3.5-3.6 0-1.7-1.2-2.7-2.5-3 1-.6 2-1.6 2-3.2 0-2-1.5-4-4.5-4z' fill='%23f6f3ef'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --violet:#7a6ba8;
+    --violet-deep:#5f5288;
+    --ink:#26212f;
+    --ink-soft:#5b5468;
+    --paper:#f7f4f0;
+    --paper-2:#efe9f4;
+    --line:#e4ddec;
+    --white:#fffdfb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+  em{font-style:italic}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-family:'Manrope',sans-serif;font-weight:600;font-size:.78rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--violet-deep);
+  }
+
+  /* NAV */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(247,244,240,.72);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease,background .3s ease;
+  }
+  header.nav.scrolled{border-color:var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600}
+  .brand svg{width:30px;height:30px;flex:none}
+  .nav-links{display:none;gap:34px;font-size:.92rem;font-weight:500}
+  .nav-links a{color:var(--ink-soft);transition:color .2s}
+  .nav-links a:hover{color:var(--violet-deep)}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--ink);color:var(--white);
+    padding:11px 20px;border-radius:100px;font-weight:600;font-size:.9rem;
+    transition:transform .2s ease,background .2s ease;
+  }
+  .nav-cta:hover{background:var(--violet-deep)}
+  .nav-cta:active{transform:translateY(1px)}
+  @media(min-width:900px){.nav-links{display:flex}}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100dvh;display:flex;align-items:center;
+    padding-top:68px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 82% 12%,var(--paper-2) 0%,rgba(239,233,244,0) 55%),
+      linear-gradient(180deg,var(--paper) 0%,var(--white) 100%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;width:100%}
+  .hero-copy{max-width:600px}
+  .hero h1{font-size:clamp(2.9rem,9vw,5rem);margin:18px 0 20px}
+  .hero h1 em{color:var(--violet-deep)}
+  .hero p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:34ch}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:15px 26px;border-radius:100px;font-weight:600;font-size:1rem;
+    transition:transform .2s ease,background .2s ease,box-shadow .2s ease;white-space:nowrap;
+  }
+  .btn-primary{background:var(--violet);color:var(--white);box-shadow:0 8px 26px rgba(122,107,168,.32)}
+  .btn-primary:hover{background:var(--violet-deep);box-shadow:0 12px 32px rgba(95,82,136,.4)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--violet);color:var(--violet-deep)}
+  .btn-ghost:active{transform:translateY(1px)}
+  .hero-note{margin-top:26px;font-size:.9rem;color:var(--ink-soft);display:flex;align-items:center;gap:9px}
+  .dot-thu{width:8px;height:8px;border-radius:50%;background:var(--violet)}
+
+  /* hero visual */
+  .hero-art{position:relative;justify-self:center;width:100%;max-width:420px;aspect-ratio:4/5}
+  .hero-art .card-art{
+    position:absolute;inset:0;border-radius:26px;overflow:hidden;
+    background:linear-gradient(160deg,#8a79b8 0%,#6b5d96 60%,#4c4271 100%);
+    box-shadow:0 30px 70px -30px rgba(60,50,90,.55);
+  }
+  .hero-art svg.bloom{position:absolute;inset:0;width:100%;height:100%}
+  .hero-art .glass{
+    position:absolute;left:16px;bottom:16px;right:16px;
+    background:rgba(255,253,251,.9);backdrop-filter:blur(6px);
+    border-radius:16px;padding:16px 18px;
+  }
+  .hero-art .glass .t{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600}
+  .hero-art .glass .s{font-size:.85rem;color:var(--ink-soft)}
+  @media(min-width:900px){
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:56px}
+    .hero-art{max-width:460px}
+  }
+
+  /* SECTION base */
+  section{padding:96px 0}
+  .sec-head{max-width:60ch;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(2rem,5vw,3rem);margin:14px 0 0}
+  .sec-head h2 em{color:var(--violet-deep)}
+
+  /* STORIA */
+  .storia{background:var(--white)}
+  .storia-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:start}
+  .storia-lead{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:400;line-height:1.3}
+  .storia-lead em{color:var(--violet-deep)}
+  .storia-body p{color:var(--ink-soft);margin-bottom:16px;max-width:52ch}
+  .storia-sign{margin-top:8px;font-family:'Fraunces',serif;font-style:italic;color:var(--violet-deep)}
+  @media(min-width:860px){.storia-grid{grid-template-columns:1fr 1fr;gap:64px}}
+
+  /* SERVIZI */
+  .serv-grid{display:grid;grid-template-columns:1fr;gap:20px}
+  .serv{
+    background:var(--white);border:1px solid var(--line);border-radius:20px;
+    padding:30px 28px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  }
+  .serv:hover{transform:translateY(-4px);box-shadow:0 20px 45px -25px rgba(60,50,90,.35);border-color:var(--paper-2)}
+  .serv .num{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--violet);font-weight:600}
+  .serv h3{font-size:1.4rem;margin:12px 0 10px}
+  .serv p{color:var(--ink-soft);font-size:.96rem}
+  @media(min-width:640px){.serv-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:960px){.serv-grid{grid-template-columns:repeat(4,1fr)}}
+
+  /* FOCUS ACNE band */
+  .focus{
+    background:var(--violet);color:var(--white);border-radius:0;
+    position:relative;overflow:hidden;
+  }
+  .focus::before{
+    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+    border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);
+  }
+  .focus .wrap{position:relative;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+  .focus .eyebrow{color:rgba(255,253,251,.85)}
+  .focus h2{font-size:clamp(1.9rem,4.6vw,2.8rem);margin:14px 0 16px}
+  .focus p{color:rgba(255,253,251,.9);max-width:46ch}
+  .focus .btn-light{background:var(--white);color:var(--violet-deep);margin-top:26px}
+  .focus .btn-light:hover{background:var(--paper)}
+  .focus .btn-light:active{transform:translateY(1px)}
+  @media(min-width:900px){.focus .wrap{grid-template-columns:1.3fr .7fr}}
+
+  /* ORARI bento */
+  .orari{background:var(--white)}
+  .bento{display:grid;grid-template-columns:1fr;gap:18px}
+  .card-hours{
+    background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px 30px;
+  }
+  .card-hours h3{font-size:1.35rem;margin-bottom:18px}
+  .hrow{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+  .hrow:last-child{border-bottom:none}
+  .hrow.closed{color:var(--ink-soft)}
+  .hrow .day{font-weight:600}
+  .hrow.hi{color:var(--violet-deep);font-weight:600}
+  .card-thu{
+    background:linear-gradient(165deg,#6b5d96,#4c4271);color:var(--white);
+    border-radius:22px;padding:32px 30px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .card-thu .big{font-family:'Fraunces',serif;font-size:3.4rem;line-height:1;margin:16px 0 8px}
+  .card-thu p{color:rgba(255,253,251,.9);font-size:.98rem}
+  @media(min-width:860px){.bento{grid-template-columns:1.4fr 1fr}}
+
+  /* PERCHE */
+  .why{background:var(--paper)}
+  .why-grid{display:grid;grid-template-columns:1fr;gap:12px;counter-reset:w}
+  .why-item{
+    display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;
+    padding:28px 0;border-top:1px solid var(--line);
+  }
+  .why-item:last-child{border-bottom:1px solid var(--line)}
+  .why-item .idx{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--violet);min-width:44px}
+  .why-item h3{font-size:1.5rem;margin-bottom:8px}
+  .why-item p{color:var(--ink-soft);max-width:56ch}
+  @media(min-width:860px){.why-item{grid-template-columns:auto 1fr 1fr;gap:40px}.why-item h3{margin:0}}
+
+  /* CONTATTI */
+  .contact{background:var(--ink);color:var(--white)}
+  .contact h2{color:var(--white)}
+  .contact h2 em{color:#c9bce6}
+  .contact .eyebrow{color:#c9bce6}
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:start;margin-top:48px}
+  .cinfo{display:flex;flex-direction:column;gap:26px}
+  .cblock .l{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#a89bcb;font-weight:600;margin-bottom:6px}
+  .cblock a,.cblock .v{font-size:1.15rem;color:var(--white);transition:color .2s}
+  .cblock a:hover{color:#c9bce6}
+  .cbig{font-family:'Fraunces',serif;font-size:1.7rem}
+  .csoc{display:inline-flex;align-items:center;gap:9px;margin-top:2px;color:#c9bce6;font-weight:600}
+  .csoc:hover{color:var(--white)}
+  .map-card{
+    border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.14);
+    background:linear-gradient(160deg,#332c40,#28222f);min-height:280px;
+    display:flex;flex-direction:column;justify-content:space-between;padding:28px;
+  }
+  .map-card .pin{font-family:'Fraunces',serif;font-size:1.4rem}
+  .map-card p{color:#b9aed4;margin-top:6px}
+  .map-card .btn-primary{align-self:flex-start;margin-top:20px}
+  @media(min-width:860px){.contact-grid{grid-template-columns:1fr 1fr;gap:56px}}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#9b8fbd;padding:30px 0 40px;border-top:1px solid rgba(255,255,255,.1)}
+  .foot-in{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;font-size:.88rem}
+  @media(min-width:700px){.foot-in{flex-direction:row;justify-content:space-between;text-align:left}}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1!important;transform:none!important;transition:none}
+    html{scroll-behavior:auto}
+    *{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" aria-label="Il Glicine Centro Estetico">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#7a6ba8"/><path d="M16 7c-3 0-4.5 2-4.5 4 0 1.6 1 2.6 2 3.2-1.3.3-2.5 1.3-2.5 3 0 2 1.6 3.3 3.5 3.6V25h3v-4.2c1.9-.3 3.5-1.6 3.5-3.6 0-1.7-1.2-2.7-2.5-3 1-.6 2-1.6 2-3.2 0-2-1.5-4-4.5-4z" fill="#f6f3ef"/></svg>
+      Il Glicine
+    </a>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#storia">Il centro</a>
+      <a href="#servizi">Trattamenti</a>
+      <a href="#acne">Pelli acneiche</a>
+      <a href="#orari">Orari</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a href="tel:+393371014758" class="nav-cta">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.9 15.9 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.58 3.6a1 1 0 01-.24 1z" fill="currentColor"/></svg>
+      Chiama
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">Centro estetico &middot; Settimo Torinese</span>
+        <h1 class="reveal">La tua pelle,<br><em>al suo meglio</em>.</h1>
+        <p class="lead reveal">Trattamenti viso e skincare su misura in via Montello, con percorsi dedicati alle pelli acneiche.</p>
+        <div class="hero-actions reveal">
+          <a href="#contatti" class="btn btn-primary">Prenota ora</a>
+          <a href="#servizi" class="btn btn-ghost">Scopri i trattamenti</a>
+        </div>
+        <div class="hero-note reveal"><span class="dot-thu"></span> Giovedi apertura serale fino alle 21</div>
+      </div>
+
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="card-art">
+          <svg class="bloom" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="pet" cx="50%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#e8ddf5"/><stop offset="100%" stop-color="#a891d6"/>
+              </radialGradient>
+            </defs>
+            <g opacity=".9">
+              <g transform="translate(120 60)">
+                <path d="M0 0 C-40 30 -40 80 0 110 C40 80 40 30 0 0Z" fill="url(#pet)" opacity=".85"/>
+                <path d="M0 90 C-32 116 -32 158 0 184 C32 158 32 116 0 90Z" fill="url(#pet)" opacity=".7"/>
+                <path d="M0 168 C-26 190 -26 226 0 248 C26 226 26 190 0 168Z" fill="url(#pet)" opacity=".55"/>
+                <path d="M0 232 C-20 250 -20 280 0 298 C20 280 20 250 0 232Z" fill="url(#pet)" opacity=".4"/>
+              </g>
+              <g transform="translate(255 130)">
+                <path d="M0 0 C-34 26 -34 68 0 94 C34 68 34 26 0 0Z" fill="url(#pet)" opacity=".7"/>
+                <path d="M0 78 C-26 100 -26 136 0 158 C26 136 26 100 0 78Z" fill="url(#pet)" opacity=".55"/>
+                <path d="M0 142 C-20 160 -20 190 0 208 C20 190 20 160 0 142Z" fill="url(#pet)" opacity=".4"/>
+              </g>
+            </g>
+          </svg>
+          <div class="glass">
+            <div class="t">Pelle luminosa, ogni giorno</div>
+            <div class="s">Consulenza e percorso personalizzato</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIA -->
+  <section class="storia" id="storia">
+    <div class="wrap storia-grid">
+      <div class="reveal">
+        <span class="eyebrow">Il centro</span>
+        <p class="storia-lead" style="margin-top:18px">Un luogo dove la cura della pelle diventa un momento tutto <em>tuo</em>.</p>
+      </div>
+      <div class="storia-body reveal">
+        <p>Il Glicine nasce a Settimo Torinese con un'idea semplice: ascoltare davvero la pelle di ogni persona prima di proporre qualsiasi trattamento. Niente soluzioni uguali per tutte, ma un percorso costruito su di te.</p>
+        <p>Dalla pulizia viso profonda alla skincare mirata, fino ai protocolli per le pelli acneiche, ogni gesto e' pensato per riportare equilibrio e luminosita'. E quando serve un tocco in piu', il make-up completa l'incontro.</p>
+        <p class="storia-sign">Ti aspettiamo in via Montello.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Trattamenti</span>
+        <h2>Cura del viso, <em>dalla A alla Z</em></h2>
+      </div>
+      <div class="serv-grid">
+        <article class="serv reveal">
+          <div class="num">01</div>
+          <h3>Trattamenti viso</h3>
+          <p>Protocolli personalizzati per idratare, rimpolpare e ridare tono alla pelle del viso.</p>
+        </article>
+        <article class="serv reveal">
+          <div class="num">02</div>
+          <h3>Skincare mirata</h3>
+          <p>Analisi della pelle e routine su misura, con prodotti scelti per le tue reali esigenze.</p>
+        </article>
+        <article class="serv reveal">
+          <div class="num">03</div>
+          <h3>Pulizia viso</h3>
+          <p>Detersione profonda che libera i pori e prepara la pelle a ricevere il meglio.</p>
+        </article>
+        <article class="serv reveal">
+          <div class="num">04</div>
+          <h3>Make-up</h3>
+          <p>Un trucco naturale e curato per valorizzarti nei giorni che contano.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOCUS ACNE -->
+  <section class="focus" id="acne">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Percorsi pelli acneiche</span>
+        <h2>L'acne si affronta <em>con metodo</em></h2>
+        <p>Un percorso dedicato che unisce trattamenti in cabina e consigli di skincare quotidiana, passo dopo passo, per accompagnare la pelle verso un nuovo equilibrio senza aggredirla.</p>
+        <a href="#contatti" class="btn btn-light">Prenota una consulenza</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORARI -->
+  <section class="orari" id="orari">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Quando trovarci</span>
+        <h2>Orari pensati <em>per te</em></h2>
+      </div>
+      <div class="bento">
+        <div class="card-hours reveal">
+          <h3>Apertura settimanale</h3>
+          <div class="hrow"><span class="day">Lunedi</span><span>14:00 &ndash; 19:00</span></div>
+          <div class="hrow"><span class="day">Martedi</span><span>9:00 &ndash; 19:00</span></div>
+          <div class="hrow"><span class="day">Mercoledi</span><span>9:00 &ndash; 19:00</span></div>
+          <div class="hrow hi"><span class="day">Giovedi</span><span>11:00 &ndash; 21:00</span></div>
+          <div class="hrow"><span class="day">Venerdi</span><span>9:00 &ndash; 19:00</span></div>
+          <div class="hrow"><span class="day">Sabato</span><span>9:00 &ndash; 14:00</span></div>
+          <div class="hrow closed"><span class="day">Domenica</span><span>Chiuso</span></div>
+        </div>
+        <div class="card-thu reveal">
+          <div>
+            <span class="eyebrow" style="color:rgba(255,253,251,.8)">Serata lunga</span>
+            <div class="big">21:00</div>
+            <p>Il giovedi restiamo aperte fino alle 21. Il momento ideale per prenderti cura di te anche dopo il lavoro, con calma.</p>
+          </div>
+          <a href="tel:+393371014758" class="btn btn-primary" style="margin-top:24px;background:var(--white);color:var(--violet-deep);box-shadow:none">Prenota il giovedi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE -->
+  <section class="why" id="perche">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Perche sceglierci</span>
+        <h2>Poche promesse, <em>mantenute</em></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="idx">A</div>
+          <h3>Ascolto prima di tutto</h3>
+          <p>Analizziamo la tua pelle e le tue abitudini prima di consigliarti qualsiasi trattamento.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="idx">B</div>
+          <h3>Competenza sull'acne</h3>
+          <p>Percorsi specifici per pelli acneiche, seguiti passo dopo passo nel tempo.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="idx">C</div>
+          <h3>Orari flessibili</h3>
+          <p>Dal mattino presto alla sera del giovedi, troviamo lo spazio giusto per te.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contact" id="contatti">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Contatti</span>
+        <h2>Prenota il tuo <em>momento</em></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="cinfo reveal">
+          <div class="cblock">
+            <div class="l">Telefono</div>
+            <a href="tel:+393371014758" class="cbig">337 1014758</a>
+          </div>
+          <div class="cblock">
+            <div class="l">Dove siamo</div>
+            <span class="v">Via Montello 14<br>10036 Settimo Torinese (TO)</span>
+          </div>
+          <div class="cblock">
+            <div class="l">Seguici</div>
+            <a href="https://www.instagram.com/ilglicine_estetica/" target="_blank" rel="noopener" class="csoc">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+              @ilglicine_estetica
+            </a>
+          </div>
+        </div>
+        <div class="map-card reveal">
+          <div>
+            <div class="pin">Il Glicine Centro Estetico</div>
+            <p>Via Montello 14, Settimo Torinese. A due passi da casa, con parcheggio in zona.</p>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Montello+14+Settimo+Torinese" target="_blank" rel="noopener" class="btn btn-primary">Apri su Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; <span id="year"></span> Il Glicine Centro Estetico &middot; Via Montello 14, Settimo Torinese (TO)</span>
+    <span>P. IVA e dati fiscali disponibili in sede &middot; <a href="tel:+393371014758" style="color:#c9bce6">337 1014758</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, {passive:true});
+
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el, i){
+      el.style.transitionDelay = (Math.min(i%4,3)*70) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
