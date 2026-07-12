@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ovunque Nails di Letizia | Onicotecnica e corsi manicure a Settimo Torinese</title>
+<meta name="description" content="Mani e piedi curati e corsi di manicure a Settimo Torinese. Ovunque Nails di Letizia: ricostruzione, cura delle unghie e formazione per aspiranti onicotecniche.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234a3728'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23faf5f0' font-family='Georgia,serif' font-style='italic'>O</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf5f0;
+    --bg-2:#f2e9e1;
+    --ink:#2b211a;
+    --brown:#4a3728;
+    --brown-soft:#6b5341;
+    --accent:#c78f6a;
+    --accent-deep:#a9714d;
+    --line:#e3d6ca;
+    --white:#fffdfb;
+    --r:20px;
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;line-height:1.05;letter-spacing:-0.01em}
+  .wrap{width:min(1150px,92%);margin-inline:auto}
+  section{padding:clamp(72px,11vw,140px) 0}
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:700;color:var(--accent-deep);
+  }
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+    padding:20px 0;
+  }
+  header.scrolled{background:rgba(250,245,240,.86);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;font-size:1.28rem;color:var(--brown);text-decoration:none}
+  .brand .mark{
+    width:38px;height:38px;border-radius:50%;flex:none;
+    background:var(--brown);color:var(--bg);
+    display:grid;place-items:center;font-style:italic;font-size:1.15rem;
+  }
+  .brand b{font-weight:500}
+  .brand span{color:var(--accent-deep);font-style:italic}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{color:var(--brown-soft);text-decoration:none;font-size:.94rem;font-weight:600;position:relative}
+  .nav-links a:not(.btn):after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--accent);transition:width .3s var(--ease)}
+  .nav-links a:not(.btn):hover:after{width:100%}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--brown);color:var(--bg);
+    padding:13px 24px;border-radius:100px;text-decoration:none;
+    font-weight:700;font-size:.95rem;white-space:nowrap;
+    transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .btn:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 12px 26px rgba(74,55,40,.22)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--brown);border:1.6px solid var(--brown)}
+  .btn.ghost:hover{background:var(--brown);color:var(--bg);border-color:var(--brown)}
+  .nav .btn{padding:11px 20px}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+  .menu-toggle span{width:26px;height:2px;background:var(--brown);border-radius:2px;transition:.3s var(--ease)}
+
+  /* HERO */
+  .hero{
+    min-height:100dvh;display:flex;align-items:center;position:relative;
+    padding-top:96px;padding-bottom:56px;
+    background:
+      radial-gradient(120% 90% at 82% 12%,#f6e5d8 0%,rgba(246,229,216,0) 55%),
+      radial-gradient(110% 100% at 12% 96%,#efe1d5 0%,rgba(239,225,213,0) 50%),
+      var(--bg);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;width:100%}
+  .hero-copy .eyebrow{display:inline-block;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.8rem,7vw,5rem);color:var(--brown);margin-bottom:22px}
+  .hero h1 em{font-style:italic;color:var(--accent-deep)}
+  .hero p.lead{font-size:clamp(1.05rem,1.5vw,1.22rem);color:var(--brown-soft);max-width:30ch;margin-bottom:34px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* HERO ART */
+  .hero-art{position:relative;height:min(560px,74vh);min-height:420px}
+  .blob{
+    position:absolute;inset:6% 4%;border-radius:47% 53% 44% 56%/56% 46% 54% 44%;
+    background:linear-gradient(150deg,var(--brown) 0%,var(--brown-soft) 55%,var(--accent-deep) 100%);
+    box-shadow:0 40px 70px -30px rgba(74,55,40,.55);
+    animation:morph 12s ease-in-out infinite;
+  }
+  @keyframes morph{
+    0%,100%{border-radius:47% 53% 44% 56%/56% 46% 54% 44%}
+    50%{border-radius:54% 46% 58% 42%/45% 55% 45% 55%}
+  }
+  .hero-art .card-float{
+    position:absolute;background:var(--white);border-radius:16px;
+    padding:16px 18px;box-shadow:0 22px 44px -18px rgba(74,55,40,.4);
+    display:flex;align-items:center;gap:12px;
+  }
+  .card-float .dot{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:1.05rem}
+  .card-float small{display:block;font-size:.72rem;color:var(--brown-soft);font-weight:600;letter-spacing:.04em}
+  .card-float strong{font-family:'Fraunces',serif;font-weight:500;font-size:1.02rem;color:var(--brown)}
+  .cf-1{top:9%;left:-6%}
+  .cf-1 .dot{background:#f3e2d6}
+  .cf-2{bottom:11%;right:-7%}
+  .cf-2 .dot{background:#e9d8c9}
+  .cf-3{bottom:38%;left:-9%}
+  .cf-3 .dot{background:#efe0d1}
+
+  /* MARQUEE */
+  .strip{background:var(--brown);color:var(--bg);padding:22px 0;overflow:hidden}
+  .marquee{display:flex;gap:56px;white-space:nowrap;width:max-content;animation:scroll 26s linear infinite}
+  .marquee span{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;display:flex;align-items:center;gap:56px;opacity:.92}
+  .marquee span:before{content:"\2022";color:var(--accent);font-style:normal;font-size:1.1rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* STORY */
+  .story{background:var(--bg)}
+  .story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,84px);align-items:center}
+  .portrait{
+    position:relative;border-radius:var(--r);aspect-ratio:4/5;
+    background:linear-gradient(160deg,#f0ded0,#e4cdb9);
+    display:grid;place-items:center;overflow:hidden;
+    box-shadow:0 30px 60px -34px rgba(74,55,40,.4);
+  }
+  .portrait .initials{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(4rem,10vw,7rem);color:var(--brown);opacity:.9}
+  .portrait .tag{position:absolute;bottom:18px;left:18px;background:var(--brown);color:var(--bg);padding:8px 16px;border-radius:100px;font-size:.8rem;font-weight:600}
+  .story-copy h2{font-size:clamp(2rem,4.4vw,3.1rem);color:var(--brown);margin:16px 0 22px}
+  .story-copy p{color:var(--brown-soft);margin-bottom:16px;max-width:60ch}
+  .story-copy p .hl{color:var(--brown);font-weight:600}
+
+  /* SERVICES */
+  .services{background:var(--bg-2)}
+  .sec-head{max-width:56ch;margin-bottom:clamp(40px,6vw,64px)}
+  .sec-head h2{font-size:clamp(2rem,4.6vw,3.2rem);color:var(--brown);margin-top:14px}
+  .sec-head p{color:var(--brown-soft);margin-top:16px}
+  .svc-list{display:grid;gap:2px;background:var(--line);border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+  .svc{
+    background:var(--bg);padding:clamp(26px,4vw,40px);
+    display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;
+    transition:background .35s var(--ease);
+  }
+  .svc:hover{background:var(--white)}
+  .svc .num{font-family:'Fraunces',serif;font-style:italic;font-size:1.4rem;color:var(--accent-deep);width:44px}
+  .svc h3{font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--brown);margin-bottom:6px}
+  .svc p{color:var(--brown-soft);font-size:.98rem;max-width:52ch}
+  .svc .chev{font-size:1.4rem;color:var(--accent);transition:transform .3s var(--ease)}
+  .svc:hover .chev{transform:translateX(6px)}
+
+  /* COURSES (feature block) */
+  .courses{background:var(--brown);color:var(--bg)}
+  .courses .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,72px);align-items:center}
+  .courses .eyebrow{color:var(--accent)}
+  .courses h2{font-size:clamp(2.1rem,4.8vw,3.4rem);margin:16px 0 20px;color:var(--bg)}
+  .courses h2 em{font-style:italic;color:var(--accent)}
+  .courses p{color:#e6d6c8;max-width:52ch;margin-bottom:28px}
+  .course-points{display:grid;gap:14px;margin-bottom:32px}
+  .course-points li{list-style:none;display:flex;gap:14px;align-items:flex-start;color:#f0e3d6}
+  .course-points .k{color:var(--accent);font-family:'Fraunces',serif;font-style:italic;flex:none}
+  .course-panel{
+    background:linear-gradient(160deg,rgba(255,253,251,.08),rgba(255,253,251,.02));
+    border:1px solid rgba(255,253,251,.16);border-radius:var(--r);
+    padding:clamp(28px,4vw,40px);
+  }
+  .course-panel .big{font-family:'Fraunces',serif;font-size:clamp(2.4rem,6vw,3.6rem);color:var(--bg);line-height:1}
+  .course-panel .big em{font-style:italic;color:var(--accent)}
+  .course-panel .sub{color:#dfcdbd;margin-top:10px}
+  .course-panel hr{border:none;border-top:1px solid rgba(255,253,251,.14);margin:26px 0}
+  .course-panel .row{display:flex;justify-content:space-between;gap:16px;padding:8px 0;color:#ecdfd2;font-size:.96rem}
+  .course-panel .row b{font-weight:600;color:var(--bg)}
+
+  /* WHY (bento) */
+  .why{background:var(--bg)}
+  .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cell{
+    background:var(--bg-2);border-radius:var(--r);padding:clamp(26px,3.4vw,38px);
+    border:1px solid var(--line);
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+  }
+  .cell:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(74,55,40,.35)}
+  .cell .ico{font-size:1.6rem;margin-bottom:16px;display:block}
+  .cell h3{font-size:1.35rem;color:var(--brown);margin-bottom:10px}
+  .cell p{color:var(--brown-soft);font-size:.96rem}
+  .cell.span2{grid-column:span 2;background:var(--brown);color:var(--bg);display:flex;flex-direction:column;justify-content:center}
+  .cell.span2 h3{color:var(--bg);font-size:clamp(1.6rem,3vw,2.2rem)}
+  .cell.span2 p{color:#e6d6c8;max-width:44ch}
+  .cell.accent{background:var(--accent);border-color:var(--accent)}
+  .cell.accent h3,.cell.accent p{color:#3a2a1c}
+
+  /* CONTACT */
+  .contact{background:var(--bg-2)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px);align-items:center}
+  .contact h2{font-size:clamp(2.1rem,4.8vw,3.3rem);color:var(--brown);margin:16px 0 18px}
+  .contact h2 em{font-style:italic;color:var(--accent-deep)}
+  .contact .intro{color:var(--brown-soft);max-width:46ch;margin-bottom:30px}
+  .ig-btn{
+    display:inline-flex;align-items:center;gap:12px;
+    background:linear-gradient(135deg,#8a5a3c,#c78f6a);color:var(--white);
+    padding:16px 28px;border-radius:100px;text-decoration:none;font-weight:700;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .ig-btn:hover{transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(74,55,40,.4)}
+  .ig-btn:active{transform:translateY(1px)}
+  .ig-btn svg{width:22px;height:22px;fill:currentColor}
+  .info-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3.4vw,38px)}
+  .info-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .info-row:last-child{border-bottom:none}
+  .info-row .ic{width:40px;height:40px;border-radius:12px;background:var(--bg-2);display:grid;place-items:center;flex:none;font-size:1.1rem}
+  .info-row small{display:block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:3px}
+  .info-row a,.info-row span{color:var(--brown);font-weight:600;text-decoration:none}
+  .info-row a:hover{color:var(--accent-deep)}
+  .maplink{display:inline-flex;align-items:center;gap:7px;margin-top:16px;color:var(--accent-deep);font-weight:700;text-decoration:none;font-size:.95rem}
+  .maplink:hover{text-decoration:underline}
+
+  /* FOOTER */
+  footer{background:var(--brown);color:#e6d6c8;padding:64px 0 34px}
+  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,253,251,.14)}
+  .foot-brand{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--bg)}
+  .foot-brand span{font-style:italic;color:var(--accent)}
+  .foot-brand p{font-family:'Manrope',sans-serif;font-size:.92rem;margin-top:10px;max-width:34ch}
+  .foot-links{display:flex;gap:30px;flex-wrap:wrap}
+  .foot-links a{color:#e6d6c8;text-decoration:none;font-size:.95rem;font-weight:600}
+  .foot-links a:hover{color:var(--accent)}
+  .foot-bottom{padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.85rem;color:#c9b3a1}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}
+  .reveal.d2{transition-delay:.16s}
+  .reveal.d3{transition-delay:.24s}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-grid,.story-grid,.courses .wrap,.contact-grid{grid-template-columns:1fr}
+    .hero-art{order:-1;height:min(360px,46vh);min-height:300px;margin-bottom:8px}
+    .cf-1{left:2%}.cf-2{right:2%}.cf-3{left:2%}
+    .bento{grid-template-columns:1fr 1fr}
+    .cell.span2{grid-column:span 2}
+    .story-copy{order:2}
+    .portrait{max-width:360px}
+  }
+  @media(max-width:620px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:min(78%,320px);
+      background:var(--bg);flex-direction:column;justify-content:center;gap:26px;
+      padding:40px;transform:translateX(100%);transition:transform .4s var(--ease);
+      box-shadow:-12px 0 40px rgba(74,55,40,.15);
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{font-size:1.1rem}
+    .menu-toggle{display:flex}
+    .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-toggle.open span:nth-child(2){opacity:0}
+    .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .bento{grid-template-columns:1fr}
+    .cell.span2{grid-column:span 1}
+    .svc{grid-template-columns:auto 1fr;gap:16px}
+    .svc .chev{display:none}
+    .svc .num{width:auto}
+    .foot-top{flex-direction:column}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="mark">O</span><b>Ovunque <span>Nails</span></b></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#storia">La storia</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#corsi">Corsi</a>
+      <a href="#contatti" class="btn">Scrivi su Instagram</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">Onicotecnica a Settimo Torinese</span>
+        <h1 class="reveal d1">Unghie curate,<br>mani che <em>parlano</em> di te.</h1>
+        <p class="lead reveal d2">Manicure, pedicure e ricostruzione con la mano di Letizia. E, se vuoi farne un mestiere, corsi per diventare onicotecnica.</p>
+        <div class="hero-cta reveal d3">
+          <a href="#contatti" class="btn">Prenota su Instagram</a>
+          <a href="#corsi" class="btn ghost">Scopri i corsi</a>
+        </div>
+      </div>
+      <div class="hero-art reveal d2" aria-hidden="true">
+        <div class="blob"></div>
+        <div class="card-float cf-1"><span class="dot">&#128140;</span><div><small>Ricostruzione</small><strong>Su misura</strong></div></div>
+        <div class="card-float cf-2"><span class="dot">&#127793;</span><div><small>Cura naturale</small><strong>Mani e piedi</strong></div></div>
+        <div class="card-float cf-3"><span class="dot">&#127891;</span><div><small>Formazione</small><strong>Corsi manicure</strong></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="strip" aria-hidden="true">
+    <div class="marquee">
+      <span>Manicure<span></span></span><span>Pedicure<span></span></span><span>Ricostruzione<span></span></span><span>Cura delle unghie<span></span></span><span>Corsi per onicotecniche<span></span></span>
+      <span>Manicure<span></span></span><span>Pedicure<span></span></span><span>Ricostruzione<span></span></span><span>Cura delle unghie<span></span></span><span>Corsi per onicotecniche<span></span></span>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story" id="storia">
+    <div class="wrap story-grid">
+      <div class="portrait reveal" aria-label="Ritratto di Letizia, onicotecnica">
+        <span class="initials">L</span>
+        <span class="tag">Letizia</span>
+      </div>
+      <div class="story-copy">
+        <span class="eyebrow reveal">Chi c'e' dietro</span>
+        <h2 class="reveal d1">Una realta' giovane,<br>fatta di dettagli.</h2>
+        <p class="reveal d1">Ovunque Nails nasce dalla passione di <span class="hl">Letizia</span> per le mani curate e per il lavoro fatto bene. Ogni set e' pensato sulla persona: forma, lunghezza e finitura scelte insieme, senza fretta.</p>
+        <p class="reveal d2">Qui non trovi la solita catena. Trovi ascolto, prodotti selezionati e una cura che si vede a distanza di settimane. E quando la passione diventa voglia di imparare, Letizia insegna il mestiere a chi vuole iniziare da zero.</p>
+        <p class="reveal d3">Tutto passa da Instagram: e' lo spazio dove Letizia mostra i lavori veri, giorno dopo giorno, e dove ti risponde di persona.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servizi">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">I servizi</span>
+        <h2 class="reveal d1">Tutto quello che serve alle tue mani e ai tuoi piedi.</h2>
+        <p class="reveal d2">Servizi curati nei tempi giusti, con finiture che durano e un risultato pulito che resta bello a lungo.</p>
+      </div>
+      <div class="svc-list reveal">
+        <div class="svc">
+          <span class="num">01</span>
+          <div><h3>Manicure</h3><p>Unghie ordinate, cuticole a posto e uno smalto che dura. La base perfetta per mani sempre curate.</p></div>
+          <span class="chev">&#8594;</span>
+        </div>
+        <div class="svc">
+          <span class="num">02</span>
+          <div><h3>Pedicure</h3><p>Piedi sani e leggeri, trattati con delicatezza. Cura estetica e benessere nello stesso momento.</p></div>
+          <span class="chev">&#8594;</span>
+        </div>
+        <div class="svc">
+          <span class="num">03</span>
+          <div><h3>Ricostruzione unghie</h3><p>Allungamento e struttura su misura, resistenti e naturali. La forma che desideri, costruita con precisione.</p></div>
+          <span class="chev">&#8594;</span>
+        </div>
+        <div class="svc">
+          <span class="num">04</span>
+          <div><h3>Cura delle unghie</h3><p>Trattamenti mirati per unghie fragili o rovinate, per riportarle in salute passo dopo passo.</p></div>
+          <span class="chev">&#8594;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section class="courses" id="corsi">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow reveal">La scuola</span>
+        <h2 class="reveal d1">Corsi di manicure per <em>chi vuole iniziare</em>.</h2>
+        <p class="reveal d1">Se sogni di lavorare con le unghie, Letizia ti accompagna dalle basi fino alla pratica reale. Un percorso concreto, pensato per chi parte da zero e vuole imparare a lavorare davvero.</p>
+        <ul class="course-points">
+          <li class="reveal d1"><span class="k">01</span><span>Teoria essenziale e sicurezza: igiene, prodotti e strumenti spiegati con chiarezza.</span></li>
+          <li class="reveal d2"><span class="k">02</span><span>Pratica guidata, passo dopo passo, fino a costruire un set completo con le tue mani.</span></li>
+          <li class="reveal d3"><span class="k">03</span><span>Consigli reali per iniziare a lavorare, dalla prima cliente alla comunicazione social.</span></li>
+        </ul>
+        <a href="#contatti" class="btn ghost reveal d2" style="border-color:var(--accent);color:var(--accent)">Chiedi i dettagli</a>
+      </div>
+      <div class="course-panel reveal d1">
+        <div class="big">Da zero a <em>onicotecnica</em></div>
+        <p class="sub">Un percorso pratico, ritmi umani, attenzione vera.</p>
+        <hr>
+        <div class="row"><span>Livello</span><b>Base e avanzato</b></div>
+        <div class="row"><span>Formato</span><b>In presenza a Settimo</b></div>
+        <div class="row"><span>Adatto a</span><b>Principianti e appassionate</b></div>
+        <div class="row"><span>Iscrizioni</span><b>Via Instagram DM</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Perche' Ovunque Nails</span>
+        <h2 class="reveal d1">Piccola realta', grande cura.</h2>
+      </div>
+      <div class="bento">
+        <div class="cell span2 reveal">
+          <h3>Un rapporto diretto, non un numero in fila</h3>
+          <p>Ogni appuntamento e' seguito da Letizia in persona. Ti ascolta, capisce cosa vuoi e lavora finche' il risultato non ti convince davvero.</p>
+        </div>
+        <div class="cell accent reveal d1">
+          <span class="ico">&#10024;</span>
+          <h3>Finiture che durano</h3>
+          <p>Tecnica pulita e prodotti selezionati: le tue unghie restano belle settimana dopo settimana.</p>
+        </div>
+        <div class="cell reveal">
+          <span class="ico">&#129498;</span>
+          <h3>Su misura</h3>
+          <p>Forma, colore e stile scelti insieme, sul tuo gusto e sulle tue mani.</p>
+        </div>
+        <div class="cell reveal d1">
+          <span class="ico">&#127891;</span>
+          <h3>Anche formazione</h3>
+          <p>Non solo servizio: qui impari il mestiere se vuoi farne una professione.</p>
+        </div>
+        <div class="cell reveal d2">
+          <span class="ico">&#128241;</span>
+          <h3>Sempre aggiornata</h3>
+          <p>I lavori veri li vedi ogni giorno su Instagram, prima ancora di prenotare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contatti">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="eyebrow reveal">Contatti</span>
+        <h2 class="reveal d1">Scrivimi su <em>Instagram</em>.</h2>
+        <p class="intro reveal d1">Prenotazioni, corsi e informazioni passano tutti dai messaggi diretti di Instagram. Mandami un DM: ti rispondo io, e organizziamo il tuo appuntamento.</p>
+        <a href="https://www.instagram.com/ovunquenails/" target="_blank" rel="noopener" class="ig-btn reveal d2">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.9.07s-3.63 0-4.9-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.14 0-3.51.01-4.75.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.21 8.49 3.2 8.86 3.2 12s.01 3.51.07 4.75c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.51 4.01 15.14 4 12 4Zm0 3.06A4.94 4.94 0 1 1 12 16.94 4.94 4.94 0 0 1 12 7.06Zm0 1.8A3.14 3.14 0 1 0 12 15.14 3.14 3.14 0 0 0 12 8.86Zm5.14-3.05a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/></svg>
+          @ovunquenails
+        </a>
+      </div>
+      <div class="info-card reveal d1">
+        <div class="info-row">
+          <span class="ic">&#128205;</span>
+          <div><small>Dove siamo</small><span>Via Astegiano 10A, 10036 Settimo Torinese (TO)</span>
+          <br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Via+Astegiano+10A+Settimo+Torinese" target="_blank" rel="noopener">Apri su Google Maps &#8594;</a></div>
+        </div>
+        <div class="info-row">
+          <span class="ic">&#128241;</span>
+          <div><small>Prenotazioni</small><a href="https://www.instagram.com/ovunquenails/" target="_blank" rel="noopener">Instagram Direct &#64;ovunquenails</a></div>
+        </div>
+        <div class="info-row">
+          <span class="ic">&#127891;</span>
+          <div><small>Corsi</small><span>Informazioni e iscrizioni via DM</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">Ovunque <span>Nails</span> di Letizia
+        <p>Onicotecnica e corsi di manicure a Settimo Torinese. Mani e piedi curati, formazione per chi vuole imparare.</p>
+      </div>
+      <nav class="foot-links">
+        <a href="#storia">La storia</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#corsi">Corsi</a>
+        <a href="#contatti">Contatti</a>
+        <a href="https://www.instagram.com/ovunquenails/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Ovunque Nails di Letizia &middot; Via Astegiano 10A, Settimo Torinese (TO)</span>
+      <span>Realizzato con cura per Letizia.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav background on scroll
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Mobile menu
+  const toggle=document.getElementById('menuToggle');
+  const links=document.getElementById('navLinks');
+  toggle.addEventListener('click',()=>{
+    const open=links.classList.toggle('open');
+    toggle.classList.toggle('open',open);
+    toggle.setAttribute('aria-label',open?'Chiudi il menu':'Apri il menu');
+  });
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    links.classList.remove('open');toggle.classList.remove('open');
+  }));
+
+  // Scroll reveal
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Year
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
