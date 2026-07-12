@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barber Garage Chivasso | Andrea Lamura Barber</title>
+<meta name="description" content="Barber Garage a Chivasso, la barberia di Andrea Lamura vicino alla stazione. Fade, sfumature, buzz cut e barba. Stile garage, mani vere, prenotazione online.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314100b'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' fill='%23b5813f' font-family='Arial Black,sans-serif' font-weight='900'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14100b;        /* warm off-black */
+    --ink-soft:#1e1811;
+    --cream:#f5f0e8;      /* brand tee */
+    --cream-dim:#c9c0b1;
+    --camel:#b5813f;      /* brand apron */
+    --camel-bright:#cd9a54;
+    --line:rgba(245,240,232,.14);
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.01em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{position:relative}
+  .eyebrow{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--camel-bright);font-weight:600}
+
+  /* ---------- NAV ---------- */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
+  header.solid{background:rgba(15,12,8,.85);backdrop-filter:blur(12px);border-bottom-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+  .brand span{color:var(--camel-bright)}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--camel);box-shadow:0 0 0 4px rgba(181,129,63,.22)}
+  .nav-links{display:none;gap:34px;font-size:14px;letter-spacing:.04em;font-weight:500}
+  .nav-links a{color:var(--cream-dim);transition:color .25s}
+  .nav-links a:hover{color:var(--cream)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;letter-spacing:.02em;padding:14px 26px;border-radius:999px;transition:transform .18s ease,background .25s,color .25s,border-color .25s;white-space:nowrap;cursor:pointer;border:1px solid transparent}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--camel);color:#1a1206;font-weight:700}
+  .btn-primary:hover{background:var(--camel-bright)}
+  .btn-ghost{border-color:var(--line);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--camel);color:var(--camel-bright)}
+  .nav .btn{padding:11px 22px}
+  @media(min-width:900px){.nav-links{display:flex}}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100dvh;display:flex;align-items:center;padding:96px 0 48px;overflow:hidden}
+  .hero-glow{position:absolute;width:70vmax;height:70vmax;right:-22vmax;top:-14vmax;background:radial-gradient(circle,rgba(181,129,63,.30),transparent 62%);filter:blur(20px);pointer-events:none;z-index:0}
+  .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 60% 40%,#000,transparent 78%);opacity:.55;z-index:0}
+  .hero-inner{position:relative;z-index:2;display:grid;gap:40px;align-items:center;width:100%}
+  @media(min-width:960px){.hero-inner{grid-template-columns:1.15fr .85fr}}
+  .hero h1{font-size:clamp(3.6rem,15vw,8.8rem)}
+  .hero h1 em{font-style:normal;color:var(--camel-bright);display:block}
+  .hero p.lead{margin:26px 0 32px;max-width:34ch;font-size:clamp(1rem,3.5vw,1.2rem);color:var(--cream-dim)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-tag{margin-top:34px;display:flex;align-items:center;gap:14px;font-size:14px;color:var(--cream-dim);letter-spacing:.02em}
+  .hero-tag b{color:var(--cream);font-weight:600}
+
+  /* razor visual */
+  .razor{position:relative;justify-self:center;width:100%;max-width:360px;aspect-ratio:1/1;display:grid;place-items:center}
+  .razor svg{width:100%;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+  .razor .ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(181,129,63,.4);animation:spin 34s linear infinite}
+  .razor .ring.two{inset:34px;border-color:rgba(245,240,232,.08);animation-duration:22s;animation-direction:reverse}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(max-width:600px){.razor{max-width:250px;margin-top:8px}}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{border-block:1px solid var(--line);background:var(--ink-soft);overflow:hidden;padding:20px 0}
+  .marquee-track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:slide 26s linear infinite;font-family:'Anton',sans-serif;font-size:clamp(1.7rem,5vw,2.6rem);text-transform:uppercase;letter-spacing:.03em}
+  .marquee-track span{color:transparent;-webkit-text-stroke:1px var(--cream-dim)}
+  .marquee-track span.fill{color:var(--camel);-webkit-text-stroke:0}
+  .marquee-track .star{color:var(--camel);-webkit-text-stroke:0}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- STORY ---------- */
+  .story{padding:110px 0}
+  .story-grid{display:grid;gap:48px}
+  @media(min-width:920px){.story-grid{grid-template-columns:.9fr 1.1fr;gap:70px;align-items:end}}
+  .story h2{font-size:clamp(2.6rem,8vw,4.6rem);margin:18px 0 0}
+  .story h2 em{font-style:normal;color:var(--camel-bright)}
+  .story .body p{margin-bottom:20px;color:var(--cream-dim)}
+  .story .body p strong{color:var(--cream);font-weight:600}
+  .stat-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .stat{flex:1 1 140px;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .stat b{font-family:'Anton',sans-serif;font-size:2.3rem;color:var(--camel-bright);display:block;line-height:1}
+  .stat small{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim)}
+
+  /* ---------- SERVICES (bento) ---------- */
+  .services{padding:100px 0}
+  .sec-head{max-width:60ch;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(2.4rem,7vw,4rem);margin-top:14px}
+  .sec-head p{color:var(--cream-dim);margin-top:16px;max-width:52ch}
+  .bento{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:720px){.bento{grid-template-columns:repeat(3,1fr)}}
+  .svc{position:relative;border:1px solid var(--line);border-radius:20px;padding:30px;background:linear-gradient(160deg,var(--ink-soft),rgba(30,24,17,.2));min-height:200px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s ease,border-color .3s ease}
+  .svc:hover{transform:translateY(-6px);border-color:rgba(181,129,63,.55)}
+  .svc .num{font-family:'Anton',sans-serif;font-size:1.1rem;color:var(--camel);letter-spacing:.1em}
+  .svc h3{font-size:1.7rem;margin-top:auto}
+  .svc p{color:var(--cream-dim);font-size:15px;margin-top:10px}
+  @media(min-width:720px){.svc.wide{grid-column:span 2}}
+  .svc.feature{background:linear-gradient(150deg,var(--camel),#8a5f28);color:#1c1305}
+  .svc.feature .num{color:#3a2a11}
+  .svc.feature p{color:#3a2a11;opacity:.85}
+
+  /* ---------- WHY (numbered rows) ---------- */
+  .why{padding:100px 0;border-top:1px solid var(--line)}
+  .why-list{display:grid;gap:0;margin-top:40px}
+  .why-row{display:grid;grid-template-columns:auto 1fr;gap:22px;padding:30px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  @media(min-width:760px){.why-row{grid-template-columns:90px 1fr 1.3fr;gap:34px;align-items:center}}
+  .why-row .idx{font-family:'Anton',sans-serif;font-size:2rem;color:var(--camel)}
+  .why-row h3{font-size:clamp(1.4rem,4.5vw,2rem)}
+  .why-row p{color:var(--cream-dim);font-size:15.5px}
+  .why-row:hover h3{color:var(--camel-bright)}
+  .why-row h3{transition:color .3s}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:104px 0 40px}
+  .contact-card{border:1px solid var(--line);border-radius:26px;padding:clamp(30px,6vw,64px);background:linear-gradient(160deg,var(--ink-soft),rgba(20,16,11,.4));position:relative;overflow:hidden}
+  .contact-card .glow{position:absolute;width:40vmax;height:40vmax;left:-12vmax;bottom:-20vmax;background:radial-gradient(circle,rgba(181,129,63,.22),transparent 65%);pointer-events:none}
+  .contact-grid{position:relative;display:grid;gap:40px}
+  @media(min-width:860px){.contact-grid{grid-template-columns:1.1fr .9fr;gap:60px}}
+  .contact h2{font-size:clamp(2.5rem,8vw,4.4rem);margin:16px 0 20px}
+  .contact h2 em{font-style:normal;color:var(--camel-bright)}
+  .contact .lead{color:var(--cream-dim);max-width:40ch;margin-bottom:30px}
+  .info{display:grid;gap:22px;align-content:start}
+  .info a.item,.info div.item{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);border-radius:16px;transition:border-color .25s,transform .18s}
+  .info a.item:hover{border-color:var(--camel);transform:translateY(-2px)}
+  .info .ic{width:40px;height:40px;flex:none;border-radius:11px;background:rgba(181,129,63,.14);display:grid;place-items:center;color:var(--camel-bright)}
+  .info .ic svg{width:20px;height:20px}
+  .info small{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:3px}
+  .info b{font-weight:600;font-size:16px}
+  .contact-cta{margin-top:12px;display:flex;flex-wrap:wrap;gap:14px}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0}
+  .foot{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;color:var(--cream-dim);font-size:13.5px}
+  .foot .brand{font-size:19px;color:var(--cream)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .razor .ring,.marquee-track{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="dot" aria-hidden="true"></span>Barber<span>&nbsp;Garage</span></a>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#storia">La storia</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perché noi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a href="#contatti" class="btn btn-primary">Prenota</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="grid-lines" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow reveal">Chivasso · dal garage alla poltrona</p>
+        <h1 class="reveal" style="transition-delay:.06s">Tagli<br>con la<em>testa nel motore</em></h1>
+        <p class="lead reveal" style="transition-delay:.12s">La barberia di Andrea Lamura, a due passi dalla stazione. Fade puliti, buzz cut precisi e barba curata, con l&rsquo;anima rock di un vero garage.</p>
+        <div class="hero-cta reveal" style="transition-delay:.18s">
+          <a href="#contatti" class="btn btn-primary">Prenota il taglio</a>
+          <a href="https://www.instagram.com/andrea_lamura_barber/" target="_blank" rel="noopener" class="btn btn-ghost">Guarda i lavori</a>
+        </div>
+        <div class="hero-tag reveal" style="transition-delay:.24s">
+          <b>11.200</b> follower seguono ogni fade su Instagram
+        </div>
+      </div>
+      <div class="razor reveal" style="transition-delay:.15s" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring two"></div>
+        <svg viewBox="0 0 200 200" fill="none">
+          <defs>
+            <linearGradient id="blade" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f5f0e8"/>
+              <stop offset="1" stop-color="#b9b0a1"/>
+            </linearGradient>
+          </defs>
+          <g transform="rotate(-30 100 100)">
+            <!-- blade -->
+            <path d="M30 78 Q60 60 150 70 Q168 72 168 82 Q168 92 150 92 Q60 96 34 90 Q26 88 30 78Z" fill="url(#blade)"/>
+            <path d="M40 80 Q90 74 150 78" stroke="#8f867a" stroke-width="1.4" fill="none" opacity=".6"/>
+            <!-- pivot -->
+            <circle cx="150" cy="82" r="6.5" fill="#1e1811" stroke="#b5813f" stroke-width="2"/>
+            <!-- handle -->
+            <path d="M150 90 Q120 118 60 138 Q46 143 46 132 Q46 124 58 120 Q118 100 146 84" fill="#b5813f"/>
+            <path d="M150 92 Q118 120 62 138" stroke="#8a5f28" stroke-width="2" fill="none"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="fill">Fade</span><span class="star">✦</span>
+      <span>Buzz Cut</span><span class="star">✦</span>
+      <span class="fill">Barba</span><span class="star">✦</span>
+      <span>Sfumature</span><span class="star">✦</span>
+      <span class="fill">Taglio Uomo</span><span class="star">✦</span>
+      <span>Fade</span><span class="star">✦</span>
+      <span class="fill">Buzz Cut</span><span class="star">✦</span>
+      <span>Barba</span><span class="star">✦</span>
+      <span class="fill">Sfumature</span><span class="star">✦</span>
+      <span>Taglio Uomo</span><span class="star">✦</span>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story" id="storia">
+    <div class="wrap story-grid">
+      <div class="reveal">
+        <p class="eyebrow">La storia</p>
+        <h2>Un garage,<br>due <em>mani</em><br>e tanta cura</h2>
+      </div>
+      <div class="body reveal" style="transition-delay:.1s">
+        <p><strong>Andrea Lamura</strong> ha imparato il mestiere sul campo, con circa dieci anni di esperienza e una formazione portata anche fuori dai confini. Da lì è nato Barber Garage: uno spazio dove l&rsquo;estetica moto e l&rsquo;odore di officina incontrano una lama precisa.</p>
+        <p>Qui il taglio non è un servizio veloce e via. È un momento tuo, fatto di ascolto, tecnica e un&rsquo;attenzione al dettaglio che si vede nei reel seguiti da migliaia di persone.</p>
+        <p>La famiglia Lamura è conosciuta in città anche per il cuore: <strong>tagli gratuiti a chi vive un momento di difficoltà</strong>. Perché sentirsi in ordine è una cosa che spetta a tutti.</p>
+        <div class="stat-row">
+          <div class="stat"><b>10</b><small>anni di mano</small></div>
+          <div class="stat"><b>11,2K</b><small>follower</small></div>
+          <div class="stat"><b>Chivasso</b><small>vicino alla stazione</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servizi">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Cosa facciamo</p>
+        <h2>Servizi del garage</h2>
+        <p>Poche cose, fatte bene. Ogni taglio esce definito, ordinato e pensato sulla tua testa, non su un catalogo.</p>
+      </div>
+      <div class="bento">
+        <article class="svc feature wide reveal">
+          <span class="num">01</span>
+          <div>
+            <h3>Fade &amp; Sfumature</h3>
+            <p>Il marchio di fabbrica. Passaggi netti dal rasato alla lunghezza, sfumati a regola d&rsquo;arte fino all&rsquo;ultimo millimetro.</p>
+          </div>
+        </article>
+        <article class="svc reveal" style="transition-delay:.06s">
+          <span class="num">02</span>
+          <h3>Buzz Cut</h3>
+          <p>Rasato uniforme e deciso. Semplice fuori, curatissimo nell&rsquo;esecuzione.</p>
+        </article>
+        <article class="svc reveal" style="transition-delay:.04s">
+          <span class="num">03</span>
+          <h3>Taglio Uomo</h3>
+          <p>Il tuo stile, aggiornato. Forbice e macchinetta per una forma che regge la settimana.</p>
+        </article>
+        <article class="svc wide reveal" style="transition-delay:.08s">
+          <span class="num">04</span>
+          <div>
+            <h3>Barba &amp; Rifinitura</h3>
+            <p>Contorni disegnati, lunghezza calibrata e panno caldo. La barba che completa il taglio, non che lo combatte.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why" id="perche">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Perché scegliere il Garage</p>
+        <h2>Quattro buoni motivi</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-row reveal">
+          <span class="idx">01</span>
+          <h3>Mano esperta</h3>
+          <p>Dieci anni di lavoro e formazione anche all&rsquo;estero, in ogni sfumatura che tracciamo.</p>
+        </div>
+        <div class="why-row reveal">
+          <span class="idx">02</span>
+          <h3>Identità vera</h3>
+          <p>Un&rsquo;estetica garage e rock che non trovi altrove a Chivasso. Uno stile, non una posa.</p>
+        </div>
+        <div class="why-row reveal">
+          <span class="idx">03</span>
+          <h3>Cuore in città</h3>
+          <p>Tagli gratuiti a chi è in difficoltà. La barberia che restituisce qualcosa al quartiere.</p>
+        </div>
+        <div class="why-row reveal">
+          <span class="idx">04</span>
+          <h3>Prenoti in un tap</h3>
+          <p>Niente attese al telefono. Fissi il tuo posto online quando vuoi, giorno e notte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contatti">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="contact-grid">
+          <div>
+            <p class="eyebrow">Passa a trovarci</p>
+            <h2>Pronto per il<br>tuo <em>prossimo taglio?</em></h2>
+            <p class="lead">Prenoti online tramite ZetaBarber e scegli il tuo orario. Ti aspettiamo in officina, a due passi dalla stazione di Chivasso.</p>
+            <div class="contact-cta">
+              <a href="https://www.instagram.com/andrea_lamura_barber/" target="_blank" rel="noopener" class="btn btn-primary">Prenota su Instagram</a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Via+Caduti+per+la+Libert%C3%A0+10%2FB+Chivasso" target="_blank" rel="noopener" class="btn btn-ghost">Apri la mappa</a>
+            </div>
+          </div>
+          <div class="info">
+            <a class="item" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Caduti+per+la+Libert%C3%A0+10%2FB+Chivasso" target="_blank" rel="noopener">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <div><small>Indirizzo</small><b>Via Caduti per la Libertà 10/B, 10034 Chivasso (TO)</b></div>
+            </a>
+            <a class="item" href="https://www.instagram.com/andrea_lamura_barber/" target="_blank" rel="noopener">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+              <div><small>Instagram</small><b>@andrea_lamura_barber</b></div>
+            </a>
+            <div class="item">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+              <div><small>Prenotazioni</small><b>Online tramite ZetaBarber, su appuntamento</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="brand"><span class="dot" aria-hidden="true"></span>Barber Garage</a>
+    <span>Via Caduti per la Libertà 10/B, Chivasso (TO)</span>
+    <span>© <span id="yr"></span> Barber Garage · Andrea Lamura</span>
+  </div>
+</footer>
+
+<script>
+  // header background on scroll
+  var hdr=document.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('solid',window.scrollY>24)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
