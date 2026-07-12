@@ -1,0 +1,584 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Merylink Tattoo Studio | Tatuaggi a Settimo Torinese</title>
+<meta name="description" content="Merylink Tattoo Studio di Meryl Sachespi, in centro a Settimo Torinese. Tatuaggi su appuntamento, walk-in la domenica, cover-up ed eventi. Artisti resident con stili diversi." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23c9a24b' font-family='Georgia,serif'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --gold: #c9a24b;
+    --gold-soft: #d9b968;
+    --gold-deep: #9c7a2f;
+    --ink: #0b0b0d;
+    --ink-2: #131317;
+    --ink-3: #1b1b20;
+    --line: rgba(201, 162, 75, 0.22);
+    --paper: #ece7db;
+    --muted: #9c968a;
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --font-body: "Manrope", system-ui, sans-serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.05; letter-spacing: 0.01em; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { width: min(1180px, 90vw); margin-inline: auto; }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .gold { color: var(--gold); }
+  .it { font-style: italic; color: var(--gold-soft); }
+
+  /* ---------- HEADER ---------- */
+  header {
+    position: fixed; inset: 0 0 auto 0; z-index: 60;
+    transition: background .5s var(--ease), border-color .5s var(--ease), backdrop-filter .5s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled {
+    background: rgba(11, 11, 13, 0.82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand .mono {
+    width: 38px; height: 38px; border: 1px solid var(--gold); border-radius: 50%;
+    display: grid; place-items: center; font-family: var(--font-display);
+    color: var(--gold); font-size: 1.3rem; font-weight: 600; flex: none;
+  }
+  .brand b { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; letter-spacing: 0.02em; }
+  .brand small { display: block; font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: none; gap: 34px; align-items: center; }
+  .nav-links a { font-size: 0.82rem; letter-spacing: 0.05em; color: var(--paper); opacity: .82; transition: opacity .3s, color .3s; }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta {
+    display: none; padding: 11px 22px; border: 1px solid var(--gold); border-radius: 40px;
+    color: var(--gold); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+    transition: background .35s var(--ease), color .35s var(--ease), transform .2s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--ink); }
+  .nav-cta:active { transform: translateY(1px); }
+  @media (min-width: 900px) {
+    .nav-links { display: flex; }
+    .nav-cta { display: inline-block; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; min-height: 100dvh; display: flex; align-items: center;
+    padding-top: 90px; overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 50% -10%, rgba(201,162,75,0.14), transparent 55%),
+      radial-gradient(80% 60% at 100% 110%, rgba(201,162,75,0.08), transparent 60%),
+      var(--ink);
+  }
+  .hero-ornament {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: min(760px, 120vw); opacity: 0.09; color: var(--gold); pointer-events: none;
+    animation: floaty 14s ease-in-out infinite;
+  }
+  @keyframes floaty { 0%,100% { transform: translate(-50%, -52%); } 50% { transform: translate(-50%, -48%); } }
+  .hero-inner { position: relative; z-index: 2; max-width: 760px; }
+  .hero h1 { font-size: clamp(3rem, 11vw, 6.4rem); letter-spacing: -0.01em; }
+  .hero h1 .sub-line { display: block; }
+  .hero-lead { margin-top: 22px; font-size: clamp(1rem, 2.4vw, 1.18rem); color: #cfc9bc; max-width: 34ch; }
+  .hero-actions { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 44px;
+    font-family: var(--font-body); font-weight: 600; font-size: 0.92rem; letter-spacing: 0.02em;
+    transition: transform .2s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease);
+    white-space: nowrap; cursor: pointer; border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--gold); color: var(--ink); box-shadow: 0 10px 30px -12px rgba(201,162,75,0.7); }
+  .btn-primary:hover { background: var(--gold-soft); transform: translateY(-2px); box-shadow: 0 16px 40px -14px rgba(201,162,75,0.85); }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--paper); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .btn-ghost:active { transform: translateY(1px); }
+
+  .hero-meta {
+    position: absolute; left: 0; right: 0; bottom: 26px; z-index: 2;
+    display: flex; gap: 26px; align-items: center; flex-wrap: wrap;
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 9px; }
+  .hero-meta i { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); font-style: normal; }
+
+  /* ---------- SECTION SHARED ---------- */
+  section { position: relative; }
+  .band { padding: clamp(84px, 12vw, 150px) 0; }
+  .sec-head { max-width: 62ch; }
+  .sec-head h2 { font-size: clamp(2.2rem, 6vw, 4rem); margin-top: 16px; }
+  .sec-head p { margin-top: 18px; color: #cfc9bc; max-width: 60ch; }
+
+  .rule { height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+
+  /* ---------- STORY (editorial split) ---------- */
+  .story { background: var(--ink-2); }
+  .story-grid { display: grid; gap: 46px; align-items: center; }
+  @media (min-width: 880px) { .story-grid { grid-template-columns: 0.95fr 1.05fr; gap: 70px; } }
+  .story-visual {
+    position: relative; aspect-ratio: 4/5; border: 1px solid var(--line); border-radius: 6px;
+    background:
+      radial-gradient(80% 60% at 50% 20%, rgba(201,162,75,0.16), transparent 60%),
+      var(--ink-3);
+    display: grid; place-items: center; overflow: hidden;
+  }
+  .story-visual .crest { width: 62%; color: var(--gold); opacity: 0.9; }
+  .story-visual .ring {
+    position: absolute; inset: 16px; border: 1px solid var(--line); border-radius: 4px;
+  }
+  .story-copy h2 { font-size: clamp(2rem, 5.5vw, 3.4rem); }
+  .story-copy p { margin-top: 22px; color: #cfc9bc; }
+  .story-copy p + p { margin-top: 16px; }
+  .signature { margin-top: 30px; font-family: var(--font-display); font-style: italic; font-size: 1.5rem; color: var(--gold); }
+  .signature small { display: block; font-family: var(--font-body); font-style: normal; font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+  /* ---------- SERVICES (bento) ---------- */
+  .bento { display: grid; gap: 16px; margin-top: 54px; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1020px) { .bento { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 1fr; } }
+  .cell {
+    border: 1px solid var(--line); border-radius: 8px; padding: 30px; position: relative;
+    background: linear-gradient(160deg, var(--ink-2), var(--ink));
+    transition: border-color .4s var(--ease), transform .4s var(--ease), background .4s var(--ease);
+    min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .cell:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .cell .num { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); }
+  .cell h3 { font-size: 1.7rem; margin-top: 24px; }
+  .cell p { margin-top: 12px; color: var(--muted); font-size: 0.95rem; }
+  @media (min-width: 1020px) {
+    .cell.wide { grid-column: span 4; }
+    .cell.tall { grid-column: span 2; }
+    .cell.half { grid-column: span 3; }
+    .cell.third { grid-column: span 2; }
+  }
+  .cell.feature { background: linear-gradient(155deg, rgba(201,162,75,0.16), rgba(201,162,75,0.03)); border-color: var(--line); }
+  .cell.feature h3 { color: var(--paper); }
+
+  /* ---------- WALK-IN STRIP (full width statement) ---------- */
+  .statement { background: var(--gold); color: var(--ink); text-align: center; }
+  .statement .wrap { padding: clamp(70px, 10vw, 120px) 0; }
+  .statement .eyebrow { color: var(--gold-deep); }
+  .statement h2 { font-size: clamp(2.3rem, 8vw, 5rem); margin: 18px auto 0; max-width: 16ch; color: var(--ink); }
+  .statement p { margin: 22px auto 0; max-width: 46ch; color: #3a2f13; font-weight: 500; }
+  .statement .btn-primary { margin-top: 34px; background: var(--ink); color: var(--gold); box-shadow: none; }
+  .statement .btn-primary:hover { background: var(--ink-3); }
+
+  /* ---------- WHY (numbered rows) ---------- */
+  .why { background: var(--ink-2); }
+  .why-list { margin-top: 50px; border-top: 1px solid var(--line); }
+  .why-row {
+    display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: baseline;
+    padding: 30px 0; border-bottom: 1px solid var(--line);
+    transition: padding-left .4s var(--ease);
+  }
+  @media (min-width: 780px) { .why-row { grid-template-columns: 90px 0.9fr 1.4fr; gap: 30px; align-items: center; } }
+  .why-row:hover { padding-left: 12px; }
+  .why-row .idx { font-family: var(--font-display); font-size: 1.6rem; color: var(--gold); }
+  .why-row h3 { font-size: 1.7rem; }
+  .why-row p { color: var(--muted); }
+
+  /* ---------- ARTISTS ---------- */
+  .artists-grid { display: grid; gap: 18px; margin-top: 50px; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .artists-grid { grid-template-columns: repeat(3, 1fr); } }
+  .artist {
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+    background: var(--ink-2); transition: transform .45s var(--ease), border-color .45s var(--ease);
+  }
+  .artist:hover { transform: translateY(-6px); border-color: var(--gold); }
+  .artist .ph {
+    aspect-ratio: 1/1;
+    background:
+      radial-gradient(70% 70% at 50% 30%, rgba(201,162,75,0.22), transparent 65%),
+      var(--ink-3);
+    display: grid; place-items: center; color: var(--gold);
+    font-family: var(--font-display); font-size: 3.4rem; border-bottom: 1px solid var(--line);
+  }
+  .artist .body { padding: 22px 24px 26px; }
+  .artist .role { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+  .artist h3 { font-size: 1.55rem; margin-top: 8px; }
+  .artist a.handle { display: inline-block; margin-top: 14px; font-size: 0.85rem; color: var(--gold); border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .3s; }
+  .artist a.handle:hover { border-color: var(--gold); }
+
+  /* ---------- CONTACT ---------- */
+  .contact { background: var(--ink); }
+  .contact-grid { display: grid; gap: 46px; margin-top: 50px; }
+  @media (min-width: 900px) { .contact-grid { grid-template-columns: 1.05fr 0.95fr; gap: 70px; } }
+  .info-item { padding: 22px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; }
+  .info-item:last-child { border-bottom: 1px solid var(--line); }
+  .info-item .ico { color: var(--gold); font-size: 1.15rem; margin-top: 2px; }
+  .info-item .lbl { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .info-item .val { font-size: 1.15rem; margin-top: 4px; font-family: var(--font-display); }
+  .info-item a.val:hover { color: var(--gold); }
+  .contact-cta {
+    border: 1px solid var(--line); border-radius: 10px; padding: 40px 34px;
+    background: linear-gradient(160deg, rgba(201,162,75,0.10), rgba(201,162,75,0.02));
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .contact-cta h3 { font-size: clamp(1.9rem, 5vw, 2.7rem); }
+  .contact-cta p { margin-top: 14px; color: #cfc9bc; }
+  .contact-cta .btn { margin-top: 26px; }
+  .socials { margin-top: 20px; display: flex; gap: 12px; }
+  .socials a {
+    width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%;
+    display: grid; place-items: center; color: var(--gold);
+    transition: background .35s var(--ease), color .35s var(--ease), transform .2s;
+  }
+  .socials a:hover { background: var(--gold); color: var(--ink); transform: translateY(-3px); }
+  .socials svg { width: 20px; height: 20px; }
+
+  /* ---------- FOOTER ---------- */
+  footer { border-top: 1px solid var(--line); background: var(--ink-2); }
+  .foot { display: flex; flex-wrap: wrap; gap: 18px 40px; justify-content: space-between; align-items: center; padding: 40px 0; }
+  .foot .brand b { font-size: 1.2rem; }
+  .foot p { font-size: 0.8rem; color: var(--muted); }
+  .foot .fnav { display: flex; gap: 22px; flex-wrap: wrap; font-size: 0.82rem; }
+  .foot .fnav a { color: var(--paper); opacity: .8; transition: color .3s, opacity .3s; }
+  .foot .fnav a:hover { color: var(--gold); opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-ornament { animation: none; }
+  }
+</style>
+
+<header id="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Merylink Tattoo Studio, torna su">
+      <span class="mono">M</span>
+      <span>
+        <b>Merylink</b>
+        <small>Tattoo Studio</small>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#studio">Studio</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#artisti">Artisti</a>
+      <a href="#perche">Perche noi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a class="nav-cta" href="tel:+393914618411">Prenota</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-ornament" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <circle cx="100" cy="100" r="78" stroke="currentColor" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="66" stroke="currentColor" stroke-width="0.4"/>
+      <path d="M100 24c14 20 40 26 62 24-14 8-22 26-20 46 12-10 30-10 44-2-18 4-30 22-30 42 20-6 38 2 48 18-22-2-42 10-48 30-6-20-26-32-48-30 10-16 28-24 48-18 0-20-12-38-30-42 14-8 32-8 44 2 2-20-6-38-20-46 22 2 48-4 62-24" stroke="currentColor" stroke-width="0.5" transform="translate(-50 0)"/>
+      <path d="M100 40c22 26 58 32 82 22M100 40C78 66 42 72 18 62" stroke="currentColor" stroke-width="0.4"/>
+      <path d="M100 160c22-26 58-32 82-22M100 160c-22-26-58-32-82-22" stroke="currentColor" stroke-width="0.4"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <p class="eyebrow reveal in">Settimo Torinese &nbsp;&middot;&nbsp; dal cuore del centro</p>
+      <h1 class="reveal in d1" style="margin-top:22px;">
+        Arte sulla<br /><span class="sub-line it">pelle,</span> per te.
+      </h1>
+      <p class="hero-lead reveal in d2">
+        Lo studio di Meryl Sachespi e dei suoi resident artist: tatuaggi su misura, cover-up e domeniche walk-in senza appuntamento.
+      </p>
+      <div class="hero-actions reveal in d3">
+        <a class="btn btn-primary" href="tel:+393914618411">Prenota il tuo tattoo</a>
+        <a class="btn btn-ghost" href="#servizi">Scopri lo studio</a>
+      </div>
+    </div>
+    <div class="wrap hero-meta">
+      <span><i></i> Oltre 500 clienti</span>
+      <span><i></i> Walk-in la domenica</span>
+      <span><i></i> Mar &ndash; Sab su appuntamento</span>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="band story" id="studio">
+    <div class="wrap story-grid">
+      <div class="story-visual reveal">
+        <div class="ring"></div>
+        <svg class="crest" viewBox="0 0 200 220" fill="none" aria-hidden="true">
+          <path d="M100 8c30 0 62 8 84 18v70c0 60-40 96-84 116-44-20-84-56-84-116V26C38 16 70 8 100 8Z" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M100 20c26 0 54 7 72 15v64c0 52-34 84-72 102-38-18-72-50-72-102V35C46 27 74 20 100 20Z" stroke="currentColor" stroke-width="0.5"/>
+          <circle cx="100" cy="92" r="30" stroke="currentColor" stroke-width="1"/>
+          <text x="100" y="104" font-size="34" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond, serif" font-style="italic">M</text>
+          <path d="M64 150c12 8 24 12 36 12s24-4 36-12" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M100 150v22M88 168h24" stroke="currentColor" stroke-width="0.6"/>
+          <path d="M42 78c-10-4-20-4-28 2 8 2 14 8 16 16M158 78c10-4 20-4 28 2-8 2-14 8-16 16" stroke="currentColor" stroke-width="0.6"/>
+        </svg>
+      </div>
+      <div class="story-copy">
+        <p class="eyebrow reveal">La nostra storia</p>
+        <h2 class="reveal d1">Uno studio che <span class="it">e</span> anche una community.</h2>
+        <p class="reveal d1">
+          Merylink nasce nel centro di Settimo Torinese dalla passione di Meryl Sachespi. Qui il tatuaggio non e un servizio veloce: e un dialogo tra la tua idea e la mano di chi la disegna.
+        </p>
+        <p class="reveal d2">
+          Tra resident artist dagli stili diversi e un apprendista che cresce con noi, abbiamo costruito qualcosa di raro: una pagina con oltre 500 clienti registrati, domeniche walk-in affollate e lotterie di Natale attese tutto l anno.
+        </p>
+        <div class="signature reveal d2">
+          Meryl Sachespi
+          <small>Founder &amp; Resident Artist</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="band" id="servizi">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Cosa facciamo</p>
+        <h2 class="reveal d1">Ogni segno, pensato per durare.</h2>
+        <p class="reveal d2">Dal progetto su appuntamento al walk-in della domenica, fino alle coperture piu delicate: scegli il percorso giusto per la tua idea.</p>
+      </div>
+      <div class="bento">
+        <div class="cell wide feature reveal">
+          <span class="num">01</span>
+          <div>
+            <h3>Tatuaggi su appuntamento</h3>
+            <p>Un progetto costruito insieme, dalla bozza al risultato finale. Ci prendiamo il tempo che il tuo tatuaggio merita.</p>
+          </div>
+        </div>
+        <div class="cell tall reveal d1">
+          <span class="num">02</span>
+          <div>
+            <h3>Walk-in la domenica</h3>
+            <p>Niente agenda, solo voglia di tatuarti. La domenica lo studio apre a chi arriva senza appuntamento.</p>
+          </div>
+        </div>
+        <div class="cell third reveal">
+          <span class="num">03</span>
+          <div>
+            <h3>Cover-up</h3>
+            <p>Trasformiamo un vecchio tatuaggio in qualcosa di cui andrai fiero.</p>
+          </div>
+        </div>
+        <div class="cell third reveal d1">
+          <span class="num">04</span>
+          <div>
+            <h3>Piu artisti resident</h3>
+            <p>Stili diversi sotto lo stesso tetto: trovi la mano giusta per il tuo soggetto.</p>
+          </div>
+        </div>
+        <div class="cell third reveal d2">
+          <span class="num">05</span>
+          <div>
+            <h3>Eventi e promo</h3>
+            <p>Lotterie di Natale con buoni tattoo e vantaggi per chi prenota.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT / WALK-IN -->
+  <section class="statement">
+    <div class="wrap reveal">
+      <p class="eyebrow">Il nostro rituale</p>
+      <h2>La domenica ti tatui senza appuntamento.</h2>
+      <p>Passa in Via Mazzini, scegli il tuo soggetto e lascia che l ago faccia il resto. Posti limitati, primo arrivato primo servito.</p>
+      <a class="btn btn-primary" href="tel:+393914618411">Chiama per i dettagli</a>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="band why" id="perche">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Perche Merylink</p>
+        <h2 class="reveal d1">Quattro buoni motivi per fidarti.</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-row reveal">
+          <span class="idx">01</span>
+          <h3>Community vera</h3>
+          <p>Oltre 500 clienti registrati e centinaia di check-in: non sei un numero, entri in una famiglia.</p>
+        </div>
+        <div class="why-row reveal d1">
+          <span class="idx">02</span>
+          <h3>Stili per ogni idea</h3>
+          <p>Piu resident artist con sensibilita diverse, cosi il tuo progetto trova la mano giusta.</p>
+        </div>
+        <div class="why-row reveal d2">
+          <span class="idx">03</span>
+          <h3>In centro a Settimo</h3>
+          <p>A due passi da tutto, in Via Giuseppe Mazzini. Facile da raggiungere, difficile da dimenticare.</p>
+        </div>
+        <div class="why-row reveal d3">
+          <span class="idx">04</span>
+          <h3>Promo e sorprese</h3>
+          <p>Lotterie, buoni regalo e vantaggi per chi prenota: c e sempre un buon motivo per tornare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTISTS -->
+  <section class="band" id="artisti">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Le mani dello studio</p>
+        <h2 class="reveal d1">I nostri resident artist.</h2>
+        <p class="reveal d2">Tre percorsi, una sola cura del dettaglio. Dai un occhiata ai lavori sui profili Instagram.</p>
+      </div>
+      <div class="artists-grid">
+        <article class="artist reveal">
+          <div class="ph">M</div>
+          <div class="body">
+            <p class="role">Founder &middot; Resident</p>
+            <h3>Meryl Sachespi</h3>
+            <a class="handle" href="https://www.instagram.com/merylink_tattoo_shop/" target="_blank" rel="noopener">@merylink_tattoo_studio</a>
+          </div>
+        </article>
+        <article class="artist reveal d1">
+          <div class="ph">A</div>
+          <div class="body">
+            <p class="role">Resident Artist</p>
+            <h3>Menny</h3>
+            <a class="handle" href="https://www.instagram.com/merylink_tattoo_shop/" target="_blank" rel="noopener">@menny_artist</a>
+          </div>
+        </article>
+        <article class="artist reveal d2">
+          <div class="ph">&nbsp;</div>
+          <div class="body">
+            <p class="role">Apprendista</p>
+            <h3>La nuova mano</h3>
+            <a class="handle" href="https://www.instagram.com/merylink_tattoo_shop/" target="_blank" rel="noopener">Segui la crescita</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="band contact" id="contatti">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Vieni a trovarci</p>
+        <h2 class="reveal d1">Prenotiamo il tuo prossimo tattoo.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="info-item">
+            <span class="ico">&#9742;</span>
+            <div>
+              <p class="lbl">Telefono</p>
+              <a class="val" href="tel:+393914618411">391 461 8411</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="ico">&#9906;</span>
+            <div>
+              <p class="lbl">Indirizzo</p>
+              <a class="val" href="https://www.google.com/maps/search/?api=1&query=Via+Giuseppe+Mazzini+2A+10036+Settimo+Torinese" target="_blank" rel="noopener">Via Giuseppe Mazzini 2A<br />10036 Settimo Torinese (TO)</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="ico">&#9200;</span>
+            <div>
+              <p class="lbl">Orari</p>
+              <p class="val">Martedi &ndash; Sabato, su appuntamento<br />Domenica walk-in</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-cta reveal d1">
+          <h3>Hai gia un idea in testa?</h3>
+          <p>Scrivici o chiamaci: raccontaci il soggetto, la zona del corpo e lo stile. Ti aiutiamo a trasformarlo in realta.</p>
+          <a class="btn btn-primary" href="tel:+393914618411">Chiama lo studio</a>
+          <div class="socials">
+            <a href="https://www.instagram.com/merylink_tattoo_shop/" target="_blank" rel="noopener" aria-label="Instagram di Merylink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.facebook.com/MERYLINK12/" target="_blank" rel="noopener" aria-label="Facebook di Merylink">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.5-1.5H17V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.1v2.3H7.7V14h2.8v8h3Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top" aria-label="Merylink Tattoo Studio">
+      <span class="mono">M</span>
+      <span><b>Merylink</b><small>Tattoo Studio</small></span>
+    </a>
+    <nav class="fnav" aria-label="Navigazione footer">
+      <a href="#studio">Studio</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#artisti">Artisti</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <p>&copy; <span id="year"></span> Merylink Tattoo Studio &middot; Settimo Torinese (TO)</p>
+  </div>
+</footer>
+
+<script>
+  // Header background on scroll (throttled via rAF)
+  var header = document.getElementById('site-header');
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        header.classList.toggle('scrolled', window.scrollY > 30);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { io.observe(el); });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
