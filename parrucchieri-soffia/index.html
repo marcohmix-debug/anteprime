@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soffia Hair Studio | Parrucchieri a San Mauro Torinese dal 1958</title>
+<meta name="description" content="Soffia Hair Studio a San Mauro Torinese. Taglio donna e uomo, tagli di tendenza, colore e schiariture. Un salone elegante con una storia dal 1958. Prenota il tuo appuntamento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121110'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23f4f1ea' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#121110;
+    --ink-soft:#26231f;
+    --paper:#f4f1ea;
+    --paper-dim:#e7e2d7;
+    --muted:#9b958a;
+    --line:rgba(244,241,234,.14);
+    --line-dark:rgba(18,17,16,.14);
+    --ease:cubic-bezier(0.16,1,0.3,1);
+    --pad:clamp(1.25rem,5vw,5rem);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(1rem,.95rem + .3vw,1.125rem);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:"Fraunces",Georgia,serif;font-weight:400;line-height:1.02;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--pad)}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-weight:500}
+
+  /* NAV */
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .5s var(--ease),border-color .5s var(--ease);border-bottom:1px solid transparent}
+  header.nav.solid{background:rgba(18,17,16,.82);backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:.7rem;font-family:"Fraunces",serif;font-size:1.35rem;letter-spacing:.02em}
+  .brand .mark{width:26px;height:26px;flex:none}
+  .brand .mark path,.brand .mark line{stroke:var(--paper);stroke-width:1.1;fill:none}
+  .nav-links{display:none;gap:2.2rem;font-size:.9rem;letter-spacing:.02em}
+  .nav-links a{color:var(--paper-dim);transition:color .3s}
+  .nav-links a:hover{color:var(--paper)}
+  .nav-cta{display:none}
+  @media(min-width:900px){.nav-links{display:flex}.nav-cta{display:inline-flex}}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:.92rem;
+    letter-spacing:.02em;white-space:nowrap;
+    padding:.85rem 1.5rem;border-radius:100px;border:1px solid var(--paper);
+    background:var(--paper);color:var(--ink);
+    transition:transform .3s var(--ease),background .3s,color .3s;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--paper);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--paper)}
+  .btn.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .btn .arr{transition:transform .3s var(--ease)}
+  .btn:hover .arr{transform:translateX(3px)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding-top:70px;overflow:hidden}
+  .hero-glow{position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(120% 80% at 78% 18%,rgba(244,241,234,.10),transparent 55%),
+      radial-gradient(100% 90% at 15% 100%,rgba(244,241,234,.05),transparent 60%);
+  }
+  .hero-grid{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(120% 100% at 70% 20%,#000,transparent 75%);
+            mask-image:radial-gradient(120% 100% at 70% 20%,#000,transparent 75%);
+  }
+  .hero-in{position:relative;z-index:2;width:100%;padding-block:clamp(2rem,7vh,5rem)}
+  .hero .flower{width:clamp(52px,9vw,84px);margin-bottom:1.4rem}
+  .hero .flower path,.hero .flower line,.hero .flower circle{stroke:var(--paper);stroke-width:1;fill:none}
+  .hero h1{font-size:clamp(3rem,12.5vw,7.4rem);font-weight:300}
+  .hero h1 em{font-style:italic;font-weight:400}
+  .hero .sub{max-width:33ch;margin-top:1.6rem;color:var(--paper-dim);font-size:clamp(1rem,1rem + .4vw,1.28rem);line-height:1.5}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.3rem}
+  .hero .estab{position:absolute;right:var(--pad);bottom:2.2rem;z-index:2;text-align:right;display:none}
+  .hero .estab .yr{font-family:"Fraunces",serif;font-size:2.4rem;line-height:1}
+  @media(min-width:900px){.hero .estab{display:block}}
+
+  /* SECTIONS */
+  section{position:relative}
+  .band{padding-block:clamp(4.5rem,11vh,9rem)}
+  .band.paper{background:var(--paper);color:var(--ink)}
+  .band.paper .eyebrow{color:#8a8375}
+  .sec-head{max-width:60ch}
+  .sec-head h2{font-size:clamp(2.1rem,6vw,3.7rem);margin-top:1rem}
+  .sec-head p{margin-top:1.1rem;max-width:52ch;color:var(--muted)}
+  .band.paper .sec-head p{color:#6c655a}
+
+  /* STORY */
+  .story{display:grid;gap:clamp(2rem,5vw,4.5rem);grid-template-columns:1fr;align-items:center;margin-top:clamp(2.5rem,5vw,4rem)}
+  @media(min-width:860px){.story{grid-template-columns:1.05fr .95fr}}
+  .story .lead{font-family:"Fraunces",serif;font-size:clamp(1.5rem,3.5vw,2.15rem);line-height:1.28;font-weight:300;letter-spacing:-.01em}
+  .story .lead em{font-style:italic}
+  .story p{margin-top:1.3rem;color:#6c655a;max-width:46ch}
+  .story-visual{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:space-between;padding:2rem}
+  .story-visual .fl{width:64px;align-self:flex-end}
+  .story-visual .fl path,.story-visual .fl line{stroke:var(--paper);stroke-width:.9;fill:none}
+  .story-visual .big{font-family:"Fraunces",serif;font-size:clamp(3.4rem,9vw,5rem);font-weight:300;line-height:.95}
+  .story-visual .cap{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+  /* SERVICES */
+  .svc{margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--line)}
+  .svc-row{display:grid;grid-template-columns:auto 1fr;gap:1rem 1.4rem;padding:1.8rem 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding-left .4s var(--ease)}
+  .svc-row:hover{padding-left:.8rem}
+  .svc-row .no{font-family:"Fraunces",serif;color:var(--muted);font-size:1rem;padding-top:.35rem}
+  .svc-row h3{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:300}
+  .svc-row h3 em{font-style:italic}
+  .svc-row .desc{grid-column:2;color:var(--paper-dim);max-width:44ch;margin-top:.5rem}
+  .svc-row .tag{grid-column:2;justify-self:start;margin-top:.9rem;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:.35rem .9rem}
+  @media(min-width:760px){
+    .svc-row{grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);align-items:center}
+    .svc-row h3{grid-column:2}
+    .svc-row .desc{grid-column:3;margin-top:0}
+    .svc-row .tag{grid-column:3;justify-self:end;margin-top:0}
+  }
+
+  /* WHY - bento */
+  .bento{display:grid;gap:14px;margin-top:clamp(2.5rem,5vw,3.5rem);grid-template-columns:1fr}
+  @media(min-width:720px){.bento{grid-template-columns:repeat(2,1fr)}.bento .span{grid-column:span 2}}
+  @media(min-width:980px){.bento{grid-template-columns:repeat(3,1fr)}.bento .span{grid-column:span 1}.bento .tall{grid-row:span 2}}
+  .cell{border:1px solid var(--line-dark);border-radius:8px;padding:1.9rem;display:flex;flex-direction:column;gap:.6rem;transition:background .4s var(--ease),transform .4s var(--ease)}
+  .cell:hover{background:rgba(18,17,16,.03);transform:translateY(-3px)}
+  .cell.fill{background:var(--ink);color:var(--paper);border-color:var(--ink);justify-content:space-between}
+  .cell .k{font-family:"Fraunces",serif;font-size:clamp(2.4rem,6vw,3.4rem);font-weight:300;line-height:1}
+  .cell h3{font-size:1.35rem;font-weight:500}
+  .cell.fill h3,.cell.fill p{color:var(--paper)}
+  .cell p{color:#6c655a;font-size:.98rem}
+  .cell .fl{width:44px}
+  .cell .fl path,.cell .fl line{stroke:currentColor;stroke-width:1;fill:none;opacity:.6}
+
+  /* INSTAGRAM strip */
+  .ig{display:grid;gap:clamp(1.6rem,4vw,3rem);grid-template-columns:1fr;align-items:center;margin-top:clamp(2rem,4vw,3rem)}
+  @media(min-width:820px){.ig{grid-template-columns:1fr 1fr}}
+  .ig-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .tile{aspect-ratio:1;border-radius:6px;position:relative;overflow:hidden;background:var(--ink-soft);display:flex;align-items:center;justify-content:center}
+  .tile svg{width:46%;opacity:.55}
+  .tile svg path,.tile svg line,.tile svg circle{stroke:var(--paper);stroke-width:1;fill:none}
+  .tile:nth-child(2){background:#1c1a17}
+  .tile:nth-child(3){background:#211e1a}
+  .tile:nth-child(5){background:#211e1a}
+  .tile:nth-child(7){background:#1c1a17}
+  .tile:nth-child(9){background:#211e1a}
+
+  /* CONTACT */
+  .contact{display:grid;gap:clamp(2rem,5vw,3.5rem);grid-template-columns:1fr;margin-top:clamp(2.5rem,5vw,3.5rem)}
+  @media(min-width:880px){.contact{grid-template-columns:1.1fr .9fr}}
+  .info-row{display:flex;justify-content:space-between;gap:1.5rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+  .info-row .lbl{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding-top:.3rem;flex:none}
+  .info-row .val{text-align:right}
+  .info-row .val a{transition:color .3s}
+  .info-row .val a:hover{color:var(--muted)}
+  .info-row .big{font-family:"Fraunces",serif;font-size:clamp(1.3rem,3vw,1.7rem);font-weight:300}
+  .hours-card{background:var(--paper);color:var(--ink);border-radius:10px;padding:clamp(1.6rem,4vw,2.4rem)}
+  .hours-card h3{font-size:1.6rem;font-weight:400;margin-bottom:1.2rem}
+  .hours-line{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--line-dark);font-size:.95rem}
+  .hours-line:last-child{border:0}
+  .hours-line span:first-child{color:#6c655a}
+  .hours-line.closed span:last-child{color:#b0a99b}
+  .contact-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding-block:3rem 2.2rem}
+  .foot-top{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-start}
+  .foot-top .brand{font-size:1.6rem}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:1.3rem;font-size:.9rem;color:var(--paper-dim)}
+  .foot-nav a:hover{color:var(--paper)}
+  .foot-bot{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between;margin-top:2.5rem;font-size:.8rem;color:var(--muted);letter-spacing:.02em}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1!important;transform:none!important;transition:none!important}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" aria-label="Soffia Hair Studio, home">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+        <line x1="20" y1="4" x2="20" y2="36"/><line x1="4" y1="20" x2="36" y2="20"/>
+        <line x1="9" y1="9" x2="31" y2="31"/><line x1="31" y1="9" x2="9" y2="31"/>
+        <circle cx="20" cy="20" r="4.5"/>
+      </svg>
+      Soffia
+    </a>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#storia">Storia</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#salone">Il salone</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a class="btn nav-cta" href="tel:+390118225496">Prenota</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <svg class="flower" viewBox="0 0 80 80" aria-hidden="true">
+      <line x1="40" y1="8" x2="40" y2="72"/><line x1="8" y1="40" x2="72" y2="40"/>
+      <line x1="17" y1="17" x2="63" y2="63"/><line x1="63" y1="17" x2="17" y2="63"/>
+      <circle cx="40" cy="40" r="9"/>
+      <circle cx="40" cy="14" r="4"/><circle cx="40" cy="66" r="4"/>
+      <circle cx="14" cy="40" r="4"/><circle cx="66" cy="40" r="4"/>
+    </svg>
+    <h1>Hair studio<br><em>dal</em> 1958</h1>
+    <p class="sub">Il salone di Cristiano Soffia a San Mauro Torinese. Tagli di tendenza, colore e cura, in un ambiente pensato in ogni dettaglio.</p>
+    <div class="actions">
+      <a class="btn" href="tel:+390118225496">Prenota una seduta<span class="arr" aria-hidden="true">&rarr;</span></a>
+      <a class="btn ghost" href="#servizi">Scopri i servizi</a>
+    </div>
+  </div>
+  <div class="estab" aria-hidden="true">
+    <div class="eyebrow">Established</div>
+    <div class="yr">1958</div>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section class="band paper" id="storia">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">La nostra storia</span>
+      <h2>Una tradizione di famiglia,<br>uno sguardo sempre al presente.</h2>
+    </div>
+    <div class="story">
+      <div class="rv d1">
+        <p class="lead">Da oltre sessant'anni prendersi cura dei capelli e' per noi un mestiere fatto di <em>ascolto, mano e gusto</em>. Cristiano Soffia porta avanti questa eredita' con un team affiatato e una ricerca costante sulle tendenze.</p>
+        <p>Ogni cliente arriva con una storia e una forma del viso diversa. Il nostro lavoro parte da li: capire cosa desideri davvero e trovare il taglio, il colore e lo stile che ti somigliano. Niente formule preconfezionate, solo risultati che ti fanno sentire a tuo agio ogni giorno.</p>
+        <p>Il colore e' firmato dalla nostra specialista Katia La Motta, che unisce tecnica e sensibilita' per schiariture e nuance naturali, luminose e su misura.</p>
+      </div>
+      <div class="story-visual rv d2">
+        <svg class="fl" viewBox="0 0 80 80" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="70"/><line x1="10" y1="40" x2="70" y2="40"/>
+          <line x1="19" y1="19" x2="61" y2="61"/><line x1="61" y1="19" x2="19" y2="61"/>
+          <circle cx="40" cy="40" r="8"/>
+        </svg>
+        <div>
+          <div class="cap">San Mauro Torinese</div>
+          <div class="big">Soffia<br>Hair<br>Studio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="band" id="servizi">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Cosa facciamo</span>
+      <h2>Servizi</h2>
+      <p>Dal taglio quotidiano al progetto colore piu' articolato. Ogni servizio inizia con una consulenza per capire cosa fa per te.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-row rv">
+        <span class="no">01</span>
+        <h3>Taglio <em>donna</em></h3>
+        <p class="desc">Linee studiate sul viso e sulla texture del capello, dal classico ai tagli di tendenza come il butterfly cut.</p>
+      </div>
+      <div class="svc-row rv">
+        <span class="no">02</span>
+        <h3>Taglio <em>uomo</em></h3>
+        <p class="desc">Precisione e carattere, con finiture curate e uno styling facile da gestire a casa.</p>
+      </div>
+      <div class="svc-row rv">
+        <span class="no">03</span>
+        <h3>Colore &amp; <em>schiariture</em></h3>
+        <p class="desc">Nuance naturali, riflessi e schiariture luminose firmate Katia La Motta, sempre su misura.</p>
+      </div>
+      <div class="svc-row rv">
+        <span class="no">04</span>
+        <h3><em>Styling</em> &amp; piega</h3>
+        <p class="desc">Messa in piega e finish per ogni occasione, per un look pronto da vivere e da fotografare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / BENTO -->
+<section class="band paper">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Perche' Soffia</span>
+      <h2>Quattro buone ragioni<br>per sedersi da noi.</h2>
+    </div>
+    <div class="bento">
+      <div class="cell fill tall rv">
+        <svg class="fl" viewBox="0 0 80 80" aria-hidden="true">
+          <line x1="40" y1="10" x2="40" y2="70"/><line x1="10" y1="40" x2="70" y2="40"/>
+          <line x1="19" y1="19" x2="61" y2="61"/><line x1="61" y1="19" x2="19" y2="61"/>
+          <circle cx="40" cy="40" r="8"/>
+        </svg>
+        <div>
+          <h3>Un'immagine curata,<br>anche nell'ambiente</h3>
+          <p>Il salone e' stato progettato da Vezzosi Arredamenti: uno spazio elegante dove sentirsi a proprio agio dal primo saluto.</p>
+        </div>
+      </div>
+      <div class="cell rv d1">
+        <span class="k">1958</span>
+        <h3>Esperienza vera</h3>
+        <p>Una storia lunga oltre sessant'anni, tramandata e sempre aggiornata.</p>
+      </div>
+      <div class="cell rv d2">
+        <span class="k">2.2k+</span>
+        <h3>Una community che ci segue</h3>
+        <p>Oltre 2.200 persone seguono i nostri lavori su Instagram, tra tagli e colore.</p>
+      </div>
+      <div class="cell span rv d1">
+        <h3>Consulenza personale</h3>
+        <p>Prima delle forbici ascoltiamo te: forma del viso, stile di vita e cosa vuoi ottenere. Cosi il risultato dura oltre la seduta.</p>
+      </div>
+      <div class="cell rv d2">
+        <h3>Team specializzato</h3>
+        <p>Taglio, tendenza e colore seguiti da mani diverse ed esperte, per un risultato completo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALONE / INSTAGRAM -->
+<section class="band" id="salone">
+  <div class="wrap">
+    <div class="ig">
+      <div class="rv">
+        <span class="eyebrow">Il salone su Instagram</span>
+        <h2 class="serif" style="font-size:clamp(2.1rem,6vw,3.5rem);margin-top:1rem">Guarda i nostri lavori,<br>ogni settimana.</h2>
+        <p style="color:var(--muted);margin-top:1.1rem;max-width:44ch">Tagli di tendenza, prima e dopo del colore e i dettagli del salone. Il posto migliore per capire il nostro stile prima di prenotare.</p>
+        <div style="margin-top:1.8rem">
+          <a class="btn ghost" href="https://www.instagram.com/parrucchierisoffia/" target="_blank" rel="noopener">Seguici, siamo @parrucchierisoffia<span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="ig-tiles rv d1" aria-hidden="true">
+        <div class="tile"><svg viewBox="0 0 80 80"><line x1="40" y1="12" x2="40" y2="68"/><line x1="12" y1="40" x2="68" y2="40"/><line x1="21" y1="21" x2="59" y2="59"/><line x1="59" y1="21" x2="21" y2="59"/><circle cx="40" cy="40" r="7"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="22"/><circle cx="40" cy="40" r="10"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><line x1="20" y1="20" x2="60" y2="60"/><line x1="60" y1="20" x2="20" y2="60"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><line x1="40" y1="14" x2="40" y2="66"/><line x1="14" y1="40" x2="66" y2="40"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="20"/><line x1="40" y1="20" x2="40" y2="60"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><line x1="18" y1="40" x2="62" y2="40"/><circle cx="40" cy="40" r="9"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><line x1="20" y1="20" x2="60" y2="60"/><line x1="60" y1="20" x2="20" y2="60"/><circle cx="40" cy="40" r="8"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="22"/></svg></div>
+        <div class="tile"><svg viewBox="0 0 80 80"><line x1="40" y1="14" x2="40" y2="66"/><line x1="24" y1="24" x2="56" y2="56"/><line x1="56" y1="24" x2="24" y2="56"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="band paper" id="contatti">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Vieni a trovarci</span>
+      <h2>Prenota il tuo<br>appuntamento.</h2>
+      <p>Chiamaci o passa in salone. Siamo a San Mauro Torinese, a due passi da Torino.</p>
+    </div>
+    <div class="contact">
+      <div class="rv d1">
+        <div class="info-row">
+          <span class="lbl">Telefono</span>
+          <span class="val big"><a href="tel:+390118225496">011 8225496</a></span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">Cellulare</span>
+          <span class="val big"><a href="tel:+393355874652">335 5874652</a></span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">Indirizzo</span>
+          <span class="val"><a href="https://maps.google.com/?q=Via+Speranza+39,+10099+San+Mauro+Torinese+TO" target="_blank" rel="noopener">Via Speranza 39<br>10099 San Mauro Torinese (TO)</a></span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">Social</span>
+          <span class="val"><a href="https://www.instagram.com/parrucchierisoffia/" target="_blank" rel="noopener">@parrucchierisoffia</a></span>
+        </div>
+        <div class="contact-actions">
+          <a class="btn dark" href="tel:+390118225496">Chiama ora<span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn" style="border-color:var(--ink);background:transparent;color:var(--ink)" href="https://maps.google.com/?q=Via+Speranza+39,+10099+San+Mauro+Torinese+TO" target="_blank" rel="noopener">Come raggiungerci</a>
+        </div>
+      </div>
+      <aside class="hours-card rv d2">
+        <h3>Orari di apertura</h3>
+        <div class="hours-line closed"><span>Lunedi</span><span>Chiuso</span></div>
+        <div class="hours-line"><span>Martedi</span><span>09:00 - 18:30</span></div>
+        <div class="hours-line"><span>Mercoledi</span><span>09:00 - 18:30</span></div>
+        <div class="hours-line"><span>Giovedi</span><span>09:00 - 18:30</span></div>
+        <div class="hours-line"><span>Venerdi</span><span>09:00 - 19:00</span></div>
+        <div class="hours-line"><span>Sabato</span><span>08:30 - 17:00</span></div>
+        <div class="hours-line closed"><span>Domenica</span><span>Chiuso</span></div>
+        <p style="margin-top:1.2rem;font-size:.82rem;color:#8a8375">Ti consigliamo di chiamare per fissare l'appuntamento ed evitare l'attesa.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#top" class="brand" aria-label="Soffia Hair Studio">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+          <line x1="20" y1="4" x2="20" y2="36"/><line x1="4" y1="20" x2="36" y2="20"/>
+          <line x1="9" y1="9" x2="31" y2="31"/><line x1="31" y1="9" x2="9" y2="31"/>
+          <circle cx="20" cy="20" r="4.5"/>
+        </svg>
+        Soffia Hair Studio
+      </a>
+      <nav class="foot-nav" aria-label="Navigazione footer">
+        <a href="#storia">Storia</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#salone">Il salone</a>
+        <a href="#contatti">Contatti</a>
+        <a href="https://www.instagram.com/parrucchierisoffia/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span id="yr"></span> Parrucchieri Soffia, Cristiano Soffia. Via Speranza 39, San Mauro Torinese (TO).</span>
+      <span>Hair Studio dal 1958</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // nav background on scroll
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('solid', window.scrollY > 40); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
