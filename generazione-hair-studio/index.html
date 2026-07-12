@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generazione Hair Studio — Barbiere a Volpiano | L'arte del grooming</title>
+<meta name="description" content="Generazione Hair Studio, barber shop nel cuore di Volpiano. Taglio uomo, barba e grooming, dettagli e sfumature. Prenota online. L'arte del grooming & details.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231c1c1e'/%3E%3Cpath d='M20 78 L78 20 M42 82 L82 42' stroke='%23e6e4df' stroke-width='9' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  :root{
+    --ink:#1c1c1e;
+    --ink-soft:#3a3a3d;
+    --cream:#e6e4df;
+    --paper:#efeeea;
+    --line:#cdcbc4;
+    --white:#f6f5f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Sora',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;line-height:1.02;letter-spacing:-0.02em}
+  ::selection{background:var(--ink);color:var(--cream)}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1200px,90vw);margin:0 auto}
+  .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:600;color:var(--ink-soft);
+  }
+
+  /* NAV */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s ease, border-color .4s ease}
+  header.scrolled{background:rgba(230,228,223,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1.05rem 0}
+  .brand{display:flex;align-items:center;gap:.7rem;font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.01em}
+  .mark{width:34px;height:34px;flex:none}
+  .brand small{display:block;font-family:'Sora';font-weight:400;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+  .navlinks{display:flex;gap:2.2rem;align-items:center}
+  .navlinks a{font-size:.9rem;position:relative}
+  .navlinks a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:0;background:var(--ink);transition:width .35s cubic-bezier(0.16,1,0.3,1)}
+  .navlinks a:not(.btn):hover::after{width:100%}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    background:var(--ink);color:var(--cream);
+    padding:.72rem 1.35rem;border-radius:100px;
+    font-family:'Space Grotesk';font-weight:600;font-size:.9rem;
+    border:1px solid var(--ink);
+    transition:transform .25s cubic-bezier(0.16,1,0.3,1), background .25s, color .25s;
+  }
+  .btn:hover{background:transparent;color:var(--ink)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--cream)}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px}
+  .menu-toggle span{width:24px;height:2px;background:var(--ink);display:block;transition:.3s}
+
+  /* HERO */
+  .hero{min-height:100dvh;display:flex;align-items:center;position:relative;padding-top:80px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;width:100%}
+  .hero h1{font-size:clamp(2.9rem,8.5vw,6.6rem);font-weight:700}
+  .hero h1 em{font-style:italic;font-weight:500}
+  .hero p.sub{max-width:34ch;margin:1.7rem 0 2.2rem;font-size:1.08rem;color:var(--ink-soft)}
+  .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center}
+  .hero-visual{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg, rgba(28,28,30,.04) 0 2px, transparent 2px 22px),
+      linear-gradient(160deg,#26262a,#141416);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 40px 80px -40px rgba(20,20,22,.6);
+  }
+  .hero-visual .bigmark{width:58%;height:auto}
+  .hero-visual .tag{position:absolute;bottom:1.1rem;left:1.1rem;color:var(--cream);font-family:'Space Grotesk';font-weight:500;font-size:.8rem;letter-spacing:.12em}
+  .float-eyebrow{position:absolute;top:calc(80px + 1.5rem);left:0;width:100%}
+  .scroll-hint{position:absolute;bottom:1.6rem;right:0;writing-mode:vertical-rl;font-family:'Space Grotesk';font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* MARQUEE */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.15rem 0;overflow:hidden;white-space:nowrap;background:var(--ink);color:var(--cream)}
+  .marquee-track{display:inline-flex;gap:3.5rem;animation:slide 26s linear infinite}
+  .marquee span{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;letter-spacing:.05em;display:inline-flex;align-items:center;gap:3.5rem}
+  .marquee span::after{content:"✦";opacity:.55}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* SECTION SHELL */
+  section.pad{padding:clamp(5rem,11vw,9rem) 0}
+  .section-head{max-width:60ch}
+  .section-head h2{font-size:clamp(2rem,5.2vw,3.5rem);font-weight:700;margin:1rem 0}
+
+  /* STORIA */
+  .storia{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:end}
+  .storia .lead{font-size:clamp(1.4rem,3vw,2rem);font-family:'Space Grotesk';font-weight:400;line-height:1.25;letter-spacing:-0.01em}
+  .storia .body{color:var(--ink-soft)}
+  .storia .body p+p{margin-top:1rem}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;border-top:1px solid var(--line);padding-top:2.2rem}
+  .stat .n{font-family:'Space Grotesk';font-weight:700;font-size:clamp(2rem,4vw,2.8rem);line-height:1}
+  .stat .l{font-size:.82rem;color:var(--ink-soft);margin-top:.4rem}
+
+  /* SERVIZI */
+  .servizi-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem}
+  .serv-list{border-top:1px solid var(--line)}
+  .serv{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;padding:1.9rem 0;border-bottom:1px solid var(--line);transition:padding-left .4s cubic-bezier(0.16,1,0.3,1)}
+  .serv:hover{padding-left:1.2rem}
+  .serv .idx{font-family:'Space Grotesk';font-weight:600;color:var(--ink-soft);font-size:.9rem}
+  .serv .info h3{font-size:clamp(1.4rem,3.4vw,2.1rem);font-weight:600}
+  .serv .info p{color:var(--ink-soft);margin-top:.3rem;max-width:46ch;font-size:.95rem}
+  .serv .arrow{font-family:'Space Grotesk';font-size:1.4rem;transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
+  .serv:hover .arrow{transform:translateX(8px)}
+
+  /* PERCHE - BENTO */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto);gap:1rem;margin-top:3rem}
+  .cell{border:1px solid var(--line);border-radius:8px;padding:1.8rem;display:flex;flex-direction:column;justify-content:space-between;background:var(--paper);transition:transform .4s cubic-bezier(0.16,1,0.3,1),background .4s}
+  .cell:hover{transform:translateY(-4px)}
+  .cell h3{font-size:1.25rem;font-weight:600}
+  .cell p{color:var(--ink-soft);font-size:.92rem;margin-top:.5rem}
+  .cell .k{font-family:'Space Grotesk';font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+  .cell.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .cell.dark .k,.cell.dark p{color:#bdbcb6}
+  .cell.wide{grid-column:span 2}
+  .cell.tall{grid-row:span 2}
+  .cell .glyph{width:44px;height:44px}
+
+  /* CONTATTI */
+  .contatti{background:var(--ink);color:var(--cream)}
+  .contatti .eyebrow{color:#9d9c96}
+  .contatti h2{font-size:clamp(2.2rem,6vw,4rem);color:var(--white)}
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);margin-top:3rem;align-items:start}
+  .cinfo dl{display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.8rem;font-size:1.02rem}
+  .cinfo dt{font-family:'Space Grotesk';font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#9d9c96;padding-top:.35rem}
+  .cinfo dd a:hover{text-decoration:underline}
+  .cinfo dd{margin-bottom:.8rem}
+  .hours{border:1px solid #38383b;border-radius:8px;padding:1.8rem 2rem}
+  .hours .row{display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid #2c2c2f;font-size:.95rem}
+  .hours .row:last-child{border-bottom:none}
+  .hours .row.closed span:last-child{color:#807f7a}
+  .hours .row.today{color:var(--white)}
+  .hours .row.today .dot{color:var(--cream)}
+  .contatti .cta-big{margin-top:2.4rem;display:flex;gap:.9rem;flex-wrap:wrap}
+  .btn.light{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+  .btn.light:hover{background:transparent;color:var(--cream)}
+  .btn.outline{background:transparent;color:var(--cream);border-color:#5a5a5d}
+  .btn.outline:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+  .map-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;font-family:'Space Grotesk';font-size:.88rem;border-bottom:1px solid #5a5a5d;padding-bottom:2px}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#9d9c96;padding:2.5rem 0;border-top:1px solid #2c2c2f}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.85rem}
+  .foot a:hover{color:var(--cream)}
+
+  .reveal{opacity:0;transform:translateY(28px)}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:2.2rem}
+    .hero-visual{max-width:340px;order:-1}
+    .scroll-hint,.float-eyebrow{display:none}
+    .storia{grid-template-columns:1fr;gap:1.8rem}
+    .contact-grid{grid-template-columns:1fr}
+    .bento{grid-template-columns:1fr 1fr}
+    .cell.wide{grid-column:span 2}
+    .cell.tall{grid-row:auto}
+    .navlinks{position:fixed;inset:0 0 0 auto;width:78%;max-width:340px;background:var(--paper);flex-direction:column;justify-content:center;padding:2rem;gap:1.8rem;transform:translateX(100%);transition:transform .45s cubic-bezier(0.16,1,0.3,1);box-shadow:-20px 0 60px -30px rgba(0,0,0,.4)}
+    .navlinks.open{transform:translateX(0)}
+    .navlinks a{font-size:1.15rem}
+    .menu-toggle{display:flex;z-index:60}
+    .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-toggle.open span:nth-child(2){opacity:0}
+    .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
+  @media (max-width:560px){
+    .stat-row{grid-template-columns:1fr;gap:1.2rem;text-align:left}
+    .bento{grid-template-columns:1fr}
+    .cell.wide{grid-column:auto}
+    .serv{grid-template-columns:auto 1fr;gap:1rem}
+    .serv .arrow{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top" aria-label="Generazione Hair Studio">
+        <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="10" fill="#1c1c1e"/><path d="M20 78 L78 20 M42 82 L82 42" stroke="#e6e4df" stroke-width="9" fill="none" stroke-linecap="round"/></svg>
+        <span>Generazione<br><small>Hair Studio · Volpiano</small></span>
+      </a>
+      <div class="navlinks" id="navlinks">
+        <a href="#storia">Studio</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#perche">Perché noi</a>
+        <a href="#contatti">Contatti</a>
+        <a class="btn" href="#contatti">Prenota <span aria-hidden="true">→</span></a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="float-eyebrow"><span class="eyebrow">Barber Shop · Volpiano (TO)</span></div>
+      <div class="hero-grid">
+        <div>
+          <h1 class="reveal">L'arte del<br><em>grooming</em> &amp; details.</h1>
+          <p class="sub reveal">Nel cuore di piazza Vittorio Emanuele, ogni taglio è pensato sul tuo viso, sulla tua barba, sul tuo stile. Precisione, cura, dettaglio.</p>
+          <div class="hero-cta reveal">
+            <a class="btn" href="#contatti">Prenota il tuo taglio</a>
+            <a class="btn ghost" href="#servizi">Scopri i servizi</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <svg class="bigmark" viewBox="0 0 100 100"><rect width="100" height="100" rx="6" fill="none" stroke="#e6e4df" stroke-width="1.2" opacity=".35"/><path d="M18 82 L82 18 M40 86 L86 40 M14 60 L60 14" stroke="#e6e4df" stroke-width="6.5" fill="none" stroke-linecap="round"/></svg>
+          <span class="tag">EST. VOLPIANO</span>
+        </div>
+      </div>
+      <span class="scroll-hint">Scorri</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Taglio uomo</span><span>Barba &amp; grooming</span><span>Sfumature</span><span>Dettagli</span><span>Prenotazione via app</span>
+      <span>Taglio uomo</span><span>Barba &amp; grooming</span><span>Sfumature</span><span>Dettagli</span><span>Prenotazione via app</span>
+    </div>
+  </div>
+
+  <!-- STORIA -->
+  <section class="pad" id="storia">
+    <div class="wrap storia">
+      <div>
+        <span class="eyebrow reveal">Lo studio</span>
+        <p class="lead reveal">Una barberia moderna dove il taglio diventa un gesto di stile, non una routine.</p>
+      </div>
+      <div class="body reveal">
+        <p>Generazione Hair Studio nasce a Volpiano con un'idea chiara: unire la manualità del barbiere di quartiere alla ricerca del dettaglio. Ci trovi in piazza Vittorio Emanuele, dove ogni cliente ha il suo tempo e la sua poltrona.</p>
+        <p>Lavoriamo su misura, ascoltiamo prima di tagliare e curiamo la barba come parte del volto. Il risultato lo racconta il nostro feed, taglio dopo taglio.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="stat-row">
+        <div class="stat reveal"><div class="n">100%</div><div class="l">Su appuntamento, senza attese</div></div>
+        <div class="stat reveal"><div class="n">1:1</div><div class="l">Un barbiere dedicato a te</div></div>
+        <div class="stat reveal"><div class="n">Volpiano</div><div class="l">Piazza Vittorio Emanuele II</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section class="pad" id="servizi" style="background:var(--paper)">
+    <div class="wrap">
+      <div class="servizi-head">
+        <div class="section-head">
+          <span class="eyebrow reveal">Servizi</span>
+          <h2 class="reveal">Tutto quello che serve al tuo stile.</h2>
+        </div>
+        <a class="btn ghost reveal" href="#contatti">Prenota ora</a>
+      </div>
+      <div class="serv-list">
+        <a class="serv reveal" href="#contatti">
+          <span class="idx">01</span>
+          <div class="info"><h3>Taglio uomo</h3><p>Taglio disegnato sulla forma del viso e sul tuo modo di portarlo. Lavaggio, piega e finish inclusi.</p></div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="serv reveal" href="#contatti">
+          <span class="idx">02</span>
+          <div class="info"><h3>Barba &amp; grooming</h3><p>Rifinitura, modellatura e cura della barba con panno caldo e prodotti dedicati. Il volto al centro.</p></div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="serv reveal" href="#contatti">
+          <span class="idx">03</span>
+          <div class="info"><h3>Sfumature &amp; dettagli</h3><p>Fade puliti, contorni netti e disegni precisi. La parte tecnica dove facciamo la differenza.</p></div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="serv reveal" href="#contatti">
+          <span class="idx">04</span>
+          <div class="info"><h3>Prenotazione via app</h3><p>Scegli giorno e orario dal telefono, in pochi tocchi. Nessuna fila, il tuo posto è già pronto.</p></div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHE -->
+  <section class="pad" id="perche">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Perché sceglierci</span>
+        <h2 class="reveal">Dettagli che si vedono, cura che si sente.</h2>
+      </div>
+      <div class="bento">
+        <div class="cell dark tall reveal">
+          <svg class="glyph" viewBox="0 0 100 100" aria-hidden="true"><path d="M20 78 L78 20 M42 82 L82 42" stroke="#e6e4df" stroke-width="8" fill="none" stroke-linecap="round"/></svg>
+          <div><span class="k">La firma</span><h3 style="color:var(--white)">L'arte del grooming &amp; details</h3><p>Non un taglio qualsiasi, ma un dettaglio pensato. È il nostro modo di lavorare, su ogni cliente.</p></div>
+        </div>
+        <div class="cell wide reveal">
+          <span class="k">Precisione</span>
+          <div><h3>Tecnica sulle sfumature</h3><p>Fade e contorni curati al millimetro, il tratto che riconosci subito allo specchio.</p></div>
+        </div>
+        <div class="cell reveal">
+          <span class="k">Comodità</span>
+          <div><h3>Prenoti in app</h3><p>Il tuo posto, quando vuoi tu.</p></div>
+        </div>
+        <div class="cell reveal">
+          <span class="k">Posizione</span>
+          <div><h3>In piazza</h3><p>Nel centro di Volpiano.</p></div>
+        </div>
+        <div class="cell wide reveal">
+          <span class="k">Esperienza</span>
+          <div><h3>Un rituale, non una fila</h3><p>Tempo dedicato, ascolto e prodotti giusti. Esci come volevi, ogni volta.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="pad contatti" id="contatti">
+    <div class="wrap">
+      <span class="eyebrow reveal">Contatti &amp; prenotazioni</span>
+      <h2 class="reveal">Passa a trovarci in piazza.</h2>
+      <div class="contact-grid">
+        <div class="cinfo reveal">
+          <dl>
+            <dt>Dove</dt>
+            <dd>Piazza Vittorio Emanuele II 11/C<br>10088 Volpiano (TO)</dd>
+            <dt>Social</dt>
+            <dd><a href="https://www.instagram.com/generazione.hs/" target="_blank" rel="noopener">@generazione.hs</a></dd>
+            <dt>Prenota</dt>
+            <dd>Prenotazione online tramite app, in pochi secondi</dd>
+          </dl>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Generazione+Hair+Studio+Piazza+Vittorio+Emanuele+II+11%2FC+Volpiano" target="_blank" rel="noopener">Apri su Google Maps <span aria-hidden="true">↗</span></a>
+          <div class="cta-big">
+            <a class="btn light" href="https://www.instagram.com/generazione.hs/" target="_blank" rel="noopener">Prenota online</a>
+            <a class="btn outline" href="https://www.instagram.com/generazione.hs/" target="_blank" rel="noopener">Guarda i tagli su Instagram</a>
+          </div>
+        </div>
+        <div class="hours reveal">
+          <div class="row"><span>Lunedì</span><span>Chiuso</span></div>
+          <div class="row"><span>Martedì</span><span>09:00 — 19:00</span></div>
+          <div class="row"><span>Mercoledì</span><span>09:00 — 19:00</span></div>
+          <div class="row"><span>Giovedì</span><span>09:00 — 19:00</span></div>
+          <div class="row"><span>Venerdì</span><span>09:00 — 19:00</span></div>
+          <div class="row"><span>Sabato</span><span>08:30 — 18:00</span></div>
+          <div class="row closed"><span>Domenica</span><span>Chiuso</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand" style="color:var(--cream)">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="10" fill="#e6e4df"/><path d="M20 78 L78 20 M42 82 L82 42" stroke="#1c1c1e" stroke-width="9" fill="none" stroke-linecap="round"/></svg>
+      <span>Generazione Hair Studio</span>
+    </div>
+    <div>Piazza Vittorio Emanuele II 11/C, Volpiano (TO)</div>
+    <div>© <span id="year"></span> · L'arte del grooming &amp; details</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // header scroll state
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+
+  // reveals
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && window.gsap) {
+    gsap.registerPlugin(ScrollTrigger);
+    // hero intro
+    gsap.to('.hero .reveal', {opacity:1, y:0, duration:1, ease:'power3.out', stagger:0.12, delay:0.15});
+    // scroll reveals
+    gsap.utils.toArray('.reveal').forEach(el => {
+      if (el.closest('.hero')) return;
+      gsap.to(el, {
+        opacity:1, y:0, duration:0.9, ease:'power3.out',
+        scrollTrigger:{trigger:el, start:'top 88%'}
+      });
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => {el.style.opacity=1; el.style.transform='none';});
+  }
+</script>
+</body>
+</html>
