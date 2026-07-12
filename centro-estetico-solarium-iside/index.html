@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Centro Estetico Solarium Iside | Estetica e solarium a Settimo Torinese</title>
+<meta name="description" content="Centro Estetico Solarium Iside a Settimo Torinese: trattamenti viso e corpo, solarium, epilazione, manicure e pedicure. Prenota in via Trieste 4." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232b2e9e'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-style='italic' font-size='64' fill='white' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --indaco:#2b2e9e;
+    --indaco-deep:#1f2178;
+    --ink:#14152b;
+    --paper:#f7f6f2;
+    --paper-2:#efeef7;
+    --line:#e2e1ea;
+    --muted:#5c5d70;
+    --white:#fbfbfd;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{line-height:1.08;letter-spacing:-.01em}
+  .serif{font-family:'Fraunces',serif}
+  .script{font-family:'Cormorant Garamond',serif;font-style:italic}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;
+    transition:background .4s ease,box-shadow .4s ease,padding .4s ease;
+  }
+  header.scrolled{background:rgba(247,246,242,.86);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 24px}
+  .brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:30px;color:var(--indaco);letter-spacing:.01em}
+  .brand small{font-family:'Manrope',sans-serif;font-style:normal;font-weight:600;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:block;margin-top:-6px;margin-left:2px}
+  nav{display:flex;gap:34px;align-items:center}
+  nav a{font-size:14px;font-weight:500;color:var(--ink);opacity:.8;transition:opacity .2s}
+  nav a:hover{opacity:1}
+  nav .cta{background:var(--indaco);color:#fff;padding:11px 20px;border-radius:100px;opacity:1;font-weight:600;transition:transform .2s,background .2s}
+  nav .cta:hover{background:var(--indaco-deep)}
+  nav .cta:active{transform:translateY(1px)}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .burger{display:none}
+
+  /* HERO */
+  .hero{min-height:100dvh;display:flex;align-items:center;position:relative;padding-top:80px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:
+     radial-gradient(60% 55% at 78% 18%, rgba(43,46,158,.16), transparent 70%),
+     radial-gradient(50% 50% at 12% 88%, rgba(43,46,158,.10), transparent 70%),
+     var(--paper);}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;width:100%}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--indaco);margin-bottom:26px}
+  .eyebrow::before{content:"";width:30px;height:1px;background:var(--indaco);opacity:.5}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(44px,6.2vw,80px);color:var(--ink)}
+  .hero h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--indaco);font-weight:600}
+  .hero p.lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:34ch;margin:26px 0 36px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:100px;font-weight:600;font-size:15px;transition:transform .2s,background .2s,color .2s}
+  .btn-primary{background:var(--indaco);color:#fff}
+  .btn-primary:hover{background:var(--indaco-deep)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line);background:var(--white)}
+  .btn-ghost:hover{border-color:var(--indaco);color:var(--indaco)}
+  .btn-ghost:active{transform:translateY(1px)}
+
+  .hero-card{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;
+    background:linear-gradient(155deg,var(--indaco) 0%,var(--indaco-deep) 100%);
+    box-shadow:0 40px 80px -30px rgba(31,33,120,.55);
+    display:flex;align-items:center;justify-content:center;padding:32px}
+  .hero-card::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(120% 90% at 100% 0,rgba(255,255,255,.22),transparent 55%),
+    radial-gradient(90% 90% at 0 100%,rgba(255,255,255,.10),transparent 60%);}
+  .hero-card .sun{position:absolute;width:min(78%,320px);aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.95) 0%,rgba(255,255,255,.55) 42%,transparent 62%);
+    filter:blur(2px);animation:glow 6s ease-in-out infinite}
+  @keyframes glow{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+  .hero-card .mark{position:relative;z-index:2;text-align:center;color:#fff}
+  .hero-card .mark .script{font-size:clamp(66px,10vw,104px);display:block;line-height:.9;text-shadow:0 8px 30px rgba(0,0,0,.25)}
+  .hero-card .mark span.k{display:block;font-size:11px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;margin-top:14px;opacity:.85}
+
+  /* MARQUEE strip */
+  .strip{background:var(--indaco);color:#fff;overflow:hidden;padding:16px 0;white-space:nowrap}
+  .strip .track{display:inline-flex;gap:56px;animation:marquee 26s linear infinite;will-change:transform}
+  .strip .track span{font-family:'Fraunces',serif;font-size:19px;font-style:italic;opacity:.92}
+  .strip .track span::after{content:"\2022";margin-left:56px;opacity:.4}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* SECTION HEAD */
+  .head{max-width:640px;margin-bottom:56px}
+  .kicker{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--indaco);margin-bottom:18px}
+  .head h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(30px,4vw,46px)}
+  .head h2 em{font-style:italic;color:var(--indaco)}
+  .head p{margin-top:18px;color:var(--muted);font-size:17px;max-width:60ch}
+
+  /* STORY */
+  .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .story .visual{aspect-ratio:1;border-radius:26px;background:var(--paper-2);position:relative;overflow:hidden;border:1px solid var(--line)}
+  .story .visual .quote{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:48px}
+  .story .visual .quote .script{font-size:clamp(30px,4vw,44px);color:var(--indaco);line-height:1.15}
+  .story .visual .quote .who{margin-top:22px;font-weight:600;font-size:14px;letter-spacing:.02em}
+  .story .visual .quote .who small{display:block;font-weight:500;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:11px;margin-top:4px}
+  .story-body h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,3.6vw,42px);margin-bottom:22px}
+  .story-body p{color:var(--muted);margin-bottom:16px;max-width:52ch}
+  .story-stats{display:flex;gap:40px;margin-top:34px;flex-wrap:wrap}
+  .story-stats div .n{font-family:'Fraunces',serif;font-size:34px;color:var(--indaco)}
+  .story-stats div .l{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+  /* SERVICES bento */
+  .services{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  .svc{border-radius:22px;padding:32px;border:1px solid var(--line);background:var(--paper);position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,border-color .3s}
+  .svc:hover{transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(31,33,120,.4);border-color:#cfceE0}
+  .svc .no{font-family:'Fraunces',serif;font-style:italic;color:var(--indaco);opacity:.4;font-size:22px}
+  .svc h3{font-family:'Fraunces',serif;font-weight:500;font-size:23px;margin:16px 0 10px}
+  .svc p{color:var(--muted);font-size:15px}
+  .svc.big{grid-column:span 3;background:linear-gradient(160deg,var(--indaco),var(--indaco-deep));color:#fff;border-color:transparent}
+  .svc.big .no{color:#fff;opacity:.6}
+  .svc.big p{color:rgba(255,255,255,.82)}
+  .svc.big .tag{display:inline-block;margin-top:20px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:7px 14px;border-radius:100px}
+  .svc.wide{grid-column:span 3}
+  .svc.half{grid-column:span 3}
+  .svc.third{grid-column:span 2}
+
+  /* WHY horizontal rows */
+  .why-rows{border-top:1px solid var(--line)}
+  .why-row{display:grid;grid-template-columns:80px 1fr 1.3fr;gap:32px;align-items:start;padding:34px 0;border-bottom:1px solid var(--line);transition:padding-left .3s}
+  .why-row:hover{padding-left:10px}
+  .why-row .idx{font-family:'Fraunces',serif;font-style:italic;font-size:30px;color:var(--indaco)}
+  .why-row h3{font-family:'Fraunces',serif;font-weight:500;font-size:24px}
+  .why-row p{color:var(--muted);max-width:52ch}
+
+  /* CONTACT */
+  .contact{background:var(--indaco);color:#fff;position:relative;overflow:hidden}
+  .contact::before{content:"";position:absolute;inset:0;background:
+     radial-gradient(60% 60% at 85% 10%,rgba(255,255,255,.14),transparent 60%),
+     radial-gradient(50% 60% at 5% 100%,rgba(255,255,255,.08),transparent 60%)}
+  .contact .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .contact h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4.4vw,52px);margin-bottom:20px}
+  .contact h2 em{font-style:italic}
+  .contact .lead{color:rgba(255,255,255,.82);max-width:40ch;margin-bottom:34px}
+  .cbtns{display:flex;flex-wrap:wrap;gap:14px}
+  .cbtn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:100px;font-weight:600;font-size:15px;transition:transform .2s,background .2s}
+  .cbtn.white{background:#fff;color:var(--indaco)}
+  .cbtn.white:hover{background:var(--paper)}
+  .cbtn.white:active{transform:translateY(1px)}
+  .cbtn.line{border:1px solid rgba(255,255,255,.45);color:#fff}
+  .cbtn.line:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  .info-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:36px;backdrop-filter:blur(6px)}
+  .info-row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .info-row:last-child{border-bottom:0;padding-bottom:0}
+  .info-row:first-child{padding-top:0}
+  .info-row .ic{width:40px;height:40px;flex:none;border-radius:12px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:18px}
+  .info-row .lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:3px}
+  .info-row .val{font-weight:600;font-size:16px}
+  .info-row .val a:hover{text-decoration:underline}
+  .info-row .val span{display:block;font-weight:500;font-size:14px;color:rgba(255,255,255,.78)}
+  .hours-line{display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,.85);padding:3px 0}
+  .hours-line.closed{color:rgba(255,255,255,.5)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(255,255,255,.72);padding:56px 0 40px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+  footer .brand{color:#fff}
+  footer .brand small{color:rgba(255,255,255,.5)}
+  footer .fnav{display:flex;gap:22px;flex-wrap:wrap;font-size:14px}
+  footer .fnav a{opacity:.8}footer .fnav a:hover{opacity:1}
+  footer .socials{display:flex;gap:12px;margin-top:14px}
+  footer .socials a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+  footer .socials a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+  .copy{margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:rgba(255,255,255,.5)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    section{padding:72px 0}
+    .navlinks{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;align-items:flex-start;padding:40px;gap:26px;transform:translateX(105%);transition:transform .4s cubic-bezier(.16,1,.3,1);box-shadow:-20px 0 60px -30px rgba(0,0,0,.4)}
+    .navlinks.open{transform:none}
+    .navlinks a{font-size:19px}
+    .burger{display:flex;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer;z-index:60}
+    .burger span{width:24px;height:2px;background:var(--ink);transition:transform .3s,opacity .3s}
+    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .hero .wrap{grid-template-columns:1fr;gap:44px}
+    .hero-card{max-width:380px;order:-1}
+    .story .wrap{grid-template-columns:1fr;gap:40px}
+    .bento{grid-template-columns:repeat(2,1fr)}
+    .svc.big,.svc.wide,.svc.half{grid-column:span 2}
+    .svc.third{grid-column:span 1}
+    .why-row{grid-template-columns:44px 1fr;gap:14px 18px}
+    .why-row p{grid-column:1/-1}
+    .contact .wrap{grid-template-columns:1fr;gap:40px}
+  }
+  @media(max-width:480px){
+    .wrap{padding:0 20px}
+    .bento{grid-template-columns:1fr}
+    .svc.big,.svc.wide,.svc.half,.svc.third{grid-column:span 1}
+    .story-stats{gap:26px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <a href="#top" class="brand">Iside<small>Solarium &amp; Estetica</small></a>
+  <div class="navlinks" id="menu">
+    <a href="#storia">La storia</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#perche">Perche noi</a>
+    <a href="#contatti">Contatti</a>
+    <a href="tel:0118968911" class="cta">Prenota ora</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Settimo Torinese, via Trieste</span>
+      <h1>Bellezza e luce, <em>come piace a te</em>.</h1>
+      <p class="lead">Trattamenti viso e corpo, epilazione, mani e piedi e il solarium che ti regala colore tutto l'anno. Un centro di quartiere dove ti senti a casa.</p>
+      <div class="hero-cta">
+        <a href="tel:0118968911" class="btn btn-primary">Chiama e prenota</a>
+        <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="mark">
+        <span class="script">Iside</span>
+        <span class="k">Centro Estetico</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="strip" aria-hidden="true">
+  <div class="track">
+    <span>Viso</span><span>Corpo</span><span>Solarium</span><span>Epilazione</span><span>Manicure</span><span>Pedicure</span>
+    <span>Viso</span><span>Corpo</span><span>Solarium</span><span>Epilazione</span><span>Manicure</span><span>Pedicure</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="storia">
+  <div class="wrap">
+    <div class="visual reveal">
+      <div class="quote">
+        <span class="script">"Ogni persona che entra merita tempo, cura e un sorriso."</span>
+        <div class="who">Rosina Nicastro<small>Titolare del centro</small></div>
+      </div>
+    </div>
+    <div class="story-body reveal">
+      <span class="kicker">La nostra storia</span>
+      <h2>Un punto di riferimento nel cuore di Settimo.</h2>
+      <p>Il Centro Estetico Solarium Iside nasce dalla passione di Rosina Nicastro per il benessere e la bellezza autentica. Da anni in via Trieste accogliamo le persone del quartiere con trattamenti curati e un rapporto fatto di fiducia.</p>
+      <p>Qui non trovi la fretta di una catena, ma l'attenzione di chi ti conosce per nome e ti consiglia cio' che serve davvero alla tua pelle.</p>
+      <div class="story-stats">
+        <div><div class="n">Viso &amp; corpo</div><div class="l">Trattamenti su misura</div></div>
+        <div><div class="n">Solarium</div><div class="l">Colore in ogni stagione</div></div>
+        <div><div class="n">Quartiere</div><div class="l">Accoglienza familiare</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servizi">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">I servizi</span>
+      <h2>Tutto quello che serve al tuo <em>benessere</em>.</h2>
+      <p>Dal viso alle mani, dalla ceretta al solarium: un solo indirizzo per prenderti cura di te, senza pensieri.</p>
+    </div>
+    <div class="bento">
+      <div class="svc big reveal">
+        <div class="no">01</div>
+        <h3>Solarium &amp; abbronzatura</h3>
+        <p>Lampade viso e corpo per un colore luminoso e uniforme tutto l'anno. Il servizio che ci distingue nella zona, seguito passo dopo passo con consigli sui tempi giusti per la tua pelle.</p>
+        <span class="tag">Il nostro punto di forza</span>
+      </div>
+      <div class="svc half reveal">
+        <div class="no">02</div>
+        <h3>Trattamenti viso</h3>
+        <p>Pulizia profonda, idratazione e trattamenti mirati per una pelle fresca e luminosa, scelti in base alle tue esigenze.</p>
+      </div>
+      <div class="svc third reveal">
+        <div class="no">03</div>
+        <h3>Trattamenti corpo</h3>
+        <p>Percorsi dedicati per tonicita' e relax, con prodotti selezionati.</p>
+      </div>
+      <div class="svc third reveal">
+        <div class="no">04</div>
+        <h3>Epilazione</h3>
+        <p>Ceretta e depilazione precise e delicate, per una pelle liscia a lungo.</p>
+      </div>
+      <div class="svc third reveal">
+        <div class="no">05</div>
+        <h3>Manicure</h3>
+        <p>Mani curate, smalti e ricostruzione con finiture impeccabili.</p>
+      </div>
+      <div class="svc wide reveal">
+        <div class="no">06</div>
+        <h3>Pedicure</h3>
+        <p>Piedi curati e leggeri con un trattamento completo, ideale in ogni stagione e perfetto prima dell'estate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="perche">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Perche sceglierci</span>
+      <h2>Piccolo centro, <em>grande cura</em>.</h2>
+    </div>
+    <div class="why-rows">
+      <div class="why-row reveal">
+        <div class="idx">01</div>
+        <h3>Il solarium in zona</h3>
+        <p>Non tutti i centri di Settimo hanno il solarium: da noi trovi lampade viso e corpo, con consigli su misura per un colore sano e graduale.</p>
+      </div>
+      <div class="why-row reveal">
+        <div class="idx">02</div>
+        <h3>Rapporto diretto</h3>
+        <p>Sei seguita sempre dalle stesse mani. Conosciamo la tua pelle e le tue abitudini, e i trattamenti seguono te, non un listino standard.</p>
+      </div>
+      <div class="why-row reveal">
+        <div class="idx">03</div>
+        <h3>Nel tuo quartiere</h3>
+        <p>In via Trieste, comoda e raggiungibile. Un indirizzo di fiducia dove tornare senza dover andare lontano.</p>
+      </div>
+      <div class="why-row reveal">
+        <div class="idx">04</div>
+        <h3>Prenoti quando vuoi</h3>
+        <p>Una telefonata o un messaggio sui social e trovi il tuo momento. Semplice, come deve essere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contatti">
+  <div class="wrap">
+    <div class="contact-intro reveal">
+      <span class="kicker" style="color:rgba(255,255,255,.75)">Contatti</span>
+      <h2>Vieni a <em>trovarci</em>.</h2>
+      <p class="lead">Prenota il tuo trattamento o chiedici un consiglio. Ti aspettiamo in via Trieste con il sorriso.</p>
+      <div class="cbtns">
+        <a href="tel:0118968911" class="cbtn white">Chiama 011 8968911</a>
+        <a href="https://www.instagram.com/centro.estetico.iside/" target="_blank" rel="noopener" class="cbtn line">Scrivici su Instagram</a>
+      </div>
+    </div>
+    <div class="info-card reveal">
+      <div class="info-row">
+        <div class="ic">&#128205;</div>
+        <div><div class="lbl">Dove siamo</div>
+          <div class="val"><a href="https://www.google.com/maps/search/?api=1&query=Via+Trieste+4+10036+Settimo+Torinese" target="_blank" rel="noopener">Via Trieste 4<span>10036 Settimo Torinese (TO)</span></a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ic">&#128222;</div>
+        <div><div class="lbl">Telefono</div>
+          <div class="val"><a href="tel:0118968911">011 8968911</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="ic">&#128336;</div>
+        <div style="flex:1"><div class="lbl">Orari di apertura</div>
+          <div class="val" style="margin-top:6px">
+            <div class="hours-line"><span>Martedi - Venerdi</span><span>9:30 - 19:00</span></div>
+            <div class="hours-line"><span>Sabato</span><span>8:30 - 18:00</span></div>
+            <div class="hours-line closed"><span>Lunedi e Domenica</span><span>Chiuso</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="#top" class="brand">Iside<small>Solarium &amp; Estetica</small></a>
+      <div class="socials">
+        <a href="https://www.instagram.com/centro.estetico.iside/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Centro-estetico-ISIDE-100054538506709/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+        </a>
+      </div>
+    </div>
+    <nav class="fnav">
+      <a href="#storia">La storia</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#perche">Perche noi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+  <div class="wrap">
+    <div class="copy">&copy; <span id="yr"></span> Centro Estetico Solarium Iside di Rosina Nicastro. Via Trieste 4, Settimo Torinese (TO). P. IVA su richiesta.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var hd=document.getElementById('hd');
+  addEventListener('scroll',function(){hd.classList.toggle('scrolled',scrollY>24)},{passive:true});
+
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-label',o?'Chiudi il menu':'Apri il menu')});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.classList.remove('open')})});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
