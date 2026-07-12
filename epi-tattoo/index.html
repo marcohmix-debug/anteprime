@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epi Tattoo | Anime & New School Tattoo a Settimo Torinese</title>
+<meta name="description" content="Studio di tatuaggi specializzato in stile Anime e New School a Settimo Torinese. Materiali 100% monouso, lettering, realistico, piercing e dermal anchor. Disegni personalizzati.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23111'/%3E%3Ctext x='50' y='72' font-family='Archivo,sans-serif' font-size='62' font-weight='900' fill='%23ff2e4d' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#0d0d0f;
+    --paper:#f6f4ef;
+    --smoke:#1a1a1e;
+    --ash:#8a8a92;
+    --line:rgba(255,255,255,.12);
+    --pop:#ff2e4d;
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Space Grotesk',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Archivo',sans-serif;line-height:.98;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:min(1180px,90vw);margin-inline:auto}
+  .pop{color:var(--pop)}
+  .eyebrow{
+    font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;
+    font-weight:600;color:var(--ash);
+  }
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem clamp(1.2rem,5vw,3rem);
+    transition:background .4s var(--ease),backdrop-filter .4s var(--ease),padding .4s var(--ease);
+  }
+  header.nav.solid{
+    background:rgba(13,13,15,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    padding-block:.75rem;
+  }
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:'Archivo';font-weight:900;font-size:1.15rem;letter-spacing:-.03em}
+  .brand .mark{
+    width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+    background:var(--pop);color:#fff;font-size:1.15rem;font-weight:900;
+  }
+  nav.links{display:none;gap:2rem;font-size:.92rem;font-weight:500}
+  nav.links a{color:var(--ash);transition:color .25s}
+  nav.links a:hover{color:var(--paper)}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:.5rem;
+    background:var(--paper);color:var(--ink);
+    font-weight:700;font-size:.9rem;
+    padding:.6rem 1.1rem;border-radius:999px;
+    transition:transform .25s var(--ease),background .25s;
+  }
+  .nav-cta:hover{transform:translateY(-2px)}
+  .nav-cta:active{transform:translateY(1px)}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:100dvh;
+    display:flex;align-items:flex-end;
+    padding:0 clamp(1.2rem,5vw,3rem) clamp(2.5rem,6vh,4rem);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 78% 15%,rgba(255,46,77,.22),transparent 55%),
+      repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 2px,transparent 2px 8px);
+    z-index:0;
+  }
+  .hero .halftone{
+    position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.4px);
+    background-size:9px 9px;
+    -webkit-mask-image:radial-gradient(120% 80% at 80% 20%,#000,transparent 70%);
+            mask-image:radial-gradient(120% 80% at 80% 20%,#000,transparent 70%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%}
+  .hero .kick{
+    display:inline-flex;align-items:center;gap:.6rem;
+    border:1px solid var(--line);border-radius:999px;
+    padding:.45rem .9rem;margin-bottom:1.6rem;
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);
+  }
+  .hero .kick b{color:var(--pop);font-family:'Archivo'}
+  .hero h1{
+    font-weight:900;text-transform:uppercase;
+    font-size:clamp(3.4rem,15vw,10rem);
+    letter-spacing:-.03em;
+  }
+  .hero h1 em{font-style:italic;color:var(--pop);display:inline-block}
+  .hero-sub{
+    max-width:32ch;margin-top:1.4rem;
+    font-size:clamp(1rem,2.4vw,1.25rem);color:#d7d5cf;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    padding:.95rem 1.6rem;border-radius:999px;
+    font-weight:700;font-size:1rem;white-space:nowrap;
+    transition:transform .25s var(--ease),background .25s,color .25s;
+  }
+  .btn-primary{background:var(--pop);color:#fff}
+  .btn-primary:hover{transform:translateY(-3px)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.28);color:var(--paper)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+  .btn-ghost:active{transform:translateY(1px)}
+  .scroll-hint{
+    position:absolute;right:clamp(1.2rem,5vw,3rem);bottom:clamp(2.5rem,6vh,4rem);
+    z-index:2;writing-mode:vertical-rl;font-size:.7rem;letter-spacing:.25em;
+    text-transform:uppercase;color:var(--ash);display:none;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section{padding:clamp(4.5rem,11vh,8rem) 0;position:relative}
+  .stack-head{max-width:22ch}
+  .stack-head h2{font-size:clamp(2.2rem,7vw,4rem);font-weight:800;text-transform:uppercase}
+  .stack-head p{margin-top:1rem;color:var(--ash);max-width:62ch;font-size:1.05rem}
+
+  /* ===== STORIA ===== */
+  .storia{border-top:1px solid var(--line)}
+  .storia-grid{display:grid;gap:2.5rem;margin-top:2.5rem}
+  .storia-lead{
+    font-family:'Archivo';font-weight:600;font-size:clamp(1.5rem,4.2vw,2.6rem);
+    line-height:1.12;letter-spacing:-.02em;
+  }
+  .storia-lead span{color:var(--ash)}
+  .storia-body{display:grid;gap:1.2rem;color:#c9c7c1;font-size:1.05rem;max-width:60ch}
+  .storia-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.5rem}
+  .stat b{display:block;font-family:'Archivo';font-weight:900;font-size:clamp(1.8rem,5vw,2.6rem)}
+  .stat span{font-size:.82rem;color:var(--ash);letter-spacing:.04em}
+
+  /* ===== SERVIZI (bento) ===== */
+  .servizi{background:var(--smoke);border-block:1px solid var(--line)}
+  .bento{display:grid;grid-template-columns:1fr;gap:.9rem;margin-top:2.5rem}
+  .cell{
+    position:relative;border:1px solid var(--line);border-radius:18px;
+    padding:1.6rem;background:rgba(255,255,255,.02);
+    transition:border-color .3s,transform .3s var(--ease),background .3s;
+    overflow:hidden;
+  }
+  .cell:hover{border-color:rgba(255,46,77,.55);transform:translateY(-4px);background:rgba(255,46,77,.05)}
+  .cell .no{font-family:'Archivo';font-weight:800;color:var(--ash);font-size:.85rem}
+  .cell h3{font-size:1.35rem;font-weight:800;margin:.7rem 0 .5rem;text-transform:uppercase}
+  .cell p{color:var(--ash);font-size:.95rem}
+  .cell.feature{background:var(--pop);border-color:var(--pop);color:#fff}
+  .cell.feature .no,.cell.feature p{color:rgba(255,255,255,.85)}
+  .cell.feature h3{font-size:1.7rem}
+  .cell.feature:hover{background:#e51e3c;transform:translateY(-4px)}
+
+  /* ===== MARQUEE ===== */
+  .marquee{
+    border-block:1px solid var(--line);overflow:hidden;
+    padding:1.4rem 0;background:var(--ink);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  }
+  .marquee-track{display:flex;gap:2.5rem;width:max-content;animation:slide 26s linear infinite}
+  .marquee span{
+    font-family:'Archivo';font-weight:900;font-size:clamp(1.6rem,4vw,2.6rem);
+    text-transform:uppercase;letter-spacing:-.02em;color:transparent;
+    -webkit-text-stroke:1px var(--ash);white-space:nowrap;
+  }
+  .marquee span.fill{color:var(--pop);-webkit-text-stroke:0}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ===== PERCHE ===== */
+  .why-list{margin-top:2.5rem;border-top:1px solid var(--line)}
+  .why-row{
+    display:grid;grid-template-columns:auto 1fr;gap:1.2rem;
+    padding:1.8rem 0;border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .why-row .idx{font-family:'Archivo';font-weight:900;font-size:1.1rem;color:var(--pop)}
+  .why-row h3{font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:800;text-transform:uppercase}
+  .why-row p{color:var(--ash);margin-top:.5rem;max-width:60ch}
+
+  /* ===== INSTAGRAM CTA ===== */
+  .ig{background:var(--pop);color:#fff;text-align:center}
+  .ig h2{font-size:clamp(2.2rem,8vw,5rem);font-weight:900;text-transform:uppercase;line-height:.95}
+  .ig p{max-width:44ch;margin:1.2rem auto 2rem;font-size:1.1rem;color:rgba(255,255,255,.9)}
+  .ig .btn-primary{background:#fff;color:var(--ink)}
+  .ig .btn-primary:hover{background:#fff}
+
+  /* ===== CONTATTI ===== */
+  .contatti{border-top:1px solid var(--line)}
+  .contact-grid{display:grid;gap:2rem;margin-top:2.5rem}
+  .contact-card{border:1px solid var(--line);border-radius:18px;padding:1.6rem}
+  .contact-card .eyebrow{display:block;margin-bottom:.7rem}
+  .contact-card .big{font-family:'Archivo';font-weight:800;font-size:clamp(1.3rem,4vw,1.9rem);display:inline-block;transition:color .25s}
+  a.contact-card:hover .big{color:var(--pop)}
+  .contact-card p{color:var(--ash);margin-top:.4rem}
+  .hours-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.98rem}
+  .hours-row:last-child{border-bottom:0}
+  .hours-row .day{color:var(--paper);font-weight:600}
+  .hours-row .closed{color:var(--pop);font-weight:600}
+  .hours-row .time{color:var(--ash)}
+
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid var(--line);padding:3rem 0 2.5rem;text-align:center}
+  footer .brand{justify-content:center;margin-bottom:1rem}
+  footer .fnote{color:var(--ash);font-size:.88rem;line-height:1.7}
+  footer a.iglink{color:var(--paper);border-bottom:1px solid var(--pop)}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}
+  .reveal.d2{transition-delay:.16s}
+  .reveal.d3{transition-delay:.24s}
+
+  /* ===== RESPONSIVE ===== */
+  @media(min-width:640px){
+    .bento{grid-template-columns:repeat(2,1fr)}
+    .cell.feature{grid-column:span 2}
+    .storia-stats{max-width:none}
+  }
+  @media(min-width:900px){
+    nav.links{display:flex}
+    .scroll-hint{display:block}
+    .storia-grid{grid-template-columns:1.1fr .9fr;align-items:end;gap:4rem}
+    .servizi .bento{grid-template-columns:repeat(4,1fr)}
+    .cell.feature{grid-column:span 2;grid-row:span 1;display:flex;flex-direction:column;justify-content:flex-end}
+    .why-row{grid-template-columns:auto 1fr auto}
+    .contact-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .marquee-track{animation:none}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand"><span class="mark">E</span>Epi Tattoo</a>
+  <nav class="links">
+    <a href="#storia">Studio</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#perche">Perche noi</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+  <a href="tel:+393334825530" class="nav-cta">Prenota</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="halftone"></div>
+    <div class="hero-inner">
+      <span class="kick"><b>Settimo Torinese</b> Anime &amp; New School</span>
+      <h1>Inchiostro<br>che <em>vive</em>.</h1>
+      <p class="hero-sub">Studio specializzato in tatuaggi Anime e New School. Trasformiamo un disegno stilizzato in un piccolo capolavoro sulla tua pelle.</p>
+      <div class="hero-actions">
+        <a href="tel:+393334825530" class="btn btn-primary">Prenota una consulenza</a>
+        <a href="#servizi" class="btn btn-ghost">Scopri lo studio</a>
+      </div>
+    </div>
+    <div class="scroll-hint">Scorri</div>
+  </section>
+
+  <!-- STORIA -->
+  <section class="storia" id="storia">
+    <div class="wrap">
+      <div class="stack-head reveal">
+        <span class="eyebrow">Lo studio</span>
+      </div>
+      <div class="storia-grid">
+        <p class="storia-lead reveal">Un colore, una linea, un personaggio. <span>Qui i tuoi mondi preferiti diventano pelle.</span></p>
+        <div class="storia-body reveal d1">
+          <p>Epi Tattoo nasce dalla passione per lo stile Anime e New School, una nicchia rara nella zona di Settimo Torinese. Ogni tatuaggio parte da un disegno costruito su misura per te, con colori pieni e contorni decisi.</p>
+          <p>Lavoriamo con materiali 100% monouso e la massima cura per l'igiene, perche' la fiducia inizia dal primo contatto e resta per tutta la vita del tatuaggio.</p>
+          <div class="storia-stats">
+            <div class="stat"><b>100%</b><span>materiali monouso</span></div>
+            <div class="stat"><b>8</b><span>stili in studio</span></div>
+            <div class="stat"><b>1.073</b><span>follower su Instagram</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section class="servizi" id="servizi">
+    <div class="wrap">
+      <div class="stack-head reveal">
+        <span class="eyebrow">Cosa facciamo</span>
+        <h2>Stili &amp; servizi</h2>
+        <p>Dalla scena anime al tratto old school, fino a piercing e dermal anchor. Un unico studio per ogni idea che porti con te.</p>
+      </div>
+      <div class="bento">
+        <div class="cell feature reveal">
+          <span class="no">Specialita' della casa</span>
+          <h3>Anime &amp; New School</h3>
+          <p>Colori vivaci, linee pop e personaggi iconici. La firma di Epi Tattoo, quella per cui i clienti arrivano anche da fuori zona.</p>
+        </div>
+        <div class="cell reveal"><span class="no">01</span><h3>Lettering</h3><p>Scritte e caratteri curati nei minimi dettagli.</p></div>
+        <div class="cell reveal d1"><span class="no">02</span><h3>Realistico</h3><p>Ritratti e soggetti con profondita' e sfumature.</p></div>
+        <div class="cell reveal"><span class="no">03</span><h3>Old School</h3><p>Il tatuaggio tradizionale, forte e senza tempo.</p></div>
+        <div class="cell reveal d1"><span class="no">04</span><h3>Tribale</h3><p>Geometrie e linee nette dal forte impatto grafico.</p></div>
+        <div class="cell reveal"><span class="no">05</span><h3>Personalizzati</h3><p>Progetti unici disegnati su misura per te.</p></div>
+        <div class="cell reveal d1"><span class="no">06</span><h3>Piercing</h3><p>Applicazioni sicure con materiali monouso.</p></div>
+        <div class="cell reveal d2"><span class="no">07</span><h3>Dermal Anchor</h3><p>Microdermal precisi per dettagli originali.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Anime</span><span class="fill">New School</span><span>Lettering</span><span>Realistico</span><span class="fill">Old School</span><span>Tribale</span><span>Piercing</span>
+      <span>Anime</span><span class="fill">New School</span><span>Lettering</span><span>Realistico</span><span class="fill">Old School</span><span>Tribale</span><span>Piercing</span>
+    </div>
+  </div>
+
+  <!-- PERCHE -->
+  <section class="perche" id="perche">
+    <div class="wrap">
+      <div class="stack-head reveal">
+        <span class="eyebrow">Perche' sceglierci</span>
+        <h2>Piccoli capolavori, ogni volta</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-row reveal">
+          <span class="idx">01</span>
+          <div><h3>Una nicchia rara</h3><p>Lo stile Anime e New School e' la nostra specializzazione: difficile trovarlo fatto cosi' bene in zona.</p></div>
+        </div>
+        <div class="why-row reveal">
+          <span class="idx">02</span>
+          <div><h3>Igiene senza compromessi</h3><p>Materiali 100% monouso e procedure all'avanguardia, per la tua sicurezza a ogni seduta.</p></div>
+        </div>
+        <div class="why-row reveal">
+          <span class="idx">03</span>
+          <div><h3>Disegno su misura</h3><p>Trasformiamo un'idea stilizzata in un progetto personale, studiato per la forma del tuo corpo.</p></div>
+        </div>
+        <div class="why-row reveal">
+          <span class="idx">04</span>
+          <div><h3>Consulenza vera</h3><p>Ti seguiamo dal primo confronto fino alla guarigione, con consigli chiari e nessuna fretta.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="ig">
+    <div class="wrap">
+      <h2 class="reveal">Vedi i lavori<br>dal vivo</h2>
+      <p class="reveal d1">298 progetti reali sulla nostra pagina Instagram. Guarda i colori, i tratti e i dettagli prima di prenotare.</p>
+      <a href="https://www.instagram.com/epitattooing/" target="_blank" rel="noopener" class="btn btn-primary reveal d2">@epitattooing</a>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contatti" id="contatti">
+    <div class="wrap">
+      <div class="stack-head reveal">
+        <span class="eyebrow">Contatti</span>
+        <h2>Passa a trovarci</h2>
+        <p>Prenota la tua consulenza o vieni in studio a Settimo Torinese. Ti aspettiamo per dare forma alla tua idea.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:+393334825530" class="contact-card reveal">
+          <span class="eyebrow">Telefono</span>
+          <span class="big">333 4825530</span>
+          <p>Chiama per informazioni e appuntamenti.</p>
+        </a>
+        <a href="https://maps.google.com/?q=Via+Don+Stefano+Sales+4,+10036+Settimo+Torinese+TO" target="_blank" rel="noopener" class="contact-card reveal d1">
+          <span class="eyebrow">Dove siamo</span>
+          <span class="big">Via Don Stefano Sales 4</span>
+          <p>10036 Settimo Torinese (TO). Apri su Google Maps.</p>
+        </a>
+        <div class="contact-card reveal d2">
+          <span class="eyebrow">Orari</span>
+          <div class="hours-row"><span class="day">Mar - Sab</span><span class="time">11:00 - 13:30</span></div>
+          <div class="hours-row"><span class="day">Lunedi'</span><span class="closed">Chiuso</span></div>
+          <div class="hours-row"><span class="day">Domenica</span><span class="closed">Chiuso</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="mark">E</span>Epi Tattoo</a>
+    <p class="fnote">
+      Studio di tatuaggi Anime &amp; New School - Via Don Stefano Sales 4, 10036 Settimo Torinese (TO)<br>
+      Tel. 333 4825530 - Seguici su <a href="https://www.instagram.com/epitattooing/" target="_blank" rel="noopener" class="iglink">@epitattooing</a><br>
+      <span id="year"></span> Epi Tattoo. Tutti i diritti riservati.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // nav background on scroll
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('solid',window.scrollY>40);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // year
+  document.getElementById('year').textContent='© '+new Date().getFullYear();
+
+  // reveal on scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
